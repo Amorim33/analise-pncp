@@ -55,6 +55,10 @@ Saidas:
 - `data/processed/`: amostra, metricas e tabelas derivadas;
 - `analise-exploratoria.md`: relatorio final.
 
+O relatorio inclui exemplos compactos de registros retornados pela API, metricas
+de completude, estatisticas de documentos vinculados e evidencias especificas
+para sustentar a fragmentacao de CNPJs em Sao Paulo.
+
 ## Metodologia operacional
 
 1. Coletar contratacoes por data de publicacao e modalidade `6`.

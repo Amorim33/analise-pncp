@@ -323,7 +323,16 @@ def build_metrics(
             }
         )
 
+    document_stats = build_document_stats(config, sample_by_city, document_index)
     sao_paulo_candidates = candidate_by_city["Sao Paulo"]
+    sp_fragmentation = build_sao_paulo_fragmentation_evidence(config, sao_paulo_candidates)
+    additional_findings = build_additional_findings(
+        city_metrics=city_metrics,
+        field_completeness=field_completeness,
+        document_stats=document_stats,
+        sao_paulo_fragmentation=sp_fragmentation,
+    )
+
     return {
         "generated_at": utc_now_iso(),
         "period": {"start": config.start_date, "end": config.end_date},
@@ -331,8 +340,12 @@ def build_metrics(
         "sample": {"n": config.sample_n, "seed": config.seed},
         "city_metrics": city_metrics,
         "sao_paulo_top_cnpjs": top_cnpjs(sao_paulo_candidates, limit=10),
+        "sao_paulo_fragmentation_evidence": sp_fragmentation,
         "field_completeness": field_completeness,
+        "document_stats": document_stats,
         "sample_rows": sample_rows,
+        "api_examples": build_api_examples(config, sample_by_city, document_index),
+        "additional_findings": additional_findings,
         "limitations": [
             "A comparacao e exploratoria e nao representa todos os municipios do Sudeste.",
             (
@@ -349,6 +362,243 @@ def build_metrics(
             ),
         ],
     }
+
+
+def build_document_stats(
+    config: AnalysisConfig,
+    sample_by_city: dict[str, list[dict[str, Any]]],
+    document_index: dict[str, list[dict[str, Any]]],
+) -> list[dict[str, Any]]:
+    stats = []
+    for city in config.cities:
+        city_sample = sample_by_city[city.name]
+        counts = [
+            len(document_index.get(str(record.get("numeroControlePNCP") or ""), []))
+            for record in city_sample
+        ]
+        document_types = sorted(
+            {
+                str(doc.get("tipoDocumentoNome") or doc.get("tipoDocumentoDescricao") or "")
+                for record in city_sample
+                for doc in document_index.get(str(record.get("numeroControlePNCP") or ""), [])
+                if isinstance(doc, dict)
+                and (doc.get("tipoDocumentoNome") or doc.get("tipoDocumentoDescricao"))
+            }
+        )
+        stats.append(
+            {
+                "city": city.name,
+                "sample_count": len(city_sample),
+                "records_with_documents": sum(1 for count in counts if count > 0),
+                "min_documents": min(counts) if counts else 0,
+                "max_documents": max(counts) if counts else 0,
+                "avg_documents": sum(counts) / len(counts) if counts else 0.0,
+                "document_types": document_types,
+            }
+        )
+    return stats
+
+
+def build_sao_paulo_fragmentation_evidence(
+    config: AnalysisConfig,
+    sao_paulo_candidates: list[dict[str, Any]],
+) -> dict[str, Any]:
+    city = next((item for item in config.cities if item.name == "Sao Paulo"), None)
+    if city is None:
+        return {}
+
+    cnpj_counts = count_cnpjs(sao_paulo_candidates)
+    total = len(sao_paulo_candidates)
+    matrix_count = cnpj_counts.get(city.matrix_cnpj, 0)
+    outside_matrix_records = total - matrix_count
+    outside_matrix_cnpjs = [cnpj for cnpj in cnpj_counts if cnpj != city.matrix_cnpj]
+    examples = []
+
+    for cnpj, count in cnpj_counts.most_common():
+        if cnpj == city.matrix_cnpj:
+            continue
+        record = next(
+            (
+                item
+                for item in sao_paulo_candidates
+                if str((item.get("orgaoEntidade") or {}).get("cnpj") or "") == cnpj
+            ),
+            {},
+        )
+        examples.append(
+            {
+                "cnpj": cnpj,
+                "razao_social": (record.get("orgaoEntidade") or {}).get("razaoSocial"),
+                "records": count,
+                "example_control": record.get("numeroControlePNCP"),
+                "example_unit": (record.get("unidadeOrgao") or {}).get("nomeUnidade"),
+                "example_object": record.get("objetoCompra"),
+            }
+        )
+
+    return {
+        "matrix_cnpj": city.matrix_cnpj,
+        "candidate_count": total,
+        "matrix_records": matrix_count,
+        "outside_matrix_records": outside_matrix_records,
+        "outside_matrix_share": outside_matrix_records / total if total else None,
+        "distinct_cnpj_count": len(cnpj_counts),
+        "outside_matrix_cnpj_count": len(outside_matrix_cnpjs),
+        "non_matrix_examples": examples[:8],
+    }
+
+
+def build_api_examples(
+    config: AnalysisConfig,
+    sample_by_city: dict[str, list[dict[str, Any]]],
+    document_index: dict[str, list[dict[str, Any]]],
+) -> list[dict[str, Any]]:
+    examples = []
+    for city in config.cities:
+        city_sample = sample_by_city[city.name]
+        selected = city_sample[:1]
+        if city.name == "Sao Paulo":
+            matrix = [
+                record
+                for record in city_sample
+                if str((record.get("orgaoEntidade") or {}).get("cnpj") or "")
+                == city.matrix_cnpj
+            ]
+            non_matrix = [
+                record
+                for record in city_sample
+                if str((record.get("orgaoEntidade") or {}).get("cnpj") or "")
+                != city.matrix_cnpj
+            ]
+            selected = non_matrix[:1] + matrix[:1]
+
+        for record in selected:
+            control = str(record.get("numeroControlePNCP") or "")
+            docs = document_index.get(control, [])
+            examples.append(
+                {
+                    "label": build_example_label(city.name, record, city.matrix_cnpj),
+                    "payload": {
+                        "numeroControlePNCP": control,
+                        "orgaoEntidade": record.get("orgaoEntidade"),
+                        "unidadeOrgao": record.get("unidadeOrgao"),
+                        "objetoCompra": record.get("objetoCompra"),
+                        "valorTotalEstimado": record.get("valorTotalEstimado"),
+                        "valorTotalHomologado": record.get("valorTotalHomologado"),
+                        "situacaoCompraNome": record.get("situacaoCompraNome"),
+                        "linkSistemaOrigem": record.get("linkSistemaOrigem"),
+                        "documentos": [
+                            {
+                                "tipoDocumentoNome": doc.get("tipoDocumentoNome"),
+                                "titulo": doc.get("titulo"),
+                                "url": doc.get("url"),
+                            }
+                            for doc in docs[:3]
+                            if isinstance(doc, dict)
+                        ],
+                    },
+                }
+            )
+    return examples
+
+
+def build_example_label(city_name: str, record: dict[str, Any], matrix_cnpj: str) -> str:
+    cnpj = str((record.get("orgaoEntidade") or {}).get("cnpj") or "")
+    if city_name == "Sao Paulo" and cnpj != matrix_cnpj:
+        return "Sao Paulo - exemplo fora do CNPJ matriz"
+    if city_name == "Sao Paulo":
+        return "Sao Paulo - exemplo no CNPJ matriz"
+    return city_name
+
+
+def build_additional_findings(
+    *,
+    city_metrics: list[dict[str, Any]],
+    field_completeness: list[dict[str, Any]],
+    document_stats: list[dict[str, Any]],
+    sao_paulo_fragmentation: dict[str, Any],
+) -> list[str]:
+    findings = []
+    sp_share = sao_paulo_fragmentation.get("outside_matrix_share")
+    if isinstance(sp_share, float):
+        findings.append(
+            
+                "Na amostra candidata de Sao Paulo, "
+                f"{sp_share * 100:.1f}% dos registros elegiveis ficaram fora do CNPJ matriz; "
+                "nas demais capitais analisadas, os registros por CNPJ matriz concentraram "
+                "100% dos candidatos coletados."
+            
+        )
+
+    sp_city = next((item for item in city_metrics if item.get("city") == "Sao Paulo"), None)
+    if sp_city:
+        findings.append(
+            
+                "Sao Paulo apresentou "
+                f"{sp_city.get('distinct_cnpj_count')} CNPJs distintos no recorte elegivel, "
+                "enquanto Rio de Janeiro, Belo Horizonte e Vitoria apareceram com um CNPJ "
+                "cada no recorte por matriz."
+            
+        )
+
+    vitoria_link = find_field_share(field_completeness, "Vitoria", "Link de origem")
+    if vitoria_link == 0:
+        findings.append(
+            
+                "Vitoria teve documentos vinculados em todos os itens da amostra, mas nenhum "
+                "dos 10 registros amostrados trouxe `linkSistemaOrigem`, o que reduz a "
+                "rastreabilidade para o sistema de origem."
+            
+        )
+
+    homologation = {
+        str(item.get("city")): item.get("share")
+        for item in field_completeness
+        if item.get("field") == "Valor homologado"
+    }
+    if homologation:
+        lowest_city, lowest_share = min(
+            homologation.items(),
+            key=lambda pair: pair[1] if isinstance(pair[1], float) else 999,
+        )
+        if isinstance(lowest_share, float):
+            findings.append(
+                
+                    f"O valor homologado apareceu com menor completude em {lowest_city} "
+                    f"({lowest_share * 100:.1f}%), indicando que parte dos registros estava "
+                    "em fase anterior ao resultado ou sem homologacao registrada no recorte."
+                
+            )
+
+    vitoria_docs = next((item for item in document_stats if item.get("city") == "Vitoria"), None)
+    if vitoria_docs:
+        findings.append(
+            
+                "A quantidade de documentos anexados variou de forma relevante: em Vitoria, "
+                f"um item da amostra chegou a {vitoria_docs.get('max_documents')} documentos, "
+                "enquanto outros municipios tiveram padrao mais concentrado."
+            
+        )
+    return findings
+
+
+def find_field_share(
+    field_completeness: list[dict[str, Any]],
+    city: str,
+    field: str,
+) -> float | None:
+    match = next(
+        (
+            item
+            for item in field_completeness
+            if item.get("city") == city and item.get("field") == field
+        ),
+        None,
+    )
+    if match is None:
+        return None
+    share = match.get("share")
+    return share if isinstance(share, float) else None
 
 
 def count_cnpjs(records: list[dict[str, Any]]) -> Counter[str]:

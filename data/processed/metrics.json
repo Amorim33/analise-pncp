@@ -1,4 +1,178 @@
 {
+  "additional_findings": [
+    "Na amostra candidata de Sao Paulo, 90.2% dos registros elegiveis ficaram fora do CNPJ matriz; nas demais capitais analisadas, os registros por CNPJ matriz concentraram 100% dos candidatos coletados.",
+    "Sao Paulo apresentou 10 CNPJs distintos no recorte elegivel, enquanto Rio de Janeiro, Belo Horizonte e Vitoria apareceram com um CNPJ cada no recorte por matriz.",
+    "Vitoria teve documentos vinculados em todos os itens da amostra, mas nenhum dos 10 registros amostrados trouxe `linkSistemaOrigem`, o que reduz a rastreabilidade para o sistema de origem.",
+    "O valor homologado apareceu com menor completude em Vitoria (40.0%), indicando que parte dos registros estava em fase anterior ao resultado ou sem homologacao registrada no recorte.",
+    "A quantidade de documentos anexados variou de forma relevante: em Vitoria, um item da amostra chegou a 20 documentos, enquanto outros municipios tiveram padrao mais concentrado."
+  ],
+  "api_examples": [
+    {
+      "label": "Sao Paulo - exemplo fora do CNPJ matriz",
+      "payload": {
+        "documentos": [
+          {
+            "tipoDocumentoNome": "Edital",
+            "titulo": "92500305900032026000",
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/7/arquivos/1"
+          }
+        ],
+        "linkSistemaOrigem": "https://cnetmobile.estaleiro.serpro.gov.br/comprasnet-web/public/landing?destino=acompanhamento-compra&compra=92500305900032026",
+        "numeroControlePNCP": "13864377000130-1-000007/2026",
+        "objetoCompra": "REGISTRO De PREÇOS OBJETIVANDO O FORNECIMENTO DE MATERIAIS DE OPME - SISTEMA DE PLACA E PARAFUSOPARA MÃO  COM ENTREGA EM CONSIGNAÇÃO E COMODATO DE INSTRUMENTAIS E EQUIPAMENTOS, NECESSÁRIOS PARA O ATENDIMENTO DE CIRURGIAS NA ESPECIALIDADE DE ORTOPEDIA, A SEREM UTILIZADOS NAS UNIDADES HOSPITALARES PERTENCENTES À SECRETARIA MUNICIPAL DA SAÚDE DE SP, PARA O PERÍODO DE 12(DOZE) MESES.",
+        "orgaoEntidade": {
+          "cnpj": "13864377000130",
+          "esferaId": "M",
+          "poderId": "E",
+          "razaoSocial": "FUNDO MUNICIPAL DE SAUDE - FMS"
+        },
+        "situacaoCompraNome": "Divulgada no PNCP",
+        "unidadeOrgao": {
+          "codigoIbge": "3550308",
+          "codigoUnidade": "925003",
+          "municipioNome": "São Paulo",
+          "nomeUnidade": "PMSP - SECRETARIA MUNICIPAL DE SAÚDE",
+          "ufNome": "São Paulo",
+          "ufSigla": "SP"
+        },
+        "valorTotalEstimado": 863090.8,
+        "valorTotalHomologado": 633080.0
+      }
+    },
+    {
+      "label": "Sao Paulo - exemplo no CNPJ matriz",
+      "payload": {
+        "documentos": [
+          {
+            "tipoDocumentoNome": "Edital",
+            "titulo": "92505605900012026000",
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46395000000139/compras/2026/28/arquivos/1"
+          }
+        ],
+        "linkSistemaOrigem": "https://cnetmobile.estaleiro.serpro.gov.br/comprasnet-web/public/landing?destino=acompanhamento-compra&compra=92505605900012026",
+        "numeroControlePNCP": "46395000000139-1-000028/2026",
+        "objetoCompra": "Contratação de empresa especializada na prestação de serviços de controle de acesso do Edifício Conde Matarazzo, abrangendo a cobertura efetiva das portarias, a disponibilização de equipamentos de informática, a emissão de crachás e películas de identificação, bem como a manutenção preventiva e corretiva dos módulos de passagem, utilizando-se o software de propriedade da CONTRATANTE, com o fornecimento de peças necessárias. O objetivo é assegurar o gerenciamento ",
+        "orgaoEntidade": {
+          "cnpj": "46395000000139",
+          "esferaId": "M",
+          "poderId": "E",
+          "razaoSocial": "MUNICIPIO DE SAO PAULO"
+        },
+        "situacaoCompraNome": "Divulgada no PNCP",
+        "unidadeOrgao": {
+          "codigoIbge": "3550308",
+          "codigoUnidade": "925056",
+          "municipioNome": "São Paulo",
+          "nomeUnidade": "PMSP - SECRETARIA DO GOVERNO MUNICIPAL",
+          "ufNome": "São Paulo",
+          "ufSigla": "SP"
+        },
+        "valorTotalEstimado": 4652861.35,
+        "valorTotalHomologado": 4652499.96
+      }
+    },
+    {
+      "label": "Rio de Janeiro",
+      "payload": {
+        "documentos": [
+          {
+            "tipoDocumentoNome": "Edital",
+            "titulo": "98600105900142026000",
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/127/arquivos/1"
+          }
+        ],
+        "linkSistemaOrigem": "https://cnetmobile.estaleiro.serpro.gov.br/comprasnet-web/public/landing?destino=acompanhamento-compra&compra=98600105900142026",
+        "numeroControlePNCP": "42498733000148-1-000127/2026",
+        "objetoCompra": "Registro de Preços para Aquisição de Materiais de Instalações Elétricas (C), para manutenção rotineira, a serem utilizados nas unidades físicas do Sistema BRT da MOBI-Rio.",
+        "orgaoEntidade": {
+          "cnpj": "42498733000148",
+          "esferaId": "M",
+          "poderId": "N",
+          "razaoSocial": "MUNICIPIO DE RIO DE JANEIRO"
+        },
+        "situacaoCompraNome": "Divulgada no PNCP",
+        "unidadeOrgao": {
+          "codigoIbge": "3304557",
+          "codigoUnidade": "986001",
+          "municipioNome": "Rio de Janeiro",
+          "nomeUnidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
+          "ufNome": "Rio de Janeiro",
+          "ufSigla": "RJ"
+        },
+        "valorTotalEstimado": 99005.6,
+        "valorTotalHomologado": 85452.38
+      }
+    },
+    {
+      "label": "Belo Horizonte",
+      "payload": {
+        "documentos": [
+          {
+            "tipoDocumentoNome": "Edital",
+            "titulo": "EDITAL",
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2026/178/arquivos/1"
+          }
+        ],
+        "linkSistemaOrigem": "",
+        "numeroControlePNCP": "18715383000140-1-000178/2026",
+        "objetoCompra": "FORNECIMENTO DE AGUA MINERAL NATURAL EM GARRAFAO COM 20 LITROS, INCLUINDO O EMPRESTIMO A TITULO DE COMODATO DE GARRAFAO COM CAPACIDADE PARA 20 LITROSVASILHAME, DESTINADOS AO ABASTECIMENTO DA SEDE DA SECRETARIA MUNICIPAL DE EDUCACAO ? SMED E GERENCIA REGIONAL DE EDUCACAO - BARREIRO , NOS TERMOS DA TABELA ABAIXO E CONFORME CONDICOES E EXIGENCIAS ESTABELECIDAS NESTE INSTRUMENTO.",
+        "orgaoEntidade": {
+          "cnpj": "18715383000140",
+          "esferaId": "M",
+          "poderId": "N",
+          "razaoSocial": "MUNICIPIO DE BELO HORIZONTE"
+        },
+        "situacaoCompraNome": "Divulgada no PNCP",
+        "unidadeOrgao": {
+          "codigoIbge": "3106200",
+          "codigoUnidade": "2200",
+          "municipioNome": "Belo Horizonte",
+          "nomeUnidade": "SECRETARIA MUNICIPAL DE EDUCAÇÃO",
+          "ufNome": "Minas Gerais",
+          "ufSigla": "MG"
+        },
+        "valorTotalEstimado": 111600.0,
+        "valorTotalHomologado": 72000.0
+      }
+    },
+    {
+      "label": "Vitoria",
+      "payload": {
+        "documentos": [
+          {
+            "tipoDocumentoNome": "Edital",
+            "titulo": "EDITAL2026018",
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/34/arquivos/1"
+          },
+          {
+            "tipoDocumentoNome": "Termo de Referência",
+            "titulo": "TERMO DE REFERENCIA",
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/34/arquivos/2"
+          }
+        ],
+        "linkSistemaOrigem": null,
+        "numeroControlePNCP": "27142058000126-1-000034/2026",
+        "objetoCompra": "FORNECIMENTO DE ALIMENTOS (DESJEJUM, KIT LANCHE E MARMITEX).",
+        "orgaoEntidade": {
+          "cnpj": "27142058000126",
+          "esferaId": "M",
+          "poderId": "N",
+          "razaoSocial": "MUNICIPIO DE VITORIA"
+        },
+        "situacaoCompraNome": "Divulgada no PNCP",
+        "unidadeOrgao": {
+          "codigoIbge": "3205309",
+          "codigoUnidade": "1",
+          "municipioNome": "Vitória",
+          "nomeUnidade": "PREFEITURA MUNICIPAL DE VITORIA",
+          "ufNome": "Espírito Santo",
+          "ufSigla": "ES"
+        },
+        "valorTotalEstimado": 669364.4,
+        "valorTotalHomologado": null
+      }
+    }
+  ],
   "city_metrics": [
     {
       "candidate_count": 61,
@@ -34,6 +208,55 @@
       "matrix_cnpj": "27142058000126",
       "matrix_records": 98,
       "matrix_share": 1.0,
+      "sample_count": 10
+    }
+  ],
+  "document_stats": [
+    {
+      "avg_documents": 1.0,
+      "city": "Sao Paulo",
+      "document_types": [
+        "Edital"
+      ],
+      "max_documents": 1,
+      "min_documents": 1,
+      "records_with_documents": 10,
+      "sample_count": 10
+    },
+    {
+      "avg_documents": 1.0,
+      "city": "Rio de Janeiro",
+      "document_types": [
+        "Edital"
+      ],
+      "max_documents": 1,
+      "min_documents": 1,
+      "records_with_documents": 10,
+      "sample_count": 10
+    },
+    {
+      "avg_documents": 1.0,
+      "city": "Belo Horizonte",
+      "document_types": [
+        "Edital"
+      ],
+      "max_documents": 1,
+      "min_documents": 1,
+      "records_with_documents": 10,
+      "sample_count": 10
+    },
+    {
+      "avg_documents": 5.6,
+      "city": "Vitoria",
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
+      "max_documents": 20,
+      "min_documents": 2,
+      "records_with_documents": 10,
       "sample_count": 10
     }
   ],
@@ -291,7 +514,7 @@
       "share": 1.0
     }
   ],
-  "generated_at": "2026-06-08T22:14:56+00:00",
+  "generated_at": "2026-06-08T22:30:13+00:00",
   "limitations": [
     "A comparacao e exploratoria e nao representa todos os municipios do Sudeste.",
     "Sao Paulo possui registros municipais distribuidos em varios CNPJs, o que exige filtro por municipio e orgao.",
@@ -973,6 +1196,81 @@
       "valorTotalHomologado": 5326753.68
     }
   ],
+  "sao_paulo_fragmentation_evidence": {
+    "candidate_count": 61,
+    "distinct_cnpj_count": 10,
+    "matrix_cnpj": "46395000000139",
+    "matrix_records": 6,
+    "non_matrix_examples": [
+      {
+        "cnpj": "13864377000130",
+        "example_control": "13864377000130-1-000006/2026",
+        "example_object": "REGISTRO de PREÇOS PARA O FORNECIMENTO DE FRASCO, COLETOR, P/ BRONCOSCOPIA, DESCARTAVEL, ESTERIL, 120 ML",
+        "example_unit": "PMSP - SECRETARIA MUNICIPAL DE SAÚDE",
+        "razao_social": "FUNDO MUNICIPAL DE SAUDE - FMS",
+        "records": 38
+      },
+      {
+        "cnpj": "47902648000117",
+        "example_control": "47902648000117-1-000049/2025",
+        "example_object": "Fornecimento de pneus, câmaras de ar e protetores de câmaras para serem utilizados nos veículos leves, médio, pesados e especiais da frota CET, que atendam às Normas ABNT NBR 5531, NBR NM 250:2001 e NBR NM 251:2001 e Portaria INMETRO nº 379/2021, de acordo com as especificações do Anexo I – Especificação Técnica.",
+        "example_unit": "PMSP - COMPANHIA DE ENGENHARIA DE TRÁFEGO-CET",
+        "razao_social": "PMSP - COMPANHIA DE ENGENHARIA DE TRÁFEGO",
+        "records": 6
+      },
+      {
+        "cnpj": "46854998000192",
+        "example_control": "46854998000192-1-000019/2026",
+        "example_object": "Prestação de serviços contínuos de assistência técnica e manutenção integral - preventiva, corretiva, preditiva e emergencial, em 09 (nove) elevadores, instalados no complexo hospitalar do hspm.",
+        "example_unit": "PMSP - HOSPITAL DO SERVIDOR PÚBLICO MUNICIPAL",
+        "razao_social": "HOSPITAL DO SERVIDOR PUBLICO MUNICIPAL",
+        "records": 3
+      },
+      {
+        "cnpj": "49269251000165",
+        "example_control": "49269251000165-1-000001/2026",
+        "example_object": "Registro de preço para a prestação de Serviço Móvel Pessoal com dados, mensagens, acesso à internet banda larga móvel sem fio e encaminhamento de ligações (STFC-LD), conforme normas da ANATEL, com disponibilização de MICRO ou NANO SIM CARDS GSM e tecnologia 5G ou superior, com ou sem fornecimento de terminais móveis em regime de comodato, conforme especificações do Anexo I do edital.",
+        "example_unit": "PMSP - SEGES - COORD GESTÃO BENS E SERVIÇOS",
+        "razao_social": "SECRETARIA MUNICIPAL DE GESTAO - SG",
+        "records": 2
+      },
+      {
+        "cnpj": "74118514000182",
+        "example_control": "74118514000182-1-000001/2026",
+        "example_object": "Aquisição de materiais de pintura para a manutenção das edificações que compõe os Parques Municipais de São Paulo.",
+        "example_unit": "PMSP - SECRETARIA DO VERDE E DO MEIO AMBIENTE",
+        "razao_social": "SAO PAULO SECRETARIA DO VERDE E DO MEIO AMBIENTE",
+        "records": 2
+      },
+      {
+        "cnpj": "05245375000135",
+        "example_control": "05245375000135-1-000004/2026",
+        "example_object": "Constituição de Ata de Registro de Preços para a futura aquisição de pistolas calibre 9 mm NATO e Espingardas Calibre 12, destinados a atender às necessidades da Guarda Civil Metropolitana, em conformidade com as condições, quantidades, exigências e especificações estabelecidas neste Termo de Referência.",
+        "example_unit": "PMSP - SECRETARIA MUNICIPAL SEGURANÇA URBANA",
+        "razao_social": "SECRETARIA MUNICIPAL DE SEGURANCA URBANA - SMSU",
+        "records": 1
+      },
+      {
+        "cnpj": "05969123000159",
+        "example_control": "05969123000159-1-000001/2026",
+        "example_object": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA A PRESTAÇÃO DE SERVIÇOS CONTINUADOS DE LOCAÇÃO E INSTALAÇÃO DE EQUIPAMENTOS DE INFORMÁTICA (MICROCOMPUTADORES, NOTEBOOKS, IMPRESSORAS E NOBREAKS), INCLUÍDA A MANUTENÇÃO PREVENTIVA, CORRETIVA, FORNECIMENTO DE INSUMOS INERENTES A ESTES SERVIÇOS, VISANDO SUPRIR NECESSIDADE DA SUBPREFEITURA DA VILA PRUDENTE, CONFORME AS ESPECIFiCAÇÕES CONSTANTES NO ANEXO II TERMO DE REFERÊNCIA. ",
+        "example_unit": "PMSP - SUBPREFEITURA VILA PRUDENTE",
+        "razao_social": "SUBPREFEITURA VILA PRUDENTE",
+        "records": 1
+      },
+      {
+        "cnpj": "46392114000125",
+        "example_control": "46392114000125-1-000133/2026",
+        "example_object": "Registro de Preços para aquisição de Luva descartável látex e nitrilo (tamanhos M e G) para as Unidades Escolares.",
+        "example_unit": "PMSP - SECRETARIA MUNICIPAL DE EDUCAÇÃO",
+        "razao_social": "SECRETARIA MUNICIPAL DE EDUCACAO",
+        "records": 1
+      }
+    ],
+    "outside_matrix_cnpj_count": 9,
+    "outside_matrix_records": 55,
+    "outside_matrix_share": 0.9016393442622951
+  },
   "sao_paulo_top_cnpjs": [
     {
       "cnpj": "13864377000130",

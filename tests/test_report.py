@@ -22,8 +22,12 @@ def test_render_report_contains_required_sections() -> None:
         cities=[],
     )
     metrics = {
+        "api_examples": [],
+        "additional_findings": [],
         "city_metrics": [],
+        "document_stats": [],
         "field_completeness": [],
+        "sao_paulo_fragmentation_evidence": {},
         "sao_paulo_top_cnpjs": [],
         "sample_rows": [],
         "limitations": ["Limitacao de teste."],
@@ -33,5 +37,8 @@ def test_render_report_contains_required_sections() -> None:
 
     assert "# Analise exploratoria do PNCP nas capitais do Sudeste" in report
     assert "## Metodologia" in report
+    assert "## Exemplos de registros retornados pela API" in report
+    assert "## Constatações adicionais" in report
     assert "## Fragmentacao de CNPJs em Sao Paulo" in report
+    assert "## Documentos vinculados" in report
     assert "## Conclusao regional" in report

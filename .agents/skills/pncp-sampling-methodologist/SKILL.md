@@ -15,7 +15,19 @@ Use this skill before changing sample design.
 - For Sao Paulo, use the municipality scan and filter municipal executive entities.
 - Exclude legislative bodies such as Camara Municipal/CMSP from the main executive recut.
 - If a city has fewer than 10 eligible records, include all and record the limitation.
+- Combine Sao Paulo matrix-CNPJ records with filtered municipality-scan records
+  before deduplication.
+- Report the share and count of Sao Paulo records outside the CNPJ matrix.
+- Compare Sao Paulo's distinct CNPJ count against the other capitals before
+  framing fragmentation as a regional contrast.
 
 ## Sao Paulo Fragmentation
 
 Treat multiple municipal CNPJs in Sao Paulo as an analytical finding, not merely a data-cleaning problem.
+
+Look for concrete evidence:
+
+- non-matrix CNPJ count;
+- top non-matrix CNPJs and their orgao/unidade names;
+- example `numeroControlePNCP` values outside the matrix;
+- whether non-matrix records have distinct objects, document links, or units.
