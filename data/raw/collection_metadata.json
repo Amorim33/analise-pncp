@@ -1,0 +1,45 @@
+{
+  "failures": [],
+  "generated_at": "2026-06-08T22:11:32+00:00",
+  "modality": {
+    "id": 6,
+    "name": "Pregao - Eletronico"
+  },
+  "period": {
+    "end": "2026-05-31",
+    "start": "2026-01-01"
+  },
+  "sources": [
+    {
+      "city": "Sao Paulo",
+      "kind": "matrix_cnpj",
+      "path": "data/raw/sao-paulo_cnpj_46395000000139_contratacoes.json",
+      "records": 6
+    },
+    {
+      "city": "Sao Paulo",
+      "kind": "municipality_scan",
+      "max_pages": 5,
+      "path": "data/raw/sao-paulo_municipio_3550308_contratacoes.json",
+      "records": 250
+    },
+    {
+      "city": "Rio de Janeiro",
+      "kind": "matrix_cnpj",
+      "path": "data/raw/rio-de-janeiro_cnpj_42498733000148_contratacoes.json",
+      "records": 347
+    },
+    {
+      "city": "Belo Horizonte",
+      "kind": "matrix_cnpj",
+      "path": "data/raw/belo-horizonte_cnpj_18715383000140_contratacoes.json",
+      "records": 90
+    },
+    {
+      "city": "Vitoria",
+      "kind": "matrix_cnpj",
+      "path": "data/raw/vitoria_cnpj_27142058000126_contratacoes.json",
+      "records": 98
+    }
+  ]
+}

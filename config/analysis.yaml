@@ -1,0 +1,67 @@
+period:
+  start: "2026-01-01"
+  end: "2026-05-31"
+
+modality:
+  id: 6
+  name: "Pregao - Eletronico"
+
+sample:
+  n: 10
+  seed: 20260608
+
+api:
+  query_bases:
+    - "https://pncp.gov.br/api/consulta"
+    - "https://pncp.gov.br/pncp-consulta"
+  document_bases:
+    - "https://pncp.gov.br/api/pncp"
+    - "https://pncp.gov.br/pncp-api"
+  page_size: 50
+  municipality_scan_max_pages: 5
+  request_delay_seconds: 0.15
+  retries: 3
+
+sao_paulo_filter:
+  include_indicators:
+    - "PMSP"
+    - "PREFEITURA"
+    - "MUNICIPIO DE SAO PAULO"
+    - "SECRETARIA MUNICIPAL"
+    - "FUNDO MUNICIPAL"
+    - "SUBPREFEITURA"
+    - "CET"
+    - "HOSPITAL DO SERVIDOR PUBLICO MUNICIPAL"
+    - "AUTORIDADE MUNICIPAL"
+    - "SAO PAULO TURISMO"
+  exclude_indicators:
+    - "CAMARA MUNICIPAL"
+    - "CMSP"
+    - "PODER LEGISLATIVO"
+    - "SAO PAULO CAMARA MUNICIPAL"
+
+cities:
+  - name: "Sao Paulo"
+    slug: "sao-paulo"
+    uf: "SP"
+    ibge: "3550308"
+    matrix_cnpj: "46395000000139"
+    investigate_fragmentation: true
+  - name: "Rio de Janeiro"
+    slug: "rio-de-janeiro"
+    uf: "RJ"
+    ibge: "3304557"
+    matrix_cnpj: "42498733000148"
+    investigate_fragmentation: false
+  - name: "Belo Horizonte"
+    slug: "belo-horizonte"
+    uf: "MG"
+    ibge: "3106200"
+    matrix_cnpj: "18715383000140"
+    investigate_fragmentation: false
+  - name: "Vitoria"
+    slug: "vitoria"
+    uf: "ES"
+    ibge: "3205309"
+    matrix_cnpj: "27142058000126"
+    investigate_fragmentation: false

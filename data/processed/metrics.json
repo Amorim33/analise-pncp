@@ -1,0 +1,1028 @@
+{
+  "city_metrics": [
+    {
+      "candidate_count": 61,
+      "city": "Sao Paulo",
+      "distinct_cnpj_count": 10,
+      "matrix_cnpj": "46395000000139",
+      "matrix_records": 6,
+      "matrix_share": 0.09836065573770492,
+      "sample_count": 10
+    },
+    {
+      "candidate_count": 347,
+      "city": "Rio de Janeiro",
+      "distinct_cnpj_count": 1,
+      "matrix_cnpj": "42498733000148",
+      "matrix_records": 347,
+      "matrix_share": 1.0,
+      "sample_count": 10
+    },
+    {
+      "candidate_count": 90,
+      "city": "Belo Horizonte",
+      "distinct_cnpj_count": 1,
+      "matrix_cnpj": "18715383000140",
+      "matrix_records": 90,
+      "matrix_share": 1.0,
+      "sample_count": 10
+    },
+    {
+      "candidate_count": 98,
+      "city": "Vitoria",
+      "distinct_cnpj_count": 1,
+      "matrix_cnpj": "27142058000126",
+      "matrix_records": 98,
+      "matrix_share": 1.0,
+      "sample_count": 10
+    }
+  ],
+  "field_completeness": [
+    {
+      "city": "Sao Paulo",
+      "field": "Objeto",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Sao Paulo",
+      "field": "Valor estimado",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Sao Paulo",
+      "field": "Valor homologado",
+      "present": 7,
+      "sample_count": 10,
+      "share": 0.7
+    },
+    {
+      "city": "Sao Paulo",
+      "field": "Data de publicacao",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Sao Paulo",
+      "field": "Abertura de proposta",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Sao Paulo",
+      "field": "Encerramento de proposta",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Sao Paulo",
+      "field": "Unidade",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Sao Paulo",
+      "field": "Link de origem",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Sao Paulo",
+      "field": "Documentos",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Rio de Janeiro",
+      "field": "Objeto",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Rio de Janeiro",
+      "field": "Valor estimado",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Rio de Janeiro",
+      "field": "Valor homologado",
+      "present": 5,
+      "sample_count": 10,
+      "share": 0.5
+    },
+    {
+      "city": "Rio de Janeiro",
+      "field": "Data de publicacao",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Rio de Janeiro",
+      "field": "Abertura de proposta",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Rio de Janeiro",
+      "field": "Encerramento de proposta",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Rio de Janeiro",
+      "field": "Unidade",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Rio de Janeiro",
+      "field": "Link de origem",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Rio de Janeiro",
+      "field": "Documentos",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Belo Horizonte",
+      "field": "Objeto",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Belo Horizonte",
+      "field": "Valor estimado",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Belo Horizonte",
+      "field": "Valor homologado",
+      "present": 7,
+      "sample_count": 10,
+      "share": 0.7
+    },
+    {
+      "city": "Belo Horizonte",
+      "field": "Data de publicacao",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Belo Horizonte",
+      "field": "Abertura de proposta",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Belo Horizonte",
+      "field": "Encerramento de proposta",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Belo Horizonte",
+      "field": "Unidade",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Belo Horizonte",
+      "field": "Link de origem",
+      "present": 9,
+      "sample_count": 10,
+      "share": 0.9
+    },
+    {
+      "city": "Belo Horizonte",
+      "field": "Documentos",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Vitoria",
+      "field": "Objeto",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Vitoria",
+      "field": "Valor estimado",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Vitoria",
+      "field": "Valor homologado",
+      "present": 4,
+      "sample_count": 10,
+      "share": 0.4
+    },
+    {
+      "city": "Vitoria",
+      "field": "Data de publicacao",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Vitoria",
+      "field": "Abertura de proposta",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Vitoria",
+      "field": "Encerramento de proposta",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Vitoria",
+      "field": "Unidade",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    },
+    {
+      "city": "Vitoria",
+      "field": "Link de origem",
+      "present": 0,
+      "sample_count": 10,
+      "share": 0.0
+    },
+    {
+      "city": "Vitoria",
+      "field": "Documentos",
+      "present": 10,
+      "sample_count": 10,
+      "share": 1.0
+    }
+  ],
+  "generated_at": "2026-06-08T22:14:56+00:00",
+  "limitations": [
+    "A comparacao e exploratoria e nao representa todos os municipios do Sudeste.",
+    "Sao Paulo possui registros municipais distribuidos em varios CNPJs, o que exige filtro por municipio e orgao.",
+    "A varredura municipal de Sao Paulo usa limite operacional de 5 paginas da API.",
+    "A API pode retornar payload HTML de bloqueio com HTTP 200; o coletor valida Content-Type e registra falhas."
+  ],
+  "modality": {
+    "id": 6,
+    "name": "Pregao - Eletronico"
+  },
+  "period": {
+    "end": "2026-05-31",
+    "start": "2026-01-01"
+  },
+  "sample": {
+    "n": 10,
+    "seed": 20260608
+  },
+  "sample_rows": [
+    {
+      "city": "Sao Paulo",
+      "cnpj": "13864377000130",
+      "dataPublicacaoPncp": "2026-01-05T07:03:35",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "13864377000130-1-000007/2026",
+      "objetoCompra": "REGISTRO De PREÇOS OBJETIVANDO O FORNECIMENTO DE MATERIAIS DE OPME - SISTEMA DE PLACA E PARAFUSOPARA MÃO  COM ENTREGA EM CONSIGNAÇÃO E COMODATO DE INSTRUMENTAIS E EQUIPAMENTOS, NECESSÁRIOS PARA O ATENDIMENTO DE CIRURGIAS NA ESPECIALIDADE DE ORTOPEDIA, A SEREM UTILIZADOS NAS UNIDADES HOSPITALARES PERTENCENTES À SECRETARIA MUNICIPAL DA SAÚDE DE SP, PARA O PERÍODO DE 12(DOZE) MESES.",
+      "orgao": "FUNDO MUNICIPAL DE SAUDE - FMS",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PMSP - SECRETARIA MUNICIPAL DE SAÚDE",
+      "valorTotalEstimado": 863090.8,
+      "valorTotalHomologado": 633080.0
+    },
+    {
+      "city": "Sao Paulo",
+      "cnpj": "13864377000130",
+      "dataPublicacaoPncp": "2026-01-07T07:13:43",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "13864377000130-1-000013/2026",
+      "objetoCompra": "Registro de preços para o fornecimento de coletor de urina sistema aberto",
+      "orgao": "FUNDO MUNICIPAL DE SAUDE - FMS",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PMSP - SECRETARIA MUNICIPAL DE SAÚDE",
+      "valorTotalEstimado": 0.0,
+      "valorTotalHomologado": null
+    },
+    {
+      "city": "Sao Paulo",
+      "cnpj": "13864377000130",
+      "dataPublicacaoPncp": "2026-01-07T07:14:28",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "13864377000130-1-000014/2026",
+      "objetoCompra": "Visa o REGISTRO DE PREÇOS PARA O FORNECIMENTO DE CURATIVO ADESIVO FILME TRANSPARENTE.",
+      "orgao": "FUNDO MUNICIPAL DE SAUDE - FMS",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PMSP - SECRETARIA MUNICIPAL DE SAÚDE",
+      "valorTotalEstimado": 576921.6,
+      "valorTotalHomologado": 217848.0
+    },
+    {
+      "city": "Sao Paulo",
+      "cnpj": "13864377000130",
+      "dataPublicacaoPncp": "2026-01-09T07:05:40",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "13864377000130-1-000026/2026",
+      "objetoCompra": "Visa o REGISTRO DE PREÇOS PARA O FORNECIMENTO DE MATERIAIS DE OPME PRÓTESE DE JOELHO REVISÃO COM ENTREGA EM CONSIGNAÇÃO COM COMODATO DE INSTRUMENTAIS E EQUIPAMENTOS, NECESSÁRIOS PARA O ATENDIMENTO DE CIRURGIAS NA ESPECIALIDADE DE ORTOPEDIA, A SEREM UTILIZADOS NAS UNIDADES HOSPITALARES PERTENCENTES À SECRETARIA MUNICIPAL DA SAÚDE DE SP, PARA O PERÍODO DE 12(DOZE) MESES.",
+      "orgao": "FUNDO MUNICIPAL DE SAUDE - FMS",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PMSP - SECRETARIA MUNICIPAL DE SAÚDE",
+      "valorTotalEstimado": 4393761.64,
+      "valorTotalHomologado": 2206260.0
+    },
+    {
+      "city": "Sao Paulo",
+      "cnpj": "13864377000130",
+      "dataPublicacaoPncp": "2026-01-12T07:05:02",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "13864377000130-1-000031/2026",
+      "objetoCompra": "REGISTRO De PREÇOS PARA O FORNECIMENTO SOLUÇÃO HEMOSTATICA FRASCO COM 10 ML E SUGADOR, CIRÚRGICO DESCARTÁVEL ESTÉRIL.",
+      "orgao": "FUNDO MUNICIPAL DE SAUDE - FMS",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PMSP - SECRETARIA MUNICIPAL DE SAÚDE",
+      "valorTotalEstimado": 374360.1,
+      "valorTotalHomologado": 235221.12
+    },
+    {
+      "city": "Sao Paulo",
+      "cnpj": "13864377000130",
+      "dataPublicacaoPncp": "2026-01-12T07:12:44",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "13864377000130-1-000034/2026",
+      "objetoCompra": "REGISTRO de PREÇOS PARA O FORNECIMENTO DE FLUORESCEINA 1%- SOLUÇÃO OFTÁLMICA (NG.01.00.25)",
+      "orgao": "FUNDO MUNICIPAL DE SAUDE - FMS",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PMSP - SECRETARIA MUNICIPAL DE SAÚDE",
+      "valorTotalEstimado": 158145.08,
+      "valorTotalHomologado": 44368.8
+    },
+    {
+      "city": "Sao Paulo",
+      "cnpj": "13864377000130",
+      "dataPublicacaoPncp": "2026-01-02T07:01:15",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "13864377000130-1-002230/2025",
+      "objetoCompra": "REGISTRO de PREÇOS OBJETIVANDO O FORNECIMENTO DE MATERIAIS DE OPME GAIOLA(CAGE) EXPANSÍVEL COM ENTREGA EM CONSIGNAÇÃO COM COMODATO DE INSTRUMENTAIS E EQUIPAMENTOS, NECESSÁRIOS PARA O ATENDIMENTO DE CIRURGIAS NA ESPECIALIDADE DE NEUROCIRURGIA, A SEREM UTILIZADOS NAS UNIDADES HOSPITALARES PERTENCENTES À SECRETARIA MUNICIPAL DA SAÚDE DE SP, PARA O PERÍODO DE 12(DOZE) MESES",
+      "orgao": "FUNDO MUNICIPAL DE SAUDE - FMS",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PMSP - SECRETARIA MUNICIPAL DE SAÚDE",
+      "valorTotalEstimado": 0.0,
+      "valorTotalHomologado": null
+    },
+    {
+      "city": "Sao Paulo",
+      "cnpj": "13864377000130",
+      "dataPublicacaoPncp": "2026-01-07T07:05:24",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "13864377000130-1-002232/2025",
+      "objetoCompra": "REGISTRO de PREÇOS PARA FORNECIMENTO DE MATERIAIS DE OPME - PARA ARTROSCOPIA DE MEMBRO SUPERIOR E TENODESE DO BÍCEPS, PARA ATENDIMENTO DE CIRURGIAS NA ESPECIALIDADE DE ORTOPEDIA, COM ENTREGA EM CONSIGNAÇÃO E COMODATO DE EQUIPAMENTOS E INSTRUMENTAIS, PARA SEREM UTILIZADOS NAS UNIDADES HOSPITALARES PERTENCENTES À SECRETARIA MUNICIPAL DA SAÚDE DE SP.    ",
+      "orgao": "FUNDO MUNICIPAL DE SAUDE - FMS",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PMSP - SECRETARIA MUNICIPAL DE SAÚDE",
+      "valorTotalEstimado": 2549048.62,
+      "valorTotalHomologado": 1274040.0
+    },
+    {
+      "city": "Sao Paulo",
+      "cnpj": "46395000000139",
+      "dataPublicacaoPncp": "2026-03-04T07:17:52",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "46395000000139-1-000028/2026",
+      "objetoCompra": "Contratação de empresa especializada na prestação de serviços de controle de acesso do Edifício Conde Matarazzo, abrangendo a cobertura efetiva das portarias, a disponibilização de equipamentos de informática, a emissão de crachás e películas de identificação, bem como a manutenção preventiva e corretiva dos módulos de passagem, utilizando-se o software de propriedade da CONTRATANTE, com o fornecimento de peças necessárias. O objetivo é assegurar o gerenciamento ",
+      "orgao": "MUNICIPIO DE SAO PAULO",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PMSP - SECRETARIA DO GOVERNO MUNICIPAL",
+      "valorTotalEstimado": 4652861.35,
+      "valorTotalHomologado": 4652499.96
+    },
+    {
+      "city": "Sao Paulo",
+      "cnpj": "74118514000182",
+      "dataPublicacaoPncp": "2026-01-08T07:03:58",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "74118514000182-1-000001/2026",
+      "objetoCompra": "Aquisição de materiais de pintura para a manutenção das edificações que compõe os Parques Municipais de São Paulo.",
+      "orgao": "SAO PAULO SECRETARIA DO VERDE E DO MEIO AMBIENTE",
+      "situacaoCompraNome": "Suspensa",
+      "unidade": "PMSP - SECRETARIA DO VERDE E DO MEIO AMBIENTE",
+      "valorTotalEstimado": 0.0,
+      "valorTotalHomologado": null
+    },
+    {
+      "city": "Rio de Janeiro",
+      "cnpj": "42498733000148",
+      "dataPublicacaoPncp": "2026-01-16T07:11:03",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "42498733000148-1-000127/2026",
+      "objetoCompra": "Registro de Preços para Aquisição de Materiais de Instalações Elétricas (C), para manutenção rotineira, a serem utilizados nas unidades físicas do Sistema BRT da MOBI-Rio.",
+      "orgao": "MUNICIPIO DE RIO DE JANEIRO",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
+      "valorTotalEstimado": 99005.6,
+      "valorTotalHomologado": 85452.38
+    },
+    {
+      "city": "Rio de Janeiro",
+      "cnpj": "42498733000148",
+      "dataPublicacaoPncp": "2026-03-06T07:05:23",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "42498733000148-1-000324/2026",
+      "objetoCompra": "Contratação de empresa especializada para execução de serviço de manutenção preventiva e corretiva de elevadores e monta-cargas nas unidades da Secretaria Municipal da Saúde, com cobertura total de peças e recursos humanos, compreendendo o fornecimento e instalação de materiais e equipamentos.",
+      "orgao": "MUNICIPIO DE RIO DE JANEIRO",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
+      "valorTotalEstimado": 960640.8,
+      "valorTotalHomologado": 900000.0
+    },
+    {
+      "city": "Rio de Janeiro",
+      "cnpj": "42498733000148",
+      "dataPublicacaoPncp": "2026-03-09T07:17:13",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "42498733000148-1-000345/2026",
+      "objetoCompra": "Registro de Preços para Aquisição de Pneus 295/80 R22.5, para Manutenção Preventiva e Corretiva da Frota de Articulados Operados pela MOBI-Rio.",
+      "orgao": "MUNICIPIO DE RIO DE JANEIRO",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
+      "valorTotalEstimado": 9263108.0,
+      "valorTotalHomologado": 9263108.0
+    },
+    {
+      "city": "Rio de Janeiro",
+      "cnpj": "42498733000148",
+      "dataPublicacaoPncp": "2026-03-25T07:03:56",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "42498733000148-1-000498/2026",
+      "objetoCompra": "O objeto da presente licitação é o registro de preços para a “Aquisição de tintas spray e insumos para arte urbana de grafite nos espaços públicos desta municipalidade”, pertencente às classes 8010, 9999 e 7510, conforme as especificações constantes deste Edital e/ou do Termo de Referência.    ",
+      "orgao": "MUNICIPIO DE RIO DE JANEIRO",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
+      "valorTotalEstimado": 104100.0,
+      "valorTotalHomologado": null
+    },
+    {
+      "city": "Rio de Janeiro",
+      "cnpj": "42498733000148",
+      "dataPublicacaoPncp": "2026-03-26T07:11:41",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "42498733000148-1-000519/2026",
+      "objetoCompra": "REGISTRO DE PREÇOS para aquisição de acessórios para o Sistema de Gases Medicinais.",
+      "orgao": "MUNICIPIO DE RIO DE JANEIRO",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
+      "valorTotalEstimado": 5371527.56,
+      "valorTotalHomologado": null
+    },
+    {
+      "city": "Rio de Janeiro",
+      "cnpj": "42498733000148",
+      "dataPublicacaoPncp": "2026-03-27T07:03:12",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "42498733000148-1-000525/2026",
+      "objetoCompra": "O objeto do presente Contrato é a execução dos serviços comuns de engenharia de “Conservação, Manutenção e Serviços Complementares dos passeios de diversos logradouros nos Bairros de Copacabana e Leme na área da AP-2”, pertencente ao código 261289.0002-83, sob o regime de Empreitada por Preço Unitário, conforme as especificações constantes do Projeto Básico(Anexo I).",
+      "orgao": "MUNICIPIO DE RIO DE JANEIRO",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
+      "valorTotalEstimado": 19523635.38,
+      "valorTotalHomologado": 14642448.15
+    },
+    {
+      "city": "Rio de Janeiro",
+      "cnpj": "42498733000148",
+      "dataPublicacaoPncp": "2026-04-30T07:20:09",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "42498733000148-1-000811/2026",
+      "objetoCompra": "Aquisição de mobiliário em geral, pertencente(s) à(s) classe(s) 7105, 7210, 7730, 7310, 4110, 3510, através de procedimento licitatório, na modalidade Pregão Eletrônico para Sistema de Registro de Preços, com critério de julgamento menor preço por item, incluindo carregamento, transporte, descarregamento e montagem dentro das respectivas unidades habitacionais (apartamentos), com fundamento no artigo 28, inciso I c/c artigo 33, inciso I e artigo 82 da lei nº 14.133/2021, conforme TR.",
+      "orgao": "MUNICIPIO DE RIO DE JANEIRO",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
+      "valorTotalEstimado": 4412016.0,
+      "valorTotalHomologado": null
+    },
+    {
+      "city": "Rio de Janeiro",
+      "cnpj": "42498733000148",
+      "dataPublicacaoPncp": "2026-05-04T07:07:03",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "42498733000148-1-000822/2026",
+      "objetoCompra": "Aquisição de MATERIAIS PARA REFRIGERAÇÃO",
+      "orgao": "MUNICIPIO DE RIO DE JANEIRO",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
+      "valorTotalEstimado": 0.0,
+      "valorTotalHomologado": null
+    },
+    {
+      "city": "Rio de Janeiro",
+      "cnpj": "42498733000148",
+      "dataPublicacaoPncp": "2026-05-11T07:13:30",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "42498733000148-1-000868/2026",
+      "objetoCompra": "Registro de preços para aquisição de medicamentos pertencente à classe 6505, medicamentos com perfil específico, destinados ao centro de especialidades do município do Rio de Janeiro.",
+      "orgao": "MUNICIPIO DE RIO DE JANEIRO",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
+      "valorTotalEstimado": 16395561.86,
+      "valorTotalHomologado": 1214844.48
+    },
+    {
+      "city": "Rio de Janeiro",
+      "cnpj": "42498733000148",
+      "dataPublicacaoPncp": "2026-05-25T07:10:23",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "42498733000148-1-001034/2026",
+      "objetoCompra": "Registro de preços para aquisição de materiais para funilaria e soldas em peças e estruturas - A, para manutenção preventiva e corretiva dos veículos operados pela MOBI-Rio, devidamente descritos, caracterizados e especificados neste Edital e/ou no Termo de Referência.",
+      "orgao": "MUNICIPIO DE RIO DE JANEIRO",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
+      "valorTotalEstimado": 0.0,
+      "valorTotalHomologado": null
+    },
+    {
+      "city": "Belo Horizonte",
+      "cnpj": "18715383000140",
+      "dataPublicacaoPncp": "2026-03-23T09:27:25",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "18715383000140-1-000178/2026",
+      "objetoCompra": "FORNECIMENTO DE AGUA MINERAL NATURAL EM GARRAFAO COM 20 LITROS, INCLUINDO O EMPRESTIMO A TITULO DE COMODATO DE GARRAFAO COM CAPACIDADE PARA 20 LITROSVASILHAME, DESTINADOS AO ABASTECIMENTO DA SEDE DA SECRETARIA MUNICIPAL DE EDUCACAO ? SMED E GERENCIA REGIONAL DE EDUCACAO - BARREIRO , NOS TERMOS DA TABELA ABAIXO E CONFORME CONDICOES E EXIGENCIAS ESTABELECIDAS NESTE INSTRUMENTO.",
+      "orgao": "MUNICIPIO DE BELO HORIZONTE",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "SECRETARIA MUNICIPAL DE EDUCAÇÃO",
+      "valorTotalEstimado": 111600.0,
+      "valorTotalHomologado": 72000.0
+    },
+    {
+      "city": "Belo Horizonte",
+      "cnpj": "18715383000140",
+      "dataPublicacaoPncp": "2026-04-30T07:06:37",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "18715383000140-1-000272/2026",
+      "objetoCompra": "Registro de preços para aquisição de medicamentos do trato alimentar (mandado judicial)",
+      "orgao": "MUNICIPIO DE BELO HORIZONTE",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREF.MUN.DE BELO HORIZONTE",
+      "valorTotalEstimado": 21782.62,
+      "valorTotalHomologado": 13601.52
+    },
+    {
+      "city": "Belo Horizonte",
+      "cnpj": "18715383000140",
+      "dataPublicacaoPncp": "2026-05-26T07:03:34",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "18715383000140-1-000344/2026",
+      "objetoCompra": "Serviço de locação com manutenção preventiva e corretiva de empilhadeiras e paleteiras, incluindo fornecimento de baterias, carregadores, materiais e insumos, bem como a substituição dos equipamentos, baterias e carregadores, e disponibilização de treinamento dos operadores, sem fornecimento de mão de obra para a operação dos equipamentos, nos termos do Anexo I – Projeto Básico e conforme condições e exigências estabelecidas neste instrumento.",
+      "orgao": "MUNICIPIO DE BELO HORIZONTE",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREF.MUN.DE BELO HORIZONTE",
+      "valorTotalEstimado": 0.0,
+      "valorTotalHomologado": null
+    },
+    {
+      "city": "Belo Horizonte",
+      "cnpj": "18715383000140",
+      "dataPublicacaoPncp": "2026-01-07T07:13:32",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "18715383000140-1-001094/2025",
+      "objetoCompra": "Aquisição de equipamentos permanentes para atender as necessidades da Diretoria de Manutenção de Próprios – DMAP e Diretoria de Obras, Monitoramento e Planejamento de Manutenção das Regionais – DOMR.",
+      "orgao": "MUNICIPIO DE BELO HORIZONTE",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREF.MUN.DE BELO HORIZONTE",
+      "valorTotalEstimado": 374315.48,
+      "valorTotalHomologado": null
+    },
+    {
+      "city": "Belo Horizonte",
+      "cnpj": "18715383000140",
+      "dataPublicacaoPncp": "2026-01-14T07:02:00",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "18715383000140-1-001105/2025",
+      "objetoCompra": "O objeto da presente licitação é o registro de preços para a aquisição de Materiais Hidráulicos, destinados a atender a demanda do Município de Belo Horizonte, conforme condições e exigências estabelecidas neste Edital, Termo de Referência e demais anexos.",
+      "orgao": "MUNICIPIO DE BELO HORIZONTE",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREF.MUN.DE BELO HORIZONTE",
+      "valorTotalEstimado": 236756.06,
+      "valorTotalHomologado": 145516.25
+    },
+    {
+      "city": "Belo Horizonte",
+      "cnpj": "18715383000140",
+      "dataPublicacaoPncp": "2026-03-13T07:09:48",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "18715383000140-1-001189/2025",
+      "objetoCompra": "Pregão Eletrônico com Registro de Preços para Aquisição de Medicamentos Padronizados IV",
+      "orgao": "MUNICIPIO DE BELO HORIZONTE",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREF.MUN.DE BELO HORIZONTE",
+      "valorTotalEstimado": 1786873.32,
+      "valorTotalHomologado": 1266267.0
+    },
+    {
+      "city": "Belo Horizonte",
+      "cnpj": "18715383000140",
+      "dataPublicacaoPncp": "2026-04-09T07:01:54",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "18715383000140-1-001216/2025",
+      "objetoCompra": "Aquisição de bebedouros e equipamento de refrigeração",
+      "orgao": "MUNICIPIO DE BELO HORIZONTE",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREF.MUN.DE BELO HORIZONTE",
+      "valorTotalEstimado": 244722.96,
+      "valorTotalHomologado": 200466.02
+    },
+    {
+      "city": "Belo Horizonte",
+      "cnpj": "18715383000140",
+      "dataPublicacaoPncp": "2026-05-07T07:01:56",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "18715383000140-1-001223/2025",
+      "objetoCompra": "Registro de preços para aquisição de insumos de laboratório VI.",
+      "orgao": "MUNICIPIO DE BELO HORIZONTE",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREF.MUN.DE BELO HORIZONTE",
+      "valorTotalEstimado": 195045.73,
+      "valorTotalHomologado": 124979.92
+    },
+    {
+      "city": "Belo Horizonte",
+      "cnpj": "18715383000140",
+      "dataPublicacaoPncp": "2026-05-14T07:02:27",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "18715383000140-1-001225/2025",
+      "objetoCompra": "Contratação de pessoa jurídica para prestação de serviços de manutenção preventiva e corretiva, incluindo fornecimento de peças, componentes, materiais e mão de obra, em elevadores do centro de referência esportiva para pessoas com deficiência - CREPPD, programa SUPERAR atendimento à demanda da secretaria municipal de esportes e lazer, prefeitura de Belo Horizonte, conforme condições e exigências estabelecidas neste edital, termo de referência e demais anexos.",
+      "orgao": "MUNICIPIO DE BELO HORIZONTE",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREF.MUN.DE BELO HORIZONTE",
+      "valorTotalEstimado": 13999.92,
+      "valorTotalHomologado": 9576.0
+    },
+    {
+      "city": "Belo Horizonte",
+      "cnpj": "18715383000140",
+      "dataPublicacaoPncp": "2026-05-26T07:02:37",
+      "document_count": 1,
+      "document_types": [
+        "Edital"
+      ],
+      "numeroControlePNCP": "18715383000140-1-001232/2025",
+      "objetoCompra": "Aquisição de material odontológico e laboratorial (itens descartáveis)",
+      "orgao": "MUNICIPIO DE BELO HORIZONTE",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREF.MUN.DE BELO HORIZONTE",
+      "valorTotalEstimado": 0.0,
+      "valorTotalHomologado": null
+    },
+    {
+      "city": "Vitoria",
+      "cnpj": "27142058000126",
+      "dataPublicacaoPncp": "2026-02-03T16:45:43",
+      "document_count": 2,
+      "document_types": [
+        "Edital",
+        "Termo de Referência"
+      ],
+      "numeroControlePNCP": "27142058000126-1-000034/2026",
+      "objetoCompra": "FORNECIMENTO DE ALIMENTOS (DESJEJUM, KIT LANCHE E MARMITEX).",
+      "orgao": "MUNICIPIO DE VITORIA",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DE VITORIA",
+      "valorTotalEstimado": 669364.4,
+      "valorTotalHomologado": null
+    },
+    {
+      "city": "Vitoria",
+      "cnpj": "27142058000126",
+      "dataPublicacaoPncp": "2026-02-27T16:27:40",
+      "document_count": 4,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
+      "numeroControlePNCP": "27142058000126-1-000080/2026",
+      "objetoCompra": "REGISTRO DE PREÇOS PARA AQUISIÇÃO DE CÂMERAS DE VIDEOMONITORAMENTO E MATERIAIS PARA INSTALAÇÃO E OPERAÇÃO.",
+      "orgao": "MUNICIPIO DE VITORIA",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DE VITORIA",
+      "valorTotalEstimado": 47236365.5,
+      "valorTotalHomologado": 17987778.0
+    },
+    {
+      "city": "Vitoria",
+      "cnpj": "27142058000126",
+      "dataPublicacaoPncp": "2026-03-04T14:53:43",
+      "document_count": 4,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
+      "numeroControlePNCP": "27142058000126-1-000090/2026",
+      "objetoCompra": "PRESTAÇÃO DE SERVIÇOS DE ASSISTENTE DE SECRETARIA ESCOLAR",
+      "orgao": "MUNICIPIO DE VITORIA",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DE VITORIA",
+      "valorTotalEstimado": 20443431.36,
+      "valorTotalHomologado": 19073010.24
+    },
+    {
+      "city": "Vitoria",
+      "cnpj": "27142058000126",
+      "dataPublicacaoPncp": "2026-04-15T14:14:36",
+      "document_count": 3,
+      "document_types": [
+        "Edital",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
+      "numeroControlePNCP": "27142058000126-1-000176/2026",
+      "objetoCompra": "Registro de preços visando a aquisição de capacetes e intercomunicadores sem fio.",
+      "orgao": "MUNICIPIO DE VITORIA",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DE VITORIA",
+      "valorTotalEstimado": 366582.4,
+      "valorTotalHomologado": null
+    },
+    {
+      "city": "Vitoria",
+      "cnpj": "27142058000126",
+      "dataPublicacaoPncp": "2026-04-24T08:59:33",
+      "document_count": 12,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
+      "numeroControlePNCP": "27142058000126-1-000202/2026",
+      "objetoCompra": "PRESTAÇÃO DE SERVIÇOS DE AGENTE DE INTEGRAÇÃO PARA OPERACIONALIZAR O PROGRAMA DE ESTÁGIO DO MUNICÍPIO DE VITÓRIA",
+      "orgao": "MUNICIPIO DE VITORIA",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DE VITORIA",
+      "valorTotalEstimado": 322560.0,
+      "valorTotalHomologado": 220800.0
+    },
+    {
+      "city": "Vitoria",
+      "cnpj": "27142058000126",
+      "dataPublicacaoPncp": "2026-05-04T08:59:26",
+      "document_count": 2,
+      "document_types": [
+        "Edital",
+        "Termo de Referência"
+      ],
+      "numeroControlePNCP": "27142058000126-1-000216/2026",
+      "objetoCompra": "AQUISIÇÃO DE SIMULADOR DE IMPACTO VEICULAR",
+      "orgao": "MUNICIPIO DE VITORIA",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DE VITORIA",
+      "valorTotalEstimado": 148183.67,
+      "valorTotalHomologado": null
+    },
+    {
+      "city": "Vitoria",
+      "cnpj": "27142058000126",
+      "dataPublicacaoPncp": "2026-05-12T15:51:05",
+      "document_count": 3,
+      "document_types": [
+        "Edital",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
+      "numeroControlePNCP": "27142058000126-1-000233/2026",
+      "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURAS E EVENTUAIS AQUISIÇÃO DE MEDICMENTOS (MAYTENUS ILICIFOLIA ou MONTEVERDIA ILICIFOLIA, BECLOMETASONA, ÁCIDO ACETILSALICÍLICO, PERMETRINA, ANLODIPINO)",
+      "orgao": "MUNICIPIO DE VITORIA",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DE VITORIA",
+      "valorTotalEstimado": 886172.48,
+      "valorTotalHomologado": null
+    },
+    {
+      "city": "Vitoria",
+      "cnpj": "27142058000126",
+      "dataPublicacaoPncp": "2026-05-26T10:59:10",
+      "document_count": 4,
+      "document_types": [
+        "Edital",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
+      "numeroControlePNCP": "27142058000126-1-000267/2026",
+      "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURA E EVENTUAL AQUISIÇÃO DE MEDICAMENTOS E INSUMOS VETERINÁRIOS.",
+      "orgao": "MUNICIPIO DE VITORIA",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DE VITORIA",
+      "valorTotalEstimado": 37994.07,
+      "valorTotalHomologado": null
+    },
+    {
+      "city": "Vitoria",
+      "cnpj": "27142058000126",
+      "dataPublicacaoPncp": "2026-05-26T17:50:27",
+      "document_count": 2,
+      "document_types": [
+        "Edital",
+        "Termo de Referência"
+      ],
+      "numeroControlePNCP": "27142058000126-1-000268/2026",
+      "objetoCompra": "REGISTRO DE PREÇOS VISANDO AQUISIÇÃO DE MEDICAMENTOS (CYNARA SCOLYMUS, BUDESONIDA, SOLUÇÃO DE CLORETO DE SÓDIO).",
+      "orgao": "MUNICIPIO DE VITORIA",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DE VITORIA",
+      "valorTotalEstimado": 2212432.0,
+      "valorTotalHomologado": null
+    },
+    {
+      "city": "Vitoria",
+      "cnpj": "27142058000126",
+      "dataPublicacaoPncp": "2026-03-17T16:01:52",
+      "document_count": 20,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
+      "numeroControlePNCP": "27142058000126-1-000797/2025",
+      "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURA E EVENTUAL LOCAÇÃO DE VEÍCULOS, COM MOTORISTA, COM COMBUSTÍVEL, COM FRANQUIA, COM SEGURO TOTAL E OUTROS ENCARGOS",
+      "orgao": "MUNICIPIO DE VITORIA",
+      "situacaoCompraNome": "Divulgada no PNCP",
+      "unidade": "PREFEITURA MUNICIPAL DE VITORIA",
+      "valorTotalEstimado": 5422537.92,
+      "valorTotalHomologado": 5326753.68
+    }
+  ],
+  "sao_paulo_top_cnpjs": [
+    {
+      "cnpj": "13864377000130",
+      "razao_social": "FUNDO MUNICIPAL DE SAUDE - FMS",
+      "records": 38
+    },
+    {
+      "cnpj": "46395000000139",
+      "razao_social": "MUNICIPIO DE SAO PAULO",
+      "records": 6
+    },
+    {
+      "cnpj": "47902648000117",
+      "razao_social": "PMSP - COMPANHIA DE ENGENHARIA DE TRÁFEGO",
+      "records": 6
+    },
+    {
+      "cnpj": "46854998000192",
+      "razao_social": "HOSPITAL DO SERVIDOR PUBLICO MUNICIPAL",
+      "records": 3
+    },
+    {
+      "cnpj": "49269251000165",
+      "razao_social": "SECRETARIA MUNICIPAL DE GESTAO - SG",
+      "records": 2
+    },
+    {
+      "cnpj": "74118514000182",
+      "razao_social": "SAO PAULO SECRETARIA DO VERDE E DO MEIO AMBIENTE",
+      "records": 2
+    },
+    {
+      "cnpj": "05245375000135",
+      "razao_social": "SECRETARIA MUNICIPAL DE SEGURANCA URBANA - SMSU",
+      "records": 1
+    },
+    {
+      "cnpj": "05969123000159",
+      "razao_social": "SUBPREFEITURA VILA PRUDENTE",
+      "records": 1
+    },
+    {
+      "cnpj": "46392114000125",
+      "razao_social": "SECRETARIA MUNICIPAL DE EDUCACAO",
+      "records": 1
+    },
+    {
+      "cnpj": "46392130000118",
+      "razao_social": "SECRETARIA MUNICIPAL DA FAZENDA",
+      "records": 1
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+[project]
+name = "analise-pncp"
+version = "0.1.0"
+description = "Analise exploratoria do PNCP nas capitais do Sudeste"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "PyYAML>=6.0.1",
+]
+
+[project.scripts]
+pncp-analysis = "pncp_analysis.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.10",
+    "pytest>=8.2",
+    "ruff>=0.5",
+    "types-PyYAML>=6.0.12.20240311",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pncp_analysis"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
