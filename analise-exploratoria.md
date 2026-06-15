@@ -199,7 +199,7 @@ Os exemplos abaixo usam um subconjunto dos campos retornados pela API do PNCP. E
 | Sao Paulo | 61 | 10 | 10 | 6 | 9.8% |
 | Rio de Janeiro | 347 | 10 | 1 | 347 | 100.0% |
 | Belo Horizonte | 90 | 10 | 1 | 90 | 100.0% |
-| Vitoria | 98 | 10 | 1 | 98 | 100.0% |
+| Vitoria | 97 | 10 | 1 | 97 | 100.0% |
 
 A amostra foi selecionada por sorteio pseudoaleatorio apos ordenacao por `numeroControlePNCP`. Quando havia mais de 10 registros, foram sorteados 10; quando havia menos, todos foram mantidos.
 
@@ -244,17 +244,17 @@ A amostra foi selecionada por sorteio pseudoaleatorio apos ordenacao por `numero
 | Vitoria | 27142058000126-1-000202/2026 | 27142058000126 | MUNICIPIO DE VITORIA | 12 |
 | Vitoria | 27142058000126-1-000216/2026 | 27142058000126 | MUNICIPIO DE VITORIA | 2 |
 | Vitoria | 27142058000126-1-000233/2026 | 27142058000126 | MUNICIPIO DE VITORIA | 3 |
-| Vitoria | 27142058000126-1-000267/2026 | 27142058000126 | MUNICIPIO DE VITORIA | 4 |
+| Vitoria | 27142058000126-1-000238/2026 | 27142058000126 | MUNICIPIO DE VITORIA | 4 |
 | Vitoria | 27142058000126-1-000268/2026 | 27142058000126 | MUNICIPIO DE VITORIA | 2 |
-| Vitoria | 27142058000126-1-000797/2025 | 27142058000126 | MUNICIPIO DE VITORIA | 20 |
+| Vitoria | 27142058000126-1-000270/2026 | 27142058000126 | MUNICIPIO DE VITORIA | 2 |
 
 ## Constatações adicionais
 
 - Na amostra candidata de Sao Paulo, 90.2% dos registros elegiveis ficaram fora do CNPJ matriz; nas demais capitais analisadas, os registros por CNPJ matriz concentraram 100% dos candidatos coletados.
 - Sao Paulo apresentou 10 CNPJs distintos no recorte elegivel, enquanto Rio de Janeiro, Belo Horizonte e Vitoria apareceram com um CNPJ cada no recorte por matriz.
 - Vitoria teve documentos vinculados em todos os itens da amostra, mas nenhum dos 10 registros amostrados trouxe `linkSistemaOrigem`, o que reduz a rastreabilidade para o sistema de origem.
-- O valor homologado apareceu com menor completude em Vitoria (40.0%), indicando que parte dos registros estava em fase anterior ao resultado ou sem homologacao registrada no recorte.
-- A quantidade de documentos anexados variou de forma relevante: em Vitoria, um item da amostra chegou a 20 documentos, enquanto outros municipios tiveram padrao mais concentrado.
+- O valor homologado apareceu com menor completude em Vitoria (30.0%), indicando que parte dos registros estava em fase anterior ao resultado ou sem homologacao registrada no recorte.
+- A quantidade de documentos anexados variou de forma relevante: em Vitoria, um item da amostra chegou a 12 documentos, enquanto outros municipios tiveram padrao mais concentrado.
 
 ## Fragmentacao de CNPJs em Sao Paulo
 
@@ -313,7 +313,7 @@ Esse resultado sugere que a transparencia via PNCP nao depende apenas da existen
 | Sao Paulo | Documentos | 10 | 10 | 100.0% |
 | Rio de Janeiro | Objeto | 10 | 10 | 100.0% |
 | Rio de Janeiro | Valor estimado | 10 | 10 | 100.0% |
-| Rio de Janeiro | Valor homologado | 5 | 10 | 50.0% |
+| Rio de Janeiro | Valor homologado | 6 | 10 | 60.0% |
 | Rio de Janeiro | Data de publicacao | 10 | 10 | 100.0% |
 | Rio de Janeiro | Abertura de proposta | 10 | 10 | 100.0% |
 | Rio de Janeiro | Encerramento de proposta | 10 | 10 | 100.0% |
@@ -331,7 +331,7 @@ Esse resultado sugere que a transparencia via PNCP nao depende apenas da existen
 | Belo Horizonte | Documentos | 10 | 10 | 100.0% |
 | Vitoria | Objeto | 10 | 10 | 100.0% |
 | Vitoria | Valor estimado | 10 | 10 | 100.0% |
-| Vitoria | Valor homologado | 4 | 10 | 40.0% |
+| Vitoria | Valor homologado | 3 | 10 | 30.0% |
 | Vitoria | Data de publicacao | 10 | 10 | 100.0% |
 | Vitoria | Abertura de proposta | 10 | 10 | 100.0% |
 | Vitoria | Encerramento de proposta | 10 | 10 | 100.0% |
@@ -346,7 +346,7 @@ Esse resultado sugere que a transparencia via PNCP nao depende apenas da existen
 | Sao Paulo | 10 | 10 | 1 | 1 | 1.0 | Edital |
 | Rio de Janeiro | 10 | 10 | 1 | 1 | 1.0 | Edital |
 | Belo Horizonte | 10 | 10 | 1 | 1 | 1.0 | Edital |
-| Vitoria | 10 | 10 | 2 | 20 | 5.6 | Edital, Estudo Técnico Preliminar, Outros Documentos, Termo de Referência |
+| Vitoria | 10 | 10 | 2 | 12 | 3.8 | Edital, Estudo Técnico Preliminar, Outros Documentos, Termo de Referência |
 
 A presenca de objeto, datas, valores, unidade administrativa, link de origem e documentos foi usada como proxy de completude. Essa metrica nao avalia a qualidade textual dos documentos, mas indica se um cidadao ou pesquisador consegue localizar informacoes basicas para controle social.
 

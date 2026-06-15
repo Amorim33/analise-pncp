@@ -1,4 +1,4 @@
-.PHONY: sync check test lint typecheck run clean
+.PHONY: sync check test lint typecheck pipeline paper final run clean
 
 sync:
 	uv sync --extra dev
@@ -13,6 +13,14 @@ test:
 	uv run pytest
 
 check: lint typecheck test
+
+pipeline:
+	uv run pncp-analysis run-all
+
+paper:
+	uv run pncp-analysis paper
+
+final: pipeline paper check
 
 run:
 	uv run pncp-analysis run-all

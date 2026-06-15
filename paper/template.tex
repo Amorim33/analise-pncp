@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{longtable,booktabs,array,calc}
+\usepackage{caption}
+\newcounter{none}
+\usepackage{fancyvrb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  citecolor=black
+}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{}
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2]
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  \ifodd #1
+    \setlength{\leftmargin}{\cslhangindent}
+    \setlength{\itemindent}{-\cslhangindent}
+  \fi
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\newcommand{\CSLBlock}[1]{\hfill\break#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\newcommand{\citeproctext}{}
+
+\title{$title$$if(subtitle)$\\\large $subtitle$$endif$}
+\author{$for(author)$$author$$sep$ \and $endfor$}
+\date{$date$}
+
+\begin{document}
+\maketitle
+
+$if(course)$
+\begin{center}
+$if(institution)$$institution$\\$endif$
+$course$\\
+$if(instructor)$Docente: $instructor$$endif$
+\end{center}
+$endif$
+
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
+
+$body$
+
+\end{document}

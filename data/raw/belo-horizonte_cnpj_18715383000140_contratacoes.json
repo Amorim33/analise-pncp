@@ -232,7 +232,7 @@
     "anoCompra": 2025,
     "dataAberturaProposta": "2026-01-08T08:00:00",
     "dataAtualizacao": "2026-06-02T08:43:22",
-    "dataAtualizacaoGlobal": "2026-06-02T08:43:22",
+    "dataAtualizacaoGlobal": "2026-06-15T13:49:06",
     "dataEncerramentoProposta": "2026-01-27T10:00:00",
     "dataInclusao": "2026-01-08T07:01:35",
     "dataPublicacaoPncp": "2026-01-08T07:01:35",
@@ -285,8 +285,8 @@
       "ufSigla": "MG"
     },
     "usuarioNome": "Compras.gov.br",
-    "valorTotalEstimado": 1867755.12,
-    "valorTotalHomologado": 1137780.5
+    "valorTotalEstimado": 1869022.32,
+    "valorTotalHomologado": 1139047.7
   },
   {
     "amparoLegal": {
@@ -508,17 +508,17 @@
     },
     "anoCompra": 2025,
     "dataAberturaProposta": "2026-01-14T08:00:00",
-    "dataAtualizacao": "2026-01-14T07:02:00",
-    "dataAtualizacaoGlobal": "2026-05-07T11:09:06",
+    "dataAtualizacao": "2026-06-12T09:02:12",
+    "dataAtualizacaoGlobal": "2026-06-12T09:02:12",
     "dataEncerramentoProposta": "2026-01-28T09:00:00",
     "dataInclusao": "2026-01-14T07:02:00",
     "dataPublicacaoPncp": "2026-01-14T07:02:00",
     "emendaParlamentar": null,
     "fontesOrcamentarias": [],
     "informacaoComplementar": "Em caso de discrepância entre as especificações do objeto descritas no Compras.gov.br e as constantes do Termo de Referência, prevalecerão as últimas. Para as respostas de esclarecimentos e impugnações deste edital acesse o link: https://cnetmobile.estaleiro.serpro.gov.br/comprasnet-web/public/landing?destino=quadro-informativo&compra=98412305970642025",
-    "justificativaPresencial": null,
-    "linkProcessoEletronico": null,
-    "linkSistemaOrigem": "https://cnetmobile.estaleiro.serpro.gov.br/comprasnet-web/public/landing?destino=acompanhamento-compra&compra=98412305970642025",
+    "justificativaPresencial": "string",
+    "linkProcessoEletronico": "string",
+    "linkSistemaOrigem": "string",
     "modalidadeId": 6,
     "modalidadeNome": "Pregão - Eletrônico",
     "modoDisputaId": 3,
@@ -532,23 +532,35 @@
       "poderId": "N",
       "razaoSocial": "MUNICIPIO DE BELO HORIZONTE"
     },
-    "orgaoSubRogado": null,
-    "processo": "04.000103.25.25",
+    "orgaoSubRogado": {
+      "cnpj": "18715383000140",
+      "esferaId": "M",
+      "poderId": "N",
+      "razaoSocial": "MUNICIPIO DE BELO HORIZONTE"
+    },
+    "processo": "97064",
     "sequencialCompra": 1105,
     "situacaoCompraId": 1,
     "situacaoCompraNome": "Divulgada no PNCP",
-    "srp": false,
+    "srp": true,
     "tipoInstrumentoConvocatorioCodigo": 1,
     "tipoInstrumentoConvocatorioNome": "Edital",
     "unidadeOrgao": {
       "codigoIbge": "3106200",
-      "codigoUnidade": "984123",
+      "codigoUnidade": "3400",
       "municipioNome": "Belo Horizonte",
-      "nomeUnidade": "PREF.MUN.DE BELO HORIZONTE",
+      "nomeUnidade": "SECRETARIA MUNICIPAL DE ADMINISTRACAO LOGISTICA E PATRIMONIAL",
       "ufNome": "Minas Gerais",
       "ufSigla": "MG"
     },
-    "unidadeSubRogada": null,
+    "unidadeSubRogada": {
+      "codigoIbge": "3106200",
+      "codigoUnidade": "3400",
+      "municipioNome": "Belo Horizonte",
+      "nomeUnidade": "SECRETARIA MUNICIPAL DE ADMINISTRACAO LOGISTICA E PATRIMONIAL",
+      "ufNome": "Minas Gerais",
+      "ufSigla": "MG"
+    },
     "usuarioNome": "Compras.gov.br",
     "valorTotalEstimado": 236756.06,
     "valorTotalHomologado": 145516.25
@@ -1458,7 +1470,7 @@
     "anoCompra": 2025,
     "dataAberturaProposta": "2026-02-03T08:00:00",
     "dataAtualizacao": "2026-02-03T07:01:08",
-    "dataAtualizacaoGlobal": "2026-05-14T15:23:55",
+    "dataAtualizacaoGlobal": "2026-06-09T10:40:50",
     "dataEncerramentoProposta": "2026-02-19T10:00:00",
     "dataInclusao": "2026-02-03T07:01:08",
     "dataPublicacaoPncp": "2026-02-03T07:01:08",
@@ -1499,8 +1511,8 @@
     },
     "unidadeSubRogada": null,
     "usuarioNome": "Compras.gov.br",
-    "valorTotalEstimado": 153250.0,
-    "valorTotalHomologado": 82425.0
+    "valorTotalEstimado": 415000.0,
+    "valorTotalHomologado": 296900.0
   },
   {
     "amparoLegal": {
@@ -2582,17 +2594,17 @@
     },
     "anoCompra": 2025,
     "dataAberturaProposta": "2026-03-13T08:00:00",
-    "dataAtualizacao": "2026-03-13T07:00:39",
-    "dataAtualizacaoGlobal": "2026-04-16T14:16:07",
+    "dataAtualizacao": "2026-06-10T10:08:19",
+    "dataAtualizacaoGlobal": "2026-06-10T10:08:19",
     "dataEncerramentoProposta": "2026-03-26T10:00:00",
     "dataInclusao": "2026-03-13T07:00:39",
     "dataPublicacaoPncp": "2026-03-13T07:00:39",
     "emendaParlamentar": null,
     "fontesOrcamentarias": [],
     "informacaoComplementar": "Edital também disponível no site www.pbh.gov.br. Alertamos aos licitantes que a especificação técnica dos itens que constam do cadastro do sistema COMPRAS.GOV.BR são aproximados aos constantes no Edital, devendo prevalecer a descrição constante no Anexo I do Edital. Para as respostas de esclarecimentos e impugnações deste edital acesse o link: https://cnetmobile.estaleiro.serpro.gov.br/comprasnet-web/public/landing?destino=quadro-informativo&compra=98412305941722025",
-    "justificativaPresencial": null,
-    "linkProcessoEletronico": null,
-    "linkSistemaOrigem": "https://cnetmobile.estaleiro.serpro.gov.br/comprasnet-web/public/landing?destino=acompanhamento-compra&compra=98412305941722025",
+    "justificativaPresencial": "string",
+    "linkProcessoEletronico": "string",
+    "linkSistemaOrigem": "string",
     "modalidadeId": 6,
     "modalidadeNome": "Pregão - Eletrônico",
     "modoDisputaId": 3,
@@ -2606,23 +2618,35 @@
       "poderId": "N",
       "razaoSocial": "MUNICIPIO DE BELO HORIZONTE"
     },
-    "orgaoSubRogado": null,
-    "processo": "3100819990202578",
+    "orgaoSubRogado": {
+      "cnpj": "18715383000140",
+      "esferaId": "M",
+      "poderId": "N",
+      "razaoSocial": "MUNICIPIO DE BELO HORIZONTE"
+    },
+    "processo": "94172",
     "sequencialCompra": 1188,
     "situacaoCompraId": 1,
     "situacaoCompraNome": "Divulgada no PNCP",
-    "srp": false,
+    "srp": true,
     "tipoInstrumentoConvocatorioCodigo": 1,
     "tipoInstrumentoConvocatorioNome": "Edital",
     "unidadeOrgao": {
       "codigoIbge": "3106200",
-      "codigoUnidade": "984123",
+      "codigoUnidade": "2300",
       "municipioNome": "Belo Horizonte",
-      "nomeUnidade": "PREF.MUN.DE BELO HORIZONTE",
+      "nomeUnidade": "SECRETARIA MUNICIPAL DE SAÚDE",
       "ufNome": "Minas Gerais",
       "ufSigla": "MG"
     },
-    "unidadeSubRogada": null,
+    "unidadeSubRogada": {
+      "codigoIbge": "3106200",
+      "codigoUnidade": "2300",
+      "municipioNome": "Belo Horizonte",
+      "nomeUnidade": "SECRETARIA MUNICIPAL DE SAÚDE",
+      "ufNome": "Minas Gerais",
+      "ufSigla": "MG"
+    },
     "usuarioNome": "Compras.gov.br",
     "valorTotalEstimado": 560922.11,
     "valorTotalHomologado": 335979.24
@@ -3178,7 +3202,7 @@
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-03-27T08:00:00",
     "dataAtualizacao": "2026-04-16T07:18:09",
-    "dataAtualizacaoGlobal": "2026-06-08T15:00:45",
+    "dataAtualizacaoGlobal": "2026-06-15T09:40:02",
     "dataEncerramentoProposta": "2026-04-17T09:00:00",
     "dataInclusao": "2026-03-27T07:01:11",
     "dataPublicacaoPncp": "2026-03-27T07:01:11",
@@ -3220,7 +3244,7 @@
     "unidadeSubRogada": null,
     "usuarioNome": "Compras.gov.br",
     "valorTotalEstimado": 2288030.14,
-    "valorTotalHomologado": 283982.88
+    "valorTotalHomologado": 705663.78
   },
   {
     "amparoLegal": {
@@ -4185,7 +4209,7 @@
     "anoCompra": 2025,
     "dataAberturaProposta": "2026-05-07T08:00:00",
     "dataAtualizacao": "2026-05-07T07:01:24",
-    "dataAtualizacaoGlobal": "2026-05-07T07:01:24",
+    "dataAtualizacaoGlobal": "2026-06-09T13:52:16",
     "dataEncerramentoProposta": "2026-05-22T10:00:00",
     "dataInclusao": "2026-05-07T07:01:24",
     "dataPublicacaoPncp": "2026-05-07T07:01:24",
@@ -4226,8 +4250,8 @@
     },
     "unidadeSubRogada": null,
     "usuarioNome": "Compras.gov.br",
-    "valorTotalEstimado": 0.0,
-    "valorTotalHomologado": null
+    "valorTotalEstimado": 75000.0,
+    "valorTotalHomologado": 40899.96
   },
   {
     "amparoLegal": {
@@ -4556,7 +4580,7 @@
     "anoCompra": 2025,
     "dataAberturaProposta": "2026-05-20T08:00:00",
     "dataAtualizacao": "2026-05-22T08:14:15",
-    "dataAtualizacaoGlobal": "2026-06-08T10:00:09",
+    "dataAtualizacaoGlobal": "2026-06-12T15:53:38",
     "dataEncerramentoProposta": "2026-06-08T10:00:00",
     "dataInclusao": "2026-05-20T07:01:09",
     "dataPublicacaoPncp": "2026-05-20T07:01:09",
@@ -4597,8 +4621,8 @@
     },
     "unidadeSubRogada": null,
     "usuarioNome": "Compras.gov.br",
-    "valorTotalEstimado": 0.0,
-    "valorTotalHomologado": null
+    "valorTotalEstimado": 15165.62,
+    "valorTotalHomologado": 9644.9
   },
   {
     "amparoLegal": {
@@ -4609,7 +4633,7 @@
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-05-21T08:00:00",
     "dataAtualizacao": "2026-05-21T07:02:40",
-    "dataAtualizacaoGlobal": "2026-06-03T10:03:21",
+    "dataAtualizacaoGlobal": "2026-06-10T14:37:11",
     "dataEncerramentoProposta": "2026-06-03T10:00:00",
     "dataInclusao": "2026-05-21T07:02:40",
     "dataPublicacaoPncp": "2026-05-21T07:02:40",
@@ -4662,7 +4686,7 @@
     "anoCompra": 2025,
     "dataAberturaProposta": "2026-05-26T08:00:00",
     "dataAtualizacao": "2026-05-26T07:02:37",
-    "dataAtualizacaoGlobal": "2026-05-26T07:02:38",
+    "dataAtualizacaoGlobal": "2026-06-10T10:00:17",
     "dataEncerramentoProposta": "2026-06-10T10:00:00",
     "dataInclusao": "2026-05-26T07:02:37",
     "dataPublicacaoPncp": "2026-05-26T07:02:37",

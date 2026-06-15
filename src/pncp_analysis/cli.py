@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from pncp_analysis import workflow
+from pncp_analysis import paper, workflow
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -42,6 +42,24 @@ def build_parser() -> argparse.ArgumentParser:
     )
 
     subparsers.add_parser("report", help="Gera analise-exploratoria.md.")
+
+    paper_parser = subparsers.add_parser("paper", help="Gera relatorio final em LaTeX/PDF.")
+    paper_parser.add_argument(
+        "--paper-config",
+        default=str(paper.DEFAULT_PAPER_CONFIG_PATH),
+        help="Caminho para config/paper.yaml.",
+    )
+    paper_parser.add_argument(
+        "--tex-only",
+        action="store_true",
+        help="Gera somente paper/output/relatorio-final.tex.",
+    )
+    paper_parser.add_argument(
+        "--allow-placeholders",
+        action="store_true",
+        help="Permite compilar com metadados placeholder em modo final.",
+    )
+
     subparsers.add_parser("run-all", help="Executa coleta, amostra, analise e relatorio.")
 
     return parser
@@ -60,6 +78,13 @@ def main() -> None:
         workflow.analyze(config_path=config_path, skip_documents=args.skip_documents)
     elif args.command == "report":
         workflow.report(config_path=config_path)
+    elif args.command == "paper":
+        paper.generate_paper(
+            analysis_config_path=config_path,
+            paper_config_path=Path(args.paper_config),
+            tex_only=args.tex_only,
+            allow_placeholders=args.allow_placeholders,
+        )
     elif args.command == "run-all":
         workflow.run_all(config_path=config_path)
     else:

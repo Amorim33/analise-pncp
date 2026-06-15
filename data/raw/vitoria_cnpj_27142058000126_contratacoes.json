@@ -2922,8 +2922,8 @@
     },
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-04-01T00:00:00",
-    "dataAtualizacao": "2026-04-01T14:41:03",
-    "dataAtualizacaoGlobal": "2026-04-01T14:41:12",
+    "dataAtualizacao": "2026-06-10T15:22:35",
+    "dataAtualizacaoGlobal": "2026-06-10T15:24:43",
     "dataEncerramentoProposta": "2026-04-17T09:00:00",
     "dataInclusao": "2026-04-01T14:41:03",
     "dataPublicacaoPncp": "2026-04-01T14:41:03",
@@ -2965,7 +2965,7 @@
     "unidadeSubRogada": null,
     "usuarioNome": "SMARAPD INFORMATICA LTDA",
     "valorTotalEstimado": 321749.0,
-    "valorTotalHomologado": null
+    "valorTotalHomologado": 274790.0
   },
   {
     "amparoLegal": {
@@ -3400,7 +3400,7 @@
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-04-16T12:00:00",
     "dataAtualizacao": "2026-04-15T14:43:48",
-    "dataAtualizacaoGlobal": "2026-06-08T16:23:49",
+    "dataAtualizacaoGlobal": "2026-06-09T08:28:27",
     "dataEncerramentoProposta": "2026-04-30T09:00:00",
     "dataInclusao": "2026-04-15T14:43:48",
     "dataPublicacaoPncp": "2026-04-15T14:43:48",
@@ -3983,7 +3983,7 @@
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-05-06T08:00:00",
     "dataAtualizacao": "2026-05-05T17:36:28",
-    "dataAtualizacaoGlobal": "2026-05-05T17:36:30",
+    "dataAtualizacaoGlobal": "2026-06-10T11:39:52",
     "dataEncerramentoProposta": "2026-05-20T09:20:00",
     "dataInclusao": "2026-05-05T17:36:28",
     "dataPublicacaoPncp": "2026-05-05T17:36:28",
@@ -4025,7 +4025,7 @@
     "unidadeSubRogada": null,
     "usuarioNome": "SMARAPD INFORMATICA LTDA",
     "valorTotalEstimado": 310000.0,
-    "valorTotalHomologado": null
+    "valorTotalHomologado": 0.0
   },
   {
     "amparoLegal": {
@@ -4301,7 +4301,7 @@
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-05-20T08:00:00",
     "dataAtualizacao": "2026-05-19T15:44:59",
-    "dataAtualizacaoGlobal": "2026-05-20T13:30:58",
+    "dataAtualizacaoGlobal": "2026-06-15T16:54:20",
     "dataEncerramentoProposta": "2026-06-03T08:00:00",
     "dataInclusao": "2026-05-19T15:44:59",
     "dataPublicacaoPncp": "2026-05-19T15:44:59",
@@ -4343,7 +4343,7 @@
     "unidadeSubRogada": null,
     "usuarioNome": "SMARAPD INFORMATICA LTDA",
     "valorTotalEstimado": 217890.0,
-    "valorTotalHomologado": null
+    "valorTotalHomologado": 178830.0
   },
   {
     "amparoLegal": {
@@ -4670,62 +4670,9 @@
       "nome": "Lei 14.133/2021, Art. 28, I"
     },
     "anoCompra": 2026,
-    "dataAberturaProposta": "2026-05-21T08:00:00",
-    "dataAtualizacao": "2026-05-20T13:38:26",
-    "dataAtualizacaoGlobal": "2026-05-20T13:38:28",
-    "dataEncerramentoProposta": "2026-06-02T09:20:00",
-    "dataInclusao": "2026-05-20T13:38:26",
-    "dataPublicacaoPncp": "2026-05-20T13:38:26",
-    "emendaParlamentar": null,
-    "fontesOrcamentarias": [],
-    "informacaoComplementar": "",
-    "justificativaPresencial": "",
-    "linkProcessoEletronico": null,
-    "linkSistemaOrigem": null,
-    "modalidadeId": 6,
-    "modalidadeNome": "Pregão - Eletrônico",
-    "modoDisputaId": 3,
-    "modoDisputaNome": "Aberto-Fechado",
-    "numeroCompra": "88",
-    "numeroControlePNCP": "27142058000126-1-000255/2026",
-    "objetoCompra": "AQUISIÇÃO DE LÂMPADAS LED",
-    "orgaoEntidade": {
-      "cnpj": "27142058000126",
-      "esferaId": "M",
-      "poderId": "N",
-      "razaoSocial": "MUNICIPIO DE VITORIA"
-    },
-    "orgaoSubRogado": null,
-    "processo": "2749372/2026",
-    "sequencialCompra": 255,
-    "situacaoCompraId": 1,
-    "situacaoCompraNome": "Divulgada no PNCP",
-    "srp": false,
-    "tipoInstrumentoConvocatorioCodigo": 1,
-    "tipoInstrumentoConvocatorioNome": "Edital",
-    "unidadeOrgao": {
-      "codigoIbge": "3205309",
-      "codigoUnidade": "1",
-      "municipioNome": "Vitória",
-      "nomeUnidade": "PREFEITURA MUNICIPAL DE VITORIA",
-      "ufNome": "Espírito Santo",
-      "ufSigla": "ES"
-    },
-    "unidadeSubRogada": null,
-    "usuarioNome": "SMARAPD INFORMATICA LTDA",
-    "valorTotalEstimado": 20346.6,
-    "valorTotalHomologado": null
-  },
-  {
-    "amparoLegal": {
-      "codigo": 1,
-      "descricao": "pregão: modalidade de licitação obrigatória para aquisição de bens e serviços comuns",
-      "nome": "Lei 14.133/2021, Art. 28, I"
-    },
-    "anoCompra": 2026,
     "dataAberturaProposta": "2026-05-25T08:00:00",
     "dataAtualizacao": "2026-05-22T14:01:06",
-    "dataAtualizacaoGlobal": "2026-05-22T14:01:10",
+    "dataAtualizacaoGlobal": "2026-06-11T13:54:09",
     "dataEncerramentoProposta": "2026-06-08T09:20:00",
     "dataInclusao": "2026-05-22T14:01:06",
     "dataPublicacaoPncp": "2026-05-22T14:01:06",
@@ -4767,7 +4714,7 @@
     "unidadeSubRogada": null,
     "usuarioNome": "SMARAPD INFORMATICA LTDA",
     "valorTotalEstimado": 33003.0,
-    "valorTotalHomologado": null
+    "valorTotalHomologado": 26487.0
   },
   {
     "amparoLegal": {
@@ -4883,8 +4830,8 @@
     },
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-05-27T08:00:00",
-    "dataAtualizacao": "2026-05-26T10:59:10",
-    "dataAtualizacaoGlobal": "2026-05-26T10:59:13",
+    "dataAtualizacao": "2026-06-10T11:33:36",
+    "dataAtualizacaoGlobal": "2026-06-10T11:33:36",
     "dataEncerramentoProposta": "2026-06-10T08:50:00",
     "dataInclusao": "2026-05-26T10:59:10",
     "dataPublicacaoPncp": "2026-05-26T10:59:10",
@@ -5096,7 +5043,7 @@
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-05-27T08:00:00",
     "dataAtualizacao": "2026-05-27T08:47:31",
-    "dataAtualizacaoGlobal": "2026-05-27T08:47:36",
+    "dataAtualizacaoGlobal": "2026-06-09T10:16:02",
     "dataEncerramentoProposta": "2026-06-10T13:50:00",
     "dataInclusao": "2026-05-27T08:47:31",
     "dataPublicacaoPncp": "2026-05-27T08:47:31",

@@ -1,6 +1,6 @@
 {
   "failures": [],
-  "generated_at": "2026-06-08T22:11:32+00:00",
+  "generated_at": "2026-06-15T23:10:07+00:00",
   "modality": {
     "id": 6,
     "name": "Pregao - Eletronico"
@@ -39,7 +39,7 @@
       "city": "Vitoria",
       "kind": "matrix_cnpj",
       "path": "data/raw/vitoria_cnpj_27142058000126_contratacoes.json",
-      "records": 98
+      "records": 97
     }
   ]
 }

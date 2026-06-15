@@ -640,7 +640,7 @@ def write_sample_csv(path: Path, rows: list[dict[str, Any]]) -> None:
     ]
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         for record in rows:
             writer.writerow(
@@ -667,7 +667,7 @@ def write_field_completeness_csv(path: Path, metrics: dict[str, Any]) -> None:
     fields = ["city", "field", "present", "sample_count", "share"]
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         for row in rows:
             if isinstance(row, dict):

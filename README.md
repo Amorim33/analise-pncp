@@ -10,7 +10,8 @@ O recorte inicial usa:
 - capitais: Sao Paulo, Rio de Janeiro, Belo Horizonte e Vitoria;
 - amostra: ate 10 contratacoes por capital, com sorteio deterministico.
 
-O artefato final e `analise-exploratoria.md`.
+Os artefatos principais sao `analise-exploratoria.md` e
+`paper/output/relatorio-final.pdf`.
 
 ## Objetivo
 
@@ -38,6 +39,7 @@ Rodar o fluxo completo:
 
 ```bash
 uv run pncp-analysis run-all
+uv run pncp-analysis paper
 ```
 
 Ou executar por etapas:
@@ -47,6 +49,7 @@ uv run pncp-analysis collect
 uv run pncp-analysis sample
 uv run pncp-analysis analyze
 uv run pncp-analysis report
+uv run pncp-analysis paper --tex-only
 ```
 
 Saidas:
@@ -54,10 +57,38 @@ Saidas:
 - `data/raw/`: snapshots JSON da API;
 - `data/processed/`: amostra, metricas e tabelas derivadas;
 - `analise-exploratoria.md`: relatorio final.
+- `paper/relatorio-final.md`: fonte academica com citacoes Pandoc.
+- `paper/output/relatorio-final.tex`: fonte LaTeX.
+- `paper/output/relatorio-final.pdf`: PDF final.
 
 O relatorio inclui exemplos compactos de registros retornados pela API, metricas
 de completude, estatisticas de documentos vinculados e evidencias especificas
 para sustentar a fragmentacao de CNPJs em Sao Paulo.
+
+## Relatorio final em LaTeX/PDF
+
+Edite `config/paper.yaml` para preencher autoria, instituicao e declaracao de
+uso de IA. Em modo `draft`, placeholders sao permitidos. Em modo `final`, o
+comando falha se ainda houver metadados iniciados por `PREENCHER`, exceto quando
+`--allow-placeholders` for usado explicitamente.
+
+Gerar o paper:
+
+```bash
+uv run pncp-analysis paper
+```
+
+Gerar apenas LaTeX:
+
+```bash
+uv run pncp-analysis paper --tex-only
+```
+
+Rodar tudo:
+
+```bash
+make final
+```
 
 ## Metodologia operacional
 
