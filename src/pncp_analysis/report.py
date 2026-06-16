@@ -4,25 +4,36 @@ import json
 from typing import Any
 
 from pncp_analysis.config import AnalysisConfig
-from pncp_analysis.utils import format_display_date_range, format_percent, markdown_table
+from pncp_analysis.utils import (
+    format_display_date,
+    format_display_date_range,
+    format_percent,
+    markdown_table,
+)
 
 
 def render_report(
     config: AnalysisConfig,
     metrics: dict[str, Any],
     sampled: list[dict[str, Any]],
+    collection_metadata: dict[str, Any] | None = None,
+    pipeline_metadata: dict[str, Any] | None = None,
 ) -> str:
+    collection_metadata = collection_metadata or {}
+    pipeline_metadata = pipeline_metadata or {}
     city_metrics = metrics.get("city_metrics", [])
     field_completeness = metrics.get("field_completeness", [])
     top_sp = metrics.get("sao_paulo_top_cnpjs", [])
     sp_fragmentation = metrics.get("sao_paulo_fragmentation_evidence", {})
     sample_rows = metrics.get("sample_rows", [])
     api_examples = metrics.get("api_examples", [])
+    completeness_examples = metrics.get("completeness_examples", [])
     additional_findings = metrics.get("additional_findings", [])
     document_stats = metrics.get("document_stats", [])
     limitations = metrics.get("limitations", [])
     sample = metrics.get("sample", {})
     document_sample = metrics.get("document_sample", {})
+    api_experiment = metrics.get("api_experiment", {})
     date_range = format_display_date_range(config.start_date, config.end_date)
 
     parts = [
@@ -41,6 +52,17 @@ def render_report(
         "O principal achado metodologico e que Sao Paulo aparece de forma fragmentada: "
         "a consulta apenas pelo CNPJ matriz subrepresenta o municipio, enquanto a busca "
         "por codigo IBGE revela varios CNPJs municipais executivos.",
+        "",
+        "## Questoes de pesquisa",
+        "",
+        (
+            "- Q1. Ha completude nos dados fornecidos pelo PNCP nas prefeituras das "
+            "capitais dos estados do Sudeste brasileiro (Sao Paulo, Rio de Janeiro, "
+            "Belo Horizonte e Vitoria)?"
+        ),
+        (
+            "- Q2. Os dados das APIs do PNCP sao facilmente consumiveis?"
+        ),
         "",
         "## Metodologia",
         "",
@@ -112,6 +134,22 @@ def render_report(
         "",
         "## Completude dos dados",
         "",
+        (
+            "Para Q1, a completude foi avaliada campo a campo na amostra principal, "
+            "que contem todos os registros elegiveis. Objeto, valor estimado, datas "
+            "basicas e unidade administrativa aparecem como campos de alta "
+            "disponibilidade; as maiores fragilidades estao em valor homologado, link "
+            "do sistema de origem e, no caso de documentos, na subamostra documental."
+        ),
+        "",
+        render_completeness_matrix(field_completeness),
+        "",
+        "Exemplos sorteados de forma pseudoaleatoria, com seed fixa:",
+        "",
+        render_completeness_examples(completeness_examples),
+        "",
+        "Tabela completa de campos analisados:",
+        "",
         render_completeness_table(field_completeness),
         "",
         "## Documentos vinculados",
@@ -123,6 +161,20 @@ def render_report(
         "subamostra documental. Essas metricas nao avaliam a qualidade textual dos "
         "documentos, mas indicam se um cidadao ou pesquisador consegue localizar "
         "informacoes basicas para controle social.",
+        "",
+        "## Consumo da API",
+        "",
+        (
+            "Para Q2, o pipeline registrou a duracao da coleta e das chamadas ao "
+            "endpoint de documentos, alem do tempo medio de resposta bem-sucedida. "
+            "A facilidade de consumo e parcial: a API e estruturada e paginada, mas "
+            "exige controle de janela temporal, backoff para limite de taxa e validacao "
+            "de `Content-Type` para evitar parse de respostas nao JSON."
+        ),
+        "",
+        render_api_performance(collection_metadata, api_experiment, pipeline_metadata),
+        "",
+        render_api_error_notes(collection_metadata, api_experiment, pipeline_metadata),
         "",
         "## Limitacoes",
         "",
@@ -323,6 +375,70 @@ def render_completeness_table(field_completeness: Any) -> str:
     return markdown_table(["Capital", "Campo", "Presentes", "Amostra", "Percentual"], rows)
 
 
+def render_completeness_matrix(field_completeness: Any) -> str:
+    fields = [
+        "Objeto",
+        "Valor estimado",
+        "Valor homologado",
+        "Data de publicacao",
+        "Unidade",
+        "Link de origem",
+        "Documentos",
+    ]
+    cities = []
+    if isinstance(field_completeness, list):
+        for item in field_completeness:
+            if isinstance(item, dict) and item.get("city") not in cities:
+                cities.append(item.get("city"))
+
+    rows = []
+    for city in cities:
+        rows.append(
+            [
+                city,
+                *[
+                    format_percent(find_completeness_share(field_completeness, city, field))
+                    for field in fields
+                ],
+            ]
+        )
+    return markdown_table(["Capital", *fields], rows)
+
+
+def render_completeness_examples(examples: Any) -> str:
+    if not isinstance(examples, list) or not examples:
+        return "- Nenhum exemplo de completude registrado."
+
+    rows = []
+    for item in examples:
+        if isinstance(item, dict):
+            rows.append(
+                [
+                    item.get("city", ""),
+                    item.get("numeroControlePNCP", ""),
+                    format_display_date(str(item.get("dataPublicacaoPncp") or "")),
+                    presence_label(item.get("valorTotalHomologado")),
+                    presence_label(item.get("linkSistemaOrigem")),
+                    item.get("document_count", 0),
+                    truncate(str(item.get("objetoCompra") or ""), 90),
+                ]
+            )
+    return markdown_table(
+        ["Capital", "Controle PNCP", "Data", "Valor homologado", "Link", "Docs", "Objeto"],
+        rows,
+    )
+
+
+def find_completeness_share(field_completeness: Any, city: Any, field: str) -> float | None:
+    if not isinstance(field_completeness, list):
+        return None
+    for item in field_completeness:
+        if isinstance(item, dict) and item.get("city") == city and item.get("field") == field:
+            value = item.get("share")
+            return value if isinstance(value, float) else None
+    return None
+
+
 def render_document_stats(document_stats: Any) -> str:
     rows = []
     if isinstance(document_stats, list):
@@ -353,6 +469,133 @@ def render_document_stats(document_stats: Any) -> str:
     )
 
 
+def render_api_performance(
+    collection_metadata: dict[str, Any],
+    api_experiment: Any,
+    pipeline_metadata: dict[str, Any],
+) -> str:
+    collection_perf = collection_metadata.get("api_performance", {})
+    if not isinstance(collection_perf, dict):
+        collection_perf = {}
+    document_perf = {}
+    if isinstance(api_experiment, dict) and isinstance(
+        api_experiment.get("document_api_performance"),
+        dict,
+    ):
+        document_perf = api_experiment["document_api_performance"]
+
+    collection_duration = optional_float(collection_metadata.get("duration_seconds"))
+    document_duration = optional_float(api_experiment.get("duration_seconds")) if isinstance(
+        api_experiment,
+        dict,
+    ) else None
+    pipeline_duration = optional_float(pipeline_metadata.get("duration_seconds"))
+    if pipeline_duration is None:
+        pipeline_duration = sum(
+            value for value in [collection_duration, document_duration] if value
+        )
+
+    attempt = pipeline_metadata.get("collection_attempt", {})
+    attempt_failed = isinstance(attempt, dict) and attempt.get("status") == "failed"
+    rows = [
+        performance_row(
+            "Snapshots de contratações" if attempt_failed else "Coleta de contratações",
+            collection_perf,
+            collection_duration,
+        ),
+    ]
+    if attempt_failed:
+        attempt_perf = attempt.get("api_performance", {})
+        rows.append(
+            performance_row(
+                "Tentativa live de coleta",
+                attempt_perf if isinstance(attempt_perf, dict) else {},
+                optional_float(attempt.get("duration_seconds")),
+            )
+        )
+    rows.extend(
+        [
+            performance_row("Consulta de documentos", document_perf, document_duration),
+            [
+                "Experimento total do relatório",
+                "",
+                "",
+                "",
+                format_seconds(pipeline_duration),
+                "",
+            ],
+        ]
+    )
+    return markdown_table(
+        ["Etapa", "Requisições", "Sucessos", "Tempo médio", "Duração", "Falhas"],
+        rows,
+    )
+
+
+def performance_row(label: str, performance: dict[str, Any], duration: float | None) -> list[Any]:
+    return [
+        label,
+        performance.get("request_count", "n/a"),
+        performance.get("successful_request_count", "n/a"),
+        format_seconds(optional_float(performance.get("average_success_response_seconds"))),
+        format_seconds(duration),
+        performance.get("failed_attempt_count", "n/a"),
+    ]
+
+
+def render_api_error_notes(
+    collection_metadata: dict[str, Any],
+    api_experiment: Any,
+    pipeline_metadata: dict[str, Any],
+) -> str:
+    collection_failures = collection_metadata.get("failures", [])
+    document_failures = []
+    observed_errors = []
+    if isinstance(api_experiment, dict):
+        raw_document_failures = api_experiment.get("document_api_failures", [])
+        if isinstance(raw_document_failures, list):
+            document_failures = raw_document_failures
+        raw_observed = api_experiment.get("observed_experiment_errors", [])
+        if isinstance(raw_observed, list):
+            observed_errors = [str(item) for item in raw_observed]
+
+    attempt = pipeline_metadata.get("collection_attempt", {})
+    attempt_failed = isinstance(attempt, dict) and attempt.get("status") == "failed"
+    collection_failure_count = (
+        len(collection_failures) if isinstance(collection_failures, list) else 0
+    )
+    if attempt_failed:
+        lines = [
+            (
+                "- Os snapshots de coleta reutilizados registravam "
+                f"{collection_failure_count} falhas persistentes na coleta bem-sucedida "
+                "anterior."
+            ),
+            (
+                "- Na execução final, a consulta de documentos registrou "
+                f"{len(document_failures)} falhas persistentes."
+            ),
+        ]
+    else:
+        lines = [
+            (
+                "- Na execução final, a coleta registrou "
+                f"{collection_failure_count} falhas persistentes."
+            ),
+            (
+                "- Na execução final, a consulta de documentos registrou "
+                f"{len(document_failures)} falhas persistentes."
+            ),
+        ]
+    if attempt_failed:
+        lines.append(
+            "- A tentativa live desta execução falhou e o pipeline reutilizou snapshots "
+            f"existentes. Erro registrado: {truncate(str(attempt.get('error') or ''), 220)}"
+        )
+    lines.extend(f"- Durante a experimentação: {item}" for item in observed_errors)
+    return "\n".join(lines)
+
+
 def render_limitations(limitations: Any) -> str:
     if not isinstance(limitations, list):
         return "- Nenhuma limitacao registrada."
@@ -360,10 +603,38 @@ def render_limitations(limitations: Any) -> str:
 
 
 def truncate(value: str, max_length: int) -> str:
-    clean = " ".join(value.split())
+    clean = " ".join(value.replace("\\n", " ").replace("\\r", " ").split())
     if len(clean) <= max_length:
         return clean
     return clean[: max_length - 3] + "..."
+
+
+def presence_label(value: Any) -> str:
+    if value is None:
+        return "ausente"
+    if isinstance(value, str) and not value.strip():
+        return "ausente"
+    if isinstance(value, list) and not value:
+        return "ausente"
+    return "presente"
+
+
+def optional_float(value: Any) -> float | None:
+    if isinstance(value, int | float):
+        return float(value)
+    return None
+
+
+def format_seconds(value: float | None) -> str:
+    if value is None:
+        return "n/a"
+    if value < 60:
+        return f"{value:.2f}s"
+    minutes, seconds = divmod(value, 60)
+    if minutes < 60:
+        return f"{int(minutes)}min {seconds:.1f}s"
+    hours, remainder = divmod(minutes, 60)
+    return f"{int(hours)}h {int(remainder)}min {seconds:.0f}s"
 
 
 def describe_analysis_sample(config: AnalysisConfig, sample: Any) -> str:

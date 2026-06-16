@@ -5,6 +5,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from collections import Counter
 from dataclasses import dataclass
 from typing import Any
 
@@ -20,6 +21,17 @@ RATE_LIMIT_BACKOFF_SECONDS = 60.0
 class ApiFailure:
     url: str
     reason: str
+
+
+@dataclass(frozen=True)
+class ApiRequestMetric:
+    path: str
+    url: str
+    status: int | None
+    duration_seconds: float
+    attempt: int
+    success: bool
+    error: str | None
 
 
 @dataclass(frozen=True)
@@ -55,6 +67,7 @@ class PncpClient:
         self.retries = retries
         self.failures: list[ApiFailure] = []
         self.last_pagination: PaginationMetadata | None = None
+        self.request_metrics: list[ApiRequestMetric] = []
 
     def fetch_contratacoes(
         self,
@@ -226,26 +239,76 @@ class PncpClient:
 
             for attempt in range(1, self.retries + 1):
                 request = urllib.request.Request(url, headers={"Accept": "application/json"})
+                started = time.perf_counter()
                 try:
                     with urllib.request.urlopen(request, timeout=45) as response:
                         status = int(response.status)
                         body = response.read()
                         if status in empty_on_codes:
+                            self._record_request(
+                                path=normalized_path,
+                                url=url,
+                                status=status,
+                                started=started,
+                                attempt=attempt,
+                                success=True,
+                                error=None,
+                            )
                             return []
-                        return ensure_json_payload(response.headers.get("content-type", ""), body)
+                        payload = ensure_json_payload(
+                            response.headers.get("content-type", ""),
+                            body,
+                        )
+                        self._record_request(
+                            path=normalized_path,
+                            url=url,
+                            status=status,
+                            started=started,
+                            attempt=attempt,
+                            success=True,
+                            error=None,
+                        )
+                        return payload
                 except urllib.error.HTTPError as exc:
                     if exc.code in empty_on_codes:
+                        self._record_request(
+                            path=normalized_path,
+                            url=url,
+                            status=exc.code,
+                            started=started,
+                            attempt=attempt,
+                            success=True,
+                            error=None,
+                        )
                         return []
                     body = exc.read()
                     content_type = exc.headers.get("content-type", "")
                     last_error = RuntimeError(
                         f"HTTP {exc.code}; content-type={content_type}; body={body[:160]!r}"
                     )
+                    self._record_request(
+                        path=normalized_path,
+                        url=url,
+                        status=exc.code,
+                        started=started,
+                        attempt=attempt,
+                        success=False,
+                        error=str(last_error),
+                    )
                     if exc.code == 429 and attempt < self.retries:
                         time.sleep(RATE_LIMIT_BACKOFF_SECONDS * attempt)
                         continue
                 except Exception as exc:  # noqa: BLE001 - collect API boundary failures explicitly.
                     last_error = exc
+                    self._record_request(
+                        path=normalized_path,
+                        url=url,
+                        status=None,
+                        started=started,
+                        attempt=attempt,
+                        success=False,
+                        error=str(exc),
+                    )
 
                 if attempt < self.retries:
                     time.sleep(self.delay_seconds * attempt)
@@ -253,6 +316,75 @@ class PncpClient:
             self.failures.append(ApiFailure(url=url, reason=str(last_error)))
 
         raise RuntimeError(f"PNCP request failed for {path}: {last_error}")
+
+    def _record_request(
+        self,
+        *,
+        path: str,
+        url: str,
+        status: int | None,
+        started: float,
+        attempt: int,
+        success: bool,
+        error: str | None,
+    ) -> None:
+        self.request_metrics.append(
+            ApiRequestMetric(
+                path=path,
+                url=url,
+                status=status,
+                duration_seconds=time.perf_counter() - started,
+                attempt=attempt,
+                success=success,
+                error=error,
+            )
+        )
+
+    def request_summary(self) -> dict[str, Any]:
+        successes = [metric for metric in self.request_metrics if metric.success]
+        failures = [metric for metric in self.request_metrics if not metric.success]
+        success_durations = [metric.duration_seconds for metric in successes]
+        return {
+            "request_count": len(self.request_metrics),
+            "successful_request_count": len(successes),
+            "failed_attempt_count": len(failures),
+            "average_success_response_seconds": rounded_average(success_durations),
+            "max_success_response_seconds": round(max(success_durations), 3)
+            if success_durations
+            else None,
+            "total_success_response_seconds": round(sum(success_durations), 3),
+            "status_counts": {
+                str(status): count
+                for status, count in sorted(
+                    Counter(
+                        metric.status
+                        for metric in self.request_metrics
+                        if metric.status is not None
+                    ).items()
+                )
+            },
+            "paths": {
+                path: count
+                for path, count in sorted(
+                    Counter(metric.path for metric in self.request_metrics).items()
+                )
+            },
+            "failure_examples": [
+                {
+                    "path": metric.path,
+                    "status": metric.status,
+                    "attempt": metric.attempt,
+                    "error": metric.error,
+                }
+                for metric in failures[:5]
+            ],
+        }
+
+
+def rounded_average(values: list[float]) -> float | None:
+    if not values:
+        return None
+    return round(sum(values) / len(values), 3)
 
 
 def optional_int(value: Any) -> int | None:

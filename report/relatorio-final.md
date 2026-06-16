@@ -13,7 +13,11 @@ abstract: "Relatório acadêmico exploratório sobre transparência, reutilizaç
 
 # Introdução
 
-Este trabalho analisa o Portal Nacional de Contratações Públicas (PNCP) como infraestrutura de governo aberto nas capitais do Sudeste brasileiro. A pergunta de pesquisa é: em que medida a publicação de contratações no PNCP favorece transparência, reutilização de dados e controle social nas prefeituras das capitais dos estados do sudeste brasileiro (São Paulo, Rio de Janeiro, Belo Horizonte e Vitória)?
+Este trabalho analisa o Portal Nacional de Contratações Públicas (PNCP) como infraestrutura de governo aberto nas capitais do Sudeste brasileiro. A investigação foi organizada em duas questões de pesquisa:
+
+Q1. Há completude nos dados fornecidos pelo PNCP nas prefeituras das capitais dos estados do sudeste brasileiro (São Paulo, Rio de Janeiro, Belo Horizonte e Vitória)?
+
+Q2. Os dados das APIs do PNCP são facilmente consumíveis?
 
 O tema dialoga com a disciplina Governo Aberto porque combina acesso à informação, padrões tecnológicos, dados abertos e accountability. A própria disciplina orienta que o trabalho articule problema, objetivos, método e conclusões, com atenção à estrutura textual e às normas de citação [@curso2026]. O PNCP é especialmente relevante porque a Lei nº 14.133/2021 o institui como ambiente nacional de divulgação de contratações públicas [@lei14133].
 
@@ -21,7 +25,7 @@ O argumento central é que o PNCP amplia a transparência formal ao centralizar 
 
 # Objetivos e método
 
-O objetivo geral é avaliar, de forma exploratória, como o PNCP expressa princípios de governo aberto nas contratações das capitais do Sudeste. Os objetivos específicos são: comparar volume e concentração institucional dos registros, verificar a completude de campos essenciais, observar a presença de documentos e discutir a fragmentação de CNPJs em São Paulo.
+O objetivo geral é avaliar, de forma exploratória, como o PNCP expressa princípios de governo aberto nas contratações das capitais do Sudeste. Os objetivos específicos são: comparar volume e concentração institucional dos registros, verificar a completude de campos essenciais, observar exemplos sorteados da API, medir a experiência de consumo dos endpoints e discutir a fragmentação de CNPJs em São Paulo.
 
 O recorte empírico considera pregões eletrônicos, modalidade 6 no PNCP, publicados entre 15/06/2025 a 15/06/2026. Foram usados os CNPJs matriz das prefeituras de Rio de Janeiro, Belo Horizonte e Vitória. Para São Paulo, combinou-se o CNPJ matriz com uma varredura por UF e código IBGE, filtrando entidades municipais executivas.
 
@@ -70,24 +74,23 @@ A primeira diferença relevante está na concentração institucional. Rio de Ja
 
 Esse resultado é substantivo para governo aberto. Uma consulta limitada ao CNPJ matriz de São Paulo recuperaria apenas uma fração dos registros elegíveis. Portanto, a transparência formal do PNCP convive com uma barreira de reconstrução institucional: o cidadão precisa saber que a prefeitura pode publicar contratações por diferentes CNPJs municipais.
 
-## Completude e rastreabilidade
+## Q1: completude dos dados
 
-| Capital | Campo | Presentes | Amostra | Percentual |
-| --- | --- | --- | --- | --- |
-| Sao Paulo | Valor homologado | 1608 | 2662 | 60.4% |
-| Sao Paulo | Link de origem | 2658 | 2662 | 99.8% |
-| Sao Paulo | Documentos | 100 | 100 | 100.0% |
-| Rio de Janeiro | Valor homologado | 563 | 896 | 62.8% |
-| Rio de Janeiro | Link de origem | 896 | 896 | 100.0% |
-| Rio de Janeiro | Documentos | 100 | 100 | 100.0% |
-| Belo Horizonte | Valor homologado | 227 | 291 | 78.0% |
-| Belo Horizonte | Link de origem | 282 | 291 | 96.9% |
-| Belo Horizonte | Documentos | 100 | 100 | 100.0% |
-| Vitoria | Valor homologado | 156 | 234 | 66.7% |
-| Vitoria | Link de origem | 0 | 234 | 0.0% |
-| Vitoria | Documentos | 100 | 100 | 100.0% |
+| Capital | Obj. | Estim. | Homol. | Data | Unid. | Link | Docs |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Sao Paulo | 100.0% | 100.0% | 60.4% | 100.0% | 100.0% | 99.8% | 100.0% |
+| Rio de Janeiro | 100.0% | 100.0% | 62.8% | 100.0% | 100.0% | 100.0% | 100.0% |
+| Belo Horizonte | 100.0% | 100.0% | 78.0% | 100.0% | 100.0% | 96.9% | 100.0% |
+| Vitoria | 100.0% | 100.0% | 66.7% | 100.0% | 100.0% | 0.0% | 100.0% |
 
-Nos registros elegíveis, objeto, datas básicas e unidade administrativa estiveram amplamente disponíveis; documentos foram avaliados na subamostra documental. A principal variação apareceu em valor homologado e link do sistema de origem. Vitória, por exemplo, teve documentos nos itens da subamostra documental, mas nenhum registro elegível trouxe `linkSistemaOrigem`, o que reduz a rastreabilidade para o ambiente de origem.
+A resposta a Q1 é positiva para os campos estruturantes do registro, mas com ressalvas relevantes. Nos registros elegíveis, objeto, valor estimado, datas básicas e unidade administrativa tiveram alta disponibilidade. A variação concentrou-se em valor homologado, link do sistema de origem e documentos, que foram avaliados na subamostra documental. Essa diferença importa para controle social porque a ausência de resultado homologado ou de link externo dificulta a reconstituição completa do processo.
+
+Exemplos pseudoaleatórios da subamostra documental ilustram essa variação:
+
+- Sao Paulo (`13864377000130-1-002050/2025`): data 18/11/2025; valor homologado presente; link de origem presente; 1 documento(s); objeto: REGISTRO De PREÇOS PARA O FORNECIMENTO CANULA TRAQUEOSTOMIA COM BALAO, DESCARTAVEL, ESTERIL - NR. 4,5 E SONDA ENDOTRAQUEAL, COM BALAO, RADIOPACO, D...
+- Rio de Janeiro (`42498733000148-1-001315/2025`): data 24/07/2025; valor homologado presente; link de origem presente; 1 documento(s); objeto: Aquisição de Equipamento de Proteção Individual –EPI
+- Belo Horizonte (`18715383000140-1-000189/2026`): data 27/03/2026; valor homologado presente; link de origem presente; 1 documento(s); objeto: O objeto da presente licitação é o registro de preços para aquisição de materiais de higiene e limpeza específicos, conforme condições e exigências...
+- Vitoria (`27142058000126-1-000676/2025`): data 28/11/2025; valor homologado presente; link de origem ausente; 6 documento(s); objeto: REGISTRO DE PREÇOS VISANDO FUTURO E EVENTUAL FORNECIMENTO DE ÁGUA MINERAL GALÃO 20L
 
 | Capital | Com documentos | Amostra | Mín. | Máx. | Média |
 | --- | --- | --- | --- | --- | --- |
@@ -96,6 +99,23 @@ Nos registros elegíveis, objeto, datas básicas e unidade administrativa estive
 | Belo Horizonte | 100 | 100 | 1 | 2 | 1.0 |
 | Vitoria | 100 | 100 | 1 | 12 | 5.3 |
 
+## Q2: consumo da API
+
+| Etapa | Req. | Sucesso | Média | Duração | Falhas |
+| --- | --- | --- | --- | --- | --- |
+| Snapshots | n/a | n/a | n/a | n/a | n/a |
+| Tentativa live | 6 | 0 | n/a | 2min 56.6s | 6 |
+| Documentos | 400 | 400 | 0.10s | 40.51s | 0 |
+| Total |  |  |  | 3min 37.8s |  |
+
+A resposta a Q2 é intermediária. A API é consumível por scripts, retorna JSON estruturado e expõe paginação, mas o consumo não é trivial em uma janela anual: foi necessário dividir consultas em blocos mensais, respeitar pausas entre requisições e tratar limite de taxa. A duração total do experimento inclui coleta de contratações, geração da amostra e consulta a documentos da subamostra.
+
+Os snapshots de coleta reutilizados registravam 0 falha(s) persistente(s) na coleta bem-sucedida anterior. Na execução final, a consulta de documentos registrou 0 falha(s) persistente(s).
+
+A tentativa live desta execução falhou e o pipeline reutilizou snapshots existentes. Erro registrado: PNCP request failed for /v1/contratacoes/publicacao: HTTP 503; content-type=text/html; body=b'<html><body><h1>503 Service Unavailable</h1> No server is available to handle this request. </body></html> '
+
+Durante a experimentação, apareceram estes problemas: HTTP 429 em chamadas repetidas, tratado com backoff e nova tentativa.; Timeouts em paginação anual longa, mitigados pela coleta em chunks mensais de 31 dias.; Risco de resposta HTML com HTTP 200, tratado por validação de Content-Type antes do parse JSON.
+
 ## Constatações empíricas
 
 - Na amostra candidata de Sao Paulo, 98.9% dos registros elegiveis ficaram fora do CNPJ matriz; nas demais capitais analisadas, os registros por CNPJ matriz concentraram 100% dos candidatos coletados.
@@ -103,10 +123,6 @@ Nos registros elegíveis, objeto, datas básicas e unidade administrativa estive
 - Vitoria teve documentos vinculados em todos os itens da subamostra documental, mas nenhum dos registros elegiveis trouxe `linkSistemaOrigem`, o que reduz a rastreabilidade para o sistema de origem.
 - O valor homologado apareceu com menor completude em Sao Paulo (60.4%), indicando que parte dos registros estava em fase anterior ao resultado ou sem homologacao registrada no recorte.
 - A quantidade de documentos anexados variou de forma relevante: em Vitoria, um item da amostra chegou a 12 documentos, enquanto outros municipios tiveram padrao mais concentrado.
-
-## Exemplos de registros
-
-Os exemplos completos foram deslocados para o Apêndice A. No corpo do texto, basta notar que um registro da Secretaria Municipal de Saúde de São Paulo retorna CNPJ do Fundo Municipal de Saúde, unidade `PMSP - SECRETARIA MUNICIPAL DE SAÚDE`, objeto de aquisição hospitalar e documento de edital. Já o exemplo no CNPJ matriz retorna `MUNICIPIO DE SAO PAULO` e unidade da Secretaria do Governo Municipal. Essa diferença concreta sustenta a leitura de fragmentação institucional.
 
 # Conclusões
 
@@ -134,7 +150,7 @@ Como conclusão regional exploratória, as capitais do Sudeste analisadas aprese
 - Valor homologado: não informado
 - Situação: Divulgada no PNCP
 - Documentos listados no exemplo: 0
-- Objeto: CONTRATAÇÃO DE EMPRESA DO RAMO PARA A AQUISIÇÃO E INSTALAÇÃO DE PARQUE INFANTIL, DEVIDAMENTE CERTIFICADO POR ÓRGÃO COMPETENTE, PARA ATENDER AS NECESSIDADES DO FUNDO MUNICIPAL DE EDUCAÇÃO/FME, CONFORME EMENDA PARLAMENTAR Nº 1299.2/2025, PROCESSO Nº 202500005022377.
+- Objeto: CONTRATAÇÃO DE EMPRESA DO RAMO PARA A AQUISIÇÃO E INSTALAÇÃO DE PARQUE INFANTIL, DEVIDAMENTE CERTIFICADO POR ÓRGÃO COMPETENTE, PARA ATENDER AS NECESSIDADES DO FUNDO MUNICIPAL DE EDUCAÇÃO/FME, CONFORME EMENDA PARLAMENTAR Nº 1299.2/2025, PROCESSO Nº 202500005...
 
 ## Sao Paulo - exemplo no CNPJ matriz
 
@@ -145,7 +161,7 @@ Como conclusão regional exploratória, as capitais do Sudeste analisadas aprese
 - Valor homologado: 42066.57
 - Situação: Divulgada no PNCP
 - Documentos listados no exemplo: 0
-- Objeto: Aquisição de materiais de construção, abrangendo itens das linhas hidráulica, elétrica, ferragens, pintura, alvenaria, acabamentos e correlatos, conforme as especificações, quantidades e condições estabelecidas neste Termo de Referência considerando AUSÊNCIA de código específico para cada item no www.gov.br/compras, solicitamos que para a formação da proposta de preços e o registro no sistema, o licitante baseie-se EXCLUSIVAMENTE, nas informaç...
+- Objeto: Aquisição de materiais de construção, abrangendo itens das linhas hidráulica, elétrica, ferragens, pintura, alvenaria, acabamentos e correlatos, conforme as especificações, quantidades e condições estabelecidas neste Termo de Referência considerando AUSÊNCI...
 
 ## Rio de Janeiro
 
@@ -156,7 +172,7 @@ Como conclusão regional exploratória, as capitais do Sudeste analisadas aprese
 - Valor homologado: não informado
 - Situação: Divulgada no PNCP
 - Documentos listados no exemplo: 0
-- Objeto: CoNTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA PRESTAÇÃO DE SERVIÇOS DE PLANEJAMENTO, ORGANIZAÇÃO, EXECUÇÃO, ACOMPANHAMENTO, FORNECIMENTO DE BENS E INSUMOS, INFRAESTRUTURA E APOIO LOGÍSTICO, VISANDO A REALIZAÇÃO DO BAILE DA CINELÂNDIA E DESFILES DA AVENIDA CHILE, CARNAVAL DO RIO 2026
+- Objeto: CoNTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA PRESTAÇÃO DE SERVIÇOS DE PLANEJAMENTO, ORGANIZAÇÃO, EXECUÇÃO, ACOMPANHAMENTO, FORNECIMENTO DE BENS E INSUMOS, INFRAESTRUTURA E APOIO LOGÍSTICO, VISANDO A REALIZAÇÃO DO BAILE DA CINELÂNDIA E DESFILES DA AVENIDA CHILE...
 
 ## Belo Horizonte
 
@@ -167,18 +183,7 @@ Como conclusão regional exploratória, as capitais do Sudeste analisadas aprese
 - Valor homologado: 1969468.81
 - Situação: Divulgada no PNCP
 - Documentos listados no exemplo: 0
-- Objeto: O objeto da presente licitação é a aquisição de COLETES DE PROTEÇÃO BALÍSTICA FLEXÍVEL, PARA USO POLICIAL, NÍVEL DE PROTEÇÃO III-A, COM CAPA EXTERNA TIPO MODULAR (COM CAPA SOBRESSALENTE TIPO MODULAR), com a finalidade de atender atividades operacionais da Guarda Civil Municipal de Belo Horizonte, conforme condições e exigências estabelecidas neste Edital, Termo de Referência e demais anexos.
-
-## Vitoria
-
-- Controle PNCP: `27142058000126-1-000005/2026`
-- CNPJ/órgão: `27142058000126` — MUNICIPIO DE VITORIA
-- Unidade: PREFEITURA MUNICIPAL DE VITORIA
-- Valor estimado: 31435.32
-- Valor homologado: 28209.6
-- Situação: Divulgada no PNCP
-- Documentos listados no exemplo: 0
-- Objeto: AQUISIÇÃO DE CLIMATIZADORES DE AR
+- Objeto: O objeto da presente licitação é a aquisição de COLETES DE PROTEÇÃO BALÍSTICA FLEXÍVEL, PARA USO POLICIAL, NÍVEL DE PROTEÇÃO III-A, COM CAPA EXTERNA TIPO MODULAR (COM CAPA SOBRESSALENTE TIPO MODULAR), com a finalidade de atender atividades operacionais da G...
 
 
 # Apêndice B: declaração de uso de IA

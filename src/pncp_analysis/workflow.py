@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import time
 from collections import Counter, defaultdict
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -45,87 +46,96 @@ def collect(config_path: Path = DEFAULT_CONFIG_PATH, limit: int | None = None) -
     client = build_client(config)
     RAW_DIR.mkdir(parents=True, exist_ok=True)
 
+    started = time.perf_counter()
+    started_at = utc_now_iso()
     metadata: dict[str, Any] = {
-        "generated_at": utc_now_iso(),
+        "started_at": started_at,
         "period": {"start": config.start_date, "end": config.end_date},
         "modality": {"id": config.modality_id, "name": config.modality_name},
         "sources": [],
         "failures": [],
     }
 
-    for city in config.cities:
-        print(f"Collecting {city.name} by matrix CNPJ...", flush=True)
-        matrix_records, matrix_metadata = fetch_contratacoes_by_chunks(
-            client,
-            config,
-            city,
-            cnpj=city.matrix_cnpj,
-            limit=limit,
-            label=f"{city.name} matrix CNPJ",
-        )
-        matrix_path = RAW_DIR / f"{city.slug}_cnpj_{city.matrix_cnpj}_contratacoes.json"
-        write_json(matrix_path, matrix_records)
-        metadata["sources"].append(
-            {
-                "city": city.name,
-                "kind": "matrix_cnpj",
-                "path": str(matrix_path.relative_to(REPO_ROOT)),
-                "records": len(matrix_records),
-                **matrix_metadata,
-            }
-        )
-        print(f"Collected {len(matrix_records)} matrix records for {city.name}.", flush=True)
-
-        if city.investigate_fragmentation:
-            print(
-                (
-                    f"Collecting {city.name} municipality scan "
-                    f"({format_page_limit(config.api.municipality_scan_max_pages)})..."
-                ),
-                flush=True,
+    try:
+        for city in config.cities:
+            print(f"Collecting {city.name} by matrix CNPJ...", flush=True)
+            matrix_records, matrix_metadata = fetch_contratacoes_by_chunks(
+                client,
+                config,
+                city,
+                cnpj=city.matrix_cnpj,
+                limit=limit,
+                label=f"{city.name} matrix CNPJ",
             )
-            if config.api.municipality_scan_max_pages is None:
-                municipal_records, municipal_metadata = fetch_contratacoes_by_chunks(
-                    client,
-                    config,
-                    city,
-                    limit=limit,
-                    uf=city.uf,
-                    ibge=city.ibge,
-                    label=f"{city.name} municipality scan",
-                )
-            else:
-                start = date_for_pncp(config.start_date)
-                end = date_for_pncp(config.end_date)
-                municipal_records = client.fetch_contratacoes(
-                    start_date=start,
-                    end_date=end,
-                    modality_id=config.modality_id,
-                    uf=city.uf,
-                    ibge=city.ibge,
-                    limit=limit,
-                    max_pages=config.api.municipality_scan_max_pages,
-                )
-                municipal_metadata = pagination_metadata(client)
-            municipal_path = RAW_DIR / f"{city.slug}_municipio_{city.ibge}_contratacoes.json"
-            write_json(municipal_path, municipal_records)
+            matrix_path = RAW_DIR / f"{city.slug}_cnpj_{city.matrix_cnpj}_contratacoes.json"
+            write_json(matrix_path, matrix_records)
             metadata["sources"].append(
                 {
                     "city": city.name,
-                    "kind": "municipality_scan",
-                    "path": str(municipal_path.relative_to(REPO_ROOT)),
-                    "records": len(municipal_records),
-                    "max_pages": config.api.municipality_scan_max_pages,
-                    **municipal_metadata,
+                    "kind": "matrix_cnpj",
+                    "path": str(matrix_path.relative_to(REPO_ROOT)),
+                    "records": len(matrix_records),
+                    **matrix_metadata,
                 }
             )
-            print(
-                f"Collected {len(municipal_records)} municipality-scan records for {city.name}.",
-                flush=True,
-            )
+            print(f"Collected {len(matrix_records)} matrix records for {city.name}.", flush=True)
 
-    metadata["failures"] = [failure.__dict__ for failure in client.failures]
+            if city.investigate_fragmentation:
+                print(
+                    (
+                        f"Collecting {city.name} municipality scan "
+                        f"({format_page_limit(config.api.municipality_scan_max_pages)})..."
+                    ),
+                    flush=True,
+                )
+                if config.api.municipality_scan_max_pages is None:
+                    municipal_records, municipal_metadata = fetch_contratacoes_by_chunks(
+                        client,
+                        config,
+                        city,
+                        limit=limit,
+                        uf=city.uf,
+                        ibge=city.ibge,
+                        label=f"{city.name} municipality scan",
+                    )
+                else:
+                    start = date_for_pncp(config.start_date)
+                    end = date_for_pncp(config.end_date)
+                    municipal_records = client.fetch_contratacoes(
+                        start_date=start,
+                        end_date=end,
+                        modality_id=config.modality_id,
+                        uf=city.uf,
+                        ibge=city.ibge,
+                        limit=limit,
+                        max_pages=config.api.municipality_scan_max_pages,
+                    )
+                    municipal_metadata = pagination_metadata(client)
+                municipal_path = RAW_DIR / f"{city.slug}_municipio_{city.ibge}_contratacoes.json"
+                write_json(municipal_path, municipal_records)
+                metadata["sources"].append(
+                    {
+                        "city": city.name,
+                        "kind": "municipality_scan",
+                        "path": str(municipal_path.relative_to(REPO_ROOT)),
+                        "records": len(municipal_records),
+                        "max_pages": config.api.municipality_scan_max_pages,
+                        **municipal_metadata,
+                    }
+                )
+                print(
+                    f"Collected {len(municipal_records)} municipality-scan records "
+                    f"for {city.name}.",
+                    flush=True,
+                )
+    except Exception as exc:
+        finalize_collection_metadata(metadata, client, started, status="failed", error=str(exc))
+        write_json(RAW_DIR / "collection_attempt_metadata.json", metadata)
+        raise
+
+    finalize_collection_metadata(metadata, client, started, status="complete")
     write_json(RAW_DIR / "collection_metadata.json", metadata)
+    write_json(RAW_DIR / "collection_attempt_metadata.json", metadata)
 
 
 def sample(config_path: Path = DEFAULT_CONFIG_PATH) -> None:
@@ -168,6 +178,8 @@ def sample(config_path: Path = DEFAULT_CONFIG_PATH) -> None:
 def analyze(config_path: Path = DEFAULT_CONFIG_PATH, skip_documents: bool = False) -> None:
     config = load_config(config_path)
     client = build_client(config)
+    started = time.perf_counter()
+    started_at = utc_now_iso()
     candidates = read_json(PROCESSED_DIR / "candidate_records.json")
     sampled = read_json(PROCESSED_DIR / "sample.json")
     if not isinstance(candidates, list) or not isinstance(sampled, list):
@@ -177,6 +189,9 @@ def analyze(config_path: Path = DEFAULT_CONFIG_PATH, skip_documents: bool = Fals
     write_json(PROCESSED_DIR / "document_sample.json", document_sample)
 
     document_index: dict[str, list[dict[str, Any]]] = {}
+    existing_document_index = read_optional_json(RAW_DIR / "sample_documents.json")
+    if not isinstance(existing_document_index, dict):
+        existing_document_index = {}
     if skip_documents:
         document_index = {}
     else:
@@ -187,13 +202,42 @@ def analyze(config_path: Path = DEFAULT_CONFIG_PATH, skip_documents: bool = Fals
             cnpj = str((record.get("orgaoEntidade") or {}).get("cnpj") or "")
             year = int(record.get("anoCompra") or parse_control_number(control).year)
             sequence = int(record.get("sequencialCompra") or parse_control_number(control).sequence)
-            document_index[control] = client.fetch_purchase_documents(
-                cnpj=cnpj,
-                year=year,
-                sequence=sequence,
-            )
+            try:
+                document_index[control] = client.fetch_purchase_documents(
+                    cnpj=cnpj,
+                    year=year,
+                    sequence=sequence,
+                )
+            except RuntimeError:
+                fallback_docs = existing_document_index.get(control, [])
+                document_index[control] = fallback_docs if isinstance(fallback_docs, list) else []
 
-    metrics = build_metrics(config, candidates, sampled, document_sample, document_index)
+    api_experiment = {
+        "started_at": started_at,
+        "finished_at": utc_now_iso(),
+        "duration_seconds": round(time.perf_counter() - started, 3),
+        "document_api_performance": client.request_summary(),
+        "document_api_failures": [failure.__dict__ for failure in client.failures],
+        "observed_experiment_errors": [
+            "HTTP 429 em chamadas repetidas, tratado com backoff e nova tentativa.",
+            (
+                "Timeouts em paginação anual longa, mitigados pela coleta em chunks "
+                "mensais de 31 dias."
+            ),
+            (
+                "Risco de resposta HTML com HTTP 200, tratado por validação de "
+                "Content-Type antes do parse JSON."
+            ),
+        ],
+    }
+    metrics = build_metrics(
+        config,
+        candidates,
+        sampled,
+        document_sample,
+        document_index,
+        api_experiment=api_experiment,
+    )
     write_json(RAW_DIR / "sample_documents.json", document_index)
     write_json(PROCESSED_DIR / "metrics.json", metrics)
     write_field_completeness_csv(PROCESSED_DIR / "field_completeness.csv", metrics)
@@ -207,14 +251,51 @@ def report(config_path: Path = DEFAULT_CONFIG_PATH) -> None:
     config = load_config(config_path)
     metrics = read_json(PROCESSED_DIR / "metrics.json")
     sampled = read_json(PROCESSED_DIR / "sample.json")
-    REPORT_PATH.write_text(render_report(config, metrics, sampled), encoding="utf-8")
+    collection_metadata = read_optional_json(RAW_DIR / "collection_metadata.json")
+    pipeline_metadata = read_optional_json(PROCESSED_DIR / "pipeline_metadata.json")
+    REPORT_PATH.write_text(
+        render_report(config, metrics, sampled, collection_metadata, pipeline_metadata),
+        encoding="utf-8",
+    )
 
 
 def run_all(config_path: Path = DEFAULT_CONFIG_PATH) -> None:
-    collect(config_path)
+    config = load_config(config_path)
+    started = time.perf_counter()
+    started_at = utc_now_iso()
+    collection_attempt: dict[str, Any] = {}
+    collection_status = "complete"
+    try:
+        collect(config_path)
+    except RuntimeError as exc:
+        collection_attempt = read_optional_json(RAW_DIR / "collection_attempt_metadata.json")
+        if not raw_snapshots_available(config):
+            raise
+        collection_status = "failed_reused_existing_snapshots"
+        print(
+            (
+                "Live collection failed; reusing existing raw snapshots. "
+                f"Reason: {exc}"
+            ),
+            flush=True,
+        )
     sample(config_path)
     analyze(config_path)
+    write_pipeline_metadata(
+        started_at=started_at,
+        started=started,
+        collection_status=collection_status,
+        collection_attempt=collection_attempt,
+        finished=False,
+    )
     report(config_path)
+    write_pipeline_metadata(
+        started_at=started_at,
+        started=started,
+        collection_status=collection_status,
+        collection_attempt=collection_attempt,
+        finished=True,
+    )
 
 
 def select_analysis_records(
@@ -317,6 +398,61 @@ def parse_config_date(value: str) -> date:
     return datetime.strptime(value, "%Y-%m-%d").date()
 
 
+def finalize_collection_metadata(
+    metadata: dict[str, Any],
+    client: PncpClient,
+    started: float,
+    *,
+    status: str,
+    error: str | None = None,
+) -> None:
+    metadata["status"] = status
+    metadata["finished_at"] = utc_now_iso()
+    metadata["generated_at"] = metadata["finished_at"]
+    metadata["duration_seconds"] = round(time.perf_counter() - started, 3)
+    metadata["api_performance"] = client.request_summary()
+    failures = [failure.__dict__ for failure in client.failures]
+    if error:
+        failures.append({"url": "collect", "reason": error})
+        metadata["error"] = error
+    metadata["failures"] = failures
+
+
+def read_optional_json(path: Path) -> Any:
+    if not path.exists():
+        return {}
+    return read_json(path)
+
+
+def raw_snapshots_available(config: AnalysisConfig) -> bool:
+    required_paths = []
+    for city in config.cities:
+        required_paths.append(RAW_DIR / f"{city.slug}_cnpj_{city.matrix_cnpj}_contratacoes.json")
+        if city.investigate_fragmentation:
+            required_paths.append(RAW_DIR / f"{city.slug}_municipio_{city.ibge}_contratacoes.json")
+    return all(path.exists() for path in required_paths)
+
+
+def write_pipeline_metadata(
+    *,
+    started_at: str,
+    started: float,
+    collection_status: str,
+    collection_attempt: dict[str, Any],
+    finished: bool,
+) -> None:
+    payload = {
+        "started_at": started_at,
+        "finished_at": utc_now_iso(),
+        "duration_seconds": round(time.perf_counter() - started, 3),
+        "steps": ["collect", "sample", "analyze", "report"],
+        "collection_status": collection_status,
+        "collection_attempt": collection_attempt,
+        "status": "complete" if finished else "running",
+    }
+    write_json(PROCESSED_DIR / "pipeline_metadata.json", payload)
+
+
 def build_document_sample(
     config: AnalysisConfig,
     sampled: list[dict[str, Any]],
@@ -402,6 +538,8 @@ def build_metrics(
     sampled: list[dict[str, Any]],
     document_sample: list[dict[str, Any]],
     document_index: dict[str, list[dict[str, Any]]],
+    *,
+    api_experiment: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     candidate_by_city: dict[str, list[dict[str, Any]]] = defaultdict(list)
     sample_by_city: dict[str, list[dict[str, Any]]] = defaultdict(list)
@@ -536,6 +674,12 @@ def build_metrics(
         "document_stats": document_stats,
         "sample_rows": sample_rows,
         "api_examples": build_api_examples(config, sample_by_city, document_index),
+        "completeness_examples": build_completeness_examples(
+            config,
+            document_sample_by_city,
+            document_index,
+        ),
+        "api_experiment": api_experiment or {},
         "additional_findings": additional_findings,
         "limitations": [
             "A comparacao e exploratoria e nao representa todos os municipios do Sudeste.",
@@ -692,6 +836,41 @@ def build_api_examples(
                     },
                 }
             )
+    return examples
+
+
+def build_completeness_examples(
+    config: AnalysisConfig,
+    sample_by_city: dict[str, list[dict[str, Any]]],
+    document_index: dict[str, list[dict[str, Any]]],
+) -> list[dict[str, Any]]:
+    examples = []
+    for index, city in enumerate(config.cities):
+        selected = deterministic_sample(
+            sample_by_city[city.name],
+            sample_n=1,
+            seed=config.seed + 20_000 + index,
+        )
+        if not selected:
+            continue
+        record = selected[0]
+        control = str(record.get("numeroControlePNCP") or "")
+        docs = document_index.get(control, [])
+        examples.append(
+            {
+                "city": city.name,
+                "numeroControlePNCP": control,
+                "cnpj": (record.get("orgaoEntidade") or {}).get("cnpj"),
+                "orgao": (record.get("orgaoEntidade") or {}).get("razaoSocial"),
+                "unidade": (record.get("unidadeOrgao") or {}).get("nomeUnidade"),
+                "dataPublicacaoPncp": record.get("dataPublicacaoPncp"),
+                "valorTotalEstimado": record.get("valorTotalEstimado"),
+                "valorTotalHomologado": record.get("valorTotalHomologado"),
+                "linkSistemaOrigem": record.get("linkSistemaOrigem"),
+                "document_count": len(docs),
+                "objetoCompra": record.get("objetoCompra"),
+            }
+        )
     return examples
 
 

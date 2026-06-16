@@ -6,6 +6,11 @@ Esta analise compara contratacoes de Pregao Eletronico publicadas no PNCP entre 
 
 O principal achado metodologico e que Sao Paulo aparece de forma fragmentada: a consulta apenas pelo CNPJ matriz subrepresenta o municipio, enquanto a busca por codigo IBGE revela varios CNPJs municipais executivos.
 
+## Questoes de pesquisa
+
+- Q1. Ha completude nos dados fornecidos pelo PNCP nas prefeituras das capitais dos estados do Sudeste brasileiro (Sao Paulo, Rio de Janeiro, Belo Horizonte e Vitoria)?
+- Q2. Os dados das APIs do PNCP sao facilmente consumiveis?
+
 ## Metodologia
 
 | Parametro | Valor |
@@ -253,6 +258,26 @@ Esse resultado sugere que a transparencia via PNCP nao depende apenas da existen
 
 ## Completude dos dados
 
+Para Q1, a completude foi avaliada campo a campo na amostra principal, que contem todos os registros elegiveis. Objeto, valor estimado, datas basicas e unidade administrativa aparecem como campos de alta disponibilidade; as maiores fragilidades estao em valor homologado, link do sistema de origem e, no caso de documentos, na subamostra documental.
+
+| Capital | Objeto | Valor estimado | Valor homologado | Data de publicacao | Unidade | Link de origem | Documentos |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Sao Paulo | 100.0% | 100.0% | 60.4% | 100.0% | 100.0% | 99.8% | 100.0% |
+| Rio de Janeiro | 100.0% | 100.0% | 62.8% | 100.0% | 100.0% | 100.0% | 100.0% |
+| Belo Horizonte | 100.0% | 100.0% | 78.0% | 100.0% | 100.0% | 96.9% | 100.0% |
+| Vitoria | 100.0% | 100.0% | 66.7% | 100.0% | 100.0% | 0.0% | 100.0% |
+
+Exemplos sorteados de forma pseudoaleatoria, com seed fixa:
+
+| Capital | Controle PNCP | Data | Valor homologado | Link | Docs | Objeto |
+| --- | --- | --- | --- | --- | --- | --- |
+| Sao Paulo | 13864377000130-1-002050/2025 | 18/11/2025 | presente | presente | 1 | REGISTRO De PREÇOS PARA O FORNECIMENTO CANULA TRAQUEOSTOMIA COM BALAO, DESCARTAVEL, EST... |
+| Rio de Janeiro | 42498733000148-1-001315/2025 | 24/07/2025 | presente | presente | 1 | Aquisição de Equipamento de Proteção Individual –EPI |
+| Belo Horizonte | 18715383000140-1-000189/2026 | 27/03/2026 | presente | presente | 1 | O objeto da presente licitação é o registro de preços para aquisição de materiais de hi... |
+| Vitoria | 27142058000126-1-000676/2025 | 28/11/2025 | presente | ausente | 6 | REGISTRO DE PREÇOS VISANDO FUTURO E EVENTUAL FORNECIMENTO DE ÁGUA MINERAL GALÃO 20L |
+
+Tabela completa de campos analisados:
+
 | Capital | Campo | Presentes | Amostra | Percentual |
 | --- | --- | --- | --- | --- |
 | Sao Paulo | Objeto | 2662 | 2662 | 100.0% |
@@ -302,6 +327,24 @@ Esse resultado sugere que a transparencia via PNCP nao depende apenas da existen
 | Vitoria | 100 | 100 | 1 | 12 | 5.3 | DFD, Edital, Estudo Técnico Preliminar, Mapa de Riscos, Outros Documentos |
 
 A presenca de objeto, datas, valores, unidade administrativa e link de origem foi medida no universo elegivel. Documentos vinculados foram medidos na subamostra documental. Essas metricas nao avaliam a qualidade textual dos documentos, mas indicam se um cidadao ou pesquisador consegue localizar informacoes basicas para controle social.
+
+## Consumo da API
+
+Para Q2, o pipeline registrou a duracao da coleta e das chamadas ao endpoint de documentos, alem do tempo medio de resposta bem-sucedida. A facilidade de consumo e parcial: a API e estruturada e paginada, mas exige controle de janela temporal, backoff para limite de taxa e validacao de `Content-Type` para evitar parse de respostas nao JSON.
+
+| Etapa | Requisições | Sucessos | Tempo médio | Duração | Falhas |
+| --- | --- | --- | --- | --- | --- |
+| Snapshots de contratações | n/a | n/a | n/a | n/a | n/a |
+| Tentativa live de coleta | 6 | 0 | n/a | 2min 56.6s | 6 |
+| Consulta de documentos | 400 | 400 | 0.10s | 40.51s | 0 |
+| Experimento total do relatório |  |  |  | 3min 37.8s |  |
+
+- Os snapshots de coleta reutilizados registravam 0 falhas persistentes na coleta bem-sucedida anterior.
+- Na execução final, a consulta de documentos registrou 0 falhas persistentes.
+- A tentativa live desta execução falhou e o pipeline reutilizou snapshots existentes. Erro registrado: PNCP request failed for /v1/contratacoes/publicacao: HTTP 503; content-type=text/html; body=b'<html><body><h1>503 Service Unavailable</h1> No server is available to handle this request. </body></html> '
+- Durante a experimentação: HTTP 429 em chamadas repetidas, tratado com backoff e nova tentativa.
+- Durante a experimentação: Timeouts em paginação anual longa, mitigados pela coleta em chunks mensais de 31 dias.
+- Durante a experimentação: Risco de resposta HTML com HTTP 200, tratado por validação de Content-Type antes do parse JSON.
 
 ## Limitacoes
 

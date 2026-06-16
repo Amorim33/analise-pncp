@@ -1,0 +1,77 @@
+{
+  "api_performance": {
+    "average_success_response_seconds": null,
+    "failed_attempt_count": 6,
+    "failure_examples": [
+      {
+        "attempt": 1,
+        "error": "The read operation timed out",
+        "path": "/v1/contratacoes/publicacao",
+        "status": null
+      },
+      {
+        "attempt": 2,
+        "error": "HTTP 503; content-type=text/html; body=b'<html><body><h1>503 Service Unavailable</h1>\\nNo server is available to handle this request.\\n</body></html>\\n'",
+        "path": "/v1/contratacoes/publicacao",
+        "status": 503
+      },
+      {
+        "attempt": 3,
+        "error": "HTTP 503; content-type=text/html; body=b'<html><body><h1>503 Service Unavailable</h1>\\nNo server is available to handle this request.\\n</body></html>\\n'",
+        "path": "/v1/contratacoes/publicacao",
+        "status": 503
+      },
+      {
+        "attempt": 1,
+        "error": "The read operation timed out",
+        "path": "/v1/contratacoes/publicacao",
+        "status": null
+      },
+      {
+        "attempt": 2,
+        "error": "HTTP 503; content-type=text/html; body=b'<html><body><h1>503 Service Unavailable</h1>\\nNo server is available to handle this request.\\n</body></html>\\n'",
+        "path": "/v1/contratacoes/publicacao",
+        "status": 503
+      }
+    ],
+    "max_success_response_seconds": null,
+    "paths": {
+      "/v1/contratacoes/publicacao": 6
+    },
+    "request_count": 6,
+    "status_counts": {
+      "503": 4
+    },
+    "successful_request_count": 0,
+    "total_success_response_seconds": 0
+  },
+  "duration_seconds": 176.56,
+  "error": "PNCP request failed for /v1/contratacoes/publicacao: HTTP 503; content-type=text/html; body=b'<html><body><h1>503 Service Unavailable</h1>\\nNo server is available to handle this request.\\n</body></html>\\n'",
+  "failures": [
+    {
+      "reason": "HTTP 503; content-type=text/html; body=b'<html><body><h1>503 Service Unavailable</h1>\\nNo server is available to handle this request.\\n</body></html>\\n'",
+      "url": "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao?dataInicial=20250615&dataFinal=20250715&codigoModalidadeContratacao=6&cnpj=46395000000139&pagina=1&tamanhoPagina=50"
+    },
+    {
+      "reason": "HTTP 503; content-type=text/html; body=b'<html><body><h1>503 Service Unavailable</h1>\\nNo server is available to handle this request.\\n</body></html>\\n'",
+      "url": "https://pncp.gov.br/pncp-consulta/v1/contratacoes/publicacao?dataInicial=20250615&dataFinal=20250715&codigoModalidadeContratacao=6&cnpj=46395000000139&pagina=1&tamanhoPagina=50"
+    },
+    {
+      "reason": "PNCP request failed for /v1/contratacoes/publicacao: HTTP 503; content-type=text/html; body=b'<html><body><h1>503 Service Unavailable</h1>\\nNo server is available to handle this request.\\n</body></html>\\n'",
+      "url": "collect"
+    }
+  ],
+  "finished_at": "2026-06-16T11:57:52+00:00",
+  "generated_at": "2026-06-16T11:57:52+00:00",
+  "modality": {
+    "id": 6,
+    "name": "Pregao - Eletronico"
+  },
+  "period": {
+    "end": "2026-06-15",
+    "start": "2025-06-15"
+  },
+  "sources": [],
+  "started_at": "2026-06-16T11:54:56+00:00",
+  "status": "failed"
+}
