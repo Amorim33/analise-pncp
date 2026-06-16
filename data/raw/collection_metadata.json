@@ -1,6 +1,69 @@
 {
-  "failures": [],
-  "generated_at": "2026-06-16T03:09:59+00:00",
+  "api_performance": {
+    "average_success_response_seconds": 1.609,
+    "failed_attempt_count": 28,
+    "failure_examples": [
+      {
+        "attempt": 1,
+        "error": "HTTP 429; content-type=text/html; body=b'<html>\\n<head>\\n    <meta charset=\"UTF-8\">\\n    <title>Limite de Requisi\\xc3\\xa7\\xc3\\xb5es Excedido</title>\\n</head>\\n<body>\\n    <h2>Limite de requisi\\xc3\\xa7\\xc3\\xb5es excedido</h2>\\n\\n    <'",
+        "path": "/v1/contratacoes/publicacao",
+        "status": 429
+      },
+      {
+        "attempt": 1,
+        "error": "HTTP 429; content-type=text/html; body=b'<html>\\n<head>\\n    <meta charset=\"UTF-8\">\\n    <title>Limite de Requisi\\xc3\\xa7\\xc3\\xb5es Excedido</title>\\n</head>\\n<body>\\n    <h2>Limite de requisi\\xc3\\xa7\\xc3\\xb5es excedido</h2>\\n\\n    <'",
+        "path": "/v1/contratacoes/publicacao",
+        "status": 429
+      },
+      {
+        "attempt": 1,
+        "error": "HTTP 500; content-type=application/json; body=b'{\"timestamp\":\"2026-06-16T23:30:40.339+00:00\",\"status\":500,\"error\":\"Internal Server Error\",\"message\":\"Failed to obtain JDBC Connection; nested exception is java.'",
+        "path": "/v1/contratacoes/publicacao",
+        "status": 500
+      },
+      {
+        "attempt": 2,
+        "error": "HTTP 500; content-type=application/json; body=b'Erro na comunica\\xc3\\xa7\\xc3\\xa3o com o banco de dados.'",
+        "path": "/v1/contratacoes/publicacao",
+        "status": 500
+      },
+      {
+        "attempt": 3,
+        "error": "The read operation timed out",
+        "path": "/v1/contratacoes/publicacao",
+        "status": null
+      }
+    ],
+    "max_success_response_seconds": 17.587,
+    "median_success_response_seconds": 1.43,
+    "p95_success_response_seconds": 3.511,
+    "paths": {
+      "/v1/contratacoes/publicacao": 446
+    },
+    "request_count": 446,
+    "status_counts": {
+      "200": 414,
+      "204": 4,
+      "429": 21,
+      "500": 3
+    },
+    "successful_request_count": 418,
+    "total_success_response_seconds": 672.678
+  },
+  "duration_seconds": 2577.325,
+  "errors_path": "data/raw/collection_errors.json",
+  "failures": [
+    {
+      "reason": "The read operation timed out",
+      "url": "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao?dataInicial=20250615&dataFinal=20250715&codigoModalidadeContratacao=6&uf=SP&codigoMunicipioIbge=3550308&pagina=11&tamanhoPagina=50"
+    },
+    {
+      "reason": "The read operation timed out",
+      "url": "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao?dataInicial=20260522&dataFinal=20260615&codigoModalidadeContratacao=6&uf=SP&codigoMunicipioIbge=3550308&pagina=5&tamanhoPagina=50"
+    }
+  ],
+  "finished_at": "2026-06-17T00:10:36+00:00",
+  "generated_at": "2026-06-17T00:10:36+00:00",
   "modality": {
     "id": 6,
     "name": "Pregao - Eletronico"
@@ -9,6 +72,7 @@
     "end": "2026-06-15",
     "start": "2025-06-15"
   },
+  "request_metrics_path": "data/raw/collection_request_metrics.jsonl",
   "sources": [
     {
       "chunk_days": 31,
@@ -645,10 +709,10 @@
           "pages_collected": 1,
           "pagination_complete": true,
           "pagination_stopped_reason": null,
-          "records": 17,
+          "records": 16,
           "start": "2026-03-21",
           "total_pages": 1,
-          "total_records": 17
+          "total_records": 16
         },
         {
           "end": "2026-05-21",
@@ -677,9 +741,11 @@
       "pagination_complete": true,
       "pagination_stopped_reason": null,
       "path": "data/raw/vitoria_cnpj_27142058000126_contratacoes.json",
-      "records": 234,
+      "records": 233,
       "total_pages": 12,
-      "total_records": 234
+      "total_records": 233
     }
-  ]
+  ],
+  "started_at": "2026-06-16T23:27:38+00:00",
+  "status": "complete"
 }

@@ -57,6 +57,23 @@ uv run pncp-analysis report
 uv run pncp-analysis paper --tex-only
 ```
 
+Para refazer especificamente a coleta e reconstruir a narrativa de Q2 com
+telemetria por request:
+
+```bash
+uv run python scripts/rebuild_q2.py --allow-placeholders
+```
+
+Esse script atualiza os snapshots brutos, refaz a amostra e a análise
+documental, regrava `analise-exploratoria.md` e reconstrói
+`report/relatorio-final.md`. Ele também preserva duração, status, tentativa e
+erro de cada chamada em:
+
+- `data/raw/collection_request_metrics.jsonl`;
+- `data/raw/document_request_metrics.jsonl`;
+- `data/raw/collection_errors.json`;
+- `data/raw/document_errors.json`.
+
 A etapa `semantic` prepara selecao, download, extracao e inputs para o subagent
 Codex avaliador. Para gerar apenas esses artefatos preparatorios, use:
 

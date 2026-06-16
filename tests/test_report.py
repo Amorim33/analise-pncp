@@ -54,9 +54,54 @@ def test_render_report_contains_required_sections() -> None:
             "document_api_failures": [],
             "observed_experiment_errors": ["HTTP 429 em teste."],
         },
+        "script_execution_events": {
+            "events": [
+                {
+                    "name": "main_successful_collection",
+                    "command": "uv run pncp-analysis collect",
+                    "started_at": "2026-06-16T02:26:40.029Z",
+                    "finished_at": "2026-06-16T03:07:20.784Z",
+                    "duration_seconds": 2440.755,
+                    "exit_code": 0,
+                },
+                {
+                    "name": "final_snapshot_collection",
+                    "command": "uv run pncp-analysis collect",
+                    "started_at": "2026-06-16T03:09:59.285Z",
+                    "finished_at": "2026-06-16T03:39:48.368Z",
+                    "duration_seconds": 1789.083,
+                    "exit_code": 0,
+                },
+                {
+                    "name": "final_report_generation",
+                    "command": "uv run pncp-analysis report",
+                    "started_at": "2026-06-16T03:39:57.332Z",
+                    "finished_at": "2026-06-16T03:40:34.661Z",
+                    "duration_seconds": 37.329,
+                    "exit_code": 0,
+                },
+                {
+                    "name": "pagination_timeout_probe",
+                    "command": "uv run python pagination probe",
+                    "started_at": "2026-06-16T02:19:15.260Z",
+                    "finished_at": "2026-06-16T02:20:17.784Z",
+                    "duration_seconds": 62.524,
+                    "exit_code": 0,
+                },
+                {
+                    "name": "fallback_run_all",
+                    "command": "uv run pncp-analysis run-all",
+                    "started_at": "2026-06-16T11:54:56.037Z",
+                    "finished_at": "2026-06-16T11:58:33.918Z",
+                    "duration_seconds": 217.881,
+                    "exit_code": 0,
+                },
+            ]
+        },
     }
     collection_metadata = {
         "duration_seconds": 12.0,
+        "sources": [{"records": 19105, "pages_collected": 418}],
         "api_performance": {
             "request_count": 5,
             "successful_request_count": 5,
@@ -109,7 +154,7 @@ def test_render_report_contains_required_sections() -> None:
     assert "## Resumo" in report
     assert "Q1. Ha completude nos dados fornecidos pelo PNCP" in report
     assert "Q2. Os dados das **APIs** do PNCP sao facilmente consumiveis?" in report
-    assert "Q3. As respostas da **API** do PNCP sao semanticamente coerentes" in report
+    assert "Q3." not in report
     assert "**API**^[**API**:" in report
     assert "**Codex**^[**Codex**:" in report
     assert "**skills**^[**Skills**:" in report
@@ -122,12 +167,13 @@ def test_render_report_contains_required_sections() -> None:
     assert "## Constatações adicionais" in report
     assert "## Fragmentacao de CNPJs em Sao Paulo" in report
     assert "## Documentos vinculados" in report
-    assert "## Qualidade semantica e informatividade" in report
+    assert "## Qualidade semantica e informatividade" not in report
     assert "## Conclusao regional" in report
-    assert "Historico local desta sessao" in report
-    assert "HTTP 503 (Service Unavailable)" in report
-    assert "2 timeouts" in report
-    assert "corpo HTML (`text/html`), nao como JSON" in report
+    assert "Historico de execucao" in report
+    assert "40min 40.8s" in report
+    assert "19105 registros brutos em 418 paginas" in report
+    assert "quatro de sete paginas testadas retornaram timeout" in report
+    assert "nao foi usada como duracao do experimento principal" in report
     assert "4/4 chamadas foram bem-sucedidas" in report
     assert "15/06/2025 a 15/06/2026" in report
     assert "2025-06-15" not in report

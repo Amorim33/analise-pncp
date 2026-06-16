@@ -3,7 +3,7 @@
     "Na amostra candidata de Sao Paulo, 98.9% dos registros elegiveis ficaram fora do CNPJ matriz; nas demais capitais analisadas, os registros por CNPJ matriz concentraram 100% dos candidatos coletados.",
     "Sao Paulo apresentou 67 CNPJs distintos no recorte elegivel, enquanto Rio de Janeiro, Belo Horizonte e Vitoria apareceram com um CNPJ cada no recorte por matriz.",
     "Vitoria teve documentos vinculados em todos os itens da subamostra documental, mas nenhum dos registros elegiveis trouxe `linkSistemaOrigem`, o que reduz a rastreabilidade para o sistema de origem.",
-    "O valor homologado apareceu com menor completude em Sao Paulo (60.4%), indicando que parte dos registros estava em fase anterior ao resultado ou sem homologacao registrada no recorte.",
+    "O valor homologado apareceu com menor completude em Sao Paulo (60.5%), indicando que parte dos registros estava em fase anterior ao resultado ou sem homologacao registrada no recorte.",
     "A quantidade de documentos anexados variou de forma relevante: em Vitoria, um item da amostra chegou a 12 documentos, enquanto outros municipios tiveram padrao mais concentrado."
   ],
   "api_examples": [
@@ -141,10 +141,12 @@
   "api_experiment": {
     "document_api_failures": [],
     "document_api_performance": {
-      "average_success_response_seconds": 0.101,
+      "average_success_response_seconds": 0.089,
       "failed_attempt_count": 0,
       "failure_examples": [],
-      "max_success_response_seconds": 0.438,
+      "max_success_response_seconds": 1.115,
+      "median_success_response_seconds": 0.081,
+      "p95_success_response_seconds": 0.114,
       "paths": {
         "/v1/orgaos/05245375000135/compras/2025/26/arquivos": 1,
         "/v1/orgaos/05494401000169/compras/2026/12/arquivos": 1,
@@ -317,66 +319,65 @@
         "/v1/orgaos/18715383000140/compras/2026/391/arquivos": 1,
         "/v1/orgaos/18715383000140/compras/2026/397/arquivos": 1,
         "/v1/orgaos/19153572000139/compras/2025/20/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/316/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/318/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/319/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/329/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/324/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/330/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/335/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/347/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/333/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/336/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/348/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/350/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/371/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/376/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/351/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/375/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/380/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/381/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/383/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/393/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/384/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/399/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/400/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/416/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/418/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/408/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/417/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/420/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/426/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/425/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/427/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/432/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/466/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/479/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/485/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/429/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/437/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/476/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/482/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/486/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/487/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/488/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/491/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/489/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/492/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/509/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/532/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/495/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/510/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/536/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/552/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/558/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/573/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/575/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/577/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/538/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/555/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/572/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/574/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/576/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/578/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/591/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/590/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/593/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/600/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/594/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/601/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/604/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/607/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/606/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/619/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/623/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/625/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/629/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/624/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/627/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/630/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/631/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/632/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/634/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/645/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/669/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/676/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/679/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/683/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/771/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2025/773/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2025/772/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2025/783/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2026/10/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2026/109/arquivos": 1,
@@ -385,29 +386,30 @@
         "/v1/orgaos/27142058000126/compras/2026/131/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2026/137/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2026/141/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2026/167/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2026/178/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2026/169/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2026/179/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2026/18/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2026/197/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2026/181/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2026/198/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2026/200/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2026/212/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2026/217/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2026/199/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2026/202/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2026/216/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2026/221/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2026/23/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2026/238/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2026/247/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2026/248/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2026/250/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2026/260/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2026/267/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2026/270/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2026/274/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2026/249/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2026/251/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2026/264/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2026/268/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2026/271/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2026/277/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2026/279/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2026/28/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2026/284/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2026/289/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2026/285/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2026/290/arquivos": 1,
-        "/v1/orgaos/27142058000126/compras/2026/294/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2026/291/arquivos": 1,
+        "/v1/orgaos/27142058000126/compras/2026/299/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2026/36/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2026/65/arquivos": 1,
         "/v1/orgaos/27142058000126/compras/2026/69/arquivos": 1,
@@ -552,16 +554,14 @@
         "200": 400
       },
       "successful_request_count": 400,
-      "total_success_response_seconds": 40.359
+      "total_success_response_seconds": 35.491
     },
-    "duration_seconds": 40.508,
-    "finished_at": "2026-06-16T11:58:33+00:00",
-    "observed_experiment_errors": [
-      "HTTP 429 em chamadas repetidas, tratado com backoff e nova tentativa.",
-      "Timeouts em paginação anual longa, mitigados pela coleta em chunks mensais de 31 dias.",
-      "Risco de resposta HTML com HTTP 200, tratado por validação de Content-Type antes do parse JSON."
-    ],
-    "started_at": "2026-06-16T11:57:53+00:00"
+    "document_errors_path": "data/raw/document_errors.json",
+    "document_request_metrics_path": "data/raw/document_request_metrics.jsonl",
+    "duration_seconds": 35.631,
+    "finished_at": "2026-06-17T00:11:12+00:00",
+    "observed_experiment_errors": [],
+    "started_at": "2026-06-17T00:10:36+00:00"
   },
   "city_metrics": [
     {
@@ -592,13 +592,13 @@
       "sample_count": 291
     },
     {
-      "candidate_count": 234,
+      "candidate_count": 233,
       "city": "Vitoria",
       "distinct_cnpj_count": 1,
       "matrix_cnpj": "27142058000126",
-      "matrix_records": 234,
+      "matrix_records": 233,
       "matrix_share": 1.0,
-      "sample_count": 234
+      "sample_count": 233
     }
   ],
   "completeness_examples": [
@@ -644,15 +644,15 @@
     {
       "city": "Vitoria",
       "cnpj": "27142058000126",
-      "dataPublicacaoPncp": "2025-11-28T14:49:51",
-      "document_count": 6,
+      "dataPublicacaoPncp": "2025-12-02T10:39:03",
+      "document_count": 8,
       "linkSistemaOrigem": null,
-      "numeroControlePNCP": "27142058000126-1-000676/2025",
-      "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURO E EVENTUAL FORNECIMENTO DE ÁGUA MINERAL GALÃO 20L",
+      "numeroControlePNCP": "27142058000126-1-000679/2025",
+      "objetoCompra": "AQUISIÇÃO DE MOBILIÁRIO E EQUIPAMENTOS DIVERSOS",
       "orgao": "MUNICIPIO DE VITORIA",
       "unidade": "PREFEITURA MUNICIPAL DE VITORIA",
-      "valorTotalEstimado": 431350.56,
-      "valorTotalHomologado": 431013.04
+      "valorTotalEstimado": 101534.24,
+      "valorTotalHomologado": 52263.01
     }
   ],
   "document_sample": {
@@ -702,7 +702,7 @@
       "sample_count": 100
     },
     {
-      "avg_documents": 5.27,
+      "avg_documents": 5.55,
       "city": "Vitoria",
       "document_types": [
         "DFD",
@@ -713,7 +713,7 @@
         "Termo de Referência"
       ],
       "max_documents": 12,
-      "min_documents": 1,
+      "min_documents": 2,
       "records_with_documents": 100,
       "sample_count": 100
     }
@@ -736,9 +736,9 @@
     {
       "city": "Sao Paulo",
       "field": "Valor homologado",
-      "present": 1608,
+      "present": 1611,
       "sample_count": 2662,
-      "share": 0.6040570999248686
+      "share": 0.6051840721262209
     },
     {
       "city": "Sao Paulo",
@@ -800,9 +800,9 @@
     {
       "city": "Rio de Janeiro",
       "field": "Valor homologado",
-      "present": 563,
+      "present": 568,
       "sample_count": 896,
-      "share": 0.6283482142857143
+      "share": 0.6339285714285714
     },
     {
       "city": "Rio de Janeiro",
@@ -914,57 +914,57 @@
     {
       "city": "Vitoria",
       "field": "Objeto",
-      "present": 234,
-      "sample_count": 234,
+      "present": 233,
+      "sample_count": 233,
       "share": 1.0
     },
     {
       "city": "Vitoria",
       "field": "Valor estimado",
-      "present": 234,
-      "sample_count": 234,
+      "present": 233,
+      "sample_count": 233,
       "share": 1.0
     },
     {
       "city": "Vitoria",
       "field": "Valor homologado",
-      "present": 156,
-      "sample_count": 234,
-      "share": 0.6666666666666666
+      "present": 157,
+      "sample_count": 233,
+      "share": 0.6738197424892703
     },
     {
       "city": "Vitoria",
       "field": "Data de publicacao",
-      "present": 234,
-      "sample_count": 234,
+      "present": 233,
+      "sample_count": 233,
       "share": 1.0
     },
     {
       "city": "Vitoria",
       "field": "Abertura de proposta",
-      "present": 234,
-      "sample_count": 234,
+      "present": 233,
+      "sample_count": 233,
       "share": 1.0
     },
     {
       "city": "Vitoria",
       "field": "Encerramento de proposta",
-      "present": 234,
-      "sample_count": 234,
+      "present": 233,
+      "sample_count": 233,
       "share": 1.0
     },
     {
       "city": "Vitoria",
       "field": "Unidade",
-      "present": 234,
-      "sample_count": 234,
+      "present": 233,
+      "sample_count": 233,
       "share": 1.0
     },
     {
       "city": "Vitoria",
       "field": "Link de origem",
       "present": 0,
-      "sample_count": 234,
+      "sample_count": 233,
       "share": 0.0
     },
     {
@@ -976,7 +976,7 @@
       "share": 1.0
     }
   ],
-  "generated_at": "2026-06-16T11:58:33+00:00",
+  "generated_at": "2026-06-17T00:19:19+00:00",
   "limitations": [
     "A comparacao e exploratoria e nao representa todos os municipios do Sudeste.",
     "Sao Paulo possui registros municipais distribuidos em varios CNPJs, o que exige filtro por municipio e orgao.",
@@ -5533,7 +5533,7 @@
       "situacaoCompraNome": "Divulgada no PNCP",
       "unidade": "PMSP - SUBPREFEITURA GUAIANASES",
       "valorTotalEstimado": 143357.8,
-      "valorTotalHomologado": null
+      "valorTotalHomologado": 93060.0
     },
     {
       "city": "Sao Paulo",
@@ -28342,8 +28342,8 @@
       "orgao": "SECRETARIA MUNICIPAL DE EDUCACAO",
       "situacaoCompraNome": "Divulgada no PNCP",
       "unidade": "PMSP - DIRETORIA REG. DE EDUCAÇÃO-GUAIANASES",
-      "valorTotalEstimado": 0.0,
-      "valorTotalHomologado": null
+      "valorTotalEstimado": 23430.0,
+      "valorTotalHomologado": 23430.0
     },
     {
       "city": "Sao Paulo",
@@ -31578,7 +31578,7 @@
       "numeroControlePNCP": "46854998000192-1-000124/2026",
       "objetoCompra": "Contratação de empresa especializada para execução de serviços de manutenção preventiva e corretiva, das instalações, dos equipamentos de refrigeração/exaustão/Climatização e seus periféricos do Hospital do Servidor Público Municipal",
       "orgao": "HOSPITAL DO SERVIDOR PUBLICO MUNICIPAL",
-      "situacaoCompraNome": "Divulgada no PNCP",
+      "situacaoCompraNome": "Suspensa",
       "unidade": "PMSP - HOSPITAL DO SERVIDOR PÚBLICO MUNICIPAL",
       "valorTotalEstimado": 0.0,
       "valorTotalHomologado": null
@@ -32740,8 +32740,8 @@
       "orgao": "HOSPITAL DO SERVIDOR PUBLICO MUNICIPAL",
       "situacaoCompraNome": "Divulgada no PNCP",
       "unidade": "PMSP - HOSPITAL DO SERVIDOR PÚBLICO MUNICIPAL",
-      "valorTotalEstimado": 0.0,
-      "valorTotalHomologado": null
+      "valorTotalEstimado": 49869.0,
+      "valorTotalHomologado": 41751.0
     },
     {
       "city": "Sao Paulo",
@@ -37341,7 +37341,7 @@
       "situacaoCompraNome": "Divulgada no PNCP",
       "unidade": "PMSP - SEGES - COORD GESTÃO BENS E SERVIÇOS",
       "valorTotalEstimado": 24469779.24,
-      "valorTotalHomologado": 7316393.46
+      "valorTotalHomologado": 14509999.74
     },
     {
       "city": "Sao Paulo",
@@ -39795,7 +39795,7 @@
       "situacaoCompraNome": "Divulgada no PNCP",
       "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
       "valorTotalEstimado": 4190296.3,
-      "valorTotalHomologado": null
+      "valorTotalHomologado": 3098689.9
     },
     {
       "city": "Rio de Janeiro",
@@ -40393,7 +40393,7 @@
       "situacaoCompraNome": "Divulgada no PNCP",
       "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
       "valorTotalEstimado": 2201535.27,
-      "valorTotalHomologado": null
+      "valorTotalHomologado": 1607121.68
     },
     {
       "city": "Rio de Janeiro",
@@ -40846,7 +40846,7 @@
       "numeroControlePNCP": "42498733000148-1-000548/2026",
       "objetoCompra": "Registro de preços para a prestação de serviços comuns de engenharia de requalificação elétrica das unidades escolares e  administrativas da SME/RJ.  *A cotação deverá observar rigorosamente as disposições estabelecidas no Termo de Referência.",
       "orgao": "MUNICIPIO DE RIO DE JANEIRO",
-      "situacaoCompraNome": "Suspensa",
+      "situacaoCompraNome": "Divulgada no PNCP",
       "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
       "valorTotalEstimado": 178208774.15,
       "valorTotalHomologado": null
@@ -41332,8 +41332,8 @@
       "orgao": "MUNICIPIO DE RIO DE JANEIRO",
       "situacaoCompraNome": "Divulgada no PNCP",
       "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
-      "valorTotalEstimado": 0.0,
-      "valorTotalHomologado": null
+      "valorTotalEstimado": 76059.0,
+      "valorTotalHomologado": 60334.99
     },
     {
       "city": "Rio de Janeiro",
@@ -41361,7 +41361,7 @@
       "situacaoCompraNome": "Divulgada no PNCP",
       "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
       "valorTotalEstimado": 4212267.75,
-      "valorTotalHomologado": null
+      "valorTotalHomologado": 3032783.72
     },
     {
       "city": "Rio de Janeiro",
@@ -42128,8 +42128,8 @@
       "orgao": "MUNICIPIO DE RIO DE JANEIRO",
       "situacaoCompraNome": "Divulgada no PNCP",
       "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
-      "valorTotalEstimado": 0.0,
-      "valorTotalHomologado": null
+      "valorTotalEstimado": 94390.34,
+      "valorTotalHomologado": 80836.1
     },
     {
       "city": "Rio de Janeiro",
@@ -42226,9 +42226,9 @@
       "numeroControlePNCP": "42498733000148-1-000837/2026",
       "objetoCompra": "O objeto do presente Contrato é a prestação de serviços comuns de engenharia de “Serviços de Revitalização da Pavimentação e de Implantação de Rota Cicloviária da Avenida Edison Passos, Estrada de Furnas, Estrada Velha da Tijuca e Rua Boa Vista – Alto da Boa Vista, AP2 e AP4”, pertencente ao código 261289.0002-83, sob o regime de Empreitada por Preço Unitário, conforme as especificações constantes do Termo de Referência (Anexo I).",
       "orgao": "MUNICIPIO DE RIO DE JANEIRO",
-      "situacaoCompraNome": "Suspensa",
+      "situacaoCompraNome": "Revogada",
       "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
-      "valorTotalEstimado": 34490130.65,
+      "valorTotalEstimado": 0.0,
       "valorTotalHomologado": null
     },
     {
@@ -43572,7 +43572,7 @@
       "numeroControlePNCP": "42498733000148-1-001112/2026",
       "objetoCompra": "O objeto da presente licitação é o registro de preços para a “Aquisição de Madeiras em Geral”, pertencente às classes 5530 e 5510, conforme as especificações constantes deste Edital e/ou do Termo de Referência.",
       "orgao": "MUNICIPIO DE RIO DE JANEIRO",
-      "situacaoCompraNome": "Divulgada no PNCP",
+      "situacaoCompraNome": "Suspensa",
       "unidade": "PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ",
       "valorTotalEstimado": 425016.0,
       "valorTotalHomologado": null
@@ -56320,28 +56320,9 @@
     {
       "city": "Vitoria",
       "cnpj": "27142058000126",
-      "dataPublicacaoPncp": "2026-04-08T09:04:49",
+      "dataPublicacaoPncp": "2026-04-10T09:34:59",
       "document_count": 0,
       "document_types": [],
-      "numeroControlePNCP": "27142058000126-1-000163/2026",
-      "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURA E EVENTUAL AQUISIÇÃO DE MATERIAIS MÉDICOHOSPITALARES (espéculos ginecológicos, escova endocervical e espátula de Ayres)",
-      "orgao": "MUNICIPIO DE VITORIA",
-      "situacaoCompraNome": "Suspensa",
-      "unidade": "PREFEITURA MUNICIPAL DE VITORIA",
-      "valorTotalEstimado": 133200.0,
-      "valorTotalHomologado": null
-    },
-    {
-      "city": "Vitoria",
-      "cnpj": "27142058000126",
-      "dataPublicacaoPncp": "2026-04-10T09:34:59",
-      "document_count": 5,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
       "numeroControlePNCP": "27142058000126-1-000167/2026",
       "objetoCompra": "AQUISIÇÃO DE PAINEL DE LED INDOOR, CONTROLADOR DE VÍDEO E APRESENTADOR DE SLIDES",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56354,8 +56335,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-04-10T13:21:06",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 7,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000169/2026",
       "objetoCompra": "PRESTAÇÃO DE SERVIÇOS DE CONSERVAÇÃO, HIGIENIZAÇÃO PREDIAL, LIMPEZA, JARDINAGEM, COPEIRAGEM E PEQUENOS REPAROS, COM FORNECIMENTO DE MÃO DE OBRA, EQUIPAMENTOS, FERRAMENTAS E MATERIAIS.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56382,14 +56368,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-04-15T14:16:18",
-      "document_count": 6,
-      "document_types": [
-        "DFD",
-        "Edital",
-        "Mapa de Riscos",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000178/2026",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURA E EVENTUAL AQUISIÇÃO DE ELETRODOMÉSTICOS E EQUIPAMENTOS",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56421,8 +56401,15 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-04-15T14:43:48",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 9,
+      "document_types": [
+        "DFD",
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Mapa de Riscos",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000181/2026",
       "objetoCompra": "REGISTRO DE PREÇOS PARA AQUISIÇÃO DE ELETRODOMÉSTICOS (SMART TV, FOGÃO E REFRIGERADOR).",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56435,12 +56422,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-04-22T12:56:53",
-      "document_count": 4,
-      "document_types": [
-        "Edital",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000197/2026",
       "objetoCompra": "AQUISIÇÃO DE MEDICAMENTO (NITROFURANTOÍNA)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56472,8 +56455,12 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-04-23T15:57:19",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 3,
+      "document_types": [
+        "Edital",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000199/2026",
       "objetoCompra": "Registro de preços visando a aquisição de fraldas descartáveis.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56486,15 +56473,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-04-23T16:00:10",
-      "document_count": 8,
-      "document_types": [
-        "DFD",
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Mapa de Riscos",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000200/2026",
       "objetoCompra": "AQUISIÇÃO DE MEDICAMENTOS (CYNARA SCOLYMUS e METILDOPA)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56507,8 +56487,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-04-24T08:59:33",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 12,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000202/2026",
       "objetoCompra": "PRESTAÇÃO DE SERVIÇOS DE AGENTE DE INTEGRAÇÃO PARA OPERACIONALIZAR O PROGRAMA DE ESTÁGIO DO MUNICÍPIO DE VITÓRIA",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56549,12 +56534,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-04-30T11:03:44",
-      "document_count": 6,
-      "document_types": [
-        "Edital",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000212/2026",
       "objetoCompra": "AQUISIÇÃO DE VEÍCULOS CARACTERIZADOS",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56567,8 +56548,11 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-05-04T08:59:26",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 2,
+      "document_types": [
+        "Edital",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000216/2026",
       "objetoCompra": "AQUISIÇÃO DE SIMULADOR DE IMPACTO VEICULAR",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56581,11 +56565,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-05-04T09:59:19",
-      "document_count": 2,
-      "document_types": [
-        "Edital",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000217/2026",
       "objetoCompra": "AQUISIÇÃO DE PLACAS INFORMATIVAS PERSONALIZÁVEIS EM ACM.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56598,8 +56579,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-05-05T17:36:28",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 4,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000221/2026",
       "objetoCompra": "Contratação de empresa para prestação de serviços de agenciamento e fornecimento de passagens aéreas para voos regulares nacionais e internacionais",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56648,7 +56634,7 @@
       "situacaoCompraNome": "Divulgada no PNCP",
       "unidade": "PREFEITURA MUNICIPAL DE VITORIA",
       "valorTotalEstimado": 886172.48,
-      "valorTotalHomologado": null
+      "valorTotalHomologado": 659375.0
     },
     {
       "city": "Vitoria",
@@ -56668,12 +56654,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-05-13T10:58:09",
-      "document_count": 4,
-      "document_types": [
-        "Edital",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000238/2026",
       "objetoCompra": "AQUISIÇÃO DE MATERIAIS DE COMUNICAÇÃO E SINALIZAÇÃO VISUAL (PLACAS SINALIZADORAS, ADESIVOS, BANNER, FAIXA E BOTON).",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56721,8 +56703,11 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-05-19T15:50:09",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 2,
+      "document_types": [
+        "Edital",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000249/2026",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO AQUISIÇÃO DE MATERIAIS MÉDICO-HOSPITALARES (SONDAS URETRAIS, SONDAS FOLLEY, DISPOSITIVOS DE INCONTINÊNCIA URINÁRIA E COLETORES DE URINA).",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56735,12 +56720,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-05-19T16:23:15",
-      "document_count": 3,
-      "document_types": [
-        "Edital",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000250/2026",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO AQUISIÇÃO DE MEDICAMENTOS (SULFADIAZINA DE PRATA, FENOBARBITAL, BIPERIDENO CLORIDRATO, FENITOÍNA, HALOPERIDOL E TOBRAMICINA).",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56753,8 +56734,12 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-05-19T16:26:57",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 4,
+      "document_types": [
+        "Edital",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000251/2026",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO AQUISIÇÕES DE MOBILIÁRIOS DE MADEIRA.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56795,13 +56780,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-05-22T14:01:06",
-      "document_count": 5,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000260/2026",
       "objetoCompra": "CONTRATAÇÃO DE EMPRESA PARA O FORNECIMENTO DE LANCHES E ALMOÇO, PARA A REALIZAÇÃO DO XVII ENCONTRO DE MOBILIZAÇÃO ESTUDANTIL",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56814,8 +56794,12 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-05-22T16:35:56",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 3,
+      "document_types": [
+        "Edital",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000264/2026",
       "objetoCompra": "AQUISIÇÃO DE MATERIAIS/REAGENTE (coletores diversos, corantes e dextrosol)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56842,12 +56826,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-05-26T10:59:10",
-      "document_count": 5,
-      "document_types": [
-        "Edital",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000267/2026",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURA E EVENTUAL AQUISIÇÃO DE MEDICAMENTOS E INSUMOS VETERINÁRIOS.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56860,8 +56840,11 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-05-26T17:50:27",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 2,
+      "document_types": [
+        "Edital",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000268/2026",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO AQUISIÇÃO DE MEDICAMENTOS (CYNARA SCOLYMUS, BUDESONIDA, SOLUÇÃO DE CLORETO DE SÓDIO).",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56874,11 +56857,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-05-27T08:14:27",
-      "document_count": 2,
-      "document_types": [
-        "Edital",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000270/2026",
       "objetoCompra": "Aquisição de TABLETS.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56891,8 +56871,11 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-05-27T08:16:50",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 2,
+      "document_types": [
+        "Edital",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000271/2026",
       "objetoCompra": "Aquisição de medicamentos - SULFATO FERROSO 40 mg comprimido, LEVODOPA + BENSERAZIDA 100 + 25 mg cápsula, LEVOTIROXINA SÓDICA 100 mg comprimido, LEVOTIROXINA SÓDICA 25 mg comprimido, LEVOTIROXINA SÓDICA 50 mg comprimido",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56919,12 +56902,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-05-27T15:59:56",
-      "document_count": 3,
-      "document_types": [
-        "Edital",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000274/2026",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO AQUISIÇÃO DE MEDICAMENTOS (ESCOPOLAMINA, IBUPROFENO, METOCLOPRAMIDA E MIKANIA GLOMERATA)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56937,8 +56916,11 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-06-02T09:27:52",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 2,
+      "document_types": [
+        "Edital",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000277/2026",
       "objetoCompra": "AQUISIÇÃO DE UNIFORMES E EPI´S (EQUIPAMENTO DE PROTEÇÃO INDIVIDUAL) PARA A UTILIZAÇÃO DOS AGENTES DA DEFESA CIVIL",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -56951,8 +56933,11 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-06-02T11:57:47",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 2,
+      "document_types": [
+        "Edital",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000279/2026",
       "objetoCompra": "AQUISIÇÃO DE UNIFORMES, MATERIAIS ESPORTIVOS E MATERIAL DE IDENTIFICAÇÃO PARA O PROJETO TEATIVO",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57021,11 +57006,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-06-02T16:37:12",
-      "document_count": 2,
-      "document_types": [
-        "Edital",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000284/2026",
       "objetoCompra": "FORNECIMENTO DE ALIMENTAÇÃO [DESJEJUM, ALMOÇO/JANTAR (TIPO MARMITEX) E LANCHES].",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57038,8 +57020,12 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-06-02T16:43:13",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 3,
+      "document_types": [
+        "Edital",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000285/2026",
       "objetoCompra": "Registro de preços visando a aquisição de medicamentos (fluvoxamina maleato, insulina glargina e insulina lispro).",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57080,12 +57066,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-06-09T13:53:06",
-      "document_count": 4,
-      "document_types": [
-        "Edital",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000289/2026",
       "objetoCompra": "REGISTRO DE PREÇOS PARA AQUISIÇÃO DE MEDICAMENTOS (FLUCONAZOL, FUROSEMIDA, METFORMINA, TRIANCINOLONA ACETONIDA)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57115,8 +57097,12 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-06-09T15:57:00",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 3,
+      "document_types": [
+        "Edital",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000291/2026",
       "objetoCompra": "Aquisição de Multiestações e Academias Populares de Pessoas Idosas (APPI), com instalação.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57129,12 +57115,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-06-10T08:19:01",
-      "document_count": 4,
-      "document_types": [
-        "Edital",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000294/2026",
       "objetoCompra": "PRESTAÇÃO DE SERVIÇOS DE ELABORAÇÃO DO DIAGNÓSTICO POPULACIONAL DE ANIMAIS DOMÉSTICOS, CONTEMPLANDO O LEVANTAMENTO DAS POPULAÇÕES CANINAS E FELINAS DO MUNICÍPIO DE VITÓRIA",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57147,8 +57129,11 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2026-06-11T09:21:54",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 2,
+      "document_types": [
+        "Edital",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000299/2026",
       "objetoCompra": "PRESTAÇÃO DE SERVIÇOS DE ORGANIZAÇÃO E APOIO OPERACIONAL NECESSÁRIO À REALIZAÇÃO DA CORRIDA E CAMINHADA “NOSSA VITÓRIA. NOSSA HISTÓRIA” – EDIÇÃO SEMANA DA JUVENTUDE",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57161,13 +57146,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-06-17T09:18:36",
-      "document_count": 8,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000316/2025",
       "objetoCompra": "AQUISIÇÃO DE MEDICAMENTO (MAYTENUS ILICIFOLIA)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57218,8 +57198,12 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-06-25T09:46:07",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 3,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000324/2025",
       "objetoCompra": "AQUISIÇÃO DE MEDICAMENTO (HIDROCORTISONA)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57246,13 +57230,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-06-27T13:35:02",
-      "document_count": 4,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000329/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURA E EVENTUAL AQUISIÇÃO DE SACOS DO TIPO “BIG BAG” – “BAGS”, PARA SEREM UTILIZADOS NO SERVIÇO DE COLETA SELETIVA NO MUNICÍPIO DE VITÓRIA/ES",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57284,8 +57263,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-06-30T13:51:22",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 7,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000333/2025",
       "objetoCompra": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA EM PRESTAÇÃO DE SERVIÇO DE MANUTENÇÃO CORRETIVA E PREVENTIVA DOS EQUIPAMENTOS EM AÇO INOX DAS ACADEMIAS POPULARES, DAS ACADEMIAS POPULARES DA PESSOA IDOSA, DAS MULTIESTAÇÕES E DOS BRINQUEDOS ADAPTADOS, COM FORNECIMENTO DAS PEÇAS E MATERIAIS; E DE REMOÇÃO, TRANSPORTE E REINSTALAÇÃO DE APPIS E MULTIESTAÇÃO.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57298,12 +57282,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-07-01T09:38:05",
-      "document_count": 3,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000335/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO A FUTURA E EVENTUAL AQUISIÇÃO DE MATERIAIS DE LIMPEZA (ESFREGÃO MOP E REFIL)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57316,8 +57296,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-07-01T09:38:59",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 10,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000336/2025",
       "objetoCompra": "AQUISIÇÃO DE UNIFORME ESCOLAR (BERMUDAS, CALÇAS, JAQUETAS, SAIAS E SHORT SAIAS)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57358,13 +57343,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-07-07T15:38:22",
-      "document_count": 8,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000347/2025",
       "objetoCompra": "Registro de preços visando futura e eventual aquisição de gêneros alimentícios (óleo de soja).",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57414,8 +57394,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-07-08T14:33:04",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 7,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000351/2025",
       "objetoCompra": "Aquisição de Medicamento (Omeprazol).",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57470,13 +57455,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-07-16T11:31:32",
-      "document_count": 9,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000371/2025",
       "objetoCompra": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA PRESTAÇÃO DE SERVIÇOS DE LIMPEZA, HIGIENIZAÇÃO E DESINFECÇÃO DOS RESERVATÓRIOS DE ÁGUA (CAIXAS D’ÁGUA E CISTERNAS) E LIMPEZA, TRATAMENTO E MANUTENÇÃO DE PISCINA",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57489,8 +57469,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-07-18T10:47:03",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 5,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000375/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURA E EVENTUAL CONTRATAÇÃO DE EMPRESA PARA PRESTAÇÃO DE SERVIÇOS E FORNECIMENTO DE LICENÇA DE SOFTWARE DE VIDEOMONITORAMENTO.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57503,12 +57488,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-07-18T11:34:45",
-      "document_count": 3,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000376/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURA E EVENTUAL AQUISIÇÃO DE MOBILIÁRIO CLÍNICO (CARRO DE CURATIVO, CARRO DE EMERGÊNCIA, CARRO MACA, CARRO DE TRANSPORTE DE MATERIAL ESTERILIZADO).",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57578,8 +57559,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-07-25T16:24:21",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 6,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000384/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURA E EVENTUAL AQUISIÇÃO DE AÇÚCAR.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57620,13 +57606,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-08-01T08:33:36",
-      "document_count": 6,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000393/2025",
       "objetoCompra": "AQUISIÇÃO DE EQUIPAMENTO LABORATORIAL (AUTOCLAVE VERTICAL)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57676,8 +57657,12 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-08-08T14:28:40",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 8,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos"
+      ],
       "numeroControlePNCP": "27142058000126-1-000408/2025",
       "objetoCompra": "Aquisição de medicamentos - LEVODOPA + CARBIDOPA 250+25 mg comprimido, SULFADIAZINA DE PRATA 10 mg + NITRATO DE CÉRIO 4 G creme dermatológico, RISPERIDONA 1 mg comprimido, RISPERIDONA 2 mg comprimido, NITROPRUSSETO DE SÓDIO 50 mg pó para solução injetável",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57690,13 +57675,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-08-12T15:03:53",
-      "document_count": 7,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000416/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURA E EVENTUAL AQUISIÇÃO DE MATERIAIS DE EXPEDIENTE (PILHAS ALCALINAS AA E AAA).",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57709,8 +57689,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-08-12T15:06:08",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 6,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000417/2025",
       "objetoCompra": "AQUISIÇÃO DE MEDICAMENTO (OMEPRAZOL)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57723,11 +57708,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-08-12T15:49:51",
-      "document_count": 2,
-      "document_types": [
-        "Edital",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000418/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO A FUTURA E EVENTUAL AQUISIÇÃO DE MEDICAMENTOS (SOLUÇÃO DE RINGER SIMPLES 500 mL, SOLUÇÃO DE RINGER LACTATO 500 mL, MANITOL 20% solução injetável, SOLUÇÃO DE CLORETO DE SÓDIO 0,9% sistema fechado 100 ml, SOLUÇÃO DE GLICOSE 5% sis",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57759,8 +57741,12 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-08-18T14:24:48",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 3,
+      "document_types": [
+        "Edital",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000425/2025",
       "objetoCompra": "PRESTAÇÃO DE SERVIÇOS DE ORGANIZAÇÃO E APOIO OPERACIONAL NECESSÁRIO À REALIZAÇÃO DA SEXTA CORRIDA PROCON VITÓRIA.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57773,13 +57759,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-08-18T14:50:24",
-      "document_count": 5,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000426/2025",
       "objetoCompra": "Aquisição de pin de lapela e camiseta.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57811,8 +57792,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-08-19T15:31:16",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 5,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000429/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO AQUISIÇÃO DE MATERIAIS MÉDICO-HOSPITALARES (ATADURAS DE CREPOM, TUBOS ENDOTRAQUEAIS, CÂNULAS DE TRAQUEOSTOMIAS, SONDA NASOENTERAL E BOTA DE UNNA).",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57839,13 +57825,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-08-20T08:12:37",
-      "document_count": 8,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000432/2025",
       "objetoCompra": "PRESTAÇÃO DE SERVIÇOS DE MANUTENÇÃO, REFORMA, IMPLANTAÇÃO E MODERNIZAÇÃO DA SINALIZAÇÃO SEMAFÓRICA NO MUNICÍPIO DE VITÓRIA/ES, COM FORNECIMENTO E OPERAÇÃO DE SOFTWARE.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57858,8 +57839,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-08-22T09:15:51",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 5,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000437/2025",
       "objetoCompra": "REGISTRO DE PREÇOS PARA PRESTAÇÃO DE SERVIÇOS DE RECEPCIONISTAS.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57900,13 +57886,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-09-04T11:23:03",
-      "document_count": 4,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000466/2025",
       "objetoCompra": "Aquisição de bote de apoio completo, com motor de popa e carreta de encalhe.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57919,8 +57900,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-09-05T15:59:06",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 8,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000476/2025",
       "objetoCompra": "AQUISIÇÃO DE INSETICIDAS E MOLUSCICIDA",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57947,13 +57933,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-09-09T08:53:26",
-      "document_count": 5,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000479/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURA E EVENTUAL AQUISIÇÃO DE MEDICAMENTO (CEFTRIAXONA 1 g pó para solução injetável IM e IV).",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57966,8 +57947,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-09-10T09:10:23",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 7,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000482/2025",
       "objetoCompra": "AQUISIÇÃO DE MEDICAMENTO (OMEPRAZOL)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -57980,13 +57966,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-09-10T14:15:41",
-      "document_count": 12,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000485/2025",
       "objetoCompra": "PRESTAÇÃO DE SERVIÇOS DE CAPTURA, MANEJO, CUIDADOS VETERINÁRIOS, TRANSPORTE, ACOLHIMENTO E IDENTIFICAÇÃO DE ANIMAIS DE PEQUENO, MÉDIO E GRANDE PORTE (CANINOS, FELINOS, AVES, EQÜINOS, BOVINOS, SUÍNOS, CAPRINOS",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58056,8 +58037,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-09-11T15:05:49",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 7,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000489/2025",
       "objetoCompra": "Registro de preços visando a aquisição de medicamento (carbonato de cálcio + colecalciferol [vitamina D]).",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58084,12 +58070,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-09-11T16:10:02",
-      "document_count": 3,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000491/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO AQUISIÇÃO DE MEDICAMENTOS (MEMANTINA CLORIDRATO, PROMETAZINA, ÁCIDO FÓLICO E BUPROPIONA CLORIDRATO)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58121,8 +58103,12 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-09-16T12:15:57",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 3,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000495/2025",
       "objetoCompra": "AQUISIÇÃO DE “KIT SACOLA ESPORTIVA” PERSONALIZADO (SACOLA, SQUEEZE E TOALHA)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58149,11 +58135,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-09-23T10:53:34",
-      "document_count": 2,
-      "document_types": [
-        "Edital",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000509/2025",
       "objetoCompra": "AQUISIÇÃO DE MEDICAMENTO (ENALAPRIL))",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58166,8 +58149,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-09-23T14:34:39",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 12,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000510/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURA E EVENTUAL AQUISIÇÃO DE MOBILIÁRIOS (CADEIRAS E POLTRONAS)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58264,12 +58252,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-09-30T14:24:49",
-      "document_count": 3,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000532/2025",
       "objetoCompra": "PRESTAÇÃO DE SERVIÇOS DE REMOÇÃO DE PACIENTES EM AMBULÂNCIA DE SUPORTE BÁSICO (TIPO B)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58301,8 +58285,11 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-10-01T15:42:37",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 2,
+      "document_types": [
+        "Edital",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000538/2025",
       "objetoCompra": "AQUISIÇÃO DE LONAS/BANNERS E WINDBANNER DE IDENTIFICAÇÃO",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58357,13 +58344,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-10-08T09:02:23",
-      "document_count": 7,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000552/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO AQUISIÇÃO DE INSULINA.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58376,8 +58358,12 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-10-08T13:27:55",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 3,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000555/2025",
       "objetoCompra": "AQUISIÇÃO DE EQUIPAMENTO LABORATORIAL (MICROSCÓPIO BIOLÓGICO BINOCULAR)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58390,11 +58376,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-10-09T13:34:47",
-      "document_count": 2,
-      "document_types": [
-        "Edital",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000558/2025",
       "objetoCompra": "AQUISIÇÃO DE MATERIAIS DE PROTEÇÃO, SEGURANÇA E SALVAMENTO (CABO TRANÇADO, OMBRELONE E PRANCHÃO)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58407,8 +58390,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-10-14T15:39:18",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 7,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000572/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURA E EVENTUAL AQUISIÇÃO DE BANCOS DE MADEIRA PLÁSTICA.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58421,13 +58409,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-10-14T15:39:40",
-      "document_count": 4,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000573/2025",
       "objetoCompra": "AQUISIÇÃO DE MATERIAL HOSPITALAR (PACOTE TESTE DESAFIO)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58440,8 +58423,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-10-14T15:41:45",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 10,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000574/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO AQUISIÇÃO DE MEDICAMENTOS (AMOXICILINA + ÁCIDO CLAVULÂNICO)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58454,13 +58442,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-10-14T15:42:39",
-      "document_count": 8,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000575/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO AQUISIÇÃO DE CAPAS DE PRONTUÁRIO",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58473,8 +58456,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-10-14T16:03:23",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 11,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000576/2025",
       "objetoCompra": "AQUISIÇÃO DE ETILÔMETROS ACOMPANHADOS DE ACESSÓRIOS E INSUMOS.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58487,13 +58475,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-10-14T16:16:31",
-      "document_count": 4,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000577/2025",
       "objetoCompra": "Registro de preços visando a aquisição de gênero alimentício (polpa de fruta).",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58525,8 +58508,12 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-10-21T15:41:19",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 7,
+      "document_types": [
+        "Edital",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000590/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO AQUISIÇÃO DE MEDICAMENTOS (ACICLOVIR, AMITRIPTILINA, CARBONATO DE LÍTIO, CLOMIPRAMINA E CLONAZEPAM)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58539,13 +58526,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-10-21T17:48:30",
-      "document_count": 4,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000591/2025",
       "objetoCompra": "Registro de preços visando a aquisição de material de higienização (sabonete líquido).",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58577,8 +58559,11 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-10-22T09:08:09",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 2,
+      "document_types": [
+        "Edital",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000594/2025",
       "objetoCompra": "AQUISIÇÃO DE EQUIPAMENTOS DE LABORATÓRIO (ESTEREOSCÓPIO E CÂMARA DIGITAL), COM PRESTAÇÃO DE SERVIÇOS DE ASSISTÊNCIA E SUPORTE TÉCNICO.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58619,10 +58604,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-10-24T14:40:34",
-      "document_count": 1,
-      "document_types": [
-        "Edital"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000600/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURA E EVENTUAL AQUISIÇÃO DE MEDICAMENTOS (CITALOPRAM 20 MG COMPRIMIDO, BROMOPRIDA 4 MG/ML SOLUÇÃO GOTAS, CLONAZEPAM 2 MG COMPRIMIDO, DIPIRONA 500 MG COMPRIMIDO, LOSARTANA 50 MG COMPRIMIDO)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58673,8 +58656,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-10-30T09:55:24",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 6,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000606/2025",
       "objetoCompra": "AQUISIÇÃO DE EQUIPAMENTOS ANTROPOMÉTRICOS (BALANÇA DIGITAL DE BIOIMPEDÂNCIA E ESTADIÔMETRO)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58687,13 +58675,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-10-31T07:36:15",
-      "document_count": 7,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000607/2025",
       "objetoCompra": "AQUISIÇÃO DE MATERIAIS ODONTOLÓGICOS PARA ENDODONTIA (LIMAS ENDODÔNTICAS, CONES DE GUTA PERCHA E OUTROS)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58743,8 +58726,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-11-10T13:01:04",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 7,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000624/2025",
       "objetoCompra": "AQUISIÇÃO DE MATERIAL HOSPITALAR (SERINGA PARA INSULINA)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58757,13 +58745,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-11-10T13:28:14",
-      "document_count": 6,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000625/2025",
       "objetoCompra": "PRESTAÇÃO DE SERVIÇOS DE ORGANIZAÇÃO E APOIO OPERACIONAL NECESSÁRIO À REALIZAÇÃO DA CORRIDA E CAMINHADA NATAL DE ENCANTOS – EDIÇÃO: VITÓRIA DO CONSUMIDOR CONSCIENTE.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58776,8 +58759,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-11-11T13:11:12",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 5,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000627/2025",
       "objetoCompra": "AQUISIÇÃO DE KIT´S IMUNOLÓGICOS MANUAIS PARA REALIZAÇÃO DE EXAMES LABORATORIAS (TIPAGEM SANGUÍNEA, CONTROLE DE ANTIGLOBULINA E CÉLULAS DE TRIAGEM)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58790,13 +58778,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-11-11T14:22:17",
-      "document_count": 4,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000629/2025",
       "objetoCompra": "AQUISIÇÃO DE MATERIAIS PARA HORTAS/JARDINS TERAPÊUTICOS",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58954,12 +58937,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-11-27T12:26:40",
-      "document_count": 4,
-      "document_types": [
-        "Edital",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000669/2025",
       "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURA E EVENTUAL AQUISIÇÃO DE MATERIASIS MÉDICO-HOSPITALARES (AVENTAIS, MÁSCARAS, TOUCA E CAMISOLA)",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -58991,8 +58970,15 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-12-02T10:39:03",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 8,
+      "document_types": [
+        "DFD",
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Mapa de Riscos",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000679/2025",
       "objetoCompra": "AQUISIÇÃO DE MOBILIÁRIO E EQUIPAMENTOS DIVERSOS",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -59109,8 +59095,13 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-12-29T08:36:38",
-      "document_count": 0,
-      "document_types": [],
+      "document_count": 7,
+      "document_types": [
+        "Edital",
+        "Estudo Técnico Preliminar",
+        "Outros Documentos",
+        "Termo de Referência"
+      ],
       "numeroControlePNCP": "27142058000126-1-000772/2025",
       "objetoCompra": "REGISTRO DE PREÇOS PARA O FORNECIMENTO DE SOLUÇÃO DE FIREWALL DE PRÓXIMA GERAÇÃO, INCLUINDO SERVIÇOS DE INSTALAÇÃO, CONFIGURAÇÃO, SUPORTE E GARANTIA.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -59123,13 +59114,8 @@
       "city": "Vitoria",
       "cnpj": "27142058000126",
       "dataPublicacaoPncp": "2025-12-29T08:47:23",
-      "document_count": 5,
-      "document_types": [
-        "Edital",
-        "Estudo Técnico Preliminar",
-        "Outros Documentos",
-        "Termo de Referência"
-      ],
+      "document_count": 0,
+      "document_types": [],
       "numeroControlePNCP": "27142058000126-1-000773/2025",
       "objetoCompra": "AQUISIÇÃO DE EQUIPAMENTOS ODONTOLÓGICOS (COMPRESSORES), COM PRESTAÇÃO DE SERVIÇOS DE ASSISTÊNCIA E SUPORTE TÉCNICO.",
       "orgao": "MUNICIPIO DE VITORIA",
@@ -59216,6 +59202,7 @@
   ],
   "sao_paulo_fragmentation_evidence": {
     "candidate_count": 2662,
+    "city": "Sao Paulo",
     "distinct_cnpj_count": 67,
     "matrix_cnpj": "46395000000139",
     "matrix_records": 30,
@@ -59341,204 +59328,60 @@
       "records": 25
     }
   ],
-  "semantic_quality": {
-    "by_city": [
+  "script_execution_events": {
+    "duration_seconds": 2613.677,
+    "errors": [],
+    "events": [
       {
-        "avg_acionabilidade_controle_social": 1.8,
-        "avg_alinhamento_documento_api": 1.0,
-        "avg_coerencia_interna": 3.96,
-        "avg_informatividade_do_registro": 3.53,
-        "avg_score_medio": 2.57,
-        "city": "Belo Horizonte",
-        "evaluated_count": 0,
-        "insufficient_text_count": 100,
-        "sample_count": 100,
-        "scored_count": 100
+        "command": "uv run pncp-analysis --config /Users/aluisioamorim/Code/AluisioDev/analise-pncp/config/analysis.yaml collect",
+        "duration_seconds": 2577.358,
+        "exit_code": 0,
+        "finished_at": "2026-06-17T00:10:36+00:00",
+        "name": "main_successful_collection",
+        "note": "",
+        "started_at": "2026-06-16T23:27:38+00:00"
       },
       {
-        "avg_acionabilidade_controle_social": 2.0,
-        "avg_alinhamento_documento_api": 1.06,
-        "avg_coerencia_interna": 3.97,
-        "avg_informatividade_do_registro": 3.71,
-        "avg_score_medio": 2.69,
-        "city": "Rio de Janeiro",
-        "evaluated_count": 2,
-        "insufficient_text_count": 98,
-        "sample_count": 100,
-        "scored_count": 100
+        "command": "uv run pncp-analysis --config /Users/aluisioamorim/Code/AluisioDev/analise-pncp/config/analysis.yaml sample",
+        "duration_seconds": 0.503,
+        "exit_code": 0,
+        "finished_at": "2026-06-17T00:10:36+00:00",
+        "name": "q2_sample_generation",
+        "note": "",
+        "started_at": "2026-06-17T00:10:36+00:00"
       },
       {
-        "avg_acionabilidade_controle_social": 1.91,
-        "avg_alinhamento_documento_api": 1.03,
-        "avg_coerencia_interna": 3.98,
-        "avg_informatividade_do_registro": 3.36,
-        "avg_score_medio": 2.57,
-        "city": "Sao Paulo",
-        "evaluated_count": 1,
-        "insufficient_text_count": 99,
-        "sample_count": 100,
-        "scored_count": 100
+        "command": "uv run pncp-analysis --config /Users/aluisioamorim/Code/AluisioDev/analise-pncp/config/analysis.yaml analyze",
+        "duration_seconds": 35.729,
+        "exit_code": 0,
+        "finished_at": "2026-06-17T00:11:12+00:00",
+        "name": "q2_document_analysis",
+        "note": "",
+        "started_at": "2026-06-17T00:10:36+00:00"
       },
       {
-        "avg_acionabilidade_controle_social": 0.65,
-        "avg_alinhamento_documento_api": 1.0,
-        "avg_coerencia_interna": 3.95,
-        "avg_informatividade_do_registro": 2.6,
-        "avg_score_medio": 2.05,
-        "city": "Vitoria",
-        "evaluated_count": 0,
-        "insufficient_text_count": 100,
-        "sample_count": 100,
-        "scored_count": 100
+        "command": "uv run pncp-analysis --config /Users/aluisioamorim/Code/AluisioDev/analise-pncp/config/analysis.yaml report",
+        "duration_seconds": 0.056,
+        "exit_code": 0,
+        "finished_at": "2026-06-17T00:11:12+00:00",
+        "name": "final_report_generation",
+        "note": "",
+        "started_at": "2026-06-17T00:11:12+00:00"
+      },
+      {
+        "command": "uv run python scripts/rebuild_q2.py # render report/relatorio-final.md",
+        "duration_seconds": 0.029,
+        "exit_code": 0,
+        "finished_at": "2026-06-17T00:11:12+00:00",
+        "name": "q2_paper_markdown_generation",
+        "note": "",
+        "started_at": "2026-06-17T00:11:12+00:00"
       }
     ],
-    "evaluated_count": 3,
-    "evaluation_method": "local_codex_rule_based_rubric_no_openai_api",
-    "evaluator": "codex-subagent",
-    "examples": [
-      {
-        "alertas": [
-          "Objeto da compra e curto ou generico.",
-          "Objeto nao delimita suficientemente escopo, finalidade ou item contratado.",
-          "Link do sistema de origem ausente.",
-          "Texto documental insuficiente para alinhamento (status=download_error, chars=0)."
-        ],
-        "city": "Vitoria",
-        "numeroControlePNCP": "27142058000126-1-000008/2026",
-        "resumo": "Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000.",
-        "score_medio": 1.25,
-        "status": "insufficient_text"
-      },
-      {
-        "alertas": [
-          "Objeto da compra e curto ou generico.",
-          "Objeto nao delimita suficientemente escopo, finalidade ou item contratado.",
-          "Link do sistema de origem ausente.",
-          "Texto documental insuficiente para alinhamento (status=download_error, chars=0)."
-        ],
-        "city": "Vitoria",
-        "numeroControlePNCP": "27142058000126-1-000270/2026",
-        "resumo": "Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000.",
-        "score_medio": 1.25,
-        "status": "insufficient_text"
-      },
-      {
-        "alertas": [
-          "Objeto da compra e curto ou generico.",
-          "Objeto nao delimita suficientemente escopo, finalidade ou item contratado.",
-          "Link do sistema de origem ausente.",
-          "Texto documental insuficiente para alinhamento (status=download_error, chars=0)."
-        ],
-        "city": "Vitoria",
-        "numeroControlePNCP": "27142058000126-1-000319/2025",
-        "resumo": "Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000.",
-        "score_medio": 1.25,
-        "status": "insufficient_text"
-      },
-      {
-        "alertas": [
-          "Objeto da compra e curto ou generico.",
-          "Objeto nao delimita suficientemente escopo, finalidade ou item contratado.",
-          "Link do sistema de origem ausente.",
-          "Texto documental insuficiente para alinhamento (status=download_error, chars=0)."
-        ],
-        "city": "Vitoria",
-        "numeroControlePNCP": "27142058000126-1-000634/2025",
-        "resumo": "Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000.",
-        "score_medio": 1.25,
-        "status": "insufficient_text"
-      },
-      {
-        "alertas": [
-          "Objeto da compra e curto ou generico.",
-          "Objeto nao delimita suficientemente escopo, finalidade ou item contratado.",
-          "Link do sistema de origem ausente.",
-          "Texto documental insuficiente para alinhamento (status=download_error, chars=0)."
-        ],
-        "city": "Vitoria",
-        "numeroControlePNCP": "27142058000126-1-000783/2025",
-        "resumo": "Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000.",
-        "score_medio": 1.25,
-        "status": "insufficient_text"
-      },
-      {
-        "alertas": [
-          "Objeto da compra e curto ou generico.",
-          "Objeto nao delimita suficientemente escopo, finalidade ou item contratado.",
-          "Valor estimado zero sem valor homologado informativo.",
-          "Texto documental insuficiente para alinhamento (status=extract_skipped, chars=0)."
-        ],
-        "city": "Rio de Janeiro",
-        "numeroControlePNCP": "42498733000148-1-000665/2026",
-        "resumo": "Avaliacao local Codex: status=insufficient_text; media=1.50; alinhamento lexical documento/API=0.000.",
-        "score_medio": 1.5,
-        "status": "insufficient_text"
-      },
-      {
-        "alertas": [
-          "Objeto da compra e curto ou generico.",
-          "Objeto nao delimita suficientemente escopo, finalidade ou item contratado.",
-          "Valor estimado zero sem valor homologado informativo.",
-          "Texto documental insuficiente para alinhamento (status=extract_skipped, chars=0)."
-        ],
-        "city": "Sao Paulo",
-        "numeroControlePNCP": "46854998000192-1-000117/2026",
-        "resumo": "Avaliacao local Codex: status=insufficient_text; media=1.50; alinhamento lexical documento/API=0.000.",
-        "score_medio": 1.5,
-        "status": "insufficient_text"
-      },
-      {
-        "alertas": [
-          "Objeto existe, mas com baixo detalhamento.",
-          "Link do sistema de origem ausente.",
-          "Texto documental insuficiente para alinhamento (status=extract_skipped, chars=0).",
-          "Sem link de origem para continuidade da verificacao."
-        ],
-        "city": "Belo Horizonte",
-        "numeroControlePNCP": "18715383000140-1-000386/2025",
-        "resumo": "Avaliacao local Codex: status=insufficient_text; media=1.75; alinhamento lexical documento/API=0.000.",
-        "score_medio": 1.75,
-        "status": "insufficient_text"
-      }
-    ],
-    "extraction_status_counts": {
-      "download_error": 183,
-      "extract_skipped": 214,
-      "ok": 3
-    },
-    "generated_at": "2026-06-16T16:47:47+00:00",
-    "insufficient_text_count": 397,
-    "limitations": [
-      "Avaliacao executada localmente pelo Codex como regra deterministica derivada da rubrica, sem chamada a API externa de modelo e sem conhecimento externo.",
-      "O alinhamento documento/API usa sobreposicao lexical entre objeto, modalidade, orgao e texto extraido; baixa sobreposicao indica risco de verificabilidade, nao prova contradicao substantiva.",
-      "Caracteres substitutos invalidos em extracoes documentais foram saneados para UTF-8 antes de hashing e gravacao; text_sha256 refere-se ao texto saneado.",
-      "397 documento(s) da subamostra nao tiveram texto extraido com status ok.",
-      "397 registro(s) receberam status insufficient_text por ausencia ou insuficiencia de texto documental."
-    ],
-    "model": "codex-subagent",
-    "not_evaluated_count": 0,
-    "overall": {
-      "avg_acionabilidade_controle_social": 1.59,
-      "avg_alinhamento_documento_api": 1.02,
-      "avg_coerencia_interna": 3.96,
-      "avg_informatividade_do_registro": 3.3,
-      "avg_score_medio": 2.47,
-      "evaluated_count": 3,
-      "insufficient_text_count": 397,
-      "sample_count": 400,
-      "scored_count": 400
-    },
-    "pending_codex_evaluation": false,
-    "prompt_version": "q3-semantic-v1",
-    "question": "Q3. As respostas da API sao semanticamente coerentes e informativas?",
-    "reasoning_effort": "n/a",
-    "sample_count": 400,
-    "schema_version": "q3-semantic-schema-v1",
-    "scored_count": 400,
-    "status_counts": {
-      "evaluated": 3,
-      "insufficient_text": 397
-    },
-    "text_verbosity": "n/a"
+    "finished_at": "2026-06-17T00:11:12+00:00",
+    "generated_at": "2026-06-17T00:11:12+00:00",
+    "source": "scripts/rebuild_q2.py",
+    "started_at": "2026-06-16T23:27:38+00:00",
+    "status": "complete"
   }
 }

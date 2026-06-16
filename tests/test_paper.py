@@ -33,9 +33,10 @@ def test_render_paper_markdown_contains_required_sections_and_citations() -> Non
     assert "# Objetivos e método" in markdown
     assert "# Referencial teórico" in markdown
     assert "# Desenvolvimento e análise" in markdown
+    assert "duas questões de pesquisa" in markdown
     assert "Q1. Há completude nos dados fornecidos pelo PNCP" in markdown
     assert "Q2. Os dados das **APIs**^[" in markdown
-    assert "Q3. As respostas da **API** do PNCP são semanticamente coerentes" in markdown
+    assert "Q3." not in markdown
     assert "**APIs**^[**API**:" in markdown
     assert "**Codex**^[**Codex**:" in markdown
     assert "**skills**^[**Skills**:" in markdown
@@ -43,12 +44,14 @@ def test_render_paper_markdown_contains_required_sections_and_citations() -> Non
     assert "O tema dialoga com a disciplina Governo Aberto" not in markdown
     assert "## Q1: completude dos dados" in markdown
     assert "## Q2: consumo da API" in markdown
-    assert "histórico local desta sessão registra um evento crítico" in markdown
-    assert "HTTP 503 (Service Unavailable)" in markdown
-    assert "2 timeouts" in markdown
-    assert "corpo HTML (`text/html`), não como JSON" in markdown
-    assert "4/4 chamadas bem-sucedidas" in markdown
-    assert "## Q3: qualidade semântica e informatividade" in markdown
+    assert "40min 40.8s" in markdown
+    assert "reuniu 19105 registros em 418 páginas" in markdown
+    assert "quatro de sete páginas testadas demoraram demais" in markdown
+    assert "não entrou no tempo do experimento principal" in markdown
+    assert "fez 4 de 4 chamadas com sucesso" in markdown
+    assert "histórico de execução" not in markdown.lower()
+    assert "código de saída" not in markdown
+    assert "qualidade semântica" not in markdown
     assert "https://github.com/Amorim33/analise-pncp" in markdown
     assert "O processo foi assistido pelo **Codex**^[" in markdown
     assert ".agents/skills/" in markdown
@@ -261,6 +264,7 @@ def metrics_payload() -> dict[str, object]:
             "document_api_failures": [],
             "observed_experiment_errors": ["HTTP 429 em teste."],
         },
+        "script_execution_events": script_execution_events(),
         "sample": {"strategy": "all", "n": None, "seed": 20260608, "document_n": 100},
         "document_sample": {
             "strategy": "deterministic_by_city",
@@ -276,44 +280,6 @@ def metrics_payload() -> dict[str, object]:
             "distinct_cnpj_count": 10,
             "outside_matrix_cnpj_count": 9,
         },
-        "semantic_quality": {
-            "generated_at": "2026-06-16T00:00:00+00:00",
-            "question": "Q3. As respostas da API sao semanticamente coerentes?",
-            "model": "codex-subagent",
-            "reasoning_effort": "medium",
-            "text_verbosity": "low",
-            "prompt_version": "q3-semantic-v1",
-            "schema_version": "q3-semantic-schema-v1",
-            "pending_codex_evaluation": False,
-            "sample_count": 1,
-            "evaluated_count": 1,
-            "not_evaluated_count": 0,
-            "insufficient_text_count": 0,
-            "extraction_status_counts": {"ok": 1},
-            "overall": {
-                "sample_count": 1,
-                "evaluated_count": 1,
-                "avg_coerencia_interna": 3.0,
-                "avg_informatividade_do_registro": 4.0,
-                "avg_alinhamento_documento_api": 3.0,
-                "avg_acionabilidade_controle_social": 3.0,
-                "avg_score_medio": 3.25,
-            },
-            "by_city": [
-                {
-                    "city": "Sao Paulo",
-                    "sample_count": 1,
-                    "evaluated_count": 1,
-                    "avg_coerencia_interna": 3.0,
-                    "avg_informatividade_do_registro": 4.0,
-                    "avg_alinhamento_documento_api": 3.0,
-                    "avg_acionabilidade_controle_social": 3.0,
-                    "avg_score_medio": 3.25,
-                }
-            ],
-            "examples": [],
-            "limitations": [],
-        },
     }
 
 
@@ -323,10 +289,10 @@ def collection_metadata() -> dict[str, object]:
             {
                 "city": "Sao Paulo",
                 "kind": "municipality_scan",
-                "records": 250,
+                "records": 19105,
                 "max_pages": None,
-                "pages_collected": 5,
-                "total_pages": 5,
+                "pages_collected": 418,
+                "total_pages": 418,
             }
         ],
         "duration_seconds": 12.0,
@@ -337,6 +303,58 @@ def collection_metadata() -> dict[str, object]:
             "average_success_response_seconds": 0.2,
         },
         "failures": [],
+    }
+
+
+def script_execution_events() -> dict[str, object]:
+    return {
+        "events": [
+            {
+                "name": "main_successful_collection",
+                "command": "uv run pncp-analysis collect",
+                "started_at": "2026-06-16T02:26:40.029Z",
+                "finished_at": "2026-06-16T03:07:20.784Z",
+                "duration_seconds": 2440.755,
+                "exit_code": 0,
+                "note": "Coleta completa.",
+            },
+            {
+                "name": "final_snapshot_collection",
+                "command": "uv run pncp-analysis collect",
+                "started_at": "2026-06-16T03:09:59.285Z",
+                "finished_at": "2026-06-16T03:39:48.368Z",
+                "duration_seconds": 1789.083,
+                "exit_code": 0,
+                "note": "Coleta final.",
+            },
+            {
+                "name": "final_report_generation",
+                "command": "uv run pncp-analysis sample && uv run pncp-analysis analyze",
+                "started_at": "2026-06-16T03:39:57.332Z",
+                "finished_at": "2026-06-16T03:40:34.661Z",
+                "duration_seconds": 37.329,
+                "exit_code": 0,
+                "note": "Relatorio final.",
+            },
+            {
+                "name": "pagination_timeout_probe",
+                "command": "uv run python pagination probe",
+                "started_at": "2026-06-16T02:19:15.260Z",
+                "finished_at": "2026-06-16T02:20:17.784Z",
+                "duration_seconds": 62.524,
+                "exit_code": 0,
+                "note": "Quatro de sete paginas com timeout.",
+            },
+            {
+                "name": "fallback_run_all",
+                "command": "uv run pncp-analysis run-all",
+                "started_at": "2026-06-16T11:54:56.037Z",
+                "finished_at": "2026-06-16T11:58:33.918Z",
+                "duration_seconds": 217.881,
+                "exit_code": 0,
+                "note": "Fallback.",
+            },
+        ]
     }
 
 

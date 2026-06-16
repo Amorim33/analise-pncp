@@ -12,7 +12,6 @@ O principal achado metodologico e que Sao Paulo aparece de forma fragmentada: a 
 
 - Q1. Ha completude nos dados fornecidos pelo PNCP nas prefeituras das capitais dos estados do Sudeste brasileiro (Sao Paulo, Rio de Janeiro, Belo Horizonte e Vitoria)?
 - Q2. Os dados das **APIs** do PNCP sao facilmente consumiveis?
-- Q3. As respostas da **API** do PNCP sao semanticamente coerentes e informativas para controle social?
 
 ## Metodologia
 
@@ -22,8 +21,6 @@ O principal achado metodologico e que Sao Paulo aparece de forma fragmentada: a 
 | Modalidade | Pregao - Eletronico (6) |
 | Amostra principal | todos os registros elegiveis no periodo |
 | Amostra documental | ate 100 por capital (400 registros no total) |
-| Amostra Q3 | documento principal da subamostra documental |
-| Modelo Q3 | codex-subagent |
 | Seed | 20260608 |
 
 Para Rio de Janeiro, Belo Horizonte e Vitoria, a coleta usou o CNPJ matriz do municipio. Para Sao Paulo, a coleta combinou o CNPJ matriz com uma busca por UF e codigo IBGE, filtrando orgaos municipais executivos e excluindo orgaos legislativos como a Camara Municipal.
@@ -32,7 +29,7 @@ Para Rio de Janeiro, Belo Horizonte e Vitoria, a coleta usou o CNPJ matriz do mu
 
 O repositorio GitHub <https://github.com/Amorim33/analise-pncp> versiona o codigo Python, configuracoes, snapshots brutos, tabelas processadas, metricas, analise exploratoria e relatorio final. O processo foi assistido pelo **Codex** como agente de programacao e documentacao, sob supervisao humana.
 
-A divisao agentica foi registrada em **skills** locais no caminho `.agents/skills/`, com papeis para mapeamento da **API**, coleta de dados, metodologia de amostragem, avaliacao semantica e redacao do relatorio. As decisoes substantivas, validacao de fontes e interpretacao final permanecem sob responsabilidade do autor.
+A divisao agentica foi registrada em **skills** locais no caminho `.agents/skills/`, com papeis para mapeamento da **API**, coleta de dados, metodologia de amostragem e redacao do relatorio. As decisoes substantivas, validacao de fontes e interpretacao final permanecem sob responsabilidade do autor.
 
 ## Exemplos de registros retornados pela API
 
@@ -181,7 +178,7 @@ Os exemplos abaixo usam um subconjunto dos campos retornados pela API do PNCP. E
 | Sao Paulo | 2662 | 2662 | 67 | 30 | 1.1% |
 | Rio de Janeiro | 896 | 896 | 1 | 896 | 100.0% |
 | Belo Horizonte | 291 | 291 | 1 | 291 | 100.0% |
-| Vitoria | 234 | 234 | 1 | 234 | 100.0% |
+| Vitoria | 233 | 233 | 1 | 233 | 100.0% |
 
 A amostra principal inclui todos os registros elegiveis no periodo, apos deduplicacao por `numeroControlePNCP`. Para documentos vinculados, o pipeline usa uma subamostra deterministica de ate 100 registros por capital, tambem ordenada e sorteada com seed reprodutivel.
 
@@ -215,14 +212,14 @@ A amostra principal inclui todos os registros elegiveis no periodo, apos dedupli
 | Sao Paulo | 05245375000135-1-000026/2025 | 05245375000135 | SECRETARIA MUNICIPAL DE SEGURANCA URBANA - SMSU | 1 |
 | Sao Paulo | 05245375000135-1-000027/2025 | 05245375000135 | SECRETARIA MUNICIPAL DE SEGURANCA URBANA - SMSU | 0 |
 
-_Tabela limitada aos primeiros 25 registros de 4083 elegiveis para manter o relatorio legivel._
+_Tabela limitada aos primeiros 25 registros de 4082 elegiveis para manter o relatorio legivel._
 
 ## Constatações adicionais
 
 - Na amostra candidata de Sao Paulo, 98.9% dos registros elegiveis ficaram fora do CNPJ matriz; nas demais capitais analisadas, os registros por CNPJ matriz concentraram 100% dos candidatos coletados.
 - Sao Paulo apresentou 67 CNPJs distintos no recorte elegivel, enquanto Rio de Janeiro, Belo Horizonte e Vitoria apareceram com um CNPJ cada no recorte por matriz.
 - Vitoria teve documentos vinculados em todos os itens da subamostra documental, mas nenhum dos registros elegiveis trouxe `linkSistemaOrigem`, o que reduz a rastreabilidade para o sistema de origem.
-- O valor homologado apareceu com menor completude em Sao Paulo (60.4%), indicando que parte dos registros estava em fase anterior ao resultado ou sem homologacao registrada no recorte.
+- O valor homologado apareceu com menor completude em Sao Paulo (60.5%), indicando que parte dos registros estava em fase anterior ao resultado ou sem homologacao registrada no recorte.
 - A quantidade de documentos anexados variou de forma relevante: em Vitoria, um item da amostra chegou a 12 documentos, enquanto outros municipios tiveram padrao mais concentrado.
 
 ## Fragmentacao de CNPJs em Sao Paulo
@@ -273,10 +270,10 @@ Para Q1, a completude foi avaliada campo a campo na amostra principal, que conte
 
 | Capital | Objeto | Valor estimado | Valor homologado | Data de publicacao | Unidade | Link de origem | Documentos |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Sao Paulo | 100.0% | 100.0% | 60.4% | 100.0% | 100.0% | 99.8% | 100.0% |
-| Rio de Janeiro | 100.0% | 100.0% | 62.8% | 100.0% | 100.0% | 100.0% | 100.0% |
+| Sao Paulo | 100.0% | 100.0% | 60.5% | 100.0% | 100.0% | 99.8% | 100.0% |
+| Rio de Janeiro | 100.0% | 100.0% | 63.4% | 100.0% | 100.0% | 100.0% | 100.0% |
 | Belo Horizonte | 100.0% | 100.0% | 78.0% | 100.0% | 100.0% | 96.9% | 100.0% |
-| Vitoria | 100.0% | 100.0% | 66.7% | 100.0% | 100.0% | 0.0% | 100.0% |
+| Vitoria | 100.0% | 100.0% | 67.4% | 100.0% | 100.0% | 0.0% | 100.0% |
 
 Exemplos sorteados de forma pseudoaleatoria, com seed fixa:
 
@@ -285,7 +282,7 @@ Exemplos sorteados de forma pseudoaleatoria, com seed fixa:
 | Sao Paulo | 13864377000130-1-002050/2025 | 18/11/2025 | presente | presente | 1 | REGISTRO De PREÇOS PARA O FORNECIMENTO CANULA TRAQUEOSTOMIA COM BALAO, DESCARTAVEL, EST... |
 | Rio de Janeiro | 42498733000148-1-001315/2025 | 24/07/2025 | presente | presente | 1 | Aquisição de Equipamento de Proteção Individual –EPI |
 | Belo Horizonte | 18715383000140-1-000189/2026 | 27/03/2026 | presente | presente | 1 | O objeto da presente licitação é o registro de preços para aquisição de materiais de hi... |
-| Vitoria | 27142058000126-1-000676/2025 | 28/11/2025 | presente | ausente | 6 | REGISTRO DE PREÇOS VISANDO FUTURO E EVENTUAL FORNECIMENTO DE ÁGUA MINERAL GALÃO 20L |
+| Vitoria | 27142058000126-1-000679/2025 | 02/12/2025 | presente | ausente | 8 | AQUISIÇÃO DE MOBILIÁRIO E EQUIPAMENTOS DIVERSOS |
 
 Tabela completa de campos analisados:
 
@@ -293,7 +290,7 @@ Tabela completa de campos analisados:
 | --- | --- | --- | --- | --- |
 | Sao Paulo | Objeto | 2662 | 2662 | 100.0% |
 | Sao Paulo | Valor estimado | 2662 | 2662 | 100.0% |
-| Sao Paulo | Valor homologado | 1608 | 2662 | 60.4% |
+| Sao Paulo | Valor homologado | 1611 | 2662 | 60.5% |
 | Sao Paulo | Data de publicacao | 2662 | 2662 | 100.0% |
 | Sao Paulo | Abertura de proposta | 2662 | 2662 | 100.0% |
 | Sao Paulo | Encerramento de proposta | 2662 | 2662 | 100.0% |
@@ -302,7 +299,7 @@ Tabela completa de campos analisados:
 | Sao Paulo | Documentos | 100 | 100 | 100.0% |
 | Rio de Janeiro | Objeto | 896 | 896 | 100.0% |
 | Rio de Janeiro | Valor estimado | 896 | 896 | 100.0% |
-| Rio de Janeiro | Valor homologado | 563 | 896 | 62.8% |
+| Rio de Janeiro | Valor homologado | 568 | 896 | 63.4% |
 | Rio de Janeiro | Data de publicacao | 896 | 896 | 100.0% |
 | Rio de Janeiro | Abertura de proposta | 896 | 896 | 100.0% |
 | Rio de Janeiro | Encerramento de proposta | 896 | 896 | 100.0% |
@@ -318,14 +315,14 @@ Tabela completa de campos analisados:
 | Belo Horizonte | Unidade | 291 | 291 | 100.0% |
 | Belo Horizonte | Link de origem | 282 | 291 | 96.9% |
 | Belo Horizonte | Documentos | 100 | 100 | 100.0% |
-| Vitoria | Objeto | 234 | 234 | 100.0% |
-| Vitoria | Valor estimado | 234 | 234 | 100.0% |
-| Vitoria | Valor homologado | 156 | 234 | 66.7% |
-| Vitoria | Data de publicacao | 234 | 234 | 100.0% |
-| Vitoria | Abertura de proposta | 234 | 234 | 100.0% |
-| Vitoria | Encerramento de proposta | 234 | 234 | 100.0% |
-| Vitoria | Unidade | 234 | 234 | 100.0% |
-| Vitoria | Link de origem | 0 | 234 | 0.0% |
+| Vitoria | Objeto | 233 | 233 | 100.0% |
+| Vitoria | Valor estimado | 233 | 233 | 100.0% |
+| Vitoria | Valor homologado | 157 | 233 | 67.4% |
+| Vitoria | Data de publicacao | 233 | 233 | 100.0% |
+| Vitoria | Abertura de proposta | 233 | 233 | 100.0% |
+| Vitoria | Encerramento de proposta | 233 | 233 | 100.0% |
+| Vitoria | Unidade | 233 | 233 | 100.0% |
+| Vitoria | Link de origem | 0 | 233 | 0.0% |
 | Vitoria | Documentos | 100 | 100 | 100.0% |
 
 ## Documentos vinculados
@@ -335,60 +332,28 @@ Tabela completa de campos analisados:
 | Sao Paulo | 100 | 100 | 1 | 1 | 1.0 | Edital |
 | Rio de Janeiro | 100 | 100 | 1 | 1 | 1.0 | Edital |
 | Belo Horizonte | 100 | 100 | 1 | 2 | 1.0 | Edital, Outros Documentos, Termo de Referência |
-| Vitoria | 100 | 100 | 1 | 12 | 5.3 | DFD, Edital, Estudo Técnico Preliminar, Mapa de Riscos, Outros Documentos |
+| Vitoria | 100 | 100 | 2 | 12 | 5.5 | DFD, Edital, Estudo Técnico Preliminar, Mapa de Riscos, Outros Documentos |
 
 A presenca de objeto, datas, valores, unidade administrativa e link de origem foi medida no universo elegivel. Documentos vinculados foram medidos na subamostra documental. Essas metricas nao avaliam a qualidade textual dos documentos, mas indicam se um cidadao ou pesquisador consegue localizar informacoes basicas para controle social.
 
 ## Consumo da API
 
-Para Q2, o pipeline registrou a duracao da coleta e das chamadas ao endpoint de documentos, alem do tempo medio de resposta bem-sucedida. A facilidade de consumo e parcial: a API e estruturada e paginada, mas exige controle de janela temporal, backoff para limite de taxa e validacao de `Content-Type` para evitar parse de respostas nao JSON.
+Para Q2, a coleta foi reexecutada com telemetria por request. Cada chamada preserva URL, status HTTP, tentativa, instante de inicio, instante de fim, duracao e erro observado. A leitura dos resultados indica consumibilidade tecnica real, mas nao trivial: os endpoints retornam dados estruturados e paginados, enquanto a execucao anual depende de blocos temporais, retries, pausas entre paginas e validacao de `Content-Type` para separar JSON valido de respostas HTML de bloqueio ou indisponibilidade.
 
-| Etapa | Requisições | Sucessos | Tempo médio | Duração | Falhas |
-| --- | --- | --- | --- | --- | --- |
-| Snapshots de contratações | n/a | n/a | n/a | n/a | n/a |
-| Tentativa live de coleta | 6 | 0 | n/a | 2min 56.6s | 6 |
-| Consulta de documentos | 400 | 400 | 0.10s | 40.51s | 0 |
-| Experimento total do relatório |  |  |  | 3min 37.8s |  |
+| Etapa | Requisições | Sucessos | Tempo médio | P95 | Duração | Falhas |
+| --- | --- | --- | --- | --- | --- | --- |
+| Coleta anual de contratações | 446 | 418 | 1.61s | 3.51s | 42min 57.4s | 28 |
+| Consulta de documentos | 400 | 400 | 0.09s | 0.11s | 35.63s | 0 |
+| Geração final do relatório | n/a | completa | n/a | n/a | 0.06s | 0 |
+| Experimento observado |  |  |  |  | 43min 33.0s |  |
 
-- Historico local desta sessao: em 16/06/2026, a tentativa live de coleta em `/v1/contratacoes/publicacao` durou 2min 56.6s, realizou 6 requisicoes, obteve 0 respostas bem-sucedidas e acumulou 6 falhas. O registro combina 2 timeouts e 4 respostas HTTP 503 (Service Unavailable). Dessas respostas, 4 vieram com corpo HTML (`text/html`), nao como JSON. Como havia snapshots anteriores, o pipeline acionou fallback, reutilizou os dados brutos existentes e concluiu o fluxo do relatorio em 3min 37.8s.
-- Consulta documental: 400/400 chamadas foram bem-sucedidas, com tempo medio de 0.10s, maximo de 0.44s e 0 falhas persistentes. A API e consumivel, mas a execucao mostrou dependencia de retries, backoff, validacao de `Content-Type`, quebra temporal da coleta e snapshots auditaveis.
+- Historico de execucao: a coleta completa usada na computacao foi `uv run pncp-analysis --config /Users/aluisioamorim/Code/AluisioDev/analise-pncp/config/analysis.yaml collect`, iniciada em 16/06/2026 20:27 e concluida em 16/06/2026 21:10, com duracao de 42min 57.4s e codigo de saida 0. A etapa materializou 19104 registros brutos em 418 paginas de resposta da API. As chamadas bem-sucedidas tiveram media de 1.61s, p95 de 3.51s e maximo de 17.59s.
+- Consulta documental: 400/400 chamadas foram bem-sucedidas, com tempo medio de 0.09s, p95 de 0.11s, maximo de 1.11s e 0 tentativas malsucedidas. A API e consumivel, mas a execucao mostra que a resposta a Q2 deve considerar desempenho, erros preservados, validacao de payload e snapshots auditaveis, nao apenas a existencia formal do endpoint.
 
-- Os snapshots de coleta reutilizados registravam 0 falhas persistentes na coleta bem-sucedida anterior.
-- Na execução final, a consulta de documentos registrou 0 falhas persistentes.
-- A tentativa live desta execução falhou e o pipeline reutilizou snapshots existentes. O erro bruto completo permanece preservado em `data/raw/collection_attempt_metadata.json` e `data/processed/pipeline_metadata.json`; a sintese operacional e a resposta HTTP 503 em HTML e os timeouts descritos acima.
-- Durante a experimentação: HTTP 429 em chamadas repetidas, tratado com backoff e nova tentativa.
-- Durante a experimentação: Timeouts em paginação anual longa, mitigados pela coleta em chunks mensais de 31 dias.
-- Durante a experimentação: Risco de resposta HTML com HTTP 200, tratado por validação de Content-Type antes do parse JSON.
-
-## Qualidade semantica e informatividade
-
-Para Q3, o pipeline seleciona um documento principal por contratacao da subamostra documental e usa um subagent Codex como avaliador estruturado. Quando o texto documental nao esta extraido, a avaliacao fica limitada ao registro da **API** e aos metadados do documento principal. O avaliador nao e fonte de verdade: a evidencia auditavel fica nos snapshots, metadados, hashes dos inputs e respostas preservadas.
-
-A Q3 usou o prompt `q3-semantic-v1` e o schema `q3-semantic-schema-v1`. O avaliador registrado foi `codex-subagent`. Foram pontuados 400 de 400 registros da subamostra; 397 ficaram com texto documental insuficiente.
-
-| Capital | Pontuados | Texto insuf. | Amostra | Coer. | Info. | Doc/API | Acion. | Media |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Belo Horizonte | 100 | 100 | 100 | 3.96 | 3.53 | 1.00 | 1.80 | 2.57 |
-| Rio de Janeiro | 100 | 98 | 100 | 3.97 | 3.71 | 1.06 | 2.00 | 2.69 |
-| Sao Paulo | 100 | 99 | 100 | 3.98 | 3.36 | 1.03 | 1.91 | 2.57 |
-| Vitoria | 100 | 100 | 100 | 3.95 | 2.60 | 1.00 | 0.65 | 2.05 |
-
-Exemplos de avaliacao:
-
-- Vitoria (`27142058000126-1-000008/2026`), media 1.25: Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000. Alertas: Objeto da compra e curto ou generico.; Objeto nao delimita suficientemente escopo, finalidade ou item contratado.; Link do sistema de origem ausente.; Texto ...
-- Vitoria (`27142058000126-1-000270/2026`), media 1.25: Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000. Alertas: Objeto da compra e curto ou generico.; Objeto nao delimita suficientemente escopo, finalidade ou item contratado.; Link do sistema de origem ausente.; Texto ...
-- Vitoria (`27142058000126-1-000319/2025`), media 1.25: Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000. Alertas: Objeto da compra e curto ou generico.; Objeto nao delimita suficientemente escopo, finalidade ou item contratado.; Link do sistema de origem ausente.; Texto ...
-- Vitoria (`27142058000126-1-000634/2025`), media 1.25: Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000. Alertas: Objeto da compra e curto ou generico.; Objeto nao delimita suficientemente escopo, finalidade ou item contratado.; Link do sistema de origem ausente.; Texto ...
-- Vitoria (`27142058000126-1-000783/2025`), media 1.25: Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000. Alertas: Objeto da compra e curto ou generico.; Objeto nao delimita suficientemente escopo, finalidade ou item contratado.; Link do sistema de origem ausente.; Texto ...
-- Rio de Janeiro (`42498733000148-1-000665/2026`), media 1.50: Avaliacao local Codex: status=insufficient_text; media=1.50; alinhamento lexical documento/API=0.000. Alertas: Objeto da compra e curto ou generico.; Objeto nao delimita suficientemente escopo, finalidade ou item contratado.; Valor estimado zero sem valor homologado i...
-
-Limitacoes especificas da Q3:
-
-- Avaliacao executada localmente pelo Codex como regra deterministica derivada da rubrica, sem chamada a API externa de modelo e sem conhecimento externo.
-- O alinhamento documento/API usa sobreposicao lexical entre objeto, modalidade, orgao e texto extraido; baixa sobreposicao indica risco de verificabilidade, nao prova contradicao substantiva.
-- Caracteres substitutos invalidos em extracoes documentais foram saneados para UTF-8 antes de hashing e gravacao; text_sha256 refere-se ao texto saneado.
-- 397 documento(s) da subamostra nao tiveram texto extraido com status ok.
-- 397 registro(s) receberam status insufficient_text por ausencia ou insuficiencia de texto documental.
+- Nos artefatos usados pela analise, a coleta anual completa registrou 2 falhas de base ou pagina preservadas nos metadados; a paginacao final permaneceu completa apos retry ou fallback.
+- Na consulta documental, o script registrou 0 falhas nao recuperadas.
+- A telemetria detalhada da coleta foi preservada em `data/raw/collection_request_metrics.jsonl`; erros e tentativas malsucedidas ficam em `data/raw/collection_errors.json`.
+- A telemetria detalhada da consulta documental foi preservada em `data/raw/document_request_metrics.jsonl`; erros e tentativas malsucedidas ficam em `data/raw/document_errors.json`.
 
 ## Limitacoes
 
@@ -402,7 +367,7 @@ Limitacoes especificas da Q3:
 
 O PNCP oferece uma infraestrutura relevante de governo aberto para as capitais do Sudeste, pois centraliza registros, padroniza campos e permite consulta por API. No entanto, a comparacao mostra que a abertura formal dos dados nao elimina assimetrias de acesso. A fragmentacao de CNPJs em Sao Paulo e um achado substantivo: mesmo com dados publicos, a capacidade de controle social depende de conhecer a organizacao administrativa por tras dos registros.
 
-Assim, a conclusao regional e que o PNCP fortalece a transparencia formal, mas sua efetividade como instrumento de governo aberto depende da completude documental, da padronizacao dos registros, da qualidade semantica das informacoes retornadas e da facilidade de reconstituir o universo institucional de cada prefeitura.
+Assim, a conclusao regional e que o PNCP fortalece a transparencia formal, mas sua efetividade como instrumento de governo aberto depende da completude documental, da padronizacao dos registros e da facilidade de reconstituir o universo institucional de cada prefeitura.
 
 ## Reproducibilidade
 

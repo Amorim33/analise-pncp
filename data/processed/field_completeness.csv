@@ -1,7 +1,7 @@
 city,field,present,sample_count,share
 Sao Paulo,Objeto,2662,2662,1.0
 Sao Paulo,Valor estimado,2662,2662,1.0
-Sao Paulo,Valor homologado,1608,2662,0.6040570999248686
+Sao Paulo,Valor homologado,1611,2662,0.6051840721262209
 Sao Paulo,Data de publicacao,2662,2662,1.0
 Sao Paulo,Abertura de proposta,2662,2662,1.0
 Sao Paulo,Encerramento de proposta,2662,2662,1.0
@@ -10,7 +10,7 @@ Sao Paulo,Link de origem,2658,2662,0.9984973703981969
 Sao Paulo,Documentos,100,100,1.0
 Rio de Janeiro,Objeto,896,896,1.0
 Rio de Janeiro,Valor estimado,896,896,1.0
-Rio de Janeiro,Valor homologado,563,896,0.6283482142857143
+Rio de Janeiro,Valor homologado,568,896,0.6339285714285714
 Rio de Janeiro,Data de publicacao,896,896,1.0
 Rio de Janeiro,Abertura de proposta,896,896,1.0
 Rio de Janeiro,Encerramento de proposta,896,896,1.0
@@ -26,12 +26,12 @@ Belo Horizonte,Encerramento de proposta,291,291,1.0
 Belo Horizonte,Unidade,291,291,1.0
 Belo Horizonte,Link de origem,282,291,0.9690721649484536
 Belo Horizonte,Documentos,100,100,1.0
-Vitoria,Objeto,234,234,1.0
-Vitoria,Valor estimado,234,234,1.0
-Vitoria,Valor homologado,156,234,0.6666666666666666
-Vitoria,Data de publicacao,234,234,1.0
-Vitoria,Abertura de proposta,234,234,1.0
-Vitoria,Encerramento de proposta,234,234,1.0
-Vitoria,Unidade,234,234,1.0
-Vitoria,Link de origem,0,234,0.0
+Vitoria,Objeto,233,233,1.0
+Vitoria,Valor estimado,233,233,1.0
+Vitoria,Valor homologado,157,233,0.6738197424892703
+Vitoria,Data de publicacao,233,233,1.0
+Vitoria,Abertura de proposta,233,233,1.0
+Vitoria,Encerramento de proposta,233,233,1.0
+Vitoria,Unidade,233,233,1.0
+Vitoria,Link de origem,0,233,0.0
 Vitoria,Documentos,100,100,1.0

@@ -7,7 +7,9 @@ import urllib.parse
 import urllib.request
 from collections import Counter
 from dataclasses import dataclass
+from datetime import datetime, timedelta, timezone
 from email.message import Message
+from pathlib import PurePosixPath
 from typing import Any
 
 
@@ -16,6 +18,8 @@ class NonJsonResponseError(RuntimeError):
 
 
 RATE_LIMIT_BACKOFF_SECONDS = 60.0
+MAX_RATE_LIMIT_BACKOFF_SECONDS = 60.0
+ALLOWED_DOCUMENT_URL_SCHEMES = {"http", "https"}
 
 
 @dataclass(frozen=True)
@@ -29,6 +33,8 @@ class ApiRequestMetric:
     path: str
     url: str
     status: int | None
+    started_at: str
+    finished_at: str
     duration_seconds: float
     attempt: int
     success: bool
@@ -136,7 +142,10 @@ class PncpClient:
 
     def fetch_document_binary(self, *, url: str) -> BinaryDocument:
         last_error: Exception | None = None
-        parsed_path = urllib.parse.urlsplit(url).path or url
+        parsed_url = urllib.parse.urlsplit(url)
+        if parsed_url.scheme.lower() not in ALLOWED_DOCUMENT_URL_SCHEMES or not parsed_url.netloc:
+            raise ValueError(f"Unsupported document URL: {url}")
+        parsed_path = parsed_url.path or url
         for attempt in range(1, self.retries + 1):
             request = urllib.request.Request(url, headers={"Accept": "*/*"})
             started = time.perf_counter()
@@ -178,7 +187,7 @@ class PncpClient:
                     error=str(last_error),
                 )
                 if exc.code == 429 and attempt < self.retries:
-                    time.sleep(RATE_LIMIT_BACKOFF_SECONDS * attempt)
+                    time.sleep(rate_limit_backoff_seconds(attempt))
                     continue
             except Exception as exc:  # noqa: BLE001 - preserve API boundary failures.
                 last_error = exc
@@ -253,7 +262,7 @@ class PncpClient:
                     complete=True,
                     stopped_reason=None,
                 )
-                return records
+                return records[:limit] if limit is not None else records
 
             if not isinstance(payload, dict):
                 stopped_reason = "Non-object pagination payload."
@@ -371,7 +380,7 @@ class PncpClient:
                         error=str(last_error),
                     )
                     if exc.code == 429 and attempt < self.retries:
-                        time.sleep(RATE_LIMIT_BACKOFF_SECONDS * attempt)
+                        time.sleep(rate_limit_backoff_seconds(attempt))
                         continue
                 except Exception as exc:  # noqa: BLE001 - collect API boundary failures explicitly.
                     last_error = exc
@@ -403,17 +412,39 @@ class PncpClient:
         success: bool,
         error: str | None,
     ) -> None:
+        finished_at = datetime.now(timezone.utc)
+        duration_seconds = time.perf_counter() - started
+        started_at = finished_at - timedelta(seconds=duration_seconds)
         self.request_metrics.append(
             ApiRequestMetric(
                 path=path,
                 url=url,
                 status=status,
-                duration_seconds=time.perf_counter() - started,
+                started_at=started_at.isoformat(timespec="milliseconds"),
+                finished_at=finished_at.isoformat(timespec="milliseconds"),
+                duration_seconds=duration_seconds,
                 attempt=attempt,
                 success=success,
                 error=error,
             )
         )
+
+    def request_records(self, *, phase: str) -> list[dict[str, Any]]:
+        return [
+            {
+                "phase": phase,
+                "path": metric.path,
+                "url": metric.url,
+                "status": metric.status,
+                "started_at": metric.started_at,
+                "finished_at": metric.finished_at,
+                "duration_seconds": round(metric.duration_seconds, 3),
+                "attempt": metric.attempt,
+                "success": metric.success,
+                "error": metric.error,
+            }
+            for metric in self.request_metrics
+        ]
 
     def request_summary(self) -> dict[str, Any]:
         successes = [metric for metric in self.request_metrics if metric.success]
@@ -424,6 +455,8 @@ class PncpClient:
             "successful_request_count": len(successes),
             "failed_attempt_count": len(failures),
             "average_success_response_seconds": rounded_average(success_durations),
+            "median_success_response_seconds": rounded_percentile(success_durations, 0.5),
+            "p95_success_response_seconds": rounded_percentile(success_durations, 0.95),
             "max_success_response_seconds": round(max(success_durations), 3)
             if success_durations
             else None,
@@ -462,6 +495,18 @@ def rounded_average(values: list[float]) -> float | None:
     return round(sum(values) / len(values), 3)
 
 
+def rounded_percentile(values: list[float], percentile: float) -> float | None:
+    if not values:
+        return None
+    ordered = sorted(values)
+    index = min(max(round((len(ordered) - 1) * percentile), 0), len(ordered) - 1)
+    return round(ordered[index], 3)
+
+
+def rate_limit_backoff_seconds(attempt: int) -> float:
+    return min(RATE_LIMIT_BACKOFF_SECONDS * attempt, MAX_RATE_LIMIT_BACKOFF_SECONDS)
+
+
 def optional_int(value: Any) -> int | None:
     if value is None:
         return None
@@ -478,4 +523,6 @@ def filename_from_headers(headers: Message) -> str | None:
     message = Message()
     message["content-disposition"] = disposition
     filename = message.get_filename()
-    return filename if filename else None
+    if not filename:
+        return None
+    return PurePosixPath(filename.replace("\\", "/")).name

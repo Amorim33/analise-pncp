@@ -22,6 +22,7 @@ from pncp_analysis.utils import (
     read_json,
     utc_now_iso,
     write_json,
+    write_jsonl,
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -30,6 +31,10 @@ RAW_DIR = REPO_ROOT / "data" / "raw"
 PROCESSED_DIR = REPO_ROOT / "data" / "processed"
 REPORT_PATH = REPO_ROOT / "analise-exploratoria.md"
 FULL_SCAN_CHUNK_DAYS = 31
+COLLECTION_REQUEST_METRICS_PATH = RAW_DIR / "collection_request_metrics.jsonl"
+COLLECTION_ERRORS_PATH = RAW_DIR / "collection_errors.json"
+DOCUMENT_REQUEST_METRICS_PATH = RAW_DIR / "document_request_metrics.jsonl"
+DOCUMENT_ERRORS_PATH = RAW_DIR / "document_errors.json"
 
 
 def build_client(config: AnalysisConfig) -> PncpClient:
@@ -55,6 +60,8 @@ def collect(config_path: Path = DEFAULT_CONFIG_PATH, limit: int | None = None) -
         "modality": {"id": config.modality_id, "name": config.modality_name},
         "sources": [],
         "failures": [],
+        "request_metrics_path": str(COLLECTION_REQUEST_METRICS_PATH.relative_to(REPO_ROOT)),
+        "errors_path": str(COLLECTION_ERRORS_PATH.relative_to(REPO_ROOT)),
     }
 
     try:
@@ -131,10 +138,22 @@ def collect(config_path: Path = DEFAULT_CONFIG_PATH, limit: int | None = None) -
                 )
     except Exception as exc:
         finalize_collection_metadata(metadata, client, started, status="failed", error=str(exc))
+        write_api_observability(
+            client,
+            phase="collection",
+            request_metrics_path=COLLECTION_REQUEST_METRICS_PATH,
+            errors_path=COLLECTION_ERRORS_PATH,
+        )
         write_json(RAW_DIR / "collection_attempt_metadata.json", metadata)
         raise
 
     finalize_collection_metadata(metadata, client, started, status="complete")
+    write_api_observability(
+        client,
+        phase="collection",
+        request_metrics_path=COLLECTION_REQUEST_METRICS_PATH,
+        errors_path=COLLECTION_ERRORS_PATH,
+    )
     write_json(RAW_DIR / "collection_metadata.json", metadata)
     write_json(RAW_DIR / "collection_attempt_metadata.json", metadata)
 
@@ -201,15 +220,16 @@ def analyze(config_path: Path = DEFAULT_CONFIG_PATH, skip_documents: bool = Fals
             if not control:
                 continue
             cnpj = str((record.get("orgaoEntidade") or {}).get("cnpj") or "")
-            year = int(record.get("anoCompra") or parse_control_number(control).year)
-            sequence = int(record.get("sequencialCompra") or parse_control_number(control).sequence)
             try:
+                parsed_control = parse_control_number(control)
+                year = int(record.get("anoCompra") or parsed_control.year)
+                sequence = int(record.get("sequencialCompra") or parsed_control.sequence)
                 document_index[control] = client.fetch_purchase_documents(
                     cnpj=cnpj,
                     year=year,
                     sequence=sequence,
                 )
-            except RuntimeError:
+            except (RuntimeError, TypeError, ValueError):
                 fallback_docs = existing_document_index.get(control, [])
                 document_index[control] = fallback_docs if isinstance(fallback_docs, list) else []
 
@@ -219,18 +239,16 @@ def analyze(config_path: Path = DEFAULT_CONFIG_PATH, skip_documents: bool = Fals
         "duration_seconds": round(time.perf_counter() - started, 3),
         "document_api_performance": client.request_summary(),
         "document_api_failures": [failure.__dict__ for failure in client.failures],
-        "observed_experiment_errors": [
-            "HTTP 429 em chamadas repetidas, tratado com backoff e nova tentativa.",
-            (
-                "Timeouts em paginação anual longa, mitigados pela coleta em chunks "
-                "mensais de 31 dias."
-            ),
-            (
-                "Risco de resposta HTML com HTTP 200, tratado por validação de "
-                "Content-Type antes do parse JSON."
-            ),
-        ],
+        "document_request_metrics_path": str(DOCUMENT_REQUEST_METRICS_PATH.relative_to(REPO_ROOT)),
+        "document_errors_path": str(DOCUMENT_ERRORS_PATH.relative_to(REPO_ROOT)),
+        "observed_experiment_errors": observed_api_errors(client),
     }
+    write_api_observability(
+        client,
+        phase="documents",
+        request_metrics_path=DOCUMENT_REQUEST_METRICS_PATH,
+        errors_path=DOCUMENT_ERRORS_PATH,
+    )
     metrics = build_metrics(
         config,
         candidates,
@@ -251,6 +269,10 @@ def analyze(config_path: Path = DEFAULT_CONFIG_PATH, skip_documents: bool = Fals
 def report(config_path: Path = DEFAULT_CONFIG_PATH) -> None:
     config = load_config(config_path)
     metrics = read_json(PROCESSED_DIR / "metrics.json")
+    if isinstance(metrics, dict):
+        metrics["script_execution_events"] = read_optional_json(
+            PROCESSED_DIR / "script_execution_events.json"
+        )
     sampled = read_json(PROCESSED_DIR / "sample.json")
     collection_metadata = read_optional_json(RAW_DIR / "collection_metadata.json")
     pipeline_metadata = read_optional_json(PROCESSED_DIR / "pipeline_metadata.json")
@@ -442,6 +464,44 @@ def finalize_collection_metadata(
         failures.append({"url": "collect", "reason": error})
         metadata["error"] = error
     metadata["failures"] = failures
+
+
+def write_api_observability(
+    client: PncpClient,
+    *,
+    phase: str,
+    request_metrics_path: Path,
+    errors_path: Path,
+) -> None:
+    request_records = client.request_records(phase=phase)
+    failed_attempts = [record for record in request_records if not record["success"]]
+    persistent_failures = [failure.__dict__ for failure in client.failures]
+    write_jsonl(request_metrics_path, request_records)
+    write_json(
+        errors_path,
+        {
+            "generated_at": utc_now_iso(),
+            "phase": phase,
+            "failed_attempt_count": len(failed_attempts),
+            "persistent_failure_count": len(persistent_failures),
+            "failed_attempts": failed_attempts,
+            "persistent_failures": persistent_failures,
+        },
+    )
+
+
+def observed_api_errors(client: PncpClient) -> list[str]:
+    errors: list[str] = []
+    for metric in client.request_metrics:
+        if not metric.success and metric.error:
+            note = f"{metric.path}: {metric.error}"
+            if note not in errors:
+                errors.append(note)
+    for failure in client.failures:
+        note = f"{failure.url}: {failure.reason}"
+        if note not in errors:
+            errors.append(note)
+    return errors
 
 
 def read_optional_json(path: Path) -> Any:
@@ -668,8 +728,14 @@ def build_metrics(
         )
 
     document_stats = build_document_stats(config, document_sample_by_city, document_index)
-    sao_paulo_candidates = candidate_by_city["Sao Paulo"]
-    sp_fragmentation = build_sao_paulo_fragmentation_evidence(config, sao_paulo_candidates)
+    fragmentation_city = find_fragmentation_city(config)
+    fragmentation_candidates = (
+        candidate_by_city[fragmentation_city.name] if fragmentation_city is not None else []
+    )
+    sp_fragmentation = build_sao_paulo_fragmentation_evidence(
+        config,
+        fragmentation_candidates,
+    )
     additional_findings = build_additional_findings(
         city_metrics=city_metrics,
         field_completeness=field_completeness,
@@ -695,7 +761,7 @@ def build_metrics(
             },
         },
         "city_metrics": city_metrics,
-        "sao_paulo_top_cnpjs": top_cnpjs(sao_paulo_candidates, limit=10),
+        "sao_paulo_top_cnpjs": top_cnpjs(fragmentation_candidates, limit=10),
         "sao_paulo_fragmentation_evidence": sp_fragmentation,
         "field_completeness": field_completeness,
         "document_stats": document_stats,
@@ -707,6 +773,9 @@ def build_metrics(
             document_index,
         ),
         "api_experiment": api_experiment or {},
+        "script_execution_events": read_optional_json(
+            PROCESSED_DIR / "script_execution_events.json"
+        ),
         "additional_findings": additional_findings,
         "limitations": [
             "A comparacao e exploratoria e nao representa todos os municipios do Sudeste.",
@@ -767,7 +836,7 @@ def build_sao_paulo_fragmentation_evidence(
     config: AnalysisConfig,
     sao_paulo_candidates: list[dict[str, Any]],
 ) -> dict[str, Any]:
-    city = next((item for item in config.cities if item.name == "Sao Paulo"), None)
+    city = find_fragmentation_city(config)
     if city is None:
         return {}
 
@@ -801,6 +870,7 @@ def build_sao_paulo_fragmentation_evidence(
         )
 
     return {
+        "city": city.name,
         "matrix_cnpj": city.matrix_cnpj,
         "candidate_count": total,
         "matrix_records": matrix_count,
@@ -812,6 +882,10 @@ def build_sao_paulo_fragmentation_evidence(
     }
 
 
+def find_fragmentation_city(config: AnalysisConfig) -> CityConfig | None:
+    return next((city for city in config.cities if city.investigate_fragmentation), None)
+
+
 def build_api_examples(
     config: AnalysisConfig,
     sample_by_city: dict[str, list[dict[str, Any]]],
@@ -821,7 +895,7 @@ def build_api_examples(
     for city in config.cities:
         city_sample = sample_by_city[city.name]
         selected = city_sample[:1]
-        if city.name == "Sao Paulo":
+        if city.investigate_fragmentation:
             matrix = [
                 record
                 for record in city_sample
@@ -841,7 +915,7 @@ def build_api_examples(
             docs = document_index.get(control, [])
             examples.append(
                 {
-                    "label": build_example_label(city.name, record, city.matrix_cnpj),
+                    "label": build_example_label(city, record),
                     "payload": {
                         "numeroControlePNCP": control,
                         "orgaoEntidade": record.get("orgaoEntidade"),
@@ -901,13 +975,13 @@ def build_completeness_examples(
     return examples
 
 
-def build_example_label(city_name: str, record: dict[str, Any], matrix_cnpj: str) -> str:
+def build_example_label(city: CityConfig, record: dict[str, Any]) -> str:
     cnpj = str((record.get("orgaoEntidade") or {}).get("cnpj") or "")
-    if city_name == "Sao Paulo" and cnpj != matrix_cnpj:
-        return "Sao Paulo - exemplo fora do CNPJ matriz"
-    if city_name == "Sao Paulo":
-        return "Sao Paulo - exemplo no CNPJ matriz"
-    return city_name
+    if city.investigate_fragmentation and cnpj != city.matrix_cnpj:
+        return f"{city.name} - exemplo fora do CNPJ matriz"
+    if city.investigate_fragmentation:
+        return f"{city.name} - exemplo no CNPJ matriz"
+    return city.name
 
 
 def build_additional_findings(
@@ -918,37 +992,34 @@ def build_additional_findings(
     sao_paulo_fragmentation: dict[str, Any],
 ) -> list[str]:
     findings = []
+    fragmentation_city = str(sao_paulo_fragmentation.get("city") or "Sao Paulo")
     sp_share = sao_paulo_fragmentation.get("outside_matrix_share")
     if isinstance(sp_share, float):
         findings.append(
-            
-                "Na amostra candidata de Sao Paulo, "
-                f"{sp_share * 100:.1f}% dos registros elegiveis ficaram fora do CNPJ matriz; "
-                "nas demais capitais analisadas, os registros por CNPJ matriz concentraram "
-                "100% dos candidatos coletados."
-            
+            f"Na amostra candidata de {fragmentation_city}, "
+            f"{sp_share * 100:.1f}% dos registros elegiveis ficaram fora do CNPJ matriz; "
+            "nas demais capitais analisadas, os registros por CNPJ matriz concentraram "
+            "100% dos candidatos coletados."
         )
 
-    sp_city = next((item for item in city_metrics if item.get("city") == "Sao Paulo"), None)
+    sp_city = next(
+        (item for item in city_metrics if item.get("city") == fragmentation_city),
+        None,
+    )
     if sp_city:
         findings.append(
-            
-                "Sao Paulo apresentou "
-                f"{sp_city.get('distinct_cnpj_count')} CNPJs distintos no recorte elegivel, "
-                "enquanto Rio de Janeiro, Belo Horizonte e Vitoria apareceram com um CNPJ "
-                "cada no recorte por matriz."
-            
+            f"{fragmentation_city} apresentou "
+            f"{sp_city.get('distinct_cnpj_count')} CNPJs distintos no recorte elegivel, "
+            "enquanto Rio de Janeiro, Belo Horizonte e Vitoria apareceram com um CNPJ "
+            "cada no recorte por matriz."
         )
 
     vitoria_link = find_field_share(field_completeness, "Vitoria", "Link de origem")
     if vitoria_link == 0:
         findings.append(
-            
-                "Vitoria teve documentos vinculados em todos os itens da subamostra "
-                "documental, mas nenhum dos registros elegiveis trouxe `linkSistemaOrigem`, "
-                "o que reduz a "
-                "rastreabilidade para o sistema de origem."
-            
+            "Vitoria teve documentos vinculados em todos os itens da subamostra "
+            "documental, mas nenhum dos registros elegiveis trouxe `linkSistemaOrigem`, "
+            "o que reduz a rastreabilidade para o sistema de origem."
         )
 
     homologation = {
@@ -963,21 +1034,17 @@ def build_additional_findings(
         )
         if isinstance(lowest_share, float):
             findings.append(
-                
-                    f"O valor homologado apareceu com menor completude em {lowest_city} "
-                    f"({lowest_share * 100:.1f}%), indicando que parte dos registros estava "
-                    "em fase anterior ao resultado ou sem homologacao registrada no recorte."
-                
+                f"O valor homologado apareceu com menor completude em {lowest_city} "
+                f"({lowest_share * 100:.1f}%), indicando que parte dos registros estava "
+                "em fase anterior ao resultado ou sem homologacao registrada no recorte."
             )
 
     vitoria_docs = next((item for item in document_stats if item.get("city") == "Vitoria"), None)
     if vitoria_docs:
         findings.append(
-            
-                "A quantidade de documentos anexados variou de forma relevante: em Vitoria, "
-                f"um item da amostra chegou a {vitoria_docs.get('max_documents')} documentos, "
-                "enquanto outros municipios tiveram padrao mais concentrado."
-            
+            "A quantidade de documentos anexados variou de forma relevante: em Vitoria, "
+            f"um item da amostra chegou a {vitoria_docs.get('max_documents')} documentos, "
+            "enquanto outros municipios tiveram padrao mais concentrado."
         )
     return findings
 

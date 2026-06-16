@@ -32497,7 +32497,7 @@
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-03-11T08:00:00",
     "dataAtualizacao": "2026-03-11T07:22:44",
-    "dataAtualizacaoGlobal": "2026-03-11T07:22:44",
+    "dataAtualizacaoGlobal": "2026-06-16T13:06:57",
     "dataEncerramentoProposta": "2026-03-23T09:00:00",
     "dataInclusao": "2026-03-11T07:22:44",
     "dataPublicacaoPncp": "2026-03-11T07:22:44",
@@ -32550,7 +32550,7 @@
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-03-11T08:00:00",
     "dataAtualizacao": "2026-03-11T07:23:05",
-    "dataAtualizacaoGlobal": "2026-03-11T07:23:05",
+    "dataAtualizacaoGlobal": "2026-06-16T13:39:37",
     "dataEncerramentoProposta": "2026-03-25T09:00:00",
     "dataInclusao": "2026-03-11T07:23:05",
     "dataPublicacaoPncp": "2026-03-11T07:23:05",
@@ -32592,7 +32592,7 @@
     "unidadeSubRogada": null,
     "usuarioNome": "Compras.gov.br",
     "valorTotalEstimado": 4190296.3,
-    "valorTotalHomologado": null
+    "valorTotalHomologado": 3098689.9
   },
   {
     "amparoLegal": {
@@ -34776,7 +34776,7 @@
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-04-08T08:00:00",
     "dataAtualizacao": "2026-04-08T07:45:53",
-    "dataAtualizacaoGlobal": "2026-04-08T07:45:54",
+    "dataAtualizacaoGlobal": "2026-06-16T13:40:06",
     "dataEncerramentoProposta": "2026-04-27T09:00:00",
     "dataInclusao": "2026-03-24T07:12:45",
     "dataPublicacaoPncp": "2026-03-24T07:12:45",
@@ -34818,7 +34818,7 @@
     "unidadeSubRogada": null,
     "usuarioNome": "Compras.gov.br",
     "valorTotalEstimado": 2201535.27,
-    "valorTotalHomologado": null
+    "valorTotalHomologado": 1607121.68
   },
   {
     "amparoLegal": {
@@ -36470,10 +36470,10 @@
       "nome": "Lei 14.133/2021, Art. 28, I"
     },
     "anoCompra": 2026,
-    "dataAberturaProposta": "2026-03-31T08:00:00",
-    "dataAtualizacao": "2026-04-17T07:37:30",
-    "dataAtualizacaoGlobal": "2026-04-17T07:37:30",
-    "dataEncerramentoProposta": "2026-04-24T11:00:00",
+    "dataAberturaProposta": "2026-06-16T08:00:00",
+    "dataAtualizacao": "2026-06-16T07:37:16",
+    "dataAtualizacaoGlobal": "2026-06-16T07:37:18",
+    "dataEncerramentoProposta": "2026-07-23T11:00:00",
     "dataInclusao": "2026-03-31T07:15:07",
     "dataPublicacaoPncp": "2026-03-31T07:15:07",
     "emendaParlamentar": null,
@@ -36496,10 +36496,10 @@
       "razaoSocial": "MUNICIPIO DE RIO DE JANEIRO"
     },
     "orgaoSubRogado": null,
-    "processo": "SME-PRO-2025/6535",
+    "processo": "SME-PRO-202565354",
     "sequencialCompra": 548,
-    "situacaoCompraId": 4,
-    "situacaoCompraNome": "Suspensa",
+    "situacaoCompraId": 1,
+    "situacaoCompraNome": "Divulgada no PNCP",
     "srp": true,
     "tipoInstrumentoConvocatorioCodigo": 1,
     "tipoInstrumentoConvocatorioNome": "Edital",
@@ -38274,7 +38274,7 @@
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-04-15T09:00:00",
     "dataAtualizacao": "2026-04-28T07:28:06",
-    "dataAtualizacaoGlobal": "2026-04-28T07:28:06",
+    "dataAtualizacaoGlobal": "2026-06-16T09:42:24",
     "dataEncerramentoProposta": "2026-05-12T10:00:00",
     "dataInclusao": "2026-04-15T07:07:37",
     "dataPublicacaoPncp": "2026-04-15T07:07:37",
@@ -38315,8 +38315,8 @@
     },
     "unidadeSubRogada": null,
     "usuarioNome": "Compras.gov.br",
-    "valorTotalEstimado": 0.0,
-    "valorTotalHomologado": null
+    "valorTotalEstimado": 76059.0,
+    "valorTotalHomologado": 60334.99
   },
   {
     "amparoLegal": {
@@ -38380,7 +38380,7 @@
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-04-15T08:00:00",
     "dataAtualizacao": "2026-04-15T07:08:36",
-    "dataAtualizacaoGlobal": "2026-04-15T07:08:36",
+    "dataAtualizacaoGlobal": "2026-06-16T13:06:34",
     "dataEncerramentoProposta": "2026-05-05T09:00:00",
     "dataInclusao": "2026-04-15T07:08:36",
     "dataPublicacaoPncp": "2026-04-15T07:08:36",
@@ -38422,7 +38422,7 @@
     "unidadeSubRogada": null,
     "usuarioNome": "Compras.gov.br",
     "valorTotalEstimado": 4212267.75,
-    "valorTotalHomologado": null
+    "valorTotalHomologado": 3032783.72
   },
   {
     "amparoLegal": {
@@ -39281,7 +39281,7 @@
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-04-17T08:00:00",
     "dataAtualizacao": "2026-04-17T07:15:44",
-    "dataAtualizacaoGlobal": "2026-04-17T07:15:44",
+    "dataAtualizacaoGlobal": "2026-06-16T13:40:42",
     "dataEncerramentoProposta": "2026-05-06T14:00:00",
     "dataInclusao": "2026-04-17T07:15:44",
     "dataPublicacaoPncp": "2026-04-17T07:15:44",
@@ -41242,7 +41242,7 @@
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-05-04T09:00:00",
     "dataAtualizacao": "2026-05-04T07:07:03",
-    "dataAtualizacaoGlobal": "2026-05-04T07:07:04",
+    "dataAtualizacaoGlobal": "2026-06-16T09:42:48",
     "dataEncerramentoProposta": "2026-05-15T10:00:00",
     "dataInclusao": "2026-05-04T07:07:03",
     "dataPublicacaoPncp": "2026-05-04T07:07:03",
@@ -41283,8 +41283,8 @@
     },
     "unidadeSubRogada": null,
     "usuarioNome": "Compras.gov.br",
-    "valorTotalEstimado": 0.0,
-    "valorTotalHomologado": null
+    "valorTotalEstimado": 94390.34,
+    "valorTotalHomologado": 80836.1
   },
   {
     "amparoLegal": {
@@ -41612,8 +41612,8 @@
     },
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-05-05T08:00:00",
-    "dataAtualizacao": "2026-06-03T07:50:49",
-    "dataAtualizacaoGlobal": "2026-06-03T07:50:49",
+    "dataAtualizacao": "2026-06-16T07:35:11",
+    "dataAtualizacaoGlobal": "2026-06-16T07:35:11",
     "dataEncerramentoProposta": "2026-06-03T09:00:00",
     "dataInclusao": "2026-05-05T07:17:39",
     "dataPublicacaoPncp": "2026-05-05T07:17:39",
@@ -41639,8 +41639,8 @@
     "orgaoSubRogado": null,
     "processo": "CSVPRO202509418",
     "sequencialCompra": 837,
-    "situacaoCompraId": 4,
-    "situacaoCompraNome": "Suspensa",
+    "situacaoCompraId": 2,
+    "situacaoCompraNome": "Revogada",
     "srp": false,
     "tipoInstrumentoConvocatorioCodigo": 1,
     "tipoInstrumentoConvocatorioNome": "Edital",
@@ -41654,7 +41654,7 @@
     },
     "unidadeSubRogada": null,
     "usuarioNome": "Compras.gov.br",
-    "valorTotalEstimado": 34490130.65,
+    "valorTotalEstimado": 0.0,
     "valorTotalHomologado": null
   },
   {
@@ -45640,8 +45640,8 @@
     },
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-05-29T08:00:00",
-    "dataAtualizacao": "2026-05-29T07:20:38",
-    "dataAtualizacaoGlobal": "2026-05-29T07:20:38",
+    "dataAtualizacao": "2026-06-16T07:37:52",
+    "dataAtualizacaoGlobal": "2026-06-16T07:37:52",
     "dataEncerramentoProposta": "2026-06-16T09:00:00",
     "dataInclusao": "2026-05-29T07:20:38",
     "dataPublicacaoPncp": "2026-05-29T07:20:38",
@@ -45667,8 +45667,8 @@
     "orgaoSubRogado": null,
     "processo": "2600001434202631",
     "sequencialCompra": 1112,
-    "situacaoCompraId": 1,
-    "situacaoCompraNome": "Divulgada no PNCP",
+    "situacaoCompraId": 4,
+    "situacaoCompraNome": "Suspensa",
     "srp": true,
     "tipoInstrumentoConvocatorioCodigo": 1,
     "tipoInstrumentoConvocatorioNome": "Edital",

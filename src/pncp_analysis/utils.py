@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import re
 import unicodedata
+from collections.abc import Iterable
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -75,6 +76,14 @@ def write_json(path: Path, payload: Any) -> None:
     )
 
 
+def write_jsonl(path: Path, rows: Iterable[dict[str, Any]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = "".join(
+        json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in rows
+    )
+    path.write_text(payload, encoding="utf-8")
+
+
 def nested_get(payload: dict[str, Any], path: str) -> Any:
     current: Any = payload
     for part in path.split("."):
@@ -102,9 +111,13 @@ def format_percent(value: float | None) -> str:
 
 def markdown_table(headers: list[str], rows: list[list[Any]]) -> str:
     lines = [
-        "| " + " | ".join(headers) + " |",
+        "| " + " | ".join(escape_markdown_table_cell(header) for header in headers) + " |",
         "| " + " | ".join("---" for _ in headers) + " |",
     ]
     for row in rows:
-        lines.append("| " + " | ".join(str(cell) for cell in row) + " |")
+        lines.append("| " + " | ".join(escape_markdown_table_cell(cell) for cell in row) + " |")
     return "\n".join(lines)
+
+
+def escape_markdown_table_cell(value: Any) -> str:
+    return str(value).replace("\n", " ").replace("\r", " ").replace("|", r"\|")

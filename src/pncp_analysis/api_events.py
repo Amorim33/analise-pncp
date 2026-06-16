@@ -1,60 +1,97 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import datetime, timedelta, timezone
 from typing import Any
 
 from pncp_analysis.utils import format_display_date
 
 
 @dataclass(frozen=True)
-class ApiSessionEvents:
-    event_date: str
-    endpoint_path: str
-    collection_attempt_failed: bool
-    collection_status: str
-    attempt_duration_seconds: float | None
-    pipeline_duration_seconds: float | None
-    request_count: int | None
-    successful_request_count: int | None
-    failed_attempt_count: int | None
-    status_counts: dict[str, int]
-    timeout_count: int
-    html_response_count: int
+class ScriptRunEvent:
+    name: str
+    command: str
+    started_at: str
+    finished_at: str
+    duration_seconds: float | None
+    exit_code: int | None
+    note: str
+
+
+@dataclass(frozen=True)
+class ApiExperimentEvidence:
+    collection_pages: int
+    collection_records: int
+    collection_request_count: int | None
+    collection_successful_request_count: int | None
+    collection_failed_attempt_count: int | None
+    collection_avg_seconds: float | None
+    collection_p95_seconds: float | None
+    collection_max_seconds: float | None
+    collection_request_metrics_path: str | None
+    collection_errors_path: str | None
+    collection_duration_seconds: float | None
+    collection_event: ScriptRunEvent | None
+    final_collection_event: ScriptRunEvent | None
+    report_event: ScriptRunEvent | None
+    fallback_event: ScriptRunEvent | None
+    timeout_probe_event: ScriptRunEvent | None
     document_request_count: int | None
     document_successful_request_count: int | None
     document_failed_attempt_count: int | None
     document_avg_seconds: float | None
+    document_p95_seconds: float | None
     document_max_seconds: float | None
+    document_duration_seconds: float | None
+    document_request_metrics_path: str | None
+    document_errors_path: str | None
 
 
-def build_api_session_events(
+def build_api_experiment_evidence(
+    collection_metadata: dict[str, Any],
     api_experiment: Any,
-    pipeline_metadata: dict[str, Any],
-) -> ApiSessionEvents | None:
-    attempt = dict_or_empty(pipeline_metadata.get("collection_attempt"))
-    if not attempt:
-        return None
-
-    attempt_perf = dict_or_empty(attempt.get("api_performance"))
+    script_execution_events: Any,
+) -> ApiExperimentEvidence:
+    collection_perf = dict_or_empty(collection_metadata.get("api_performance"))
     document_perf = {}
+    document_duration = None
+    document_request_metrics_path = None
+    document_errors_path = None
     if isinstance(api_experiment, dict):
         document_perf = dict_or_empty(api_experiment.get("document_api_performance"))
+        document_duration = optional_float(api_experiment.get("duration_seconds"))
+        document_request_metrics_path = optional_str(
+            api_experiment.get("document_request_metrics_path")
+        )
+        document_errors_path = optional_str(api_experiment.get("document_errors_path"))
 
-    status_counts = parse_status_counts(attempt_perf.get("status_counts"))
-    failed_count = optional_int(attempt_perf.get("failed_attempt_count"))
-    return ApiSessionEvents(
-        event_date=event_date(attempt, pipeline_metadata),
-        endpoint_path=primary_path(attempt_perf),
-        collection_attempt_failed=attempt.get("status") == "failed",
-        collection_status=str(pipeline_metadata.get("collection_status") or ""),
-        attempt_duration_seconds=optional_float(attempt.get("duration_seconds")),
-        pipeline_duration_seconds=optional_float(pipeline_metadata.get("duration_seconds")),
-        request_count=optional_int(attempt_perf.get("request_count")),
-        successful_request_count=optional_int(attempt_perf.get("successful_request_count")),
-        failed_attempt_count=failed_count,
-        status_counts=status_counts,
-        timeout_count=count_timeouts(attempt_perf, status_counts, failed_count),
-        html_response_count=count_html_responses(attempt_perf, status_counts),
+    return ApiExperimentEvidence(
+        collection_pages=sum_source_int(collection_metadata, "pages_collected"),
+        collection_records=sum_source_int(collection_metadata, "records"),
+        collection_request_count=optional_int(collection_perf.get("request_count")),
+        collection_successful_request_count=optional_int(
+            collection_perf.get("successful_request_count")
+        ),
+        collection_failed_attempt_count=optional_int(collection_perf.get("failed_attempt_count")),
+        collection_avg_seconds=optional_float(
+            collection_perf.get("average_success_response_seconds")
+        ),
+        collection_p95_seconds=optional_float(collection_perf.get("p95_success_response_seconds")),
+        collection_max_seconds=optional_float(collection_perf.get("max_success_response_seconds")),
+        collection_request_metrics_path=optional_str(
+            collection_metadata.get("request_metrics_path")
+        ),
+        collection_errors_path=optional_str(collection_metadata.get("errors_path")),
+        collection_duration_seconds=duration_for_event(
+            script_execution_events,
+            "main_successful_collection",
+        )
+        or optional_float(collection_metadata.get("duration_seconds")),
+        collection_event=event_by_name(script_execution_events, "main_successful_collection"),
+        final_collection_event=event_by_name(script_execution_events, "final_snapshot_collection"),
+        report_event=event_by_name(script_execution_events, "final_report_generation"),
+        fallback_event=event_by_name(script_execution_events, "fallback_run_all"),
+        timeout_probe_event=event_by_name(script_execution_events, "pagination_timeout_probe"),
         document_request_count=optional_int(document_perf.get("request_count")),
         document_successful_request_count=optional_int(
             document_perf.get("successful_request_count")
@@ -63,37 +100,78 @@ def build_api_session_events(
         document_avg_seconds=optional_float(
             document_perf.get("average_success_response_seconds")
         ),
+        document_p95_seconds=optional_float(document_perf.get("p95_success_response_seconds")),
         document_max_seconds=optional_float(document_perf.get("max_success_response_seconds")),
+        document_duration_seconds=document_duration,
+        document_request_metrics_path=document_request_metrics_path,
+        document_errors_path=document_errors_path,
     )
 
 
-def format_status_counts_pt(status_counts: dict[str, int]) -> str:
-    if not status_counts:
-        return "sem codigos HTTP registrados"
-    parts = []
-    for status, count in sorted(status_counts.items(), key=status_sort_key):
-        label = f"HTTP {status}"
-        if status == "503":
-            label += " (Service Unavailable)"
-        noun = "resposta" if count == 1 else "respostas"
-        parts.append(f"{count} {noun} {label}")
-    return ", ".join(parts)
+def estimated_total_seconds(evidence: ApiExperimentEvidence) -> float | None:
+    parts = [
+        evidence.collection_duration_seconds,
+        evidence.document_duration_seconds,
+        evidence.report_event.duration_seconds if evidence.report_event else None,
+    ]
+    values = [value for value in parts if value is not None]
+    if not values:
+        return None
+    return sum(values)
 
 
 def format_optional_int(value: int | None) -> str:
     return "n/a" if value is None else str(value)
 
 
-def pluralize(count: int, singular: str, plural: str) -> str:
-    return f"{count} {singular if count == 1 else plural}"
+def format_local_datetime(value: str) -> str:
+    if len(value) < 10:
+        return value or "não registrado"
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return format_display_date(value[:10])
+    local = parsed.astimezone(timezone(timedelta(hours=-3)))
+    return local.strftime("%d/%m/%Y %H:%M")
 
 
 def dict_or_empty(value: Any) -> dict[str, Any]:
     return value if isinstance(value, dict) else {}
 
 
-def list_or_empty(value: Any) -> list[Any]:
-    return value if isinstance(value, list) else []
+def event_by_name(script_execution_events: Any, name: str) -> ScriptRunEvent | None:
+    events = dict_or_empty(script_execution_events).get("events")
+    if not isinstance(events, list):
+        return None
+    for event in events:
+        if isinstance(event, dict) and event.get("name") == name:
+            return ScriptRunEvent(
+                name=str(event.get("name") or ""),
+                command=str(event.get("command") or ""),
+                started_at=str(event.get("started_at") or ""),
+                finished_at=str(event.get("finished_at") or ""),
+                duration_seconds=optional_float(event.get("duration_seconds")),
+                exit_code=optional_int(event.get("exit_code")),
+                note=str(event.get("note") or ""),
+            )
+    return None
+
+
+def duration_for_event(script_execution_events: Any, name: str) -> float | None:
+    event = event_by_name(script_execution_events, name)
+    return event.duration_seconds if event else None
+
+
+def sum_source_int(collection_metadata: dict[str, Any], key: str) -> int:
+    sources = collection_metadata.get("sources")
+    if not isinstance(sources, list):
+        return 0
+    total = 0
+    for source in sources:
+        if isinstance(source, dict):
+            value = optional_int(source.get(key))
+            total += value or 0
+    return total
 
 
 def optional_int(value: Any) -> int | None:
@@ -114,76 +192,7 @@ def optional_float(value: Any) -> float | None:
     return None
 
 
-def parse_status_counts(value: Any) -> dict[str, int]:
-    if not isinstance(value, dict):
-        return {}
-    parsed: dict[str, int] = {}
-    for raw_status, raw_count in value.items():
-        count = optional_int(raw_count)
-        if count is not None:
-            parsed[str(raw_status)] = count
-    return parsed
-
-
-def count_timeouts(
-    performance: dict[str, Any],
-    status_counts: dict[str, int],
-    failed_count: int | None,
-) -> int:
-    examples = list_or_empty(performance.get("failure_examples"))
-    example_timeouts = sum(
-        1
-        for item in examples
-        if isinstance(item, dict)
-        and "timed out" in str(item.get("error") or "").lower()
-    )
-    if failed_count is None:
-        return example_timeouts
-    failures_without_status = max(failed_count - sum(status_counts.values()), 0)
-    return max(example_timeouts, failures_without_status)
-
-
-def count_html_responses(
-    performance: dict[str, Any],
-    status_counts: dict[str, int],
-) -> int:
-    examples = list_or_empty(performance.get("failure_examples"))
-    html_examples = sum(
-        1
-        for item in examples
-        if isinstance(item, dict)
-        and any(
-            marker in str(item.get("error") or "").lower()
-            for marker in ["text/html", "<html"]
-        )
-    )
-    if html_examples and "503" in status_counts:
-        return max(html_examples, status_counts["503"])
-    return html_examples
-
-
-def event_date(attempt: dict[str, Any], pipeline_metadata: dict[str, Any]) -> str:
-    for payload in [attempt, pipeline_metadata]:
-        for key in ["started_at", "generated_at", "finished_at"]:
-            value = payload.get(key)
-            if isinstance(value, str) and len(value) >= 10:
-                return format_display_date(value[:10])
-    return "data nao registrada"
-
-
-def primary_path(performance: dict[str, Any]) -> str:
-    paths = performance.get("paths")
-    if isinstance(paths, dict) and paths:
-        return str(next(iter(paths)))
-    for item in list_or_empty(performance.get("failure_examples")):
-        if isinstance(item, dict) and item.get("path"):
-            return str(item["path"])
-    return "endpoint de coleta"
-
-
-def status_sort_key(item: tuple[str, int]) -> tuple[int, str]:
-    status, _count = item
-    try:
-        return (int(status), status)
-    except ValueError:
-        return (999, status)
+def optional_str(value: Any) -> str | None:
+    if isinstance(value, str) and value:
+        return value
+    return None

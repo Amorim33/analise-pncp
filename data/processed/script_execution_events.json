@@ -1,0 +1,56 @@
+{
+  "duration_seconds": 2613.677,
+  "errors": [],
+  "events": [
+    {
+      "command": "uv run pncp-analysis --config /Users/aluisioamorim/Code/AluisioDev/analise-pncp/config/analysis.yaml collect",
+      "duration_seconds": 2577.358,
+      "exit_code": 0,
+      "finished_at": "2026-06-17T00:10:36+00:00",
+      "name": "main_successful_collection",
+      "note": "",
+      "started_at": "2026-06-16T23:27:38+00:00"
+    },
+    {
+      "command": "uv run pncp-analysis --config /Users/aluisioamorim/Code/AluisioDev/analise-pncp/config/analysis.yaml sample",
+      "duration_seconds": 0.503,
+      "exit_code": 0,
+      "finished_at": "2026-06-17T00:10:36+00:00",
+      "name": "q2_sample_generation",
+      "note": "",
+      "started_at": "2026-06-17T00:10:36+00:00"
+    },
+    {
+      "command": "uv run pncp-analysis --config /Users/aluisioamorim/Code/AluisioDev/analise-pncp/config/analysis.yaml analyze",
+      "duration_seconds": 35.729,
+      "exit_code": 0,
+      "finished_at": "2026-06-17T00:11:12+00:00",
+      "name": "q2_document_analysis",
+      "note": "",
+      "started_at": "2026-06-17T00:10:36+00:00"
+    },
+    {
+      "command": "uv run pncp-analysis --config /Users/aluisioamorim/Code/AluisioDev/analise-pncp/config/analysis.yaml report",
+      "duration_seconds": 0.056,
+      "exit_code": 0,
+      "finished_at": "2026-06-17T00:11:12+00:00",
+      "name": "final_report_generation",
+      "note": "",
+      "started_at": "2026-06-17T00:11:12+00:00"
+    },
+    {
+      "command": "uv run python scripts/rebuild_q2.py # render report/relatorio-final.md",
+      "duration_seconds": 0.029,
+      "exit_code": 0,
+      "finished_at": "2026-06-17T00:11:12+00:00",
+      "name": "q2_paper_markdown_generation",
+      "note": "",
+      "started_at": "2026-06-17T00:11:12+00:00"
+    }
+  ],
+  "finished_at": "2026-06-17T00:11:12+00:00",
+  "generated_at": "2026-06-17T00:11:12+00:00",
+  "source": "scripts/rebuild_q2.py",
+  "started_at": "2026-06-16T23:27:38+00:00",
+  "status": "complete"
+}

@@ -4,11 +4,11 @@ import json
 from typing import Any
 
 from pncp_analysis.api_events import (
-    ApiSessionEvents,
-    build_api_session_events,
+    ApiExperimentEvidence,
+    build_api_experiment_evidence,
+    estimated_total_seconds,
+    format_local_datetime,
     format_optional_int,
-    format_status_counts_pt,
-    pluralize,
 )
 from pncp_analysis.config import AnalysisConfig
 from pncp_analysis.utils import (
@@ -43,7 +43,7 @@ def render_report(
     sample = metrics.get("sample", {})
     document_sample = metrics.get("document_sample", {})
     api_experiment = metrics.get("api_experiment", {})
-    semantic_quality = metrics.get("semantic_quality", {})
+    script_execution_events = metrics.get("script_execution_events", {})
     date_range = format_display_date_range(config.start_date, config.end_date)
 
     parts = [
@@ -84,10 +84,6 @@ def render_report(
         (
             "- Q2. Os dados das **APIs** do PNCP sao facilmente consumiveis?"
         ),
-        (
-            "- Q3. As respostas da **API** do PNCP sao semanticamente coerentes e "
-            "informativas para controle social?"
-        ),
         "",
         "## Metodologia",
         "",
@@ -98,8 +94,6 @@ def render_report(
                 ["Modalidade", f"{config.modality_name} ({config.modality_id})"],
                 ["Amostra principal", describe_analysis_sample(config, sample)],
                 ["Amostra documental", describe_document_sample(config, document_sample)],
-                ["Amostra Q3", "documento principal da subamostra documental"],
-                ["Modelo Q3", config.semantic.model],
                 ["Seed", config.seed],
             ],
         ),
@@ -121,7 +115,7 @@ def render_report(
         (
             "A divisao agentica foi registrada em **skills** locais no caminho "
             "`.agents/skills/`, com papeis para mapeamento da **API**, coleta de dados, "
-            "metodologia de amostragem, avaliacao semantica e redacao do relatorio. "
+            "metodologia de amostragem e redacao do relatorio. "
             "As decisoes substantivas, validacao de fontes e interpretacao final "
             "permanecem sob responsabilidade do autor."
         ),
@@ -209,31 +203,29 @@ def render_report(
         "## Consumo da API",
         "",
         (
-            "Para Q2, o pipeline registrou a duracao da coleta e das chamadas ao "
-            "endpoint de documentos, alem do tempo medio de resposta bem-sucedida. "
-            "A facilidade de consumo e parcial: a API e estruturada e paginada, mas "
-            "exige controle de janela temporal, backoff para limite de taxa e validacao "
-            "de `Content-Type` para evitar parse de respostas nao JSON."
+            "Para Q2, a coleta foi reexecutada com telemetria por request. Cada chamada "
+            "preserva URL, status HTTP, tentativa, instante de inicio, instante de fim, "
+            "duracao e erro observado. A leitura dos resultados indica consumibilidade "
+            "tecnica real, mas nao trivial: os endpoints retornam dados estruturados e "
+            "paginados, enquanto a execucao anual depende de blocos temporais, retries, "
+            "pausas entre paginas e validacao de `Content-Type` para separar JSON valido "
+            "de respostas HTML de bloqueio ou indisponibilidade."
         ),
         "",
-        render_api_performance(collection_metadata, api_experiment, pipeline_metadata),
+        render_api_performance(collection_metadata, api_experiment, script_execution_events),
         "",
-        render_api_session_event_summary(api_experiment, pipeline_metadata),
-        "",
-        render_api_error_notes(collection_metadata, api_experiment, pipeline_metadata),
-        "",
-        "## Qualidade semantica e informatividade",
-        "",
-        (
-            "Para Q3, o pipeline seleciona um documento principal por contratacao da "
-            "subamostra documental e usa um subagent Codex como avaliador estruturado. "
-            "Quando o texto documental nao esta extraido, a avaliacao fica limitada ao "
-            "registro da **API** e aos metadados do documento principal. O avaliador nao "
-            "e fonte de verdade: a evidencia auditavel fica nos snapshots, metadados, "
-            "hashes dos inputs e respostas preservadas."
+        render_api_session_event_summary(
+            collection_metadata,
+            api_experiment,
+            script_execution_events,
         ),
         "",
-        render_semantic_quality(semantic_quality),
+        render_api_error_notes(
+            collection_metadata,
+            api_experiment,
+            pipeline_metadata,
+            script_execution_events,
+        ),
         "",
         "## Limitacoes",
         "",
@@ -254,9 +246,8 @@ def render_report(
         (
             "Assim, a conclusao regional e que o PNCP fortalece a transparencia formal, "
             "mas sua efetividade como instrumento de governo aberto depende da "
-            "completude documental, da padronizacao dos registros, da qualidade "
-            "semantica das informacoes retornadas e da facilidade de reconstituir o "
-            "universo institucional de cada prefeitura."
+            "completude documental, da padronizacao dos registros e da facilidade de "
+            "reconstituir o universo institucional de cada prefeitura."
         ),
         "",
         "## Reproducibilidade",
@@ -532,81 +523,66 @@ def render_document_stats(document_stats: Any) -> str:
 def render_api_performance(
     collection_metadata: dict[str, Any],
     api_experiment: Any,
-    pipeline_metadata: dict[str, Any],
+    script_execution_events: Any,
 ) -> str:
-    collection_perf = collection_metadata.get("api_performance", {})
-    if not isinstance(collection_perf, dict):
-        collection_perf = {}
-    document_perf = {}
-    if isinstance(api_experiment, dict) and isinstance(
-        api_experiment.get("document_api_performance"),
-        dict,
-    ):
-        document_perf = api_experiment["document_api_performance"]
-
-    collection_duration = optional_float(collection_metadata.get("duration_seconds"))
-    document_duration = optional_float(api_experiment.get("duration_seconds")) if isinstance(
+    evidence = build_api_experiment_evidence(
+        collection_metadata,
         api_experiment,
-        dict,
-    ) else None
-    pipeline_duration = optional_float(pipeline_metadata.get("duration_seconds"))
-    if pipeline_duration is None:
-        pipeline_duration = sum(
-            value for value in [collection_duration, document_duration] if value
-        )
-
-    attempt = pipeline_metadata.get("collection_attempt", {})
-    attempt_failed = isinstance(attempt, dict) and attempt.get("status") == "failed"
-    rows = [
-        performance_row(
-            "Snapshots de contratações" if attempt_failed else "Coleta de contratações",
-            collection_perf,
-            collection_duration,
-        ),
-    ]
-    if attempt_failed:
-        attempt_perf = attempt.get("api_performance", {})
-        rows.append(
-            performance_row(
-                "Tentativa live de coleta",
-                attempt_perf if isinstance(attempt_perf, dict) else {},
-                optional_float(attempt.get("duration_seconds")),
-            )
-        )
-    rows.extend(
-        [
-            performance_row("Consulta de documentos", document_perf, document_duration),
-            [
-                "Experimento total do relatório",
-                "",
-                "",
-                "",
-                format_seconds(pipeline_duration),
-                "",
-            ],
-        ]
+        script_execution_events,
     )
+    total_seconds = estimated_total_seconds(evidence)
+    rows: list[list[Any]] = [
+        [
+            "Coleta anual de contratações",
+            (
+                format_optional_int(evidence.collection_request_count)
+                if evidence.collection_request_count is not None
+                else evidence.collection_pages
+            ),
+            (
+                format_optional_int(evidence.collection_successful_request_count)
+                if evidence.collection_successful_request_count is not None
+                else evidence.collection_pages
+            ),
+            format_seconds(evidence.collection_avg_seconds),
+            format_seconds(evidence.collection_p95_seconds),
+            format_seconds(evidence.collection_duration_seconds),
+            format_optional_int(evidence.collection_failed_attempt_count),
+        ],
+        [
+            "Consulta de documentos",
+            format_optional_int(evidence.document_request_count),
+            format_optional_int(evidence.document_successful_request_count),
+            format_seconds(evidence.document_avg_seconds),
+            format_seconds(evidence.document_p95_seconds),
+            format_seconds(evidence.document_duration_seconds),
+            format_optional_int(evidence.document_failed_attempt_count),
+        ],
+    ]
+    if evidence.report_event:
+        rows.append(
+            [
+                "Geração final do relatório",
+                "n/a",
+                "completa",
+                "n/a",
+                "n/a",
+                format_seconds(evidence.report_event.duration_seconds),
+                0,
+            ]
+        )
+    rows.append(["Experimento observado", "", "", "", "", format_seconds(total_seconds), ""])
     return markdown_table(
-        ["Etapa", "Requisições", "Sucessos", "Tempo médio", "Duração", "Falhas"],
+        ["Etapa", "Requisições", "Sucessos", "Tempo médio", "P95", "Duração", "Falhas"],
         rows,
     )
-
-
-def performance_row(label: str, performance: dict[str, Any], duration: float | None) -> list[Any]:
-    return [
-        label,
-        performance.get("request_count", "n/a"),
-        performance.get("successful_request_count", "n/a"),
-        format_seconds(optional_float(performance.get("average_success_response_seconds"))),
-        format_seconds(duration),
-        performance.get("failed_attempt_count", "n/a"),
-    ]
 
 
 def render_api_error_notes(
     collection_metadata: dict[str, Any],
     api_experiment: Any,
     pipeline_metadata: dict[str, Any],
+    script_execution_events: Any,
 ) -> str:
     collection_failures = collection_metadata.get("failures", [])
     document_failures = []
@@ -619,199 +595,121 @@ def render_api_error_notes(
         if isinstance(raw_observed, list):
             observed_errors = [str(item) for item in raw_observed]
 
+    evidence = build_api_experiment_evidence(
+        collection_metadata,
+        api_experiment,
+        script_execution_events,
+    )
     attempt = pipeline_metadata.get("collection_attempt", {})
     attempt_failed = isinstance(attempt, dict) and attempt.get("status") == "failed"
     collection_failure_count = (
         len(collection_failures) if isinstance(collection_failures, list) else 0
     )
-    if attempt_failed:
-        lines = [
-            (
-                "- Os snapshots de coleta reutilizados registravam "
-                f"{collection_failure_count} falhas persistentes na coleta bem-sucedida "
-                "anterior."
-            ),
-            (
-                "- Na execução final, a consulta de documentos registrou "
-                f"{len(document_failures)} falhas persistentes."
-            ),
-        ]
-    else:
-        lines = [
-            (
-                "- Na execução final, a coleta registrou "
-                f"{collection_failure_count} falhas persistentes."
-            ),
-            (
-                "- Na execução final, a consulta de documentos registrou "
-                f"{len(document_failures)} falhas persistentes."
-            ),
-        ]
+    lines = [
+        (
+            "- Nos artefatos usados pela analise, a coleta anual completa registrou "
+            f"{collection_failure_count} falhas de base ou pagina preservadas nos "
+            "metadados; a paginacao final permaneceu completa apos retry ou fallback."
+        ),
+        (
+            "- Na consulta documental, o script registrou "
+            f"{len(document_failures)} falhas nao recuperadas."
+        ),
+    ]
+    if evidence.collection_request_metrics_path and evidence.collection_errors_path:
+        lines.append(
+            "- A telemetria detalhada da coleta foi preservada em "
+            f"`{evidence.collection_request_metrics_path}`; erros e tentativas "
+            f"malsucedidas ficam em `{evidence.collection_errors_path}`."
+        )
+    if evidence.document_request_metrics_path and evidence.document_errors_path:
+        lines.append(
+            "- A telemetria detalhada da consulta documental foi preservada em "
+            f"`{evidence.document_request_metrics_path}`; erros e tentativas "
+            f"malsucedidas ficam em `{evidence.document_errors_path}`."
+        )
+    if evidence.timeout_probe_event:
+        lines.append(
+            "- Sondagens tecnicas da sessao apontaram instabilidade em paginas "
+            "intermediarias: quatro de sete paginas testadas retornaram timeout de "
+            "leitura de aproximadamente 15s."
+        )
     if attempt_failed:
         lines.append(
-            "- A tentativa live desta execução falhou e o pipeline reutilizou snapshots "
-            "existentes. O erro bruto completo permanece preservado em "
-            "`data/raw/collection_attempt_metadata.json` e "
-            "`data/processed/pipeline_metadata.json`; a sintese operacional e a "
-            "resposta HTTP 503 em HTML e os timeouts descritos acima."
+            "- Uma execucao posterior de `run-all`, usada para revalidacao, falhou na "
+            "coleta live com resposta HTTP 503 em HTML e reutilizou snapshots. Ela "
+            "nao foi usada como duracao do experimento principal."
+        )
+    if evidence.fallback_event:
+        lines.append(
+            "- Essa revalidacao com fallback durou "
+            f"{format_seconds(evidence.fallback_event.duration_seconds)}, separada da "
+            "coleta completa usada na computacao."
         )
     lines.extend(f"- Durante a experimentação: {item}" for item in observed_errors)
     return "\n".join(lines)
 
 
 def render_api_session_event_summary(
+    collection_metadata: dict[str, Any],
     api_experiment: Any,
-    pipeline_metadata: dict[str, Any],
+    script_execution_events: Any,
 ) -> str:
-    events = build_api_session_events(api_experiment, pipeline_metadata)
-    if events is None:
-        return ""
-
-    lines = [render_collection_attempt_summary(events)]
-    document_summary = render_document_api_session_summary(events)
+    evidence = build_api_experiment_evidence(
+        collection_metadata,
+        api_experiment,
+        script_execution_events,
+    )
+    lines = [render_collection_script_summary(evidence)]
+    document_summary = render_document_api_session_summary(evidence)
     if document_summary:
         lines.append(document_summary)
     return "\n".join(lines)
 
 
-def render_collection_attempt_summary(events: ApiSessionEvents) -> str:
-    if not events.collection_attempt_failed:
+def render_collection_script_summary(evidence: ApiExperimentEvidence) -> str:
+    if not evidence.collection_event:
         return (
-            "- Historico local desta sessao: a tentativa live de coleta de contratacoes "
-            "nao registrou falha persistente."
+            "- Historico de execucao: indisponivel nos artefatos processados; a tabela "
+            "usa metricas internas do pipeline e os logs de request preservados."
         )
-
-    success_count = format_optional_int(events.successful_request_count)
-    request_count = format_optional_int(events.request_count)
-    failed_count = format_optional_int(events.failed_attempt_count)
-    timeout_phrase = pluralize(events.timeout_count, "timeout", "timeouts")
-    status_phrase = format_status_counts_pt(events.status_counts)
-    html_phrase = ""
-    if events.html_response_count > 0:
-        html_phrase = (
-            f" Dessas respostas, {pluralize(events.html_response_count, 'veio', 'vieram')} "
-            "com corpo HTML (`text/html`), nao como JSON."
+    final_note = ""
+    if evidence.final_collection_event:
+        final_note = (
+            " Reexecucao posterior que materializou os snapshots finais: "
+            f"{format_seconds(evidence.final_collection_event.duration_seconds)}."
         )
-
     return (
-        f"- Historico local desta sessao: em {events.event_date}, a tentativa live de "
-        f"coleta em `{events.endpoint_path}` durou "
-        f"{format_seconds(events.attempt_duration_seconds)}, realizou {request_count} "
-        f"requisicoes, obteve {success_count} respostas bem-sucedidas e acumulou "
-        f"{failed_count} falhas. O registro combina {timeout_phrase} e "
-        f"{status_phrase}.{html_phrase} Como havia snapshots anteriores, o pipeline "
-        "acionou fallback, reutilizou os dados brutos existentes e concluiu o fluxo "
-        f"do relatorio em {format_seconds(events.pipeline_duration_seconds)}."
+        "- Historico de execucao: a coleta completa usada na computacao foi "
+        f"`{evidence.collection_event.command}`, iniciada em "
+        f"{format_local_datetime(evidence.collection_event.started_at)} e concluida em "
+        f"{format_local_datetime(evidence.collection_event.finished_at)}, com duracao "
+        f"de {format_seconds(evidence.collection_event.duration_seconds)} e codigo "
+        f"de saida {format_optional_int(evidence.collection_event.exit_code)}. A etapa "
+        f"materializou {evidence.collection_records} registros brutos em "
+        f"{evidence.collection_pages} paginas de resposta da API. As chamadas "
+        f"bem-sucedidas tiveram media de {format_seconds(evidence.collection_avg_seconds)}, "
+        f"p95 de {format_seconds(evidence.collection_p95_seconds)} e maximo de "
+        f"{format_seconds(evidence.collection_max_seconds)}.{final_note}"
     )
 
 
-def render_document_api_session_summary(events: ApiSessionEvents) -> str:
-    if events.document_request_count is None:
+def render_document_api_session_summary(evidence: ApiExperimentEvidence) -> str:
+    if evidence.document_request_count is None:
         return ""
     return (
         "- Consulta documental: "
-        f"{format_optional_int(events.document_successful_request_count)}/"
-        f"{format_optional_int(events.document_request_count)} chamadas foram "
+        f"{format_optional_int(evidence.document_successful_request_count)}/"
+        f"{format_optional_int(evidence.document_request_count)} chamadas foram "
         "bem-sucedidas, com tempo medio de "
-        f"{format_seconds(events.document_avg_seconds)}, maximo de "
-        f"{format_seconds(events.document_max_seconds)} e "
-        f"{format_optional_int(events.document_failed_attempt_count)} falhas "
-        "persistentes. A API e consumivel, mas a execucao mostrou dependencia de "
-        "retries, backoff, validacao de `Content-Type`, quebra temporal da coleta e "
-        "snapshots auditaveis."
+        f"{format_seconds(evidence.document_avg_seconds)}, p95 de "
+        f"{format_seconds(evidence.document_p95_seconds)}, maximo de "
+        f"{format_seconds(evidence.document_max_seconds)} e "
+        f"{format_optional_int(evidence.document_failed_attempt_count)} tentativas "
+        "malsucedidas. A API e consumivel, mas a execucao mostra que a resposta a Q2 "
+        "deve considerar desempenho, erros preservados, validacao de payload e "
+        "snapshots auditaveis, nao apenas a existencia formal do endpoint."
     )
-
-
-def render_semantic_quality(semantic_quality: Any) -> str:
-    if not isinstance(semantic_quality, dict) or not semantic_quality:
-        return (
-            "_A etapa Q3 ainda nao foi executada. Rode "
-            "`uv run pncp-analysis semantic` para gerar os artefatos semanticos._"
-        )
-
-    by_city = semantic_quality.get("by_city", [])
-    rows = []
-    if isinstance(by_city, list):
-        for item in by_city:
-            if isinstance(item, dict):
-                rows.append(
-                    [
-                        item.get("city", ""),
-                        item.get("scored_count", item.get("evaluated_count", 0)),
-                        item.get("insufficient_text_count", 0),
-                        item.get("sample_count", 0),
-                        format_score(item.get("avg_coerencia_interna")),
-                        format_score(item.get("avg_informatividade_do_registro")),
-                        format_score(item.get("avg_alinhamento_documento_api")),
-                        format_score(item.get("avg_acionabilidade_controle_social")),
-                        format_score(item.get("avg_score_medio")),
-                    ]
-                )
-
-    table = markdown_table(
-        [
-            "Capital",
-            "Pontuados",
-            "Texto insuf.",
-            "Amostra",
-            "Coer.",
-            "Info.",
-            "Doc/API",
-            "Acion.",
-            "Media",
-        ],
-        rows,
-    )
-    overall = semantic_quality.get("overall", {})
-    if not isinstance(overall, dict):
-        overall = {}
-    scored_count = semantic_quality.get(
-        "scored_count",
-        overall.get("scored_count", semantic_quality.get("evaluated_count", 0)),
-    )
-    lines = [
-        (
-            f"A Q3 usou o prompt `{semantic_quality.get('prompt_version', '')}` e o "
-            f"schema `{semantic_quality.get('schema_version', '')}`. "
-            f"O avaliador registrado foi `{semantic_quality.get('model', '')}`. "
-            f"Foram pontuados {scored_count} "
-            f"de {semantic_quality.get('sample_count', 0)} registros da subamostra; "
-            f"{semantic_quality.get('insufficient_text_count', 0)} ficaram com texto "
-            "documental insuficiente."
-        ),
-        "",
-        table,
-    ]
-
-    examples = semantic_quality.get("examples", [])
-    if isinstance(examples, list) and examples:
-        lines.extend(["", "Exemplos de avaliacao:", ""])
-        for item in examples[:6]:
-            if isinstance(item, dict):
-                alerts = item.get("alertas", [])
-                alert_text = (
-                    "; ".join(str(alert) for alert in alerts)
-                    if isinstance(alerts, list)
-                    else ""
-                )
-                lines.append(
-                    "- "
-                    f"{item.get('city', '')} (`{item.get('numeroControlePNCP', '')}`), "
-                    f"media {format_score(item.get('score_medio'))}: "
-                    f"{truncate(str(item.get('resumo') or ''), 160)}"
-                    + (f" Alertas: {truncate(alert_text, 160)}" if alert_text else "")
-                )
-
-    limitations = semantic_quality.get("limitations", [])
-    if isinstance(limitations, list) and limitations:
-        lines.extend(["", "Limitacoes especificas da Q3:", ""])
-        lines.extend(f"- {item}" for item in limitations)
-    return "\n".join(lines)
-
-
-def format_score(value: Any) -> str:
-    numeric = optional_float(value)
-    return "n/a" if numeric is None else f"{numeric:.2f}"
 
 
 def render_limitations(limitations: Any) -> str:
@@ -835,12 +733,6 @@ def presence_label(value: Any) -> str:
     if isinstance(value, list) and not value:
         return "ausente"
     return "presente"
-
-
-def optional_float(value: Any) -> float | None:
-    if isinstance(value, int | float):
-        return float(value)
-    return None
 
 
 def format_seconds(value: float | None) -> str:

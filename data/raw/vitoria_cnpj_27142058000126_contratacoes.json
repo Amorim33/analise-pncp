@@ -9546,59 +9546,6 @@
       "nome": "Lei 14.133/2021, Art. 28, I"
     },
     "anoCompra": 2026,
-    "dataAberturaProposta": "2026-04-08T08:00:00",
-    "dataAtualizacao": "2026-04-20T16:52:36",
-    "dataAtualizacaoGlobal": "2026-04-20T16:55:00",
-    "dataEncerramentoProposta": "2026-04-24T09:00:00",
-    "dataInclusao": "2026-04-08T09:04:49",
-    "dataPublicacaoPncp": "2026-04-08T09:04:49",
-    "emendaParlamentar": null,
-    "fontesOrcamentarias": [],
-    "informacaoComplementar": "",
-    "justificativaPresencial": "",
-    "linkProcessoEletronico": null,
-    "linkSistemaOrigem": null,
-    "modalidadeId": 6,
-    "modalidadeNome": "Pregão - Eletrônico",
-    "modoDisputaId": 3,
-    "modoDisputaNome": "Aberto-Fechado",
-    "numeroCompra": "54",
-    "numeroControlePNCP": "27142058000126-1-000163/2026",
-    "objetoCompra": "REGISTRO DE PREÇOS VISANDO FUTURA E EVENTUAL AQUISIÇÃO DE MATERIAIS MÉDICOHOSPITALARES (espéculos ginecológicos, escova endocervical e espátula de Ayres)",
-    "orgaoEntidade": {
-      "cnpj": "27142058000126",
-      "esferaId": "M",
-      "poderId": "N",
-      "razaoSocial": "MUNICIPIO DE VITORIA"
-    },
-    "orgaoSubRogado": null,
-    "processo": "1850389/2026",
-    "sequencialCompra": 163,
-    "situacaoCompraId": 4,
-    "situacaoCompraNome": "Suspensa",
-    "srp": true,
-    "tipoInstrumentoConvocatorioCodigo": 1,
-    "tipoInstrumentoConvocatorioNome": "Edital",
-    "unidadeOrgao": {
-      "codigoIbge": "3205309",
-      "codigoUnidade": "1",
-      "municipioNome": "Vitória",
-      "nomeUnidade": "PREFEITURA MUNICIPAL DE VITORIA",
-      "ufNome": "Espírito Santo",
-      "ufSigla": "ES"
-    },
-    "unidadeSubRogada": null,
-    "usuarioNome": "SMARAPD INFORMATICA LTDA",
-    "valorTotalEstimado": 133200.0,
-    "valorTotalHomologado": null
-  },
-  {
-    "amparoLegal": {
-      "codigo": 1,
-      "descricao": "pregão: modalidade de licitação obrigatória para aquisição de bens e serviços comuns",
-      "nome": "Lei 14.133/2021, Art. 28, I"
-    },
-    "anoCompra": 2026,
     "dataAberturaProposta": "2026-04-15T08:00:00",
     "dataAtualizacao": "2026-04-10T09:34:59",
     "dataAtualizacaoGlobal": "2026-05-29T16:16:17",
@@ -10608,7 +10555,7 @@
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-05-14T08:00:00",
     "dataAtualizacao": "2026-05-12T15:51:05",
-    "dataAtualizacaoGlobal": "2026-05-12T15:51:07",
+    "dataAtualizacaoGlobal": "2026-06-16T13:38:34",
     "dataEncerramentoProposta": "2026-05-27T09:00:00",
     "dataInclusao": "2026-05-12T15:51:05",
     "dataPublicacaoPncp": "2026-05-12T15:51:05",
@@ -10650,7 +10597,7 @@
     "unidadeSubRogada": null,
     "usuarioNome": "SMARAPD INFORMATICA LTDA",
     "valorTotalEstimado": 886172.48,
-    "valorTotalHomologado": null
+    "valorTotalHomologado": 659375.0
   },
   {
     "amparoLegal": {
@@ -10926,7 +10873,7 @@
     "anoCompra": 2026,
     "dataAberturaProposta": "2026-05-20T08:00:00",
     "dataAtualizacao": "2026-05-19T16:23:15",
-    "dataAtualizacaoGlobal": "2026-05-26T17:56:13",
+    "dataAtualizacaoGlobal": "2026-06-16T16:41:51",
     "dataEncerramentoProposta": "2026-06-02T09:00:00",
     "dataInclusao": "2026-05-19T16:23:15",
     "dataPublicacaoPncp": "2026-05-19T16:23:15",

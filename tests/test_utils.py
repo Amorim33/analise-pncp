@@ -2,6 +2,7 @@ from pncp_analysis.pncp_client import NonJsonResponseError, ensure_json_payload
 from pncp_analysis.utils import (
     format_display_date,
     format_display_date_range,
+    markdown_table,
     normalize_text,
     parse_control_number,
 )
@@ -37,3 +38,11 @@ def test_ensure_json_payload_rejects_html_response() -> None:
         assert "Expected JSON" in str(exc)
     else:
         raise AssertionError("Expected NonJsonResponseError")
+
+
+def test_markdown_table_escapes_pipes_and_newlines() -> None:
+    table = markdown_table(["A|B"], [["linha 1\nlinha 2", "x|y"]])
+
+    assert "A\\|B" in table
+    assert "linha 1 linha 2" in table
+    assert "x\\|y" in table
