@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 from collections import Counter, defaultdict
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -12,6 +13,7 @@ from pncp_analysis.report import render_report
 from pncp_analysis.sampling import deduplicate_records, deterministic_sample
 from pncp_analysis.utils import (
     date_for_pncp,
+    format_display_date,
     has_value,
     nested_get,
     parse_control_number,
@@ -25,6 +27,7 @@ DEFAULT_CONFIG_PATH = REPO_ROOT / "config" / "analysis.yaml"
 RAW_DIR = REPO_ROOT / "data" / "raw"
 PROCESSED_DIR = REPO_ROOT / "data" / "processed"
 REPORT_PATH = REPO_ROOT / "analise-exploratoria.md"
+FULL_SCAN_CHUNK_DAYS = 31
 
 
 def build_client(config: AnalysisConfig) -> PncpClient:
@@ -42,8 +45,6 @@ def collect(config_path: Path = DEFAULT_CONFIG_PATH, limit: int | None = None) -
     client = build_client(config)
     RAW_DIR.mkdir(parents=True, exist_ok=True)
 
-    start = date_for_pncp(config.start_date)
-    end = date_for_pncp(config.end_date)
     metadata: dict[str, Any] = {
         "generated_at": utc_now_iso(),
         "period": {"start": config.start_date, "end": config.end_date},
@@ -54,12 +55,13 @@ def collect(config_path: Path = DEFAULT_CONFIG_PATH, limit: int | None = None) -
 
     for city in config.cities:
         print(f"Collecting {city.name} by matrix CNPJ...", flush=True)
-        matrix_records = client.fetch_contratacoes(
-            start_date=start,
-            end_date=end,
-            modality_id=config.modality_id,
+        matrix_records, matrix_metadata = fetch_contratacoes_by_chunks(
+            client,
+            config,
+            city,
             cnpj=city.matrix_cnpj,
             limit=limit,
+            label=f"{city.name} matrix CNPJ",
         )
         matrix_path = RAW_DIR / f"{city.slug}_cnpj_{city.matrix_cnpj}_contratacoes.json"
         write_json(matrix_path, matrix_records)
@@ -69,6 +71,7 @@ def collect(config_path: Path = DEFAULT_CONFIG_PATH, limit: int | None = None) -
                 "kind": "matrix_cnpj",
                 "path": str(matrix_path.relative_to(REPO_ROOT)),
                 "records": len(matrix_records),
+                **matrix_metadata,
             }
         )
         print(f"Collected {len(matrix_records)} matrix records for {city.name}.", flush=True)
@@ -77,19 +80,33 @@ def collect(config_path: Path = DEFAULT_CONFIG_PATH, limit: int | None = None) -
             print(
                 (
                     f"Collecting {city.name} municipality scan "
-                    f"(max {config.api.municipality_scan_max_pages} pages)..."
+                    f"({format_page_limit(config.api.municipality_scan_max_pages)})..."
                 ),
                 flush=True,
             )
-            municipal_records = client.fetch_contratacoes(
-                start_date=start,
-                end_date=end,
-                modality_id=config.modality_id,
-                uf=city.uf,
-                ibge=city.ibge,
-                limit=limit,
-                max_pages=config.api.municipality_scan_max_pages,
-            )
+            if config.api.municipality_scan_max_pages is None:
+                municipal_records, municipal_metadata = fetch_contratacoes_by_chunks(
+                    client,
+                    config,
+                    city,
+                    limit=limit,
+                    uf=city.uf,
+                    ibge=city.ibge,
+                    label=f"{city.name} municipality scan",
+                )
+            else:
+                start = date_for_pncp(config.start_date)
+                end = date_for_pncp(config.end_date)
+                municipal_records = client.fetch_contratacoes(
+                    start_date=start,
+                    end_date=end,
+                    modality_id=config.modality_id,
+                    uf=city.uf,
+                    ibge=city.ibge,
+                    limit=limit,
+                    max_pages=config.api.municipality_scan_max_pages,
+                )
+                municipal_metadata = pagination_metadata(client)
             municipal_path = RAW_DIR / f"{city.slug}_municipio_{city.ibge}_contratacoes.json"
             write_json(municipal_path, municipal_records)
             metadata["sources"].append(
@@ -99,6 +116,7 @@ def collect(config_path: Path = DEFAULT_CONFIG_PATH, limit: int | None = None) -
                     "path": str(municipal_path.relative_to(REPO_ROOT)),
                     "records": len(municipal_records),
                     "max_pages": config.api.municipality_scan_max_pages,
+                    **municipal_metadata,
                 }
             )
             print(
@@ -126,13 +144,13 @@ def sample(config_path: Path = DEFAULT_CONFIG_PATH) -> None:
         candidates = deduplicate_records(candidates)
         all_candidates.extend(candidates)
 
-        city_sample = deterministic_sample(
-            candidates,
-            sample_n=config.sample_n,
-            seed=config.seed + index,
-        )
+        city_sample = select_analysis_records(config, candidates, seed=config.seed + index)
         sampled.extend(city_sample)
-        if len(candidates) < config.sample_n:
+        if (
+            config.sample_strategy == "fixed"
+            and config.sample_n is not None
+            and len(candidates) < config.sample_n
+        ):
             sample_limits.append(
                 {
                     "city": city.name,
@@ -155,11 +173,14 @@ def analyze(config_path: Path = DEFAULT_CONFIG_PATH, skip_documents: bool = Fals
     if not isinstance(candidates, list) or not isinstance(sampled, list):
         raise ValueError("Processed candidate/sample files must contain lists")
 
+    document_sample = build_document_sample(config, sampled)
+    write_json(PROCESSED_DIR / "document_sample.json", document_sample)
+
     document_index: dict[str, list[dict[str, Any]]] = {}
     if skip_documents:
         document_index = {}
     else:
-        for record in sampled:
+        for record in document_sample:
             control = str(record.get("numeroControlePNCP") or "")
             if not control:
                 continue
@@ -172,7 +193,7 @@ def analyze(config_path: Path = DEFAULT_CONFIG_PATH, skip_documents: bool = Fals
                 sequence=sequence,
             )
 
-    metrics = build_metrics(config, candidates, sampled, document_index)
+    metrics = build_metrics(config, candidates, sampled, document_sample, document_index)
     write_json(RAW_DIR / "sample_documents.json", document_index)
     write_json(PROCESSED_DIR / "metrics.json", metrics)
     write_field_completeness_csv(PROCESSED_DIR / "field_completeness.csv", metrics)
@@ -194,6 +215,158 @@ def run_all(config_path: Path = DEFAULT_CONFIG_PATH) -> None:
     sample(config_path)
     analyze(config_path)
     report(config_path)
+
+
+def select_analysis_records(
+    config: AnalysisConfig,
+    candidates: list[dict[str, Any]],
+    *,
+    seed: int,
+) -> list[dict[str, Any]]:
+    if config.sample_strategy == "all":
+        return deduplicate_records(candidates)
+    if config.sample_n is None:
+        raise ValueError("sample.n is required when sample.strategy is 'fixed'")
+    return deterministic_sample(candidates, sample_n=config.sample_n, seed=seed)
+
+
+def fetch_contratacoes_by_chunks(
+    client: PncpClient,
+    config: AnalysisConfig,
+    city: CityConfig,
+    *,
+    limit: int | None,
+    label: str,
+    cnpj: str | None = None,
+    uf: str | None = None,
+    ibge: str | None = None,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    records: list[dict[str, Any]] = []
+    chunks: list[dict[str, Any]] = []
+
+    date_chunks = iter_date_chunks(
+        config.start_date,
+        config.end_date,
+        chunk_days=FULL_SCAN_CHUNK_DAYS,
+    )
+    for chunk_index, (chunk_start, chunk_end) in enumerate(date_chunks, start=1):
+        remaining = None if limit is None else max(limit - len(records), 0)
+        if remaining == 0:
+            break
+
+        print(
+            (
+                f"  Collecting {label} chunk {chunk_index}/{len(date_chunks)} "
+                f"({format_display_date(chunk_start)} to {format_display_date(chunk_end)})..."
+            ),
+            flush=True,
+        )
+        chunk_records = client.fetch_contratacoes(
+            start_date=date_for_pncp(chunk_start),
+            end_date=date_for_pncp(chunk_end),
+            modality_id=config.modality_id,
+            cnpj=cnpj,
+            uf=uf,
+            ibge=ibge,
+            limit=remaining,
+            max_pages=None,
+        )
+        records.extend(chunk_records)
+        chunk_metadata = pagination_metadata(client)
+        print(
+            f"  Collected {len(chunk_records)} records for chunk {chunk_index}.",
+            flush=True,
+        )
+        chunks.append(
+            {
+                "start": chunk_start,
+                "end": chunk_end,
+                "records": len(chunk_records),
+                **chunk_metadata,
+            }
+        )
+
+    pages_collected = sum(int(chunk.get("pages_collected") or 0) for chunk in chunks)
+    total_pages = sum(int(chunk.get("total_pages") or 0) for chunk in chunks)
+    total_records = sum(int(chunk.get("total_records") or 0) for chunk in chunks)
+    complete = all(bool(chunk.get("pagination_complete")) for chunk in chunks)
+    return records, {
+        "chunk_days": FULL_SCAN_CHUNK_DAYS,
+        "chunks": chunks,
+        "pages_collected": pages_collected,
+        "total_pages": total_pages,
+        "total_records": total_records,
+        "pagination_complete": complete,
+        "pagination_stopped_reason": None if complete else "At least one chunk was incomplete.",
+    }
+
+
+def iter_date_chunks(start: str, end: str, *, chunk_days: int) -> list[tuple[str, str]]:
+    start_date = parse_config_date(start)
+    end_date = parse_config_date(end)
+    chunks = []
+    current = start_date
+    while current <= end_date:
+        chunk_end = min(current + timedelta(days=chunk_days - 1), end_date)
+        chunks.append((current.isoformat(), chunk_end.isoformat()))
+        current = chunk_end + timedelta(days=1)
+    return chunks
+
+
+def parse_config_date(value: str) -> date:
+    return datetime.strptime(value, "%Y-%m-%d").date()
+
+
+def build_document_sample(
+    config: AnalysisConfig,
+    sampled: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    sample_by_city: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for record in sampled:
+        sample_by_city[str(record.get("_analysisCity") or "")].append(record)
+
+    document_sample: list[dict[str, Any]] = []
+    for index, city in enumerate(config.cities):
+        city_records = sample_by_city[city.name]
+        document_sample.extend(
+            deterministic_sample(
+                city_records,
+                sample_n=config.document_sample_n,
+                seed=config.seed + 10_000 + index,
+            )
+        )
+    return document_sample
+
+
+def format_page_limit(max_pages: int | None) -> str:
+    if max_pages is None:
+        return "all pages"
+    return f"max {max_pages} pages"
+
+
+def pagination_metadata(client: PncpClient) -> dict[str, Any]:
+    pagination = client.last_pagination
+    if pagination is None:
+        return {}
+    return {
+        "pages_collected": pagination.pages_collected,
+        "total_pages": pagination.total_pages,
+        "total_records": pagination.total_records,
+        "pagination_complete": pagination.complete,
+        "pagination_stopped_reason": pagination.stopped_reason,
+    }
+
+
+def build_page_limit_limitation(config: AnalysisConfig) -> str:
+    if config.api.municipality_scan_max_pages is None:
+        return (
+            "A varredura municipal de Sao Paulo coleta todas as paginas retornadas pela "
+            "API para a janela anual."
+        )
+    return (
+        "A varredura municipal de Sao Paulo usa limite operacional de "
+        f"{config.api.municipality_scan_max_pages} paginas da API."
+    )
 
 
 def load_city_candidates(config: AnalysisConfig, city: CityConfig) -> list[dict[str, Any]]:
@@ -227,14 +400,18 @@ def build_metrics(
     config: AnalysisConfig,
     candidates: list[dict[str, Any]],
     sampled: list[dict[str, Any]],
+    document_sample: list[dict[str, Any]],
     document_index: dict[str, list[dict[str, Any]]],
 ) -> dict[str, Any]:
     candidate_by_city: dict[str, list[dict[str, Any]]] = defaultdict(list)
     sample_by_city: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    document_sample_by_city: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for record in candidates:
         candidate_by_city[str(record.get("_analysisCity") or "")].append(record)
     for record in sampled:
         sample_by_city[str(record.get("_analysisCity") or "")].append(record)
+    for record in document_sample:
+        document_sample_by_city[str(record.get("_analysisCity") or "")].append(record)
 
     city_metrics = []
     for city in config.cities:
@@ -283,16 +460,18 @@ def build_metrics(
 
         present_docs = sum(
             1
-            for record in city_sample
+            for record in document_sample_by_city[city.name]
             if has_value(document_index.get(str(record.get("numeroControlePNCP") or ""), []))
         )
+        docs_sample_count = len(document_sample_by_city[city.name])
         field_completeness.append(
             {
                 "city": city.name,
                 "field": "Documentos",
                 "present": present_docs,
-                "sample_count": len(city_sample),
-                "share": present_docs / len(city_sample) if city_sample else None,
+                "sample_count": docs_sample_count,
+                "share": present_docs / docs_sample_count if docs_sample_count else None,
+                "scope": "document_sample",
             }
         )
 
@@ -323,7 +502,7 @@ def build_metrics(
             }
         )
 
-    document_stats = build_document_stats(config, sample_by_city, document_index)
+    document_stats = build_document_stats(config, document_sample_by_city, document_index)
     sao_paulo_candidates = candidate_by_city["Sao Paulo"]
     sp_fragmentation = build_sao_paulo_fragmentation_evidence(config, sao_paulo_candidates)
     additional_findings = build_additional_findings(
@@ -337,7 +516,19 @@ def build_metrics(
         "generated_at": utc_now_iso(),
         "period": {"start": config.start_date, "end": config.end_date},
         "modality": {"id": config.modality_id, "name": config.modality_name},
-        "sample": {"n": config.sample_n, "seed": config.seed},
+        "sample": {
+            "strategy": config.sample_strategy,
+            "n": config.sample_n,
+            "seed": config.seed,
+            "document_n": config.document_sample_n,
+        },
+        "document_sample": {
+            "strategy": "deterministic_by_city",
+            "requested_per_city": config.document_sample_n,
+            "counts_by_city": {
+                city.name: len(document_sample_by_city[city.name]) for city in config.cities
+            },
+        },
         "city_metrics": city_metrics,
         "sao_paulo_top_cnpjs": top_cnpjs(sao_paulo_candidates, limit=10),
         "sao_paulo_fragmentation_evidence": sp_fragmentation,
@@ -353,9 +544,11 @@ def build_metrics(
                 "o que exige filtro por municipio e orgao."
             ),
             (
-                "A varredura municipal de Sao Paulo usa limite operacional de "
-                f"{config.api.municipality_scan_max_pages} paginas da API."
+                "A API de consulta por publicacao limita cada requisicao a janelas de "
+                "ate 365 dias; por isso o recorte usa a maior janela aceita em uma "
+                "consulta reprodutivel."
             ),
+            build_page_limit_limitation(config),
             (
                 "A API pode retornar payload HTML de bloqueio com HTTP 200; o coletor "
                 "valida Content-Type e registra falhas."
@@ -545,8 +738,9 @@ def build_additional_findings(
     if vitoria_link == 0:
         findings.append(
             
-                "Vitoria teve documentos vinculados em todos os itens da amostra, mas nenhum "
-                "dos 10 registros amostrados trouxe `linkSistemaOrigem`, o que reduz a "
+                "Vitoria teve documentos vinculados em todos os itens da subamostra "
+                "documental, mas nenhum dos registros elegiveis trouxe `linkSistemaOrigem`, "
+                "o que reduz a "
                 "rastreabilidade para o sistema de origem."
             
         )
@@ -643,20 +837,27 @@ def write_sample_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         for record in rows:
-            writer.writerow(
-                {
-                    "city": record.get("_analysisCity"),
-                    "numeroControlePNCP": record.get("numeroControlePNCP"),
-                    "cnpj": (record.get("orgaoEntidade") or {}).get("cnpj"),
-                    "orgao": (record.get("orgaoEntidade") or {}).get("razaoSocial"),
-                    "unidade": (record.get("unidadeOrgao") or {}).get("nomeUnidade"),
-                    "dataPublicacaoPncp": record.get("dataPublicacaoPncp"),
-                    "valorTotalEstimado": record.get("valorTotalEstimado"),
-                    "valorTotalHomologado": record.get("valorTotalHomologado"),
-                    "situacaoCompraNome": record.get("situacaoCompraNome"),
-                    "objetoCompra": record.get("objetoCompra"),
-                }
-            )
+            row = {
+                "city": record.get("_analysisCity"),
+                "numeroControlePNCP": record.get("numeroControlePNCP"),
+                "cnpj": (record.get("orgaoEntidade") or {}).get("cnpj"),
+                "orgao": (record.get("orgaoEntidade") or {}).get("razaoSocial"),
+                "unidade": (record.get("unidadeOrgao") or {}).get("nomeUnidade"),
+                "dataPublicacaoPncp": format_display_date(
+                    str(record.get("dataPublicacaoPncp") or "")
+                ),
+                "valorTotalEstimado": record.get("valorTotalEstimado"),
+                "valorTotalHomologado": record.get("valorTotalHomologado"),
+                "situacaoCompraNome": record.get("situacaoCompraNome"),
+                "objetoCompra": record.get("objetoCompra"),
+            }
+            writer.writerow({field: normalize_csv_value(row.get(field)) for field in fields})
+
+
+def normalize_csv_value(value: Any) -> Any:
+    if isinstance(value, str):
+        return " ".join(value.split())
+    return value
 
 
 def write_field_completeness_csv(path: Path, metrics: dict[str, Any]) -> None:

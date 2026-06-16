@@ -5,10 +5,11 @@ Portal Nacional de Contratacoes Publicas (PNCP) pelas capitais do Sudeste.
 
 O recorte inicial usa:
 
-- periodo: `2026-01-01` a `2026-05-31`;
+- periodo: `15/06/2025` a `15/06/2026`;
 - modalidade: Pregao Eletronico, codigo `6`;
 - capitais: Sao Paulo, Rio de Janeiro, Belo Horizonte e Vitoria;
-- amostra: ate 10 contratacoes por capital, com sorteio deterministico.
+- amostra principal: todos os registros elegiveis no periodo;
+- amostra documental: ate 100 contratacoes por capital, com sorteio deterministico.
 
 Os artefatos principais sao `analise-exploratoria.md` e
 `report/output/relatorio-final.pdf`.
@@ -55,7 +56,8 @@ uv run pncp-analysis paper --tex-only
 Saidas:
 
 - `data/raw/`: snapshots JSON da API;
-- `data/processed/`: amostra, metricas e tabelas derivadas;
+- `data/processed/`: registros elegiveis, subamostra documental, metricas e
+  tabelas derivadas;
 - `analise-exploratoria.md`: relatorio final.
 - `report/relatorio-final.md`: fonte academica com citacoes Pandoc.
 - `report/output/relatorio-final.tex`: fonte LaTeX.
@@ -96,13 +98,13 @@ make final
 2. Para Rio de Janeiro, Belo Horizonte e Vitoria, usar o CNPJ matriz de cada
    municipio.
 3. Para Sao Paulo, coletar tanto o CNPJ matriz quanto a consulta por municipio
-   IBGE `3550308`, filtrando orgaos municipais executivos. A varredura municipal
-   usa `api.municipality_scan_max_pages` para manter o fluxo reprodutivel em
-   tempo razoavel.
-4. Ordenar os registros por `numeroControlePNCP`, aplicar amostragem
-   pseudoaleatoria com seed `20260608` e selecionar ate 10 por capital.
-5. Para cada contratacao amostrada, consultar os documentos vinculados no
-   endpoint de arquivos da contratacao.
+   IBGE `3550308`, filtrando orgaos municipais executivos. Com
+   `api.municipality_scan_max_pages: null`, a varredura municipal coleta todas
+   as paginas retornadas pela API na janela anual.
+4. Ordenar os registros por `numeroControlePNCP`, deduplicar e manter todos os
+   registros elegiveis como amostra principal.
+5. Criar uma subamostra documental deterministica de ate 100 registros por
+   capital e consultar os documentos vinculados no endpoint de arquivos.
 6. Gerar metricas de volume, fragmentacao de CNPJ, completude de campos e
    presenca de documentos.
 

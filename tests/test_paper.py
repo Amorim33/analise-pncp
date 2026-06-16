@@ -29,6 +29,10 @@ def test_render_paper_markdown_contains_required_sections_and_citations() -> Non
     assert "# Apêndice B: declaração de uso de IA" in markdown
     assert "[@curso2026]" in markdown
     assert "[@lei14133]" in markdown
+    assert "prefeituras das capitais dos estados do sudeste brasileiro" in markdown
+    assert "15/06/2025 a 15/06/2026" in markdown
+    assert "2025-06-15" not in markdown
+    assert "2026-06-15" not in markdown
 
 
 def test_final_mode_rejects_placeholders_without_override() -> None:
@@ -79,17 +83,19 @@ def test_generate_paper_tex_only_writes_tex(tmp_path: Path) -> None:
 
 def analysis_config() -> AnalysisConfig:
     return AnalysisConfig(
-        start_date="2026-01-01",
-        end_date="2026-05-31",
+        start_date="2025-06-15",
+        end_date="2026-06-15",
         modality_id=6,
         modality_name="Pregao - Eletronico",
-        sample_n=10,
+        sample_strategy="all",
+        sample_n=None,
+        document_sample_n=100,
         seed=20260608,
         api=ApiConfig(
             query_bases=[],
             document_bases=[],
             page_size=50,
-            municipality_scan_max_pages=5,
+            municipality_scan_max_pages=None,
             request_delay_seconds=0.0,
             retries=1,
         ),
@@ -154,6 +160,12 @@ def metrics_payload() -> dict[str, object]:
         ],
         "additional_findings": ["Achado de teste."],
         "api_examples": [],
+        "sample": {"strategy": "all", "n": None, "seed": 20260608, "document_n": 100},
+        "document_sample": {
+            "strategy": "deterministic_by_city",
+            "requested_per_city": 100,
+            "counts_by_city": {"Sao Paulo": 61},
+        },
         "sao_paulo_fragmentation_evidence": {
             "matrix_cnpj": "46395000000139",
             "candidate_count": 61,
@@ -173,7 +185,9 @@ def collection_metadata() -> dict[str, object]:
                 "city": "Sao Paulo",
                 "kind": "municipality_scan",
                 "records": 250,
-                "max_pages": 5,
+                "max_pages": None,
+                "pages_collected": 5,
+                "total_pages": 5,
             }
         ]
     }
@@ -182,19 +196,21 @@ def collection_metadata() -> dict[str, object]:
 def analysis_yaml() -> str:
     return """
 period:
-  start: "2026-01-01"
-  end: "2026-05-31"
+  start: "2025-06-15"
+  end: "2026-06-15"
 modality:
   id: 6
   name: "Pregao - Eletronico"
 sample:
-  n: 10
+  strategy: "all"
+  n: null
+  document_n: 100
   seed: 20260608
 api:
   query_bases: []
   document_bases: []
   page_size: 50
-  municipality_scan_max_pages: 5
+  municipality_scan_max_pages: null
   request_delay_seconds: 0
   retries: 1
 sao_paulo_filter:

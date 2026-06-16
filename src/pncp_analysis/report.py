@@ -4,7 +4,7 @@ import json
 from typing import Any
 
 from pncp_analysis.config import AnalysisConfig
-from pncp_analysis.utils import format_percent, markdown_table
+from pncp_analysis.utils import format_display_date_range, format_percent, markdown_table
 
 
 def render_report(
@@ -21,6 +21,9 @@ def render_report(
     additional_findings = metrics.get("additional_findings", [])
     document_stats = metrics.get("document_stats", [])
     limitations = metrics.get("limitations", [])
+    sample = metrics.get("sample", {})
+    document_sample = metrics.get("document_sample", {})
+    date_range = format_display_date_range(config.start_date, config.end_date)
 
     parts = [
         "# Analise exploratoria do PNCP nas capitais do Sudeste",
@@ -29,7 +32,7 @@ def render_report(
         "",
         (
             "Esta analise compara contratacoes de Pregao Eletronico publicadas no PNCP "
-            f"entre {config.start_date} e {config.end_date} pelas capitais do Sudeste. "
+            f"entre {date_range} pelas capitais do Sudeste. "
             "O desenho e exploratorio: ele busca avaliar transparencia, completude dos "
             "dados e fragmentacao institucional, sem pretender representar todos os "
             "municipios da regiao."
@@ -44,9 +47,10 @@ def render_report(
         markdown_table(
             ["Parametro", "Valor"],
             [
-                ["Periodo", f"{config.start_date} a {config.end_date}"],
+                ["Periodo", date_range],
                 ["Modalidade", f"{config.modality_name} ({config.modality_id})"],
-                ["Amostra", f"ate {config.sample_n} contratacoes por capital"],
+                ["Amostra principal", describe_analysis_sample(config, sample)],
+                ["Amostra documental", describe_document_sample(config, document_sample)],
                 ["Seed", config.seed],
             ],
         ),
@@ -70,9 +74,13 @@ def render_report(
         "",
         render_city_metrics_table(city_metrics),
         "",
-        "A amostra foi selecionada por sorteio pseudoaleatorio apos ordenacao por "
-        "`numeroControlePNCP`. Quando havia mais de 10 registros, foram sorteados 10; "
-        "quando havia menos, todos foram mantidos.",
+        (
+            "A amostra principal inclui todos os registros elegiveis no periodo, apos "
+            "deduplicacao por `numeroControlePNCP`. Para documentos vinculados, o "
+            "pipeline usa uma subamostra deterministica de ate "
+            f"{config.document_sample_n} registros por capital, tambem ordenada e "
+            "sorteada com seed reprodutivel."
+        ),
         "",
         "## Resultados",
         "",
@@ -110,10 +118,11 @@ def render_report(
         "",
         render_document_stats(document_stats),
         "",
-        "A presenca de objeto, datas, valores, unidade administrativa, link de origem e "
-        "documentos foi usada como proxy de completude. Essa metrica nao avalia a "
-        "qualidade textual dos documentos, mas indica se um cidadao ou pesquisador "
-        "consegue localizar informacoes basicas para controle social.",
+        "A presenca de objeto, datas, valores, unidade administrativa e link de origem "
+        "foi medida no universo elegivel. Documentos vinculados foram medidos na "
+        "subamostra documental. Essas metricas nao avaliam a qualidade textual dos "
+        "documentos, mas indicam se um cidadao ou pesquisador consegue localizar "
+        "informacoes basicas para controle social.",
         "",
         "## Limitacoes",
         "",
@@ -209,7 +218,7 @@ def render_city_metrics_table(city_metrics: Any) -> str:
 def render_sample_table(sample_rows: Any) -> str:
     rows = []
     if isinstance(sample_rows, list):
-        for item in sample_rows:
+        for item in sample_rows[:25]:
             if isinstance(item, dict):
                 rows.append(
                     [
@@ -220,7 +229,14 @@ def render_sample_table(sample_rows: Any) -> str:
                         item.get("document_count", 0),
                     ]
                 )
-    return markdown_table(["Capital", "Controle PNCP", "CNPJ", "Orgao", "Docs"], rows)
+    table = markdown_table(["Capital", "Controle PNCP", "CNPJ", "Orgao", "Docs"], rows)
+    if isinstance(sample_rows, list) and len(sample_rows) > len(rows):
+        return (
+            f"{table}\n\n"
+            f"_Tabela limitada aos primeiros {len(rows)} registros de {len(sample_rows)} "
+            "elegiveis para manter o relatorio legivel._"
+        )
+    return table
 
 
 def render_findings(findings: Any) -> str:
@@ -348,3 +364,22 @@ def truncate(value: str, max_length: int) -> str:
     if len(clean) <= max_length:
         return clean
     return clean[: max_length - 3] + "..."
+
+
+def describe_analysis_sample(config: AnalysisConfig, sample: Any) -> str:
+    if config.sample_strategy == "all":
+        return "todos os registros elegiveis no periodo"
+    sample_n = sample.get("n") if isinstance(sample, dict) else config.sample_n
+    return f"ate {sample_n} contratacoes por capital"
+
+
+def describe_document_sample(config: AnalysisConfig, document_sample: Any) -> str:
+    counts: dict[str, Any] = {}
+    if isinstance(document_sample, dict):
+        raw_counts = document_sample.get("counts_by_city")
+        if isinstance(raw_counts, dict):
+            counts = {str(key): value for key, value in raw_counts.items()}
+    if counts:
+        total = sum(int(value) for value in counts.values())
+        return f"ate {config.document_sample_n} por capital ({total} registros no total)"
+    return f"ate {config.document_sample_n} registros por capital"

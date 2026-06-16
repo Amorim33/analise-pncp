@@ -2,20 +2,24 @@
 
 \usepackage{fontspec}
 \setmainfont{Times New Roman}
+\usepackage{microtype}
 \usepackage[a4paper,margin=2.5cm]{geometry}
 \usepackage{setspace}
 \onehalfspacing
-\usepackage{longtable,booktabs,array,calc}
+\usepackage{longtable,booktabs,array,calc,tabularx}
+\IfFileExists{makecell.sty}{\usepackage{makecell}}{}
 \usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
 \newcounter{none}
 \usepackage{fancyvrb}
 \usepackage{graphicx}
+\usepackage{xcolor}
 \usepackage{hyperref}
 \hypersetup{
   colorlinks=true,
-  linkcolor=black,
-  urlcolor=blue,
-  citecolor=black
+  linkcolor=black!70,
+  urlcolor=black!70,
+  citecolor=black!70
 }
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{}
 \setlength{\parindent}{1.25cm}
@@ -42,13 +46,23 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 \newcommand{\citeproctext}{}
+\renewcommand{\abstractname}{Resumo}
+\renewcommand{\contentsname}{Sumário}
+\sloppy
 
 \title{$title$$if(subtitle)$\\\large $subtitle$$endif$}
 \author{$for(author)$$author$$sep$ \and $endfor$}
 \date{$date$}
 
 \begin{document}
+\pagenumbering{gobble}
 \maketitle
+
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
 
 $if(course)$
 \begin{center}
@@ -58,9 +72,11 @@ $if(instructor)$Docente: $instructor$$endif$
 \end{center}
 $endif$
 
+\tableofcontents
+
 \thispagestyle{empty}
 \newpage
-\setcounter{page}{1}
+\pagenumbering{arabic}
 
 $body$
 

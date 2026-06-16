@@ -12,12 +12,15 @@ Use this skill for data refreshes and reproducibility checks.
 1. Run `uv run pncp-analysis collect` to refresh publication snapshots.
 2. Confirm `data/raw/collection_metadata.json` records source counts and failures.
 3. Run `uv run pncp-analysis sample` after any collection refresh.
-4. Run `uv run pncp-analysis analyze` to fetch document metadata for sampled records.
+4. Run `uv run pncp-analysis analyze` to fetch document metadata for the
+   deterministic document sub-sample, not for every eligible record.
 5. Never silently accept non-JSON API responses; preserve failures in raw metadata.
 6. Keep snapshots in `data/raw/` and derived tables in `data/processed/`.
 7. Preserve enough raw data to show examples returned by the API in the report.
 8. For Sao Paulo, keep both the matrix-CNPJ snapshot and the municipality-scan
    snapshot so the report can quantify records outside the matrix CNPJ.
+9. With `api.municipality_scan_max_pages: null`, verify the Sao Paulo
+   municipality scan reports complete pagination in `collection_metadata.json`.
 
 ## Smoke Test
 

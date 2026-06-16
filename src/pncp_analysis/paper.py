@@ -10,7 +10,13 @@ from typing import Any
 import yaml
 
 from pncp_analysis.config import AnalysisConfig, load_config
-from pncp_analysis.utils import format_percent, markdown_table, read_json
+from pncp_analysis.utils import (
+    format_display_date,
+    format_display_date_range,
+    format_percent,
+    markdown_table,
+    read_json,
+)
 from pncp_analysis.workflow import DEFAULT_CONFIG_PATH, PROCESSED_DIR, RAW_DIR, REPO_ROOT
 
 REPORT_DIR = REPO_ROOT / "report"
@@ -152,6 +158,7 @@ def render_paper_markdown(
     sp_fragmentation = metrics.get("sao_paulo_fragmentation_evidence", {})
     if not isinstance(sp_fragmentation, dict):
         sp_fragmentation = {}
+    date_range = format_display_date_range(analysis_config.start_date, analysis_config.end_date)
 
     parts = [
         "---",
@@ -159,11 +166,16 @@ def render_paper_markdown(
         f'subtitle: "{paper_config.subtitle}"',
         "author:",
         *[f'  - "{author}"' for author in paper_config.authors],
-        f'date: "{paper_config.date}"',
+        f'date: "{format_display_date(paper_config.date)}"',
         "lang: pt-BR",
         f'course: "{paper_config.course}"',
         f'instructor: "{paper_config.instructor}"',
         f'institution: "{paper_config.institution}"',
+        (
+            'abstract: "Relatório acadêmico exploratório sobre transparência, '
+            "reutilização de dados e fragmentação institucional em contratações "
+            'públicas municipais publicadas no PNCP."'
+        ),
         "---",
         "",
         "# Introdução",
@@ -173,7 +185,8 @@ def render_paper_markdown(
             "como infraestrutura de governo aberto nas capitais do Sudeste brasileiro. "
             "A pergunta de pesquisa é: em que medida a publicação de contratações no "
             "PNCP favorece transparência, reutilização de dados e controle social nas "
-            "prefeituras de São Paulo, Rio de Janeiro, Belo Horizonte e Vitória?"
+            "prefeituras das capitais dos estados do sudeste brasileiro (São Paulo, "
+            "Rio de Janeiro, Belo Horizonte e Vitória)?"
         ),
         "",
         (
@@ -207,7 +220,7 @@ def render_paper_markdown(
         "",
         (
             "O recorte empírico considera pregões eletrônicos, modalidade 6 no PNCP, "
-            f"publicados entre {analysis_config.start_date} e {analysis_config.end_date}. "
+            f"publicados entre {date_range}. "
             "Foram usados os CNPJs matriz das prefeituras de Rio de Janeiro, Belo "
             "Horizonte e Vitória. Para São Paulo, combinou-se o CNPJ matriz com uma "
             "varredura por UF e código IBGE, filtrando entidades municipais executivas."
@@ -216,10 +229,11 @@ def render_paper_markdown(
         render_collection_table(collection_metadata),
         "",
         (
-            "A amostra final selecionou até dez contratações por capital, por sorteio "
-            "pseudoaleatório reprodutível após ordenação por `numeroControlePNCP`. A "
-            f"semente usada foi {analysis_config.seed}. A opção por amostra fixa evita "
-            "que capitais com mais registros dominem a interpretação."
+            "A amostra principal inclui todos os registros elegíveis no período, após "
+            "deduplicação por `numeroControlePNCP`. Para a análise de documentos, foi "
+            "usada subamostra determinística de até "
+            f"{analysis_config.document_sample_n} registros por capital. A semente "
+            f"usada foi {analysis_config.seed}."
         ),
         "",
         "# Referencial teórico",
@@ -283,12 +297,13 @@ def render_paper_markdown(
         render_completeness_summary(field_completeness),
         "",
         (
-            "Em todos os municípios da amostra, objeto, datas básicas, unidade "
-            "administrativa e documentos estiveram amplamente disponíveis. A principal "
-            "variação apareceu em valor homologado e link do sistema de origem. Vitória, "
-            "por exemplo, teve documentos em todos os itens amostrados, mas nenhum dos "
-            "dez registros trouxe `linkSistemaOrigem`, o que reduz a rastreabilidade para "
-            "o ambiente de origem."
+            "Nos registros elegíveis, objeto, datas básicas e unidade administrativa "
+            "estiveram amplamente disponíveis; documentos foram avaliados na subamostra "
+            "documental. A principal variação apareceu em valor homologado e link do "
+            "sistema de origem. Vitória, por exemplo, teve documentos nos itens da "
+            "subamostra documental, mas nenhum registro elegível trouxe "
+            "`linkSistemaOrigem`, o que reduz a "
+            "rastreabilidade para o ambiente de origem."
         ),
         "",
         render_document_stats_table(document_stats),
@@ -355,10 +370,11 @@ def render_paper_markdown(
         "",
         (
             "A pesquisa é exploratória e não representa todos os municípios do Sudeste. "
-            "A varredura municipal de São Paulo foi limitada operacionalmente a cinco "
-            "páginas da API para manter o pipeline reprodutível em tempo razoável. "
-            "Além disso, os resultados podem mudar com novas publicações, retificações "
-            "ou alterações na API do PNCP."
+            "A API de consulta por publicação limita cada requisição a janelas de até "
+            "365 dias; por isso, o recorte usa a maior janela aceita em uma consulta "
+            "reprodutível. Além disso, documentos vinculados foram analisados por "
+            "subamostra determinística, e os resultados podem mudar com novas "
+            "publicações, retificações ou alterações na API do PNCP."
         ),
         "",
     ]
@@ -374,12 +390,32 @@ def render_collection_table(collection_metadata: dict[str, Any]) -> str:
                 rows.append(
                     [
                         source.get("city", ""),
-                        source.get("kind", ""),
+                        format_source_kind(str(source.get("kind", ""))),
                         source.get("records", 0),
-                        source.get("max_pages", ""),
+                        source.get("pages_collected", ""),
+                        source.get("total_pages", ""),
+                        format_collection_limit(source),
                     ]
                 )
-    return markdown_table(["Capital", "Fonte de coleta", "Registros brutos", "Limite"], rows)
+    return markdown_table(
+        ["Capital", "Fonte", "Registros", "Páginas", "Total", "Limite"],
+        rows,
+    )
+
+
+def format_source_kind(kind: str) -> str:
+    if kind == "matrix_cnpj":
+        return "matriz"
+    if kind == "municipality_scan":
+        return "município"
+    return kind
+
+
+def format_collection_limit(source: dict[str, Any]) -> str:
+    if source.get("kind") == "municipality_scan" and source.get("max_pages") is None:
+        return "todas"
+    value = source.get("max_pages")
+    return "" if value is None else str(value)
 
 
 def render_city_metrics_table(city_metrics: list[dict[str, Any]]) -> str:

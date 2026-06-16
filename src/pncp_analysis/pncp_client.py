@@ -13,10 +13,23 @@ class NonJsonResponseError(RuntimeError):
     """Raised when the PNCP service returns HTML or another non-JSON payload."""
 
 
+RATE_LIMIT_BACKOFF_SECONDS = 60.0
+
+
 @dataclass(frozen=True)
 class ApiFailure:
     url: str
     reason: str
+
+
+@dataclass(frozen=True)
+class PaginationMetadata:
+    path: str
+    pages_collected: int
+    total_pages: int | None
+    total_records: int | None
+    complete: bool
+    stopped_reason: str | None
 
 
 def ensure_json_payload(content_type: str, body: bytes) -> Any:
@@ -41,6 +54,7 @@ class PncpClient:
         self.delay_seconds = delay_seconds
         self.retries = retries
         self.failures: list[ApiFailure] = []
+        self.last_pagination: PaginationMetadata | None = None
 
     def fetch_contratacoes(
         self,
@@ -108,6 +122,9 @@ class PncpClient:
         records: list[dict[str, Any]] = []
         page = 1
         total_pages = 1
+        total_records: int | None = None
+        pages_collected = 0
+        stopped_reason: str | None = None
 
         while page <= total_pages:
             page_params = dict(params)
@@ -122,13 +139,14 @@ class PncpClient:
                 )
             except RuntimeError:
                 if records:
+                    stopped_reason = (
+                        f"Stopped pagination at page {page}; "
+                        f"kept {len(records)} records already collected."
+                    )
                     self.failures.append(
                         ApiFailure(
                             url=path,
-                            reason=(
-                                f"Stopped pagination at page {page}; "
-                                f"kept {len(records)} records already collected."
-                            ),
+                            reason=stopped_reason,
                         )
                     )
                     break
@@ -136,25 +154,57 @@ class PncpClient:
 
             if isinstance(payload, list):
                 records.extend(item for item in payload if isinstance(item, dict))
-                break
+                pages_collected = 1
+                total_pages = 1
+                total_records = len(records)
+                self.last_pagination = PaginationMetadata(
+                    path=path,
+                    pages_collected=pages_collected,
+                    total_pages=total_pages,
+                    total_records=total_records,
+                    complete=True,
+                    stopped_reason=None,
+                )
+                return records
 
             if not isinstance(payload, dict):
+                stopped_reason = "Non-object pagination payload."
                 break
 
             data = payload.get("data", [])
             if isinstance(data, list):
                 records.extend(item for item in data if isinstance(item, dict))
+            pages_collected += 1
             total_pages = int(payload.get("totalPaginas") or 1)
+            total_records = optional_int(payload.get("totalRegistros"))
 
             if limit is not None and len(records) >= limit:
+                self.last_pagination = PaginationMetadata(
+                    path=path,
+                    pages_collected=pages_collected,
+                    total_pages=total_pages,
+                    total_records=total_records,
+                    complete=False,
+                    stopped_reason=f"Limit reached at {limit} records.",
+                )
                 return records[:limit]
 
             page += 1
-            if max_pages is not None and page > max_pages:
+            if max_pages is not None and page > max_pages and page <= total_pages:
+                stopped_reason = f"Max pages reached at {max_pages} pages."
                 break
             if page <= total_pages:
                 time.sleep(self.delay_seconds)
 
+        complete = stopped_reason is None and page > total_pages
+        self.last_pagination = PaginationMetadata(
+            path=path,
+            pages_collected=pages_collected,
+            total_pages=total_pages,
+            total_records=total_records,
+            complete=complete,
+            stopped_reason=stopped_reason,
+        )
         return records
 
     def _request_json(
@@ -191,6 +241,9 @@ class PncpClient:
                     last_error = RuntimeError(
                         f"HTTP {exc.code}; content-type={content_type}; body={body[:160]!r}"
                     )
+                    if exc.code == 429 and attempt < self.retries:
+                        time.sleep(RATE_LIMIT_BACKOFF_SECONDS * attempt)
+                        continue
                 except Exception as exc:  # noqa: BLE001 - collect API boundary failures explicitly.
                     last_error = exc
 
@@ -200,3 +253,12 @@ class PncpClient:
             self.failures.append(ApiFailure(url=url, reason=str(last_error)))
 
         raise RuntimeError(f"PNCP request failed for {path}: {last_error}")
+
+
+def optional_int(value: Any) -> int | None:
+    if value is None:
+        return None
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None

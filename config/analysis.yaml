@@ -1,13 +1,15 @@
 period:
-  start: "2026-01-01"
-  end: "2026-05-31"
+  start: "2025-06-15"
+  end: "2026-06-15"
 
 modality:
   id: 6
   name: "Pregao - Eletronico"
 
 sample:
-  n: 10
+  strategy: "all"
+  n: null
+  document_n: 100
   seed: 20260608
 
 api:
@@ -18,8 +20,8 @@ api:
     - "https://pncp.gov.br/api/pncp"
     - "https://pncp.gov.br/pncp-api"
   page_size: 50
-  municipality_scan_max_pages: 5
-  request_delay_seconds: 0.15
+  municipality_scan_max_pages: null
+  request_delay_seconds: 1.0
   retries: 3
 
 sao_paulo_filter:

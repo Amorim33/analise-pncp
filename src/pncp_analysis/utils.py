@@ -41,6 +41,24 @@ def date_for_pncp(value: str) -> str:
     return value.replace("-", "")
 
 
+def format_display_date(value: str) -> str:
+    clean = value.strip()
+    if not clean:
+        return ""
+    if "/" in clean:
+        return clean
+    if len(clean) >= 10 and clean[4] == "-" and clean[7] == "-":
+        year, month, day = clean[:10].split("-")
+        return f"{day}/{month}/{year}"
+    if len(clean) == 8 and clean.isdigit():
+        return f"{clean[6:8]}/{clean[4:6]}/{clean[0:4]}"
+    return clean
+
+
+def format_display_date_range(start: str, end: str) -> str:
+    return f"{format_display_date(start)} a {format_display_date(end)}"
+
+
 def utc_now_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 

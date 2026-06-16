@@ -9,12 +9,16 @@ Use this skill before changing sample design.
 
 ## Rules
 
-- Keep the target sample at 10 contracts per capital unless the research design changes.
+- Use all eligible records as the main analytical sample when `sample.strategy`
+  is `all`.
+- Use `sample.document_n` as the deterministic document sub-sample limit per
+  capital.
 - Use seed `20260608` for deterministic sampling.
 - Sort by `numeroControlePNCP` before sampling.
 - For Sao Paulo, use the municipality scan and filter municipal executive entities.
 - Exclude legislative bodies such as Camara Municipal/CMSP from the main executive recut.
-- If a city has fewer than 10 eligible records, include all and record the limitation.
+- If a city has fewer records than the document sub-sample limit, include all
+  available records for document lookup and record the limitation.
 - Combine Sao Paulo matrix-CNPJ records with filtered municipality-scan records
   before deduplication.
 - Report the share and count of Sao Paulo records outside the CNPJ matrix.

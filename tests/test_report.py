@@ -4,17 +4,19 @@ from pncp_analysis.report import render_report
 
 def test_render_report_contains_required_sections() -> None:
     config = AnalysisConfig(
-        start_date="2026-01-01",
-        end_date="2026-05-31",
+        start_date="2025-06-15",
+        end_date="2026-06-15",
         modality_id=6,
         modality_name="Pregao - Eletronico",
-        sample_n=10,
+        sample_strategy="all",
+        sample_n=None,
+        document_sample_n=100,
         seed=20260608,
         api=ApiConfig(
             query_bases=[],
             document_bases=[],
             page_size=50,
-            municipality_scan_max_pages=5,
+            municipality_scan_max_pages=None,
             request_delay_seconds=0.0,
             retries=1,
         ),
@@ -31,6 +33,8 @@ def test_render_report_contains_required_sections() -> None:
         "sao_paulo_top_cnpjs": [],
         "sample_rows": [],
         "limitations": ["Limitacao de teste."],
+        "sample": {"strategy": "all", "n": None, "seed": 20260608, "document_n": 100},
+        "document_sample": {"counts_by_city": {}},
     }
 
     report = render_report(config, metrics, [])
@@ -42,3 +46,6 @@ def test_render_report_contains_required_sections() -> None:
     assert "## Fragmentacao de CNPJs em Sao Paulo" in report
     assert "## Documentos vinculados" in report
     assert "## Conclusao regional" in report
+    assert "15/06/2025 a 15/06/2026" in report
+    assert "2025-06-15" not in report
+    assert "2026-06-15" not in report
