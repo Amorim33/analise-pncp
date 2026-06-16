@@ -40,10 +40,14 @@ def test_render_report_contains_required_sections() -> None:
     report = render_report(config, metrics, [])
 
     assert "# Analise exploratoria do PNCP nas capitais do Sudeste" in report
+    assert "## Resumo" in report
     assert "Q1. Ha completude nos dados fornecidos pelo PNCP" in report
-    assert "Q2. Os dados das APIs do PNCP sao facilmente consumiveis?" in report
+    assert "Q2. Os dados das **APIs** do PNCP sao facilmente consumiveis?" in report
+    assert "**API**^[**API**:" in report
+    assert "**Codex**^[**Codex**:" in report
+    assert "**skills**^[**Skills**:" in report
     assert "https://github.com/Amorim33/analise-pncp" in report
-    assert "Codex como agente de programacao" in report
+    assert "**Codex** como agente de programacao" in report
     assert ".agents/skills/" in report
     assert "## Metodologia" in report
     assert "## Reprodutibilidade e processo agentico" in report

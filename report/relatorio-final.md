@@ -8,7 +8,7 @@ lang: pt-BR
 course: "Governo Aberto"
 instructor: "Jorge Machado"
 institution: "Universidade de São Paulo"
-abstract: "Relatório acadêmico exploratório sobre transparência, reutilização de dados e fragmentação institucional em contratações públicas municipais publicadas no PNCP."
+abstract: "Este relatório analisa pregões eletrônicos publicados no PNCP entre 15/06/2025 a 15/06/2026, com foco nas prefeituras das capitais do Sudeste. O método combina coleta automatizada, análise de completude, medição de consumibilidade dos endpoints e comparação institucional entre capitais. O resultado indica boa disponibilidade de campos básicos, ressalvas em valor homologado e link de origem, além de forte fragmentação de CNPJs em São Paulo."
 ---
 
 # Introdução
@@ -17,15 +17,15 @@ Este trabalho analisa o Portal Nacional de Contratações Públicas (PNCP) como 
 
 Q1. Há completude nos dados fornecidos pelo PNCP nas prefeituras das capitais dos estados do sudeste brasileiro (São Paulo, Rio de Janeiro, Belo Horizonte e Vitória)?
 
-Q2. Os dados das APIs do PNCP são facilmente consumíveis?
+Q2. Os dados das **APIs**^[**API**: interface de programação de aplicações; no contexto deste trabalho, é o meio automatizado de consulta aos dados do PNCP.] do PNCP são facilmente consumíveis?
 
-O tema dialoga com a disciplina Governo Aberto porque combina acesso à informação, padrões tecnológicos, dados abertos e accountability. A própria disciplina orienta que o trabalho articule problema, objetivos, método e conclusões, com atenção à estrutura textual e às normas de citação [@curso2026]. O PNCP é especialmente relevante porque a Lei nº 14.133/2021 o institui como ambiente nacional de divulgação de contratações públicas [@lei14133].
+O PNCP é especialmente relevante porque a Lei nº 14.133/2021 o institui como ambiente nacional de divulgação de contratações públicas [@lei14133].
 
 O argumento central é que o PNCP amplia a transparência formal ao centralizar metadados, documentos e links de origem, mas a efetividade como governo aberto depende da completude dos registros e da capacidade de reconstituir a organização administrativa de cada prefeitura. O caso de São Paulo mostra essa tensão com mais nitidez: grande parte dos registros municipais aparece fora do CNPJ matriz do município.
 
 # Objetivos e método
 
-O objetivo geral é avaliar, de forma exploratória, como o PNCP expressa princípios de governo aberto nas contratações das capitais do Sudeste. A pesquisa combina análise documental e computacional: coleta registros por API, transforma os dados em snapshots auditáveis, calcula métricas e gera relatórios reprodutíveis.
+O objetivo geral é avaliar, de forma exploratória, como o PNCP expressa princípios de governo aberto nas contratações das capitais do Sudeste. A pesquisa combina análise documental e computacional: coleta registros por **API**, transforma os dados em snapshots auditáveis, calcula métricas e gera relatórios reprodutíveis.
 
 O recorte empírico considera pregões eletrônicos, modalidade 6 no PNCP, publicados entre 15/06/2025 a 15/06/2026. Foram usados os CNPJs matriz de Rio de Janeiro, Belo Horizonte e Vitória. Para São Paulo, combinou-se o CNPJ matriz com varredura por UF e código IBGE, filtrando entidades municipais executivas.
 
@@ -39,11 +39,11 @@ O recorte empírico considera pregões eletrônicos, modalidade 6 no PNCP, publi
 
 A amostra principal inclui todos os registros elegíveis no período, após deduplicação por `numeroControlePNCP`. Para a análise de documentos, foi usada subamostra determinística de até 100 registros por capital. A semente usada foi 20260608.
 
-As métricas de Q1 medem a presença de campos essenciais, como objeto, valores, datas, unidade, link de origem e documentos. As métricas de Q2 registram duração do experimento, tempo médio de resposta e falhas observadas durante o consumo da API.
+As métricas de Q1 medem a presença de campos essenciais, como objeto, valores, datas, unidade, link de origem e documentos. As métricas de Q2 registram duração do experimento, tempo médio de resposta e falhas observadas durante o consumo da **API**.
 
 A reprodutibilidade foi organizada no repositório GitHub <https://github.com/Amorim33/analise-pncp>. O repositório versiona código Python, configurações, snapshots brutos, tabelas processadas, métricas, análise exploratória e o relatório final em Markdown, LaTeX e PDF, na branch `main`.
 
-O processo foi assistido pelo Codex como agente de programação e documentação, sob supervisão humana. A divisão agêntica usou as skills locais em `.agents/skills/`: mapeamento da API, coleta de dados, metodologia de amostragem e redação do relatório. As decisões substantivas, a validação das fontes e a interpretação final permanecem sob responsabilidade do autor; a declaração de uso de IA está no Apêndice B.
+O processo foi assistido pelo **Codex**^[**Codex**: agente de programação e documentação usado para implementar, validar e revisar o pipeline.] em etapas de programação e documentação, sob supervisão humana. A divisão agêntica usou as **skills**^[**Skills**: instruções locais que especializam agentes para tarefas como mapear a **API**, coletar dados, revisar amostragem e redigir o relatório.] locais em `.agents/skills/`: mapeamento da **API**, coleta de dados, metodologia de amostragem e redação do relatório. As decisões substantivas, a validação das fontes e a interpretação final permanecem sob responsabilidade do autor; a declaração de uso de IA está no Apêndice B.
 
 # Referencial teórico
 

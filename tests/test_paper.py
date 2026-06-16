@@ -21,21 +21,26 @@ def test_render_paper_markdown_contains_required_sections_and_citations() -> Non
         collection_metadata=collection_metadata(),
     )
 
+    assert 'abstract: "Este relatório analisa pregões eletrônicos' in markdown
     assert "# Introdução" in markdown
     assert "# Objetivos e método" in markdown
     assert "# Referencial teórico" in markdown
     assert "# Desenvolvimento e análise" in markdown
     assert "Q1. Há completude nos dados fornecidos pelo PNCP" in markdown
-    assert "Q2. Os dados das APIs do PNCP são facilmente consumíveis?" in markdown
+    assert "Q2. Os dados das **APIs**^[" in markdown
+    assert "**APIs**^[**API**:" in markdown
+    assert "**Codex**^[**Codex**:" in markdown
+    assert "**skills**^[**Skills**:" in markdown
+    assert "O PNCP é especialmente relevante" in markdown
+    assert "O tema dialoga com a disciplina Governo Aberto" not in markdown
     assert "## Q1: completude dos dados" in markdown
     assert "## Q2: consumo da API" in markdown
     assert "https://github.com/Amorim33/analise-pncp" in markdown
-    assert "Codex como agente de programação" in markdown
+    assert "O processo foi assistido pelo **Codex**^[" in markdown
     assert ".agents/skills/" in markdown
     assert "Apêndice B" in markdown
     assert "# Conclusões" in markdown
     assert "# Apêndice B: declaração de uso de IA" in markdown
-    assert "[@curso2026]" in markdown
     assert "[@lei14133]" in markdown
     assert "prefeituras das capitais dos estados do sudeste brasileiro" in markdown
     assert "15/06/2025 a 15/06/2026" in markdown

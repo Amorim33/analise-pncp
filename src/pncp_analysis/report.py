@@ -41,7 +41,7 @@ def render_report(
     parts = [
         "# Analise exploratoria do PNCP nas capitais do Sudeste",
         "",
-        "## Resumo executivo",
+        "## Resumo",
         "",
         (
             "Esta analise compara contratacoes de Pregao Eletronico publicadas no PNCP "
@@ -49,6 +49,17 @@ def render_report(
             "O desenho e exploratorio: ele busca avaliar transparencia, completude dos "
             "dados e fragmentacao institucional, sem pretender representar todos os "
             "municipios da regiao."
+        ),
+        "",
+        (
+            "O metodo combina coleta por **API**^[**API**: interface de programacao de "
+            "aplicacoes; neste trabalho, e o meio automatizado de consulta aos dados "
+            "do PNCP.], analise de completude e medicao de consumibilidade dos "
+            "endpoints. O processo foi apoiado pelo **Codex**^[**Codex**: agente de "
+            "programacao e documentacao usado para implementar, validar e revisar o "
+            "pipeline.] e organizado por **skills**^[**Skills**: "
+            "instrucoes locais que especializam agentes para tarefas como mapear a "
+            "**API**, coletar dados, revisar amostragem e redigir o relatorio.]."
         ),
         "",
         "O principal achado metodologico e que Sao Paulo aparece de forma fragmentada: "
@@ -63,7 +74,7 @@ def render_report(
             "Belo Horizonte e Vitoria)?"
         ),
         (
-            "- Q2. Os dados das APIs do PNCP sao facilmente consumiveis?"
+            "- Q2. Os dados das **APIs** do PNCP sao facilmente consumiveis?"
         ),
         "",
         "## Metodologia",
@@ -89,14 +100,15 @@ def render_report(
         (
             f"O repositorio GitHub <{REPOSITORY_URL}> versiona o codigo Python, "
             "configuracoes, snapshots brutos, tabelas processadas, metricas, analise "
-            "exploratoria e relatorio final. O processo foi assistido pelo Codex como "
+            "exploratoria e relatorio final. O processo foi assistido pelo **Codex** como "
             "agente de programacao e documentacao, sob supervisao humana."
         ),
         "",
         (
-            "A divisao agentica foi registrada em `.agents/skills/`, com papeis para "
-            "mapeamento da API, coleta de dados, metodologia de amostragem e redacao "
-            "do relatorio. As decisoes substantivas, validacao de fontes e interpretacao "
+            "A divisao agentica foi registrada em **skills** locais no caminho "
+            "`.agents/skills/`, com papeis para mapeamento da **API**, coleta de dados, "
+            "metodologia de amostragem e redacao do relatorio. As decisoes substantivas, "
+            "validacao de fontes e interpretacao "
             "final permanecem sob responsabilidade do autor."
         ),
         "",

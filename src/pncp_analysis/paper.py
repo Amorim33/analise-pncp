@@ -171,6 +171,7 @@ def render_paper_markdown(
     if not isinstance(sp_fragmentation, dict):
         sp_fragmentation = {}
     date_range = format_display_date_range(analysis_config.start_date, analysis_config.end_date)
+    abstract_text = render_abstract_text(date_range)
 
     parts = [
         "---",
@@ -183,11 +184,7 @@ def render_paper_markdown(
         f'course: "{paper_config.course}"',
         f'instructor: "{paper_config.instructor}"',
         f'institution: "{paper_config.institution}"',
-        (
-            'abstract: "Relatório acadêmico exploratório sobre transparência, '
-            "reutilização de dados e fragmentação institucional em contratações "
-            'públicas municipais publicadas no PNCP."'
-        ),
+        f'abstract: "{abstract_text}"',
         "---",
         "",
         "# Introdução",
@@ -204,15 +201,15 @@ def render_paper_markdown(
             "Belo Horizonte e Vitória)?"
         ),
         "",
-        "Q2. Os dados das APIs do PNCP são facilmente consumíveis?",
+        (
+            "Q2. Os dados das **APIs**^[**API**: interface de programação de "
+            "aplicações; no contexto deste trabalho, é o meio automatizado de consulta "
+            "aos dados do PNCP.] do PNCP são facilmente consumíveis?"
+        ),
         "",
         (
-            "O tema dialoga com a disciplina Governo Aberto porque combina acesso à "
-            "informação, padrões tecnológicos, dados abertos e accountability. A própria "
-            "disciplina orienta que o trabalho articule problema, objetivos, método e "
-            "conclusões, com atenção à estrutura textual e às normas de citação "
-            "[@curso2026]. O PNCP é especialmente relevante porque a Lei nº 14.133/2021 "
-            "o institui como ambiente nacional de divulgação de contratações públicas "
+            "O PNCP é especialmente relevante porque a Lei nº 14.133/2021 o institui "
+            "como ambiente nacional de divulgação de contratações públicas "
             "[@lei14133]."
         ),
         "",
@@ -231,8 +228,8 @@ def render_paper_markdown(
             "O objetivo geral é avaliar, de forma exploratória, como o PNCP expressa "
             "princípios de governo aberto nas contratações das capitais do Sudeste. A "
             "pesquisa combina análise documental e computacional: coleta registros por "
-            "API, transforma os dados em snapshots auditáveis, calcula métricas e gera "
-            "relatórios reprodutíveis."
+            "**API**, transforma os dados em snapshots auditáveis, calcula métricas e "
+            "gera relatórios reprodutíveis."
         ),
         "",
         (
@@ -257,16 +254,20 @@ def render_paper_markdown(
             "As métricas de Q1 medem a presença de campos essenciais, como objeto, "
             "valores, datas, unidade, link de origem e documentos. As métricas de Q2 "
             "registram duração do experimento, tempo médio de resposta e falhas "
-            "observadas durante o consumo da API."
+            "observadas durante o consumo da **API**."
         ),
         "",
         render_repository_reference(),
         "",
         (
-            "O processo foi assistido pelo Codex como agente de programação e "
-            "documentação, sob supervisão humana. A divisão agêntica usou as skills "
-            "locais em `.agents/skills/`: mapeamento da API, coleta de dados, "
-            "metodologia de amostragem e redação do relatório. As decisões "
+            "O processo foi assistido pelo **Codex**^[**Codex**: agente de programação "
+            "e documentação usado para implementar, validar e revisar o pipeline.] em "
+            "etapas de programação e documentação, sob "
+            "supervisão humana. A divisão agêntica usou as **skills**^[**Skills**: "
+            "instruções locais que especializam agentes para tarefas como mapear a "
+            "**API**, coletar dados, revisar amostragem e redigir o relatório.] locais em "
+            "`.agents/skills/`: mapeamento da **API**, coleta de dados, metodologia de "
+            "amostragem e redação do relatório. As decisões "
             "substantivas, a validação das fontes e a interpretação final permanecem "
             "sob responsabilidade do autor; a declaração de uso de IA está no "
             "Apêndice B."
@@ -443,6 +444,17 @@ def render_collection_table(collection_metadata: dict[str, Any]) -> str:
     return markdown_table(
         ["Capital", "Fonte", "Registros", "Páginas", "Total", "Limite"],
         rows,
+    )
+
+
+def render_abstract_text(date_range: str) -> str:
+    return (
+        "Este relatório analisa pregões eletrônicos publicados no PNCP entre "
+        f"{date_range}, com foco nas prefeituras das capitais do Sudeste. O método "
+        "combina coleta automatizada, análise de completude, medição de consumibilidade "
+        "dos endpoints e comparação institucional entre capitais. O resultado indica "
+        "boa disponibilidade de campos básicos, ressalvas em valor homologado e link de "
+        "origem, além de forte fragmentação de CNPJs em São Paulo."
     )
 
 
