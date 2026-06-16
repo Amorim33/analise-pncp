@@ -52,7 +52,7 @@ def build_parser() -> argparse.ArgumentParser:
     paper_parser.add_argument(
         "--tex-only",
         action="store_true",
-        help="Gera somente paper/output/relatorio-final.tex.",
+        help="Gera somente report/output/relatorio-final.tex.",
     )
     paper_parser.add_argument(
         "--allow-placeholders",

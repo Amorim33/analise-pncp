@@ -46,9 +46,9 @@ def test_generate_paper_tex_only_writes_tex(tmp_path: Path) -> None:
     metrics_path = tmp_path / "metrics.json"
     sample_path = tmp_path / "sample.csv"
     collection_path = tmp_path / "collection_metadata.json"
-    markdown_path = tmp_path / "paper" / "relatorio-final.md"
-    tex_path = tmp_path / "paper" / "output" / "relatorio-final.tex"
-    pdf_path = tmp_path / "paper" / "output" / "relatorio-final.pdf"
+    markdown_path = tmp_path / "report" / "relatorio-final.md"
+    tex_path = tmp_path / "report" / "output" / "relatorio-final.tex"
+    pdf_path = tmp_path / "report" / "output" / "relatorio-final.pdf"
 
     analysis_config_path.write_text(analysis_yaml(), encoding="utf-8")
     paper_config_path.write_text(paper_yaml(mode="draft"), encoding="utf-8")

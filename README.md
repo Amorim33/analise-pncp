@@ -11,7 +11,7 @@ O recorte inicial usa:
 - amostra: ate 10 contratacoes por capital, com sorteio deterministico.
 
 Os artefatos principais sao `analise-exploratoria.md` e
-`paper/output/relatorio-final.pdf`.
+`report/output/relatorio-final.pdf`.
 
 ## Objetivo
 
@@ -57,9 +57,9 @@ Saidas:
 - `data/raw/`: snapshots JSON da API;
 - `data/processed/`: amostra, metricas e tabelas derivadas;
 - `analise-exploratoria.md`: relatorio final.
-- `paper/relatorio-final.md`: fonte academica com citacoes Pandoc.
-- `paper/output/relatorio-final.tex`: fonte LaTeX.
-- `paper/output/relatorio-final.pdf`: PDF final.
+- `report/relatorio-final.md`: fonte academica com citacoes Pandoc.
+- `report/output/relatorio-final.tex`: fonte LaTeX.
+- `report/output/relatorio-final.pdf`: PDF final.
 
 O relatorio inclui exemplos compactos de registros retornados pela API, metricas
 de completude, estatisticas de documentos vinculados e evidencias especificas

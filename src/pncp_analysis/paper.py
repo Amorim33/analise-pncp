@@ -13,15 +13,15 @@ from pncp_analysis.config import AnalysisConfig, load_config
 from pncp_analysis.utils import format_percent, markdown_table, read_json
 from pncp_analysis.workflow import DEFAULT_CONFIG_PATH, PROCESSED_DIR, RAW_DIR, REPO_ROOT
 
-PAPER_DIR = REPO_ROOT / "paper"
-PAPER_OUTPUT_DIR = PAPER_DIR / "output"
+REPORT_DIR = REPO_ROOT / "report"
+REPORT_OUTPUT_DIR = REPORT_DIR / "output"
 DEFAULT_PAPER_CONFIG_PATH = REPO_ROOT / "config" / "paper.yaml"
-PAPER_MARKDOWN_PATH = PAPER_DIR / "relatorio-final.md"
-PAPER_TEX_PATH = PAPER_OUTPUT_DIR / "relatorio-final.tex"
-PAPER_PDF_PATH = PAPER_OUTPUT_DIR / "relatorio-final.pdf"
-REFERENCES_PATH = PAPER_DIR / "references.bib"
-APA_CSL_PATH = PAPER_DIR / "apa.csl"
-TEMPLATE_PATH = PAPER_DIR / "template.tex"
+PAPER_MARKDOWN_PATH = REPORT_DIR / "relatorio-final.md"
+PAPER_TEX_PATH = REPORT_OUTPUT_DIR / "relatorio-final.tex"
+PAPER_PDF_PATH = REPORT_OUTPUT_DIR / "relatorio-final.pdf"
+REFERENCES_PATH = REPORT_DIR / "references.bib"
+APA_CSL_PATH = REPORT_DIR / "apa.csl"
+TEMPLATE_PATH = REPORT_DIR / "template.tex"
 
 PLACEHOLDER_PREFIX = "PREENCHER"
 
