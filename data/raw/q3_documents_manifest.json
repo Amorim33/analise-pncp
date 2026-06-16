@@ -1,0 +1,4355 @@
+[
+  {
+    "content_length": 2949790,
+    "content_type": "application/zip",
+    "document_title": "92607905900142025000",
+    "document_type": "Edital",
+    "filename": "92607905900142025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "05245375000135-1-000026/2025",
+    "sha256": "002717d79d59ad5727911fe5574fcfe58e5fabd6dcb804059fc9cc69b5cfa171",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05245375000135/compras/2025/26/arquivos/1"
+  },
+  {
+    "content_length": 777848,
+    "content_type": "application/zip",
+    "document_title": "92508305900022026000",
+    "document_type": "Edital",
+    "filename": "92508305900022026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "05494401000169-1-000012/2026",
+    "sha256": "b6caa5ed8e2fad2c58247267388148803c355086f8f86323b41cf895d62d9685",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05494401000169/compras/2026/12/arquivos/1"
+  },
+  {
+    "content_length": 674807,
+    "content_type": "application/zip",
+    "document_title": "92508305900032026000",
+    "document_type": "Edital",
+    "filename": "92508305900032026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "05494401000169-1-000020/2026",
+    "sha256": "4e4031fee13def14f8a2694c7e7ae96bd96b95a6d7e674c6cd93eba060bf7228",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05494401000169/compras/2026/20/arquivos/1"
+  },
+  {
+    "content_length": 920108,
+    "content_type": "application/zip",
+    "document_title": "92500205900092026000",
+    "document_type": "Edital",
+    "filename": "92500205900092026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "05499294000161-1-000020/2026",
+    "sha256": "c1806362e9dfc523731e028ac8ab19037ff7ddf5f20befb38cd9651369478880",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05499294000161/compras/2026/20/arquivos/1"
+  },
+  {
+    "content_length": 1782841,
+    "content_type": "application/zip",
+    "document_title": "92500205900172025000",
+    "document_type": "Edital",
+    "filename": "92500205900172025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "05499294000161-1-000042/2025",
+    "sha256": "7e49cf9d19e6c3ad77a1fdbc0b2686b1cac075bac84b5cd79b83baa22140ad06",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05499294000161/compras/2025/42/arquivos/1"
+  },
+  {
+    "content_length": 1527181,
+    "content_type": "application/zip",
+    "document_title": "92509105900042025000",
+    "document_type": "Edital",
+    "filename": "92509105900042025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "05515743000118-1-000020/2025",
+    "sha256": "df5c1970bce24aef99a2a97c6a737226f10a2109d7707574e95f0d1b0a9bd359",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05515743000118/compras/2025/20/arquivos/1"
+  },
+  {
+    "content_length": 1646890,
+    "content_type": "application/zip",
+    "document_title": "92508505900042025000",
+    "document_type": "Edital",
+    "filename": "92508505900042025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "05539998000110-1-000022/2025",
+    "sha256": "151699d49c8c0f5d39b9c6cfdb70ab758184a5bdf718d880e740ad8d80598094",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05539998000110/compras/2025/22/arquivos/1"
+  },
+  {
+    "content_length": 1373937,
+    "content_type": "application/zip",
+    "document_title": "92507605900092025000",
+    "document_type": "Edital",
+    "filename": "92507605900092025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "05579739000113-1-000044/2025",
+    "sha256": "46fca479738802f0bd44c93d036dafc7fba981b4c90e996af0a47211d60fb43a",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05579739000113/compras/2025/44/arquivos/1"
+  },
+  {
+    "content_length": 386338,
+    "content_type": "application/zip",
+    "document_title": "92506705900012026000",
+    "document_type": "Edital",
+    "filename": "92506705900012026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "05604369000127-1-000008/2026",
+    "sha256": "714d03c65986045f11aaeb64e21dd06468cd20defe639dd50f4b5d6a2d344b90",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05604369000127/compras/2026/8/arquivos/1"
+  },
+  {
+    "content_length": 307834,
+    "content_type": "application/zip",
+    "document_title": "92506705900062026000",
+    "document_type": "Edital",
+    "filename": "92506705900062026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "05604369000127-1-000011/2026",
+    "sha256": "bbc35c1292fc40c027603082509ed5992414c60b0ccd8e7462ce07892f3bd191",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05604369000127/compras/2026/11/arquivos/1"
+  },
+  {
+    "content_length": 340445,
+    "content_type": "application/zip",
+    "document_title": "92508205900082025000",
+    "document_type": "Edital",
+    "filename": "92508205900082025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "05611299000134-1-000066/2025",
+    "sha256": "c258fcd49e167575811a33436e6ae2dc81768c8c300cfd7c9f653cbf5ee90be5",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05611299000134/compras/2025/66/arquivos/1"
+  },
+  {
+    "content_length": 687056,
+    "content_type": "application/zip",
+    "document_title": "92509205900072025000",
+    "document_type": "Edital",
+    "filename": "92509205900072025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "05626770000168-1-000031/2025",
+    "sha256": "1c2368888099e08780083d4fdce2f8f7ce86b77a886130e46a68861ea77c2b91",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05626770000168/compras/2025/31/arquivos/1"
+  },
+  {
+    "content_length": 336972,
+    "content_type": "application/zip",
+    "document_title": "92507405900012026000",
+    "document_type": "Edital",
+    "filename": "92507405900012026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "05667941000105-1-000001/2026",
+    "sha256": "e42e95257cb7a4bf986f1a0d17a5aebd4f36ff2fac0eb2a3c2f73531c723e16c",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05667941000105/compras/2026/1/arquivos/1"
+  },
+  {
+    "content_length": 269700,
+    "content_type": "application/zip",
+    "document_title": "92507405900062026000",
+    "document_type": "Edital",
+    "filename": "92507405900062026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "05667941000105-1-000006/2026",
+    "sha256": "a9fca1af4dd33e8d00a1879a0596ff209db6b749d14836c2fbdadcd824a42ac0",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05667941000105/compras/2026/6/arquivos/1"
+  },
+  {
+    "content_length": 205146,
+    "content_type": "application/zip",
+    "document_title": "92507405900592025000",
+    "document_type": "Edital",
+    "filename": "92507405900592025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "05667941000105-1-000064/2025",
+    "sha256": "b35f60fa988feda378eba2ca4c3acbb9f361adf6f782aa3e97d62b07a1fb18f4",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05667941000105/compras/2025/64/arquivos/1"
+  },
+  {
+    "content_length": 1586342,
+    "content_type": "application/zip",
+    "document_title": "92509305900112025002",
+    "document_type": "Edital",
+    "filename": "92509305900112025002.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "05969123000159-1-000038/2025",
+    "sha256": "09bf4eb35d786a25381bc5d4b694c4630653329a48a01a464555db00f088bfc5",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05969123000159/compras/2025/38/arquivos/3"
+  },
+  {
+    "content_length": 1831116,
+    "content_type": "application/zip",
+    "document_title": "92512705900022026000",
+    "document_type": "Edital",
+    "filename": "92512705900022026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "08082743000160-1-000021/2026",
+    "sha256": "27d636f17e56ed3f09d5fbf42effc062b57c16b71fd5d77206f0b9724f4bde6e",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/08082743000160/compras/2026/21/arquivos/1"
+  },
+  {
+    "content_length": 2001875,
+    "content_type": "application/zip",
+    "document_title": "92500305900072026000",
+    "document_type": "Edital",
+    "filename": "92500305900072026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000010/2026",
+    "sha256": "d4d0791ae4329b4fe7d877e41aa7ee0538e00d38105cdf2563de3e84e9b57adc",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/10/arquivos/1"
+  },
+  {
+    "content_length": 510195,
+    "content_type": "application/zip",
+    "document_title": "92500305900322026000",
+    "document_type": "Edital",
+    "filename": "92500305900322026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000034/2026",
+    "sha256": "47c8d77a5a65f9a6d227362ee9ff5ead8d07c1329d4afd1a3c0aeb4b729a4117",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/34/arquivos/1"
+  },
+  {
+    "content_length": 1445063,
+    "content_type": "application/zip",
+    "document_title": "92500305900512026000",
+    "document_type": "Edital",
+    "filename": "92500305900512026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000052/2026",
+    "sha256": "750cbcfb42d0a60f15b1aefe63d7ffa156853cae8600941489e6058612224146",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/52/arquivos/1"
+  },
+  {
+    "content_length": 1103116,
+    "content_type": "application/zip",
+    "document_title": "92500305900742026000",
+    "document_type": "Edital",
+    "filename": "92500305900742026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000074/2026",
+    "sha256": "c536d196453c8a3828713acbae091451c068c64d3e5034cbc30cbf91a675d759",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/74/arquivos/1"
+  },
+  {
+    "content_length": 1535383,
+    "content_type": "application/zip",
+    "document_title": "92500305900092026000",
+    "document_type": "Edital",
+    "filename": "92500305900092026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000091/2026",
+    "sha256": "cab7fc68426600a7abd7fd877b097e74638c077197086b4745c87a9b447b0aba",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/91/arquivos/1"
+  },
+  {
+    "content_length": 1057878,
+    "content_type": "application/zip",
+    "document_title": "92500305900962026000",
+    "document_type": "Edital",
+    "filename": "92500305900962026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000098/2026",
+    "sha256": "3b2789cbb81ae5a03d6116c61d99ee041aeee0bdc998865993bf9dcb1473dfc0",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/98/arquivos/1"
+  },
+  {
+    "content_length": 836334,
+    "content_type": "application/zip",
+    "document_title": "92521105900012026001",
+    "document_type": "Edital",
+    "filename": "92521105900012026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000104/2026",
+    "sha256": "d5982c6704567bf532e8641e93f97988568028f22cb63fced3aaec845b560db8",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/104/arquivos/2"
+  },
+  {
+    "content_length": 1826624,
+    "content_type": "application/zip",
+    "document_title": "92500305901822026000",
+    "document_type": "Edital",
+    "filename": "92500305901822026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000233/2026",
+    "sha256": "f7583abb0ca7d8eb7d41b2a6b4c2f17cec057cd1393042bca3eb167288236e6e",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/233/arquivos/1"
+  },
+  {
+    "content_length": 1946886,
+    "content_type": "application/zip",
+    "document_title": "92500305902252026000",
+    "document_type": "Edital",
+    "filename": "92500305902252026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000296/2026",
+    "sha256": "e764c15928c7feb742d3b2878217abd03a54062fd79c9fc9b8d32d66f1db0f02",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/296/arquivos/1"
+  },
+  {
+    "content_length": 473810,
+    "content_type": "application/zip",
+    "document_title": "92500305902692026001",
+    "document_type": "Edital",
+    "filename": "92500305902692026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000360/2026",
+    "sha256": "47a23fdd9f3e2a4823e8e589623fe593119aa99cb72224ae28d042acc808dd89",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/360/arquivos/2"
+  },
+  {
+    "content_length": 1102876,
+    "content_type": "application/zip",
+    "document_title": "92500305902722026001",
+    "document_type": "Edital",
+    "filename": "92500305902722026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000363/2026",
+    "sha256": "9d70b2fb569298181b73fa1c41bc438a6d1c7e9e61874ef978420f6de0cb19e2",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/363/arquivos/2"
+  },
+  {
+    "content_length": 1119415,
+    "content_type": "application/zip",
+    "document_title": "92500305903072026000",
+    "document_type": "Edital",
+    "filename": "92500305903072026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000408/2026",
+    "sha256": "8030d2e57310e9537e75b04fe3623a111c772a1a5a5a4658bfd6cc6b1c154afd",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/408/arquivos/1"
+  },
+  {
+    "content_length": 1079225,
+    "content_type": "application/zip",
+    "document_title": "92500305903322026000",
+    "document_type": "Edital",
+    "filename": "92500305903322026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000450/2026",
+    "sha256": "f91147862a07a1a9485ed0f81a4999e40b4950897f96c6b3b238d6694ef33c3d",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/450/arquivos/1"
+  },
+  {
+    "content_length": 1281811,
+    "content_type": "application/zip",
+    "document_title": "92500305903472026000",
+    "document_type": "Edital",
+    "filename": "92500305903472026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000473/2026",
+    "sha256": "4528ce36153d730baf145948fbfd5029f9dfefa16119c87aaba3a73595b3e122",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/473/arquivos/1"
+  },
+  {
+    "content_length": 1107928,
+    "content_type": "application/zip",
+    "document_title": "92500305903592026000",
+    "document_type": "Edital",
+    "filename": "92500305903592026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000492/2026",
+    "sha256": "612594ec2bffb7eb1be79482af5ae54c8c53776920bc167e5836f04e7cabca2a",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/492/arquivos/1"
+  },
+  {
+    "content_length": 1273131,
+    "content_type": "application/zip",
+    "document_title": "92500305903712026000",
+    "document_type": "Edital",
+    "filename": "92500305903712026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000513/2026",
+    "sha256": "c6c4d6e3752c8c0ee124bbbc57648eece12bdd97038d8c56b5627167ed423b0b",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/513/arquivos/1"
+  },
+  {
+    "content_length": 1112952,
+    "content_type": "application/zip",
+    "document_title": "92500305903972026000",
+    "document_type": "Edital",
+    "filename": "92500305903972026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000552/2026",
+    "sha256": "f68f34956eff5415f8f6cfd3a3090caf1eb36c9895c9dc27a529bb6e3631245a",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/552/arquivos/1"
+  },
+  {
+    "content_length": 688180,
+    "content_type": "application/zip",
+    "document_title": "92500305904282026000",
+    "document_type": "Edital",
+    "filename": "92500305904282026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000588/2026",
+    "sha256": "6ce8b1aff18ab7f345b1dbf269f55ab3fddbee1fdc80e2b9bf8bce36614ca6f3",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/588/arquivos/1"
+  },
+  {
+    "content_length": 1143668,
+    "content_type": "application/zip",
+    "document_title": "92500305904252026000",
+    "document_type": "Edital",
+    "filename": "92500305904252026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000591/2026",
+    "sha256": "1d9693f1d5b9213b00e377e41d4dcebf927c7f995074bf511c1619fc78c3ad82",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/591/arquivos/1"
+  },
+  {
+    "content_length": 1169472,
+    "content_type": "application/zip",
+    "document_title": "92500305904422026001",
+    "document_type": "Edital",
+    "filename": "92500305904422026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000619/2026",
+    "sha256": "9ab29c1524d6f7347e1af19bf2a96ad47a2178cca5e683bbbb1fbb1156bda60d",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/619/arquivos/2"
+  },
+  {
+    "content_length": 1152431,
+    "content_type": "application/zip",
+    "document_title": "92500305904532026001",
+    "document_type": "Edital",
+    "filename": "92500305904532026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000638/2026",
+    "sha256": "7c4cd860a3b4abdc3d2889b6b5f505bee84c6932da324fcd7e79c8abf49bb9a3",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/638/arquivos/2"
+  },
+  {
+    "content_length": 562831,
+    "content_type": "application/zip",
+    "document_title": "92500305904842026000",
+    "document_type": "Edital",
+    "filename": "92500305904842026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000675/2026",
+    "sha256": "c8b8d92e1543f798146a51aaba0ec5f0eb270733d1ba57d14c20c1523ed6728c",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/675/arquivos/1"
+  },
+  {
+    "content_length": 1176482,
+    "content_type": "application/zip",
+    "document_title": "92500305904962026000",
+    "document_type": "Edital",
+    "filename": "92500305904962026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000689/2026",
+    "sha256": "7c4cecedd2be929bf7b2133364ea551f5f9b85e22fec2b140e789ee4d3e1584b",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/689/arquivos/1"
+  },
+  {
+    "content_length": 1202453,
+    "content_type": "application/zip",
+    "document_title": "92520805900112026000",
+    "document_type": "Edital",
+    "filename": "92520805900112026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000697/2026",
+    "sha256": "4ae6ccb89029d24e0c2e0c9aed74eb1030d17ec74c537af9f0defffc8cfcacd7",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/697/arquivos/1"
+  },
+  {
+    "content_length": 1519688,
+    "content_type": "application/zip",
+    "document_title": "92500305905022026001",
+    "document_type": "Edital",
+    "filename": "92500305905022026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000716/2026",
+    "sha256": "5889b96904045d6a96e55491e70a47d5b780d40319622c6f02b1a9a70bf74d74",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/716/arquivos/2"
+  },
+  {
+    "content_length": 1174423,
+    "content_type": "application/zip",
+    "document_title": "92520805900152026000",
+    "document_type": "Edital",
+    "filename": "92520805900152026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000741/2026",
+    "sha256": "20a4a94426e87fa76e9763de9a54f65bc1108d3e4a09167608bd2fb898e2602f",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/741/arquivos/1"
+  },
+  {
+    "content_length": 1183358,
+    "content_type": "application/zip",
+    "document_title": "92500305905512026000",
+    "document_type": "Edital",
+    "filename": "92500305905512026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-000823/2026",
+    "sha256": "6f67c5518d111be7b41ee4af0dfd652424710fcdd63a3244bf9f5b6a7c87fca5",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2026/823/arquivos/1"
+  },
+  {
+    "content_length": 484074,
+    "content_type": "application/zip",
+    "document_title": "92500305906422025000",
+    "document_type": "Edital",
+    "filename": "92500305906422025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001028/2025",
+    "sha256": "3191bdcc53bab393f17b157414fe34e5480ba468150ab37bbf7fbdd77204a4e7",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1028/arquivos/1"
+  },
+  {
+    "content_length": 920523,
+    "content_type": "application/zip",
+    "document_title": "92500305906692025000",
+    "document_type": "Edital",
+    "filename": "92500305906692025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001051/2025",
+    "sha256": "0b755f8a1e839a8ba755a5e96588dffa4c2b45b8a5dce915329058aa4405f5f6",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1051/arquivos/1"
+  },
+  {
+    "content_length": 1816581,
+    "content_type": "application/zip",
+    "document_title": "92500305906812025000",
+    "document_type": "Edital",
+    "filename": "92500305906812025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001088/2025",
+    "sha256": "9e0b1ec23a2c42872eb3ecc3d9a69f1f1bd2d492704f101ad188bf52e24796d6",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1088/arquivos/1"
+  },
+  {
+    "content_length": 1024325,
+    "content_type": "application/zip",
+    "document_title": "92500305907152025000",
+    "document_type": "Edital",
+    "filename": "92500305907152025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001146/2025",
+    "sha256": "6368c1a3e9f1e8d35534d10182dfb828dddd41d22ef579e76ae3d1dc9321a04c",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1146/arquivos/1"
+  },
+  {
+    "content_length": 988912,
+    "content_type": "application/zip",
+    "document_title": "92500305907192025000",
+    "document_type": "Edital",
+    "filename": "92500305907192025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001152/2025",
+    "sha256": "92ee32514b4473c6e21910d7f871562c4ba82b98b718c5424db3b60d3079e624",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1152/arquivos/1"
+  },
+  {
+    "content_length": 1088304,
+    "content_type": "application/zip",
+    "document_title": "92500305907662025000",
+    "document_type": "Edital",
+    "filename": "92500305907662025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001241/2025",
+    "sha256": "9c8036fd4406df94512c861f49a20d5e85d901e8f0fd619a9c0a15fddeb3ef7c",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1241/arquivos/1"
+  },
+  {
+    "content_length": 221961,
+    "content_type": "application/zip",
+    "document_title": "92520805900222025000",
+    "document_type": "Edital",
+    "filename": "92520805900222025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001280/2025",
+    "sha256": "4ed906a726043a79c3f4a34b94768ef992c700cd56a3303daf17c69481008b73",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1280/arquivos/1"
+  },
+  {
+    "content_length": 971323,
+    "content_type": "application/zip",
+    "document_title": "92500305908802025000",
+    "document_type": "Edital",
+    "filename": "92500305908802025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001434/2025",
+    "sha256": "d8371d5d78bca0fb47e2bc6980b1671bcb42f8534a8931dd37b4a5c7b5b77888",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1434/arquivos/1"
+  },
+  {
+    "content_length": 2035567,
+    "content_type": "application/zip",
+    "document_title": "92500305908792025000",
+    "document_type": "Edital",
+    "filename": "92500305908792025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001439/2025",
+    "sha256": "f72f37821a679c254ebaa50c614f7504332bd181ee70e85f6be511c053aa0c34",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1439/arquivos/1"
+  },
+  {
+    "content_length": 1377588,
+    "content_type": "application/zip",
+    "document_title": "92520805900242025000",
+    "document_type": "Edital",
+    "filename": "92520805900242025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001442/2025",
+    "sha256": "6272baa2a6ebc3f6a5c8e5d9c3df582365003bcc4e55f2c2214efc51f0f96be6",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1442/arquivos/1"
+  },
+  {
+    "content_length": 455614,
+    "content_type": "application/zip",
+    "document_title": "92521205900522025000",
+    "document_type": "Edital",
+    "filename": "92521205900522025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001466/2025",
+    "sha256": "69f58a7b69154cea76ff6c692229ffded7102982dcfcdf54bd294a69da111f5c",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1466/arquivos/1"
+  },
+  {
+    "content_length": 578574,
+    "content_type": "application/zip",
+    "document_title": "92520805900292025000",
+    "document_type": "Edital",
+    "filename": "92520805900292025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001532/2025",
+    "sha256": "5cea9e38cb5546d80272bf8868205192b823219d6c5d9a3fe74ac8687b390987",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1532/arquivos/1"
+  },
+  {
+    "content_length": 1880364,
+    "content_type": "application/zip",
+    "document_title": "92500305909432025000",
+    "document_type": "Edital",
+    "filename": "92500305909432025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001561/2025",
+    "sha256": "adc1e1cb8757f964e3884e24eaf587b3049a743c8b129e6df6763d9aea66aee7",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1561/arquivos/1"
+  },
+  {
+    "content_length": 977857,
+    "content_type": "application/zip",
+    "document_title": "92520805900372025000",
+    "document_type": "Edital",
+    "filename": "92520805900372025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001603/2025",
+    "sha256": "6b338653d5e2c8cdba439d1b977fa1569bd1e2b6aba8665e8c13ff9e50b03db2",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1603/arquivos/1"
+  },
+  {
+    "content_length": 998370,
+    "content_type": "application/zip",
+    "document_title": "92500305909902025000",
+    "document_type": "Edital",
+    "filename": "92500305909902025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001663/2025",
+    "sha256": "6b7378ea056130ff1fa3801af48b3c08c1466e578c6f93e3eb5c395efdb9f58a",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1663/arquivos/1"
+  },
+  {
+    "content_length": 1117201,
+    "content_type": "application/zip",
+    "document_title": "92500305909852025000",
+    "document_type": "Edital",
+    "filename": "92500305909852025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001734/2025",
+    "sha256": "87abeae492b2ab9aeecb4f19fb8611a528213c873d36cae67d6776c1a948e848",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1734/arquivos/1"
+  },
+  {
+    "content_length": 1039236,
+    "content_type": "application/zip",
+    "document_title": "92500305910372025000",
+    "document_type": "Edital",
+    "filename": "92500305910372025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001763/2025",
+    "sha256": "b0ef4cb507152eb5416ad0a998f1f452497595c6e869cd1c5415b72bf7aec7f0",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1763/arquivos/1"
+  },
+  {
+    "content_length": 1240601,
+    "content_type": "application/zip",
+    "document_title": "92500305911242025000",
+    "document_type": "Edital",
+    "filename": "92500305911242025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-001964/2025",
+    "sha256": "127b86e1b746730d883ed08fd8459e9703f82ab9b705ee07c6d68bb97d445036",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/1964/arquivos/1"
+  },
+  {
+    "content_length": 1097743,
+    "content_type": "application/zip",
+    "document_title": "92500305911542025000",
+    "document_type": "Edital",
+    "filename": "92500305911542025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-002019/2025",
+    "sha256": "0a7bbbd5f733cdc85966c0068a3ce36c270a1e69cf6b39a4204d5b70d1ed4a36",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/2019/arquivos/1"
+  },
+  {
+    "content_length": 1086804,
+    "content_type": "application/zip",
+    "document_title": "92500305911672025000",
+    "document_type": "Edital",
+    "filename": "92500305911672025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-002050/2025",
+    "sha256": "693eabcff184509ffd69b389512e711046c89e4c2123da16aadcef25fa25679e",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/2050/arquivos/1"
+  },
+  {
+    "content_length": 1791462,
+    "content_type": "application/zip",
+    "document_title": "92500305912222025000",
+    "document_type": "Edital",
+    "filename": "92500305912222025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-002162/2025",
+    "sha256": "bf620bfd1ef1cfe153c724a31caaa001825b11e2bf6ae4cf6aed4e9cac124507",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/2162/arquivos/1"
+  },
+  {
+    "content_length": 1046517,
+    "content_type": "application/zip",
+    "document_title": "92500305912352025000",
+    "document_type": "Edital",
+    "filename": "92500305912352025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-002177/2025",
+    "sha256": "588b5843e817b8f851d1f86112767d7d0a74ef4dd7ed2acace36b802cd1cb4d8",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/2177/arquivos/1"
+  },
+  {
+    "content_length": 1277346,
+    "content_type": "application/zip",
+    "document_title": "92500305912402025001",
+    "document_type": "Edital",
+    "filename": "92500305912402025001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-002188/2025",
+    "sha256": "9d5f9be2445304b24a5d441fb48d7f93908376e89f8aa040e22ed86e8f7b785a",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/2188/arquivos/2"
+  },
+  {
+    "content_length": 1092416,
+    "content_type": "application/zip",
+    "document_title": "92500305912482025000",
+    "document_type": "Edital",
+    "filename": "92500305912482025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-002203/2025",
+    "sha256": "c0722aea8e89c37e64d5acac8050b1e89ec62877103a7eefd1ad5d018a6202ac",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/2203/arquivos/1"
+  },
+  {
+    "content_length": 1052867,
+    "content_type": "application/zip",
+    "document_title": "92500305912692025000",
+    "document_type": "Edital",
+    "filename": "92500305912692025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-002214/2025",
+    "sha256": "0dbd3e93400629e48e4ff0e9649231c25c4b8919189179d7b5f8d95c7c8d9a33",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/2214/arquivos/1"
+  },
+  {
+    "content_length": 1228112,
+    "content_type": "application/zip",
+    "document_title": "92500305912822025000",
+    "document_type": "Edital",
+    "filename": "92500305912822025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "13864377000130-1-002232/2025",
+    "sha256": "34911ab44b4c6b07718f516392bdcb9266870b29724f9da7302e5fca8f987951",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13864377000130/compras/2025/2232/arquivos/1"
+  },
+  {
+    "content_length": 1222752,
+    "content_type": "application/zip",
+    "document_title": "92640305900072025000",
+    "document_type": "Edital",
+    "filename": "92640305900072025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "19153572000139-1-000020/2025",
+    "sha256": "8e801604d9d28d0db7b35981515dae2e73a1e021a4ca568de51c19280602e7b2",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/19153572000139/compras/2025/20/arquivos/1"
+  },
+  {
+    "content_length": 1715989,
+    "content_type": "application/zip",
+    "document_title": "92505905900072025000",
+    "document_type": "Edital",
+    "filename": "92505905900072025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46392072000122-1-000025/2025",
+    "sha256": "c542654281f74eebb3a944f1f3f8023e86be41ee6dd2ec71c171e065002c8e0b",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46392072000122/compras/2025/25/arquivos/1"
+  },
+  {
+    "content_length": 977182,
+    "content_type": "application/zip",
+    "document_title": "92520005900032025000",
+    "document_type": "Edital",
+    "filename": "92520005900032025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46392114000125-1-000825/2025",
+    "sha256": "ed9f7b064679f55ebcd88bd2762b2ce35b068cd7cc04687719bcb207e0d71fd0",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46392114000125/compras/2025/825/arquivos/1"
+  },
+  {
+    "content_length": 2254996,
+    "content_type": "application/zip",
+    "document_title": "92501305900292025000",
+    "document_type": "Edital",
+    "filename": "92501305900292025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46392114000125-1-000882/2025",
+    "sha256": "ee1b514c4e3dced39a81bfc794741db6098d7e2d533f98950c14e248565bdd01",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46392114000125/compras/2025/882/arquivos/1"
+  },
+  {
+    "content_length": 1684131,
+    "content_type": "application/zip",
+    "document_title": "92520305900042025000",
+    "document_type": "Edital",
+    "filename": "92520305900042025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46392114001288-1-000020/2025",
+    "sha256": "fa047c5fa7af94942bae1bed19cbcdbb1125f72091dcf2e96090fd6dd1ecef63",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46392114001288/compras/2025/20/arquivos/1"
+  },
+  {
+    "content_length": 3359182,
+    "content_type": "application/zip",
+    "document_title": "92634505900082025000",
+    "document_type": "Edital",
+    "filename": "92634505900082025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46392163000168-1-000024/2025",
+    "sha256": "cfa638a47262624a302f37ef1514e9ad0f63908b3eb2073f7816d8a84b0ca8ac",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46392163000168/compras/2025/24/arquivos/1"
+  },
+  {
+    "content_length": 487925,
+    "content_type": "application/zip",
+    "document_title": "92505605900032026000",
+    "document_type": "Edital",
+    "filename": "92505605900032026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46395000000139-1-000010/2026",
+    "sha256": "835e198b481c0d2b52717989a68e00efcef8103b9fd10f8c9ddeb4899162942d",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46395000000139/compras/2026/10/arquivos/1"
+  },
+  {
+    "content_length": 746212,
+    "content_type": "application/zip",
+    "document_title": "92510205900052026000",
+    "document_type": "Edital",
+    "filename": "92510205900052026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000004/2026",
+    "sha256": "27d70e961e4fd88c12302e162485605ee01dcbc7eaf99b639162c6d2be220ebb",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2026/4/arquivos/1"
+  },
+  {
+    "content_length": 937003,
+    "content_type": "application/zip",
+    "document_title": "92510205900182026001",
+    "document_type": "Edital",
+    "filename": "92510205900182026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000019/2026",
+    "sha256": "9d548de2dfb8935379c97143982b1049e7de34cf7d52edc2aa62bc7c3b5192ae",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2026/19/arquivos/2"
+  },
+  {
+    "content_length": 909639,
+    "content_type": "application/zip",
+    "document_title": "92510205900682026000",
+    "document_type": "Edital",
+    "filename": "92510205900682026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000117/2026",
+    "sha256": "8a58cd6755c8d172d5a3b2a474a31fdecfc39b36eb54571d4c3aa8e3b9bd9ec7",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2026/117/arquivos/1"
+  },
+  {
+    "content_length": 737184,
+    "content_type": "application/zip",
+    "document_title": "92510205900712026000",
+    "document_type": "Edital",
+    "filename": "92510205900712026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000120/2026",
+    "sha256": "25f2bca84130effaba300cccd8677f99577e3dc96ce704c4ec3dc4198e0af89c",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2026/120/arquivos/1"
+  },
+  {
+    "content_length": 674124,
+    "content_type": "application/zip",
+    "document_title": "92510205900932026000",
+    "document_type": "Edital",
+    "filename": "92510205900932026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000162/2026",
+    "sha256": "858e2ffc9889125babc3d5ad72f0b698e28f6e1dcd029bd382d6a6096eb2f09a",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2026/162/arquivos/1"
+  },
+  {
+    "content_length": 809809,
+    "content_type": "application/zip",
+    "document_title": "92510205901012026000",
+    "document_type": "Edital",
+    "filename": "92510205901012026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000179/2026",
+    "sha256": "a11ff902a2a522c6a86ecd67b8c186bbb359839fb9cde82c87e3353c695d9b8d",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2026/179/arquivos/1"
+  },
+  {
+    "content_length": 774450,
+    "content_type": "application/zip",
+    "document_title": "92510205901082026000",
+    "document_type": "Edital",
+    "filename": "92510205901082026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000193/2026",
+    "sha256": "23821f4a8e56591a63f7adf7904a3ecdeb6495dffac8a788deb45d4bd010a55d",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2026/193/arquivos/1"
+  },
+  {
+    "content_length": 887483,
+    "content_type": "application/zip",
+    "document_title": "92510205901322026001",
+    "document_type": "Edital",
+    "filename": "92510205901322026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000236/2026",
+    "sha256": "481e309bddcd2261aeac27ec87d3a69477d4f23ec65274013b3a912b20f17212",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2026/236/arquivos/2"
+  },
+  {
+    "content_length": 908760,
+    "content_type": "application/zip",
+    "document_title": "92510205901352026000",
+    "document_type": "Edital",
+    "filename": "92510205901352026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000240/2026",
+    "sha256": "8cced1781465f4260022a8da5dcb7c56930344db6f9c87a8f2e488355129e270",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2026/240/arquivos/1"
+  },
+  {
+    "content_length": 882947,
+    "content_type": "application/zip",
+    "document_title": "92510205901482026001",
+    "document_type": "Edital",
+    "filename": "92510205901482026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000275/2026",
+    "sha256": "2ae06aca834defac49460ead309bda8036f0ef4c78bdfc884daea91c1faf19b2",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2026/275/arquivos/2"
+  },
+  {
+    "content_length": 696291,
+    "content_type": "application/zip",
+    "document_title": "92510205901662026000",
+    "document_type": "Edital",
+    "filename": "92510205901662026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000309/2026",
+    "sha256": "b4b574d717278f85d2814285f2a33c2d1f351fd775b4541a76e10686dc76ff46",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2026/309/arquivos/1"
+  },
+  {
+    "content_length": 760793,
+    "content_type": "application/zip",
+    "document_title": "92510205901882026000",
+    "document_type": "Edital",
+    "filename": "92510205901882026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000340/2026",
+    "sha256": "2f5c007c9de349eeb0d1a6d7b8683e7ef74c75a80686640dbf461a2378ae74d4",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2026/340/arquivos/1"
+  },
+  {
+    "content_length": 6224742,
+    "content_type": "application/zip",
+    "document_title": "92510205902662025000",
+    "document_type": "Edital",
+    "filename": "92510205902662025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000419/2025",
+    "sha256": "1166ed5c274485826292d31ed4926bc6c87c12729afcfd03ddb6f3c5198dea5f",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2025/419/arquivos/1"
+  },
+  {
+    "content_length": 749489,
+    "content_type": "application/zip",
+    "document_title": "92510205902782025000",
+    "document_type": "Edital",
+    "filename": "92510205902782025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000455/2025",
+    "sha256": "44e4b6f5fbd28bee96540cad882f75dd000ecbc34ea18a80640ac881914fb829",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2025/455/arquivos/1"
+  },
+  {
+    "content_length": 2084423,
+    "content_type": "application/zip",
+    "document_title": "92510205902802025000",
+    "document_type": "Edital",
+    "filename": "92510205902802025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000457/2025",
+    "sha256": "5c54754e5705de351ed543dc970ccf3cf396577a5b76001e6e02acdf2838a301",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2025/457/arquivos/1"
+  },
+  {
+    "content_length": 698900,
+    "content_type": "application/zip",
+    "document_title": "92510205902962025000",
+    "document_type": "Edital",
+    "filename": "92510205902962025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000478/2025",
+    "sha256": "278a7b89e3bd492a8ad58f076c6ba8b019837aec671f5e7c753a601616a490ea",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2025/478/arquivos/1"
+  },
+  {
+    "content_length": 809688,
+    "content_type": "application/zip",
+    "document_title": "92510205903102025000",
+    "document_type": "Edital",
+    "filename": "92510205903102025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000520/2025",
+    "sha256": "7a3a66a22e9e72b44125c61f0da139bf247287271d38822205d190c2563506b6",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2025/520/arquivos/1"
+  },
+  {
+    "content_length": 947820,
+    "content_type": "application/zip",
+    "document_title": "92510205903142025000",
+    "document_type": "Edital",
+    "filename": "92510205903142025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000524/2025",
+    "sha256": "24b1b839a33da8bb5801fb9d76140bf7178c2280a7256a06bf69faa1f862f3e7",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2025/524/arquivos/1"
+  },
+  {
+    "content_length": 736222,
+    "content_type": "application/zip",
+    "document_title": "92510205903882025001",
+    "document_type": "Edital",
+    "filename": "92510205903882025001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "46854998000192-1-000657/2025",
+    "sha256": "ba6a3c48792fb64a141aadc472c1a45de95166c6e5dd73d70df66f188f865d16",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46854998000192/compras/2025/657/arquivos/2"
+  },
+  {
+    "content_length": 615820,
+    "content_type": "application/zip",
+    "document_title": "92505405900262025000",
+    "document_type": "Edital",
+    "filename": "92505405900262025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "49269244000163-1-002450/2025",
+    "sha256": "be28125030b5b2b0fdbdcbb607242b50a1b5198886aefa142fffae61c0cc2ed6",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/49269244000163/compras/2025/2450/arquivos/1"
+  },
+  {
+    "content_length": 419465,
+    "content_type": "application/zip",
+    "document_title": "92505405900352025000",
+    "document_type": "Edital",
+    "filename": "92505405900352025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "49269244000163-1-002865/2025",
+    "sha256": "666514af1e118679e69e28f2fb98843b765f5d77e9a60c2343f7871685980950",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/49269244000163/compras/2025/2865/arquivos/1"
+  },
+  {
+    "content_length": 1079249,
+    "content_type": "application/zip",
+    "document_title": "92500005900092026001",
+    "document_type": "Edital",
+    "filename": "92500005900092026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "49269251000165-1-000023/2026",
+    "sha256": "6c35fd392080fdb6b074e719247cbd41dec4ad89f27e2ba50045c64941e8f4c3",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/49269251000165/compras/2026/23/arquivos/2"
+  },
+  {
+    "content_length": 1305768,
+    "content_type": "application/zip",
+    "document_title": "92505205900022026000",
+    "document_type": "Edital",
+    "filename": "92505205900022026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "60269453000140-1-000050/2026",
+    "sha256": "4944b28e2235ddc82fc080b0b7f4ea4d4ac1e4374572aad6b32a2584b63ff5c7",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/60269453000140/compras/2026/50/arquivos/1"
+  },
+  {
+    "content_length": 2206666,
+    "content_type": "application/zip",
+    "document_title": "98600105900072026001",
+    "document_type": "Edital",
+    "filename": "98600105900072026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000113/2026",
+    "sha256": "46179a80e78bfdf4124d07781b92f3a2abde1d8b2c4d311e53192be1bf94b8bc",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/113/arquivos/2"
+  },
+  {
+    "content_length": 23237448,
+    "content_type": "application/zip",
+    "document_title": "98600105900132026000",
+    "document_type": "Edital",
+    "filename": "98600105900132026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000124/2026",
+    "sha256": "08713b63f845d6c7e95f28f53de8709fb19dc7fe8da81f48dfbe9baeb0d61d25",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/124/arquivos/1"
+  },
+  {
+    "content_length": 972630,
+    "content_type": "application/zip",
+    "document_title": "98600105900462026000",
+    "document_type": "Edital",
+    "filename": "98600105900462026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000184/2026",
+    "sha256": "4417a7077e71281c07385099eec3fc72f33bd815be3e85f1289c59e837b8e05e",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/184/arquivos/1"
+  },
+  {
+    "content_length": 2093918,
+    "content_type": "application/zip",
+    "document_title": "98600105900562026000",
+    "document_type": "Edital",
+    "filename": "98600105900562026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000208/2026",
+    "sha256": "b969d3dafef80f1b5257229ff0712610596af360ebe33fe34a9db7d965c0300f",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/208/arquivos/1"
+  },
+  {
+    "content_length": 1630456,
+    "content_type": "application/zip",
+    "document_title": "98600105900782026000",
+    "document_type": "Edital",
+    "filename": "98600105900782026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000297/2026",
+    "sha256": "f1150035eded8843b5513377b50f2262112a598515cf0f53fd2d5e7a6e6012d2",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/297/arquivos/1"
+  },
+  {
+    "content_length": 2498257,
+    "content_type": "application/zip",
+    "document_title": "98600105900762026002",
+    "document_type": "Edital",
+    "filename": "98600105900762026002.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000345/2026",
+    "sha256": "46fea0770983143be20c91876248ce7f813edd2fa4a841f38ad1bc724263ea68",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/345/arquivos/3"
+  },
+  {
+    "content_length": 19078481,
+    "content_type": "application/zip",
+    "document_title": "98600105900842026000",
+    "document_type": "Edital",
+    "filename": "98600105900842026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000366/2026",
+    "sha256": "43d8a4ec0d79d995a859f1778ca4f4a0f976b273c5e324986b6ff4bba37933bb",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/366/arquivos/1"
+  },
+  {
+    "content_length": 2724042,
+    "content_type": "application/zip",
+    "document_title": "98600105901032026000",
+    "document_type": "Edital",
+    "filename": "98600105901032026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000378/2026",
+    "sha256": "bc6b6831769f8df256c899f64b07aca79114f110ee3c267894cc2930eace4a53",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/378/arquivos/1"
+  },
+  {
+    "content_length": 793287,
+    "content_type": "application/zip",
+    "document_title": "98600105901242026000",
+    "document_type": "Edital",
+    "filename": "98600105901242026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000409/2026",
+    "sha256": "edaea6127aa91564e3b9bf2508bd743950625eadbaf7483a267273e833de459e",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/409/arquivos/1"
+  },
+  {
+    "content_length": 1079731,
+    "content_type": "application/zip",
+    "document_title": "98600105901322026000",
+    "document_type": "Edital",
+    "filename": "98600105901322026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000436/2026",
+    "sha256": "aec48a81a0b0647657244fd105093352b024f145a992a1dac53f626942cd9eff",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/436/arquivos/1"
+  },
+  {
+    "content_length": 2742723,
+    "content_type": "application/zip",
+    "document_title": "98600105901302026001",
+    "document_type": "Edital",
+    "filename": "98600105901302026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000447/2026",
+    "sha256": "7923f0ad99d167d6c46e88263ffacededdcf4ca397e05db1950f030dee1e72b9",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/447/arquivos/2"
+  },
+  {
+    "content_length": 3499346,
+    "content_type": "application/zip",
+    "document_title": "98600105901352026000",
+    "document_type": "Edital",
+    "filename": "98600105901352026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000465/2026",
+    "sha256": "a141597a9c6dd872ea4259ed052504d3e83776521b592296e7b1130ebc51c05e",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/465/arquivos/1"
+  },
+  {
+    "content_length": 1362516,
+    "content_type": "application/zip",
+    "document_title": "98600105901472026000",
+    "document_type": "Edital",
+    "filename": "98600105901472026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000488/2026",
+    "sha256": "bddd787cb2e58840693a625d1a80a8b6d4a921672c8c9ca4179bca03dd7d9a9c",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/488/arquivos/1"
+  },
+  {
+    "content_length": 1214283,
+    "content_type": "application/zip",
+    "document_title": "98600105901172026000",
+    "document_type": "Edital",
+    "filename": "98600105901172026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000498/2026",
+    "sha256": "33d391934d45bab187e77959eb602248219184461671a2bcc95c14c0b4d2be7c",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/498/arquivos/1"
+  },
+  {
+    "content_length": 3402593,
+    "content_type": "application/zip",
+    "document_title": "98600105901542026000",
+    "document_type": "Edital",
+    "filename": "98600105901542026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000500/2026",
+    "sha256": "f303acd93061fde7a74ce6d5017c85d0a1a1deb0fdd621497c5d0294e73b9bf9",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/500/arquivos/1"
+  },
+  {
+    "content_length": 3627038,
+    "content_type": "application/zip",
+    "document_title": "98600105901572026000",
+    "document_type": "Edital",
+    "filename": "98600105901572026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000503/2026",
+    "sha256": "73fafcdec894b19dee01a09aa4e15a897e4fe0a745730125520cd88f5abfdc66",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/503/arquivos/1"
+  },
+  {
+    "content_length": 737254,
+    "content_type": "application/zip",
+    "document_title": "98600105901812026000",
+    "document_type": "Edital",
+    "filename": "98600105901812026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000594/2026",
+    "sha256": "6b57783eee85dc4c6c84f1396512a073e820675ffe28a670878d2a560e4c5335",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/594/arquivos/1"
+  },
+  {
+    "content_length": 735690,
+    "content_type": "application/zip",
+    "document_title": "98600105901942026000",
+    "document_type": "Edital",
+    "filename": "98600105901942026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000600/2026",
+    "sha256": "03f7a0764daa4c6056741cf234f6999c58a5312f9e7558bcb35e1eddbf30c8aa",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/600/arquivos/1"
+  },
+  {
+    "content_length": 1822863,
+    "content_type": "application/zip",
+    "document_title": "98600105901972026000",
+    "document_type": "Edital",
+    "filename": "98600105901972026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000626/2026",
+    "sha256": "1f9c161f61d2b2ba9f6940ed43a5b7b3ca09db7351d52face8a3f54c0c594dd5",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/626/arquivos/1"
+  },
+  {
+    "content_length": 3039128,
+    "content_type": "application/zip",
+    "document_title": "98600105902212026001",
+    "document_type": "Edital",
+    "filename": "98600105902212026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000665/2026",
+    "sha256": "14af06d58bc4b6c68cdcb979491c52a43932af5afb02c46d86e8b1c0a709f1e2",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/665/arquivos/2"
+  },
+  {
+    "content_length": 1998078,
+    "content_type": "application/zip",
+    "document_title": "98600105902332026000",
+    "document_type": "Edital",
+    "filename": "98600105902332026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000682/2026",
+    "sha256": "621425cef4829007d3a6fc2e9377abfe04a133d57acc5f7cc99c9fce59ccee6d",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/682/arquivos/1"
+  },
+  {
+    "content_length": 1441979,
+    "content_type": "application/zip",
+    "document_title": "98600105901772026000",
+    "document_type": "Edital",
+    "filename": "98600105901772026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000703/2026",
+    "sha256": "cea177689f0250b01c3a8c5c416ffda181c8d42d00981942dd4e62fc9a002a4c",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/703/arquivos/1"
+  },
+  {
+    "content_length": 1478622,
+    "content_type": "application/zip",
+    "document_title": "98600105902412026000",
+    "document_type": "Edital",
+    "filename": "98600105902412026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000706/2026",
+    "sha256": "556183d2cdceba5fb918e2def4560283fbb852457ad048c8a18eb4922f33800e",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/706/arquivos/1"
+  },
+  {
+    "content_length": 1362566,
+    "content_type": "application/zip",
+    "document_title": "98600105902442026000",
+    "document_type": "Edital",
+    "filename": "98600105902442026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000783/2026",
+    "sha256": "0d53879cea6fd1fe060ddc1439f48a286b627dde65669b2d0cf5b03f92b0c9cb",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/783/arquivos/1"
+  },
+  {
+    "content_length": 4567201,
+    "content_type": "application/zip",
+    "document_title": "98600105902662026000",
+    "document_type": "Edital",
+    "filename": "98600105902662026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000804/2026",
+    "sha256": "cc696fb4cb37bb87a2d034c5373a2c880fb13a40417818876518c6cb07208a84",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/804/arquivos/1"
+  },
+  {
+    "content_length": 2938717,
+    "content_type": "application/zip",
+    "document_title": "98600105902722026000",
+    "document_type": "Edital",
+    "filename": "98600105902722026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000822/2026",
+    "sha256": "da95ce1eae2d8dbbdde60e75c31a19ec52dceddec94edb418b8156bf2db697ab",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/822/arquivos/1"
+  },
+  {
+    "content_length": 20191468,
+    "content_type": "application/zip",
+    "document_title": "98600105902752026000",
+    "document_type": "Edital",
+    "filename": "98600105902752026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000835/2026",
+    "sha256": "176f27ebf1dc750476c421e132e56dbd3b4a7c22c00642dcd1ba69b96a85f9f1",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/835/arquivos/1"
+  },
+  {
+    "content_length": 5200162,
+    "content_type": "application/zip",
+    "document_title": "98600105902832026001",
+    "document_type": "Edital",
+    "filename": "98600105902832026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000845/2026",
+    "sha256": "79d965c49c4499458d6222687597eaa9181c68af5a664728a546a6aed2ee16d0",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/845/arquivos/2"
+  },
+  {
+    "content_length": 4165392,
+    "content_type": "application/zip",
+    "document_title": "98600105902892026001",
+    "document_type": "Edital",
+    "filename": "98600105902892026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000856/2026",
+    "sha256": "12883d89d1c00dfcf9925370fecf4171ca34af5d823df41c3159d99268fa804e",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/856/arquivos/2"
+  },
+  {
+    "content_length": 2437471,
+    "content_type": "application/zip",
+    "document_title": "98600105903072026000",
+    "document_type": "Edital",
+    "filename": "98600105903072026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000926/2026",
+    "sha256": "aeaf851bdb20410ba3407ff7a0725b8f8dbb30ac2d9070591a4a658a06350c2e",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/926/arquivos/1"
+  },
+  {
+    "content_length": 3686061,
+    "content_type": "application/zip",
+    "document_title": "98600105903082026000",
+    "document_type": "Edital",
+    "filename": "98600105903082026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000929/2026",
+    "sha256": "45c22c9398e33141d7ebd0cdeb487b6c12949dc3f508a6651635d4da7c7a8d18",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/929/arquivos/1"
+  },
+  {
+    "content_length": 9390700,
+    "content_type": "application/zip",
+    "document_title": "98600105903102026001",
+    "document_type": "Edital",
+    "filename": "98600105903102026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000950/2026",
+    "sha256": "c699bd8d777290de083d949578f07435d792d35577430e0b1e35daec7b619125",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/950/arquivos/2"
+  },
+  {
+    "content_length": 2297465,
+    "content_type": "application/zip",
+    "document_title": "98600105903172026000",
+    "document_type": "Edital",
+    "filename": "98600105903172026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000953/2026",
+    "sha256": "805180d37fa910d19505bb791f08f65709692b5caef241209c5970ba132b0ec8",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/953/arquivos/1"
+  },
+  {
+    "content_length": 756568,
+    "content_type": "application/zip",
+    "document_title": "98600105903202026000",
+    "document_type": "Edital",
+    "filename": "98600105903202026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000972/2026",
+    "sha256": "53b05a4267c8789f3da9421b63961b5f5cc7c5c60cf8b921f3945b00da166b76",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/972/arquivos/1"
+  },
+  {
+    "content_length": 2180208,
+    "content_type": "application/zip",
+    "document_title": "98600105903272026000",
+    "document_type": "Edital",
+    "filename": "98600105903272026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000986/2026",
+    "sha256": "f0a88e508084c6ddd2445b63ee53b8410faa79f7e3ee463197ce7180d28569e3",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/986/arquivos/1"
+  },
+  {
+    "content_length": 1432756,
+    "content_type": "application/zip",
+    "document_title": "98600105903242026000",
+    "document_type": "Edital",
+    "filename": "98600105903242026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-000999/2026",
+    "sha256": "e3ce1e1a99e76643d68e20f62d8e83e1afe558521f0296dd687421672c79bd48",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/999/arquivos/1"
+  },
+  {
+    "content_length": 1410632,
+    "content_type": "application/zip",
+    "document_title": "98600105903192025000",
+    "document_type": "Edital",
+    "filename": "98600105903192025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001053/2025",
+    "sha256": "1eea25e657a71fc70a7fba89a6da85f2e823a63b7e5af3b080a7352aaaa293e1",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1053/arquivos/1"
+  },
+  {
+    "content_length": 1731275,
+    "content_type": "application/zip",
+    "document_title": "98600105903242025000",
+    "document_type": "Edital",
+    "filename": "98600105903242025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001070/2025",
+    "sha256": "16a050d663b81750734eced4d74b9dace1c55ef7d3fb6cec4214c77b203bd55a",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1070/arquivos/1"
+  },
+  {
+    "content_length": 1440876,
+    "content_type": "application/zip",
+    "document_title": "98600105903282025000",
+    "document_type": "Edital",
+    "filename": "98600105903282025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001080/2025",
+    "sha256": "e18288f351a21b8ca82c099ab5d7e4d96103f70f8deec5a906ba0c5a147406e1",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1080/arquivos/1"
+  },
+  {
+    "content_length": 1192264,
+    "content_type": "application/zip",
+    "document_title": "98600105903312025000",
+    "document_type": "Edital",
+    "filename": "98600105903312025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001098/2025",
+    "sha256": "705d8a1bd9de32a29f47ace35d085593cfa049ffc486cc7c4d7a9517526fd64d",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1098/arquivos/1"
+  },
+  {
+    "content_length": 2242712,
+    "content_type": "application/zip",
+    "document_title": "98600105903682026000",
+    "document_type": "Edital",
+    "filename": "98600105903682026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001109/2026",
+    "sha256": "2c6800bbc592cdba4b4310c3ac3ca213ec9d6eeea04e266a8cdd799fee0b6c27",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/1109/arquivos/1"
+  },
+  {
+    "content_length": 870316,
+    "content_type": "application/zip",
+    "document_title": "98600105903702026000",
+    "document_type": "Edital",
+    "filename": "98600105903702026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001111/2026",
+    "sha256": "78d8896729f8ad358c93189f1ac617eef4be0070506d246d861c9baa3baab993",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/1111/arquivos/1"
+  },
+  {
+    "content_length": 1014511,
+    "content_type": "application/zip",
+    "document_title": "98600105903732026000",
+    "document_type": "Edital",
+    "filename": "98600105903732026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001139/2026",
+    "sha256": "c67fb5b2db0407d5bf79013bf3de13ad8da8249c320b474c915502595c11effd",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/1139/arquivos/1"
+  },
+  {
+    "content_length": 1120527,
+    "content_type": "application/zip",
+    "document_title": "98600105902942026000",
+    "document_type": "Edital",
+    "filename": "98600105902942026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001158/2026",
+    "sha256": "5aa0ea77edf6b17fdfd23b8707385380910d8f28d34649ffdc9a0bead2c4726a",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/1158/arquivos/1"
+  },
+  {
+    "content_length": 8846866,
+    "content_type": "application/zip",
+    "document_title": "98600105903532025000",
+    "document_type": "Edital",
+    "filename": "98600105903532025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001195/2025",
+    "sha256": "5dc3cc4ced68c1530f679faca51b587c4c4e44c0be01f7e9a8e48d087493d27c",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1195/arquivos/1"
+  },
+  {
+    "content_length": 1456411,
+    "content_type": "application/zip",
+    "document_title": "98600105903582025000",
+    "document_type": "Edital",
+    "filename": "98600105903582025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001206/2025",
+    "sha256": "45f6abc2a4bf6e38b7fa5ce6f4de3d9b44d4ac4012aa8e0b24d9f26d1a9a48e9",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1206/arquivos/1"
+  },
+  {
+    "content_length": 1667672,
+    "content_type": "application/zip",
+    "document_title": "98600105903652025000",
+    "document_type": "Edital",
+    "filename": "98600105903652025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001216/2025",
+    "sha256": "e8d6fa03be3f5d1309077b218ee02f49bf3d42aa40d9c03bf90e6f394b683271",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1216/arquivos/1"
+  },
+  {
+    "content_length": 3589557,
+    "content_type": "application/zip",
+    "document_title": "98600105903922026000",
+    "document_type": "Edital",
+    "filename": "98600105903922026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001218/2026",
+    "sha256": "b50e395247a344c55e9fc4e530ec47f44d4d61c8fc4b02f2e9f0220cada8b83c",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2026/1218/arquivos/1"
+  },
+  {
+    "content_length": 1477516,
+    "content_type": "application/zip",
+    "document_title": "98600105903892025000",
+    "document_type": "Edital",
+    "filename": "98600105903892025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001258/2025",
+    "sha256": "9c6e37d8173974e5fbbcfd313a6ced75b977a001a184a2da5f16164c8b52752e",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1258/arquivos/1"
+  },
+  {
+    "content_length": 461142,
+    "content_type": "application/zip",
+    "document_title": "98600105903902025002",
+    "document_type": "Edital",
+    "filename": "98600105903902025002.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001262/2025",
+    "sha256": "cd38ae439ddbf3f83c33c69f7e04892f7ec15ef48960b767b36afe11a9e8db02",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1262/arquivos/3"
+  },
+  {
+    "content_length": 1391269,
+    "content_type": "application/zip",
+    "document_title": "98600105903952025001",
+    "document_type": "Edital",
+    "filename": "98600105903952025001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001267/2025",
+    "sha256": "29de223188275ef45245a9d829279246a5621e28ac3a3352512f9b0c4725c850",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1267/arquivos/2"
+  },
+  {
+    "content_length": 2174258,
+    "content_type": "application/zip",
+    "document_title": "98600105904142025001",
+    "document_type": "Edital",
+    "filename": "98600105904142025001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001314/2025",
+    "sha256": "e707409ea36d416ffb0292462d8bd644055cfe58dad0cb3104f41e1935f76b79",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1314/arquivos/2"
+  },
+  {
+    "content_length": 1271213,
+    "content_type": "application/zip",
+    "document_title": "98600105904012025000",
+    "document_type": "Edital",
+    "filename": "98600105904012025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001315/2025",
+    "sha256": "2579a8ca8cbe3b9482c7d0b52c69deac82cc41b216094e989c672129eea50a71",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1315/arquivos/1"
+  },
+  {
+    "content_length": 1598418,
+    "content_type": "application/zip",
+    "document_title": "98600105904202025000",
+    "document_type": "Edital",
+    "filename": "98600105904202025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001342/2025",
+    "sha256": "69541ccb2b8eb55a4d5039b0a6288ec82808621e8e57e16a165783055fa8b402",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1342/arquivos/1"
+  },
+  {
+    "content_length": 5260609,
+    "content_type": "application/zip",
+    "document_title": "98600105904282025000",
+    "document_type": "Edital",
+    "filename": "98600105904282025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001357/2025",
+    "sha256": "d105a55f4d1805b7ea29aa6b6bd71c6bfffe18419d6f11090edbeb62c2a139c4",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1357/arquivos/1"
+  },
+  {
+    "content_length": 1120811,
+    "content_type": "application/zip",
+    "document_title": "98600105904462025000",
+    "document_type": "Edital",
+    "filename": "98600105904462025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001393/2025",
+    "sha256": "c1e333f8ba2424dfe476770d7cdb2ff30fe8fedf89fd6e929c3aef9f69f8119b",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1393/arquivos/1"
+  },
+  {
+    "content_length": 694961,
+    "content_type": "application/zip",
+    "document_title": "98600105904272025000",
+    "document_type": "Edital",
+    "filename": "98600105904272025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001397/2025",
+    "sha256": "49c31b6668ef183cfcfb895ba05736a8b3b0e6de1391ea990ab8f9ab54b7c89f",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1397/arquivos/1"
+  },
+  {
+    "content_length": 1193479,
+    "content_type": "application/zip",
+    "document_title": "98600105904602025000",
+    "document_type": "Edital",
+    "filename": "98600105904602025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001414/2025",
+    "sha256": "2ef90a29f82ed23da63a5e05269a46ad71557ce73b5aa52c3c7ce739d4566d61",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1414/arquivos/1"
+  },
+  {
+    "content_length": 5605643,
+    "content_type": "application/zip",
+    "document_title": "98600105904832025000",
+    "document_type": "Edital",
+    "filename": "98600105904832025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001484/2025",
+    "sha256": "f3c2812c9e2b0ca39525f42b8366088a0849a69e5de82833fdd79479fcae803c",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1484/arquivos/1"
+  },
+  {
+    "content_length": 1858711,
+    "content_type": "application/zip",
+    "document_title": "98600105905002025001",
+    "document_type": "Edital",
+    "filename": "98600105905002025001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001542/2025",
+    "sha256": "a80b0892cddfafdff19da1d7365c187736e0ca63777dc49959ff1b2d6d61533a",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1542/arquivos/2"
+  },
+  {
+    "content_length": 3673807,
+    "content_type": "application/zip",
+    "document_title": "98600105905012025001",
+    "document_type": "Edital",
+    "filename": "98600105905012025001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001543/2025",
+    "sha256": "ce26a20725586b84309bc8a5e8ec2cb739f233de0f8c0b3c1f98d3decaa8788c",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1543/arquivos/2"
+  },
+  {
+    "content_length": 6355760,
+    "content_type": "application/zip",
+    "document_title": "98600105905182025000",
+    "document_type": "Edital",
+    "filename": "98600105905182025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001568/2025",
+    "sha256": "b017f06b9207b5c134d17f19b1a95475dabce4daa1e78c2f79ce3dcb33725d87",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1568/arquivos/1"
+  },
+  {
+    "content_length": 2538056,
+    "content_type": "application/zip",
+    "document_title": "98600105905092025000",
+    "document_type": "Edital",
+    "filename": "98600105905092025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001595/2025",
+    "sha256": "229d09d65ea0a40afe3dcc461904e6df6021d5fa6481bd4d2cff14cbc0d65b70",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1595/arquivos/1"
+  },
+  {
+    "content_length": 6682318,
+    "content_type": "application/zip",
+    "document_title": "98600105905312025001",
+    "document_type": "Edital",
+    "filename": "98600105905312025001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001614/2025",
+    "sha256": "91fab134f011c53697a28ea1efa60774b7d2a809075b5f53d47130a6ca453c39",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1614/arquivos/2"
+  },
+  {
+    "content_length": 571745,
+    "content_type": "application/zip",
+    "document_title": "98600105905292025000",
+    "document_type": "Edital",
+    "filename": "98600105905292025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001617/2025",
+    "sha256": "ed0e1285023d8f5914f44854e36881d1bd563e80f92e75533caef0366d950d08",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1617/arquivos/1"
+  },
+  {
+    "content_length": 1164593,
+    "content_type": "application/zip",
+    "document_title": "98600105905472025001",
+    "document_type": "Edital",
+    "filename": "98600105905472025001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001645/2025",
+    "sha256": "044a46e5322c5c6de67cd619275ce7b5ea2d8d758b3e87736d0361f8f58aed29",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1645/arquivos/2"
+  },
+  {
+    "content_length": 2606232,
+    "content_type": "application/zip",
+    "document_title": "98600105905502025000",
+    "document_type": "Edital",
+    "filename": "98600105905502025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001651/2025",
+    "sha256": "d640da13878dcf222ebaa7e39fe61c3df46aa878a8935ad1487b1dbd4cec85cb",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1651/arquivos/1"
+  },
+  {
+    "content_length": 1068319,
+    "content_type": "application/zip",
+    "document_title": "98600105905732025001",
+    "document_type": "Edital",
+    "filename": "98600105905732025001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001718/2025",
+    "sha256": "f2199b2d50586520916ac8f2f2725f8964c6bb548437198a15a7c38dda4cdf7a",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1718/arquivos/2"
+  },
+  {
+    "content_length": 1476011,
+    "content_type": "application/zip",
+    "document_title": "98600105905272025000",
+    "document_type": "Edital",
+    "filename": "98600105905272025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001756/2025",
+    "sha256": "3959ce8e0c6f6e74cb184043ee9df4f5c3e7baeabddcbba9f6364fe3cff87746",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1756/arquivos/1"
+  },
+  {
+    "content_length": 1082831,
+    "content_type": "application/zip",
+    "document_title": "98600105905922025000",
+    "document_type": "Edital",
+    "filename": "98600105905922025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001762/2025",
+    "sha256": "fc85cb398f2a1d46bc3b01b65d0aa9ce8a0415c2ea7370b1e19a512eda3c8453",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1762/arquivos/1"
+  },
+  {
+    "content_length": 1653155,
+    "content_type": "application/zip",
+    "document_title": "98600105905942025001",
+    "document_type": "Edital",
+    "filename": "98600105905942025001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001778/2025",
+    "sha256": "70f70899223ab66a640ca4a7afcd2e98675e32f7613a4b1e2cd504bc2646d355",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1778/arquivos/2"
+  },
+  {
+    "content_length": 626340,
+    "content_type": "application/zip",
+    "document_title": "98600105905962025000",
+    "document_type": "Edital",
+    "filename": "98600105905962025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001779/2025",
+    "sha256": "d5e46f13fb924f307b26d82b7c42fd3da3fd4e77ee63b6abdec589f5de6fc427",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1779/arquivos/1"
+  },
+  {
+    "content_length": 4249171,
+    "content_type": "application/zip",
+    "document_title": "98600105906062025000",
+    "document_type": "Edital",
+    "filename": "98600105906062025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001850/2025",
+    "sha256": "00d057ac343b7e9c7dc107e2642a981418927518f5393d8a96643deea063b8ca",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1850/arquivos/1"
+  },
+  {
+    "content_length": 1212415,
+    "content_type": "application/zip",
+    "document_title": "98600105906102025000",
+    "document_type": "Edital",
+    "filename": "98600105906102025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001864/2025",
+    "sha256": "334703284a9dacf8cc6dc215d7f2a6e1272b34b87f2e140bc34f780feb895513",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1864/arquivos/1"
+  },
+  {
+    "content_length": 898081,
+    "content_type": "application/zip",
+    "document_title": "98600105906112025000",
+    "document_type": "Edital",
+    "filename": "98600105906112025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001866/2025",
+    "sha256": "6e19d162676d775bdd9dc3eec78f545a7f138686673c00ef8d6ddb70d84350dd",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1866/arquivos/1"
+  },
+  {
+    "content_length": 2660906,
+    "content_type": "application/zip",
+    "document_title": "98600105905302025000",
+    "document_type": "Edital",
+    "filename": "98600105905302025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001877/2025",
+    "sha256": "128b6b23671a034cab0421d3d986552510a8af7da0f95c90ddaaf887e78882ea",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1877/arquivos/1"
+  },
+  {
+    "content_length": 2518144,
+    "content_type": "application/zip",
+    "document_title": "98600105906452025000",
+    "document_type": "Edital",
+    "filename": "98600105906452025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001946/2025",
+    "sha256": "078c39f4495fefae363543d1afa5ef31dae90bc42cfe53a6e06f59b241d73844",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1946/arquivos/1"
+  },
+  {
+    "content_length": 1572871,
+    "content_type": "application/zip",
+    "document_title": "98600105906042025000",
+    "document_type": "Edital",
+    "filename": "98600105906042025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001984/2025",
+    "sha256": "dad9e323713e8ffaaaaf937685f66d5851738c28f8e5c445ed082639b5ccc3eb",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1984/arquivos/1"
+  },
+  {
+    "content_length": 1241015,
+    "content_type": "application/zip",
+    "document_title": "98600105906272025000",
+    "document_type": "Edital",
+    "filename": "98600105906272025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001986/2025",
+    "sha256": "3529fec8790ef0722052a598176b91dce709ee10034a8fbd7ce7a2f7eecf8a21",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1986/arquivos/1"
+  },
+  {
+    "content_length": 1161531,
+    "content_type": "application/zip",
+    "document_title": "98600105906542025000",
+    "document_type": "Edital",
+    "filename": "98600105906542025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-001993/2025",
+    "sha256": "7d7fca2caf38ec11430315d3b61b2aa4edd5b308448b3cfa1a48d8279e91699d",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/1993/arquivos/1"
+  },
+  {
+    "content_length": 595136,
+    "content_type": "application/zip",
+    "document_title": "98600105906672025000",
+    "document_type": "Edital",
+    "filename": "98600105906672025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002012/2025",
+    "sha256": "cabf6ae5a845a8ce02884a66f27067c8d1419799b2c98917cb35a02baacab740",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2012/arquivos/1"
+  },
+  {
+    "content_length": 2788679,
+    "content_type": "application/zip",
+    "document_title": "98600105906762025000",
+    "document_type": "Edital",
+    "filename": "98600105906762025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002034/2025",
+    "sha256": "d64316ebfdd649c428bf4e2635c4056f88d3a82c8724302f5e00e171eb99232a",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2034/arquivos/1"
+  },
+  {
+    "content_length": 529357,
+    "content_type": "application/zip",
+    "document_title": "98600105905232025000",
+    "document_type": "Edital",
+    "filename": "98600105905232025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002057/2025",
+    "sha256": "878fb73dfc54b642e37c6b54bb7cb726306127160c1367df440d203b99b9d672",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2057/arquivos/1"
+  },
+  {
+    "content_length": 1604311,
+    "content_type": "application/zip",
+    "document_title": "98600105906912025000",
+    "document_type": "Edital",
+    "filename": "98600105906912025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002067/2025",
+    "sha256": "cc4933a33a30c4c13c2ce15bda27c4ee2e1ddd869f38df75e889294a21c37bb9",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2067/arquivos/1"
+  },
+  {
+    "content_length": 622905,
+    "content_type": "application/zip",
+    "document_title": "98600105906962025000",
+    "document_type": "Edital",
+    "filename": "98600105906962025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002083/2025",
+    "sha256": "e4ce9b970d98069f8c12fd67ccad561e8c0bb8d6f57350e0b125fa9d85a91ebe",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2083/arquivos/1"
+  },
+  {
+    "content_length": 2655596,
+    "content_type": "application/zip",
+    "document_title": "98600105907082025000",
+    "document_type": "Edital",
+    "filename": "98600105907082025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002105/2025",
+    "sha256": "5670b99be53c5e35e3a1e2edd68d59b4c20812d18340070af873755c283b1cc8",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2105/arquivos/1"
+  },
+  {
+    "content_length": 2087434,
+    "content_type": "application/zip",
+    "document_title": "98600105907092025000",
+    "document_type": "Edital",
+    "filename": "98600105907092025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002120/2025",
+    "sha256": "91305c65e3950c04e732d03fbc7eaa6037be5d3d26c4c2f140ff9f4c99d9bf39",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2120/arquivos/1"
+  },
+  {
+    "content_length": 1282581,
+    "content_type": "application/zip",
+    "document_title": "98600105907192025000",
+    "document_type": "Edital",
+    "filename": "98600105907192025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002163/2025",
+    "sha256": "fc48860f238b90ec7296fa64f7b090bf27d7c581385eb3e5c3008b11306170c8",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2163/arquivos/1"
+  },
+  {
+    "content_length": 1217920,
+    "content_type": "application/zip",
+    "document_title": "98600105907182025000",
+    "document_type": "Edital",
+    "filename": "98600105907182025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002165/2025",
+    "sha256": "a1a2c6f2bb85c8ca4d0a883e24f79fff5d262ff89dbaa8e5f5e075e7b1ac89e4",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2165/arquivos/1"
+  },
+  {
+    "content_length": 423343,
+    "content_type": "application/zip",
+    "document_title": "98600105904112025000",
+    "document_type": "Edital",
+    "filename": "98600105904112025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002166/2025",
+    "sha256": "808cdc508bdaa3fcf1852d510f4d52f86f76d1de9bfca65a662859b891c85c9e",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2166/arquivos/1"
+  },
+  {
+    "content_length": 507183,
+    "content_type": "application/zip",
+    "document_title": "98600105907252025000",
+    "document_type": "Edital",
+    "filename": "98600105907252025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002213/2025",
+    "sha256": "bc62e581e77f9ffe93b9261b0a09f61f766f6474962d1e22b7ee59b5ee8b8083",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2213/arquivos/1"
+  },
+  {
+    "content_length": 3489082,
+    "content_type": "application/zip",
+    "document_title": "98600105907412025002",
+    "document_type": "Edital",
+    "filename": "98600105907412025002.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002287/2025",
+    "sha256": "288c7df4e533cd2659aae7acf1bc6b51de60860daae2b082cbcc229f6a178f6d",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2287/arquivos/3"
+  },
+  {
+    "content_length": 1230913,
+    "content_type": "application/zip",
+    "document_title": "98600105907272025000",
+    "document_type": "Edital",
+    "filename": "98600105907272025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002316/2025",
+    "sha256": "57bee2ebdcfd2f7511bf74a3ded0d9c1f9dd670874550f5367738fa5c335a3ac",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2316/arquivos/1"
+  },
+  {
+    "content_length": 906207,
+    "content_type": "application/zip",
+    "document_title": "98600105907592025000",
+    "document_type": "Edital",
+    "filename": "98600105907592025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002361/2025",
+    "sha256": "416fc41de005619d59bb288380c8f930cf3d6cfe194f526eec2b42f604fb478d",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2361/arquivos/1"
+  },
+  {
+    "content_length": 1351910,
+    "content_type": "application/zip",
+    "document_title": "98600105906342025000",
+    "document_type": "Edital",
+    "filename": "98600105906342025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002393/2025",
+    "sha256": "f5371e5cadd9f8a2e71c52e2e6841dd659212fd674e18554aa8807154eb10aae",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2393/arquivos/1"
+  },
+  {
+    "content_length": 2759183,
+    "content_type": "application/zip",
+    "document_title": "98600105907862025000",
+    "document_type": "Edital",
+    "filename": "98600105907862025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002445/2025",
+    "sha256": "73de8d3b90e7cec44786693cf0841a6bda61148415b70735a835b59a409b4ecc",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2445/arquivos/1"
+  },
+  {
+    "content_length": 1117999,
+    "content_type": "application/zip",
+    "document_title": "98600105907852025000",
+    "document_type": "Edital",
+    "filename": "98600105907852025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002455/2025",
+    "sha256": "52635d0fdc25bded134640639a8f2a750afed28dd076990b37049762e1c338b4",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2455/arquivos/1"
+  },
+  {
+    "content_length": 1649231,
+    "content_type": "application/zip",
+    "document_title": "98600105907992025001",
+    "document_type": "Edital",
+    "filename": "98600105907992025001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002486/2025",
+    "sha256": "8a6307bceda6fd91f2e38f9109b0c3a350336eae5d02a33dc8051a6926a1a140",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2486/arquivos/2"
+  },
+  {
+    "content_length": 721951,
+    "content_type": "application/zip",
+    "document_title": "98600105908292025000",
+    "document_type": "Edital",
+    "filename": "98600105908292025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002539/2025",
+    "sha256": "0db3548b16148611c9895a95955bbe9a80dc3657f95c8b06d64a23e382938570",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2539/arquivos/1"
+  },
+  {
+    "content_length": 938466,
+    "content_type": "application/zip",
+    "document_title": "98600105908412025000",
+    "document_type": "Edital",
+    "filename": "98600105908412025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "42498733000148-1-002548/2025",
+    "sha256": "339fb17f8e12505fd21406a409fc9e2fd8c225a35d6309cf5e709a1ffd8aaae0",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/42498733000148/compras/2025/2548/arquivos/1"
+  },
+  {
+    "content_length": 673214,
+    "content_type": "application/zip",
+    "document_title": "98412305970052026001",
+    "document_type": "Edital",
+    "filename": "98412305970052026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "18715383000140-1-000156/2026",
+    "sha256": "0a85e4d0eba56232e9cb9b0a25c909b29d27025a7510ea680bbd9a2c9790cbe3",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2026/156/arquivos/2"
+  },
+  {
+    "content_length": 1359159,
+    "content_type": "application/zip",
+    "document_title": "98412305970022026001",
+    "document_type": "Edital",
+    "filename": "98412305970022026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "18715383000140-1-000173/2026",
+    "sha256": "e1f83faf3e8660a03ec13abef46483b3b9ced9b6cc0f9d57ce7ace82015f84f9",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2026/173/arquivos/2"
+  },
+  {
+    "content_length": 969375,
+    "content_type": "application/zip",
+    "document_title": "98412305950012026001",
+    "document_type": "Edital",
+    "filename": "98412305950012026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "18715383000140-1-000189/2026",
+    "sha256": "2e9f27d30c27d696f0f067b00858727d049be5697da31c8ed4e61b39e4809d32",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2026/189/arquivos/2"
+  },
+  {
+    "content_length": 9823345,
+    "content_type": "application/zip",
+    "document_title": "98412305910022026001",
+    "document_type": "Edital",
+    "filename": "98412305910022026001.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "18715383000140-1-000209/2026",
+    "sha256": "b7eb388d0773aca393a5fce87b6935b398e4c939cfe66d3b6265efb6fad34b50",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2026/209/arquivos/2"
+  },
+  {
+    "content_length": 941217,
+    "content_type": "application/zip",
+    "document_title": "98412305940252026000",
+    "document_type": "Edital",
+    "filename": "98412305940252026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "18715383000140-1-000344/2026",
+    "sha256": "e6226031f32eff7e05c855b25c0c57e55151729e0dfa67ed38d65745b8c9897a",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2026/344/arquivos/1"
+  },
+  {
+    "content_length": 14318419,
+    "content_type": "application/zip",
+    "document_title": "98412305910082026000",
+    "document_type": "Edital",
+    "filename": "98412305910082026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "18715383000140-1-000345/2026",
+    "sha256": "fbe04ec646d30b596594bbf23a3c50d52448ae66ff3c5ee83a7381098ab31d88",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2026/345/arquivos/1"
+  },
+  {
+    "content_length": 479410,
+    "content_type": "application/zip",
+    "document_title": "98412305930272025000",
+    "document_type": "Edital",
+    "filename": "98412305930272025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "18715383000140-1-000353/2025",
+    "sha256": "0d615e9be1ecad7051b8176356abfd74cacbe0fa65f3ff75e808bd97ecdbabce",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/353/arquivos/1"
+  },
+  {
+    "content_length": 439804,
+    "content_type": "application/zip",
+    "document_title": "98412305930252025000",
+    "document_type": "Edital",
+    "filename": "98412305930252025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "18715383000140-1-000366/2025",
+    "sha256": "f858d1c374ece62ee509ab7a27dedd23dac2ee210ce1eed3152dca771aae9187",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/366/arquivos/1"
+  },
+  {
+    "content_length": 848111,
+    "content_type": "application/zip",
+    "document_title": "98412305940022026000",
+    "document_type": "Edital",
+    "filename": "98412305940022026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "18715383000140-1-000368/2026",
+    "sha256": "3bb8ab0f28ed0b04b31cfca73e7f3221151df9701718ee329cf9cdb6a74d7d6a",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2026/368/arquivos/1"
+  },
+  {
+    "content_length": 852655,
+    "content_type": "application/zip",
+    "document_title": "98412305930282025000",
+    "document_type": "Edital",
+    "filename": "98412305930282025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "18715383000140-1-000371/2025",
+    "sha256": "12b54bd78b30ccb4a27ec96b6f5cce1a6e710b59f44b606a0163320ec13669c7",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/371/arquivos/1"
+  },
+  {
+    "content_length": 971710,
+    "content_type": "application/zip",
+    "document_title": "98412305940232025000",
+    "document_type": "Edital",
+    "filename": "98412305940232025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "18715383000140-1-000376/2025",
+    "sha256": "e9d8ff5769b68d9996f6f914cb090f6c2c77c180830fc42458fe933ad25c33da",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/376/arquivos/1"
+  },
+  {
+    "content_length": 816800,
+    "content_type": "application/zip",
+    "document_title": "98412305940032026000",
+    "document_type": "Edital",
+    "filename": "98412305940032026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "18715383000140-1-000381/2026",
+    "sha256": "de5c15362219966c2157730dcc8d8176244d897c9ff6054cc0674b4985bbedaa",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2026/381/arquivos/1"
+  },
+  {
+    "content_length": 932008,
+    "content_type": "application/zip",
+    "document_title": "98412305970132025000",
+    "document_type": "Edital",
+    "filename": "98412305970132025000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "18715383000140-1-000383/2025",
+    "sha256": "746360c488c05c8fe3ad278e7d675a454dcbbfe734d92f7d5024bb3c0575e398",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/383/arquivos/1"
+  },
+  {
+    "content_length": 750426,
+    "content_type": "application/pdf",
+    "document_title": "EDITAL_PREGAO_ELETRONICO_No_950012025",
+    "document_type": "Edital",
+    "filename": "documento_2543.pdf",
+    "headers": {
+      "content-type": "application/pdf",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "18715383000140-1-000386/2025",
+    "sha256": "e6dd897f86243f8a25f54a70e7d7e69bc78db5f3eace683f92c16679503617af",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/386/arquivos/1"
+  },
+  {
+    "content_length": 5024758,
+    "content_type": "application/zip",
+    "document_title": "98412305940272026000",
+    "document_type": "Edital",
+    "filename": "98412305940272026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "18715383000140-1-000390/2026",
+    "sha256": "33802174e8eee02f1ced6f9f80046077026a0500af3f1033331b2dbe876bcd21",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2026/390/arquivos/1"
+  },
+  {
+    "content_length": 658643,
+    "content_type": "application/zip",
+    "document_title": "98412305940282026000",
+    "document_type": "Edital",
+    "filename": "98412305940282026000.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "18715383000140-1-000391/2026",
+    "sha256": "2efb2ebb00eab53c728267e5b0541506734e217fccb2a082839cbca437c12d96",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2026/391/arquivos/1"
+  },
+  {
+    "content_length": 7550222,
+    "content_type": "application/pdf",
+    "document_title": "Edital",
+    "document_type": "Edital",
+    "filename": "Edital4960056103980922137.pdf",
+    "headers": {
+      "content-type": "application/pdf",
+      "x-cache-hit": "true"
+    },
+    "numeroControlePNCP": "18715383000140-1-000397/2026",
+    "sha256": "1fa722531976a61b1378e1f8bad7b95094aafc529ad71d988cac529d6d4d08f3",
+    "status": 200,
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2026/397/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000407/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/407/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000420/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/420/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000421/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/421/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000432/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/432/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000437/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/437/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000443/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/443/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000450/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/450/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000460/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/460/arquivos/2"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000471/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/471/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000474/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/474/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000478/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/478/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000487/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/487/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000516/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/516/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000534/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/534/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000549/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/549/arquivos/2"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000555/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/555/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000632/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/632/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000644/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/644/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000663/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/663/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000666/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/666/arquivos/2"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000683/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/683/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000684/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/684/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000689/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/689/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000694/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/694/arquivos/2"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000696/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/696/arquivos/2"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000697/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/697/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000731/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/731/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000739/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/739/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000741/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/741/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000758/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/758/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000774/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/774/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000787/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/787/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000790/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/790/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000791/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/791/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000792/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/792/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000797/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/797/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000798/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/798/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000821/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/821/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000849/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/849/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000856/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/856/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000876/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/876/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000885/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/885/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000894/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/894/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000900/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/900/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000918/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/918/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000926/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/926/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000931/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/931/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000932/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/932/arquivos/2"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000939/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/939/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000955/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/955/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000959/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/959/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000969/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/969/arquivos/6"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000977/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/977/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000983/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/983/arquivos/2"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000989/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/989/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-000990/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/990/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001018/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1018/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001026/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1026/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001029/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1029/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001034/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1034/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001087/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1087/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001100/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1100/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001103/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1103/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001113/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1113/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001114/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1114/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001116/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1116/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001134/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1134/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001138/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1138/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001141/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1141/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001142/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1142/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001159/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1159/arquivos/2"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001168/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1168/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001186/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1186/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001197/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1197/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001205/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1205/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001212/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1212/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001213/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1213/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001218/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1218/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001220/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1220/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001225/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1225/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001232/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2025/1232/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001399/2024",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2024/1399/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "18715383000140-1-001400/2024",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18715383000140/compras/2024/1400/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000008/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/8/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000010/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/10/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000012/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/12/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000018/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/18/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000023/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/23/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000028/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/28/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000036/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/36/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000065/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/65/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000069/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/69/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000075/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/75/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000086/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/86/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000088/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/88/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000090/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/90/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000092/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/92/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000109/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/109/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000110/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/110/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000131/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/131/arquivos/3"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000137/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/137/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000141/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/141/arquivos/3"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000167/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/167/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000178/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/178/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000179/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/179/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000197/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/197/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000198/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/198/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000200/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/200/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000212/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/212/arquivos/5"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000217/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/217/arquivos/2"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000238/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/238/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000247/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/247/arquivos/6"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000248/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/248/arquivos/4"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000250/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/250/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000260/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/260/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000267/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/267/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000270/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/270/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000274/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/274/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000284/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/284/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000289/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/289/arquivos/5"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000290/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/290/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000294/2026",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2026/294/arquivos/4"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000316/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/316/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000318/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/318/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000319/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/319/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000329/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/329/arquivos/4"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000330/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/330/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000335/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/335/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000347/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/347/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000348/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/348/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000350/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/350/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000371/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/371/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000376/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/376/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000380/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/380/arquivos/4"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000381/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/381/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000383/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/383/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000393/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/393/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000399/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/399/arquivos/4"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000400/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/400/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000416/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/416/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000418/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/418/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000420/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/420/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000426/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/426/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000427/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/427/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000432/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/432/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000466/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/466/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000479/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/479/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000485/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/485/arquivos/4"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000486/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/486/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000487/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/487/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000488/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/488/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000491/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/491/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000492/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/492/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000509/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/509/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000532/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/532/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000536/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/536/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000552/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/552/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000558/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/558/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000573/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/573/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000575/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/575/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000577/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/577/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000578/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/578/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000591/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/591/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000593/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/593/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000600/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/600/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000601/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/601/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000604/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/604/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000607/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/607/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000619/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/619/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000623/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/623/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000625/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/625/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000629/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/629/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000630/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/630/arquivos/5"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000631/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/631/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000632/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/632/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000634/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/634/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000645/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/645/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000669/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/669/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000676/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/676/arquivos/4"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000683/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/683/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000771/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/771/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000773/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/773/arquivos/1"
+  },
+  {
+    "error": "Download skipped in cache-only finalization.",
+    "numeroControlePNCP": "27142058000126-1-000783/2025",
+    "status": "download_error",
+    "url": "https://pncp.gov.br/pncp-api/v1/orgaos/27142058000126/compras/2025/783/arquivos/6"
+  }
+]

@@ -12,6 +12,7 @@ O principal achado metodologico e que Sao Paulo aparece de forma fragmentada: a 
 
 - Q1. Ha completude nos dados fornecidos pelo PNCP nas prefeituras das capitais dos estados do Sudeste brasileiro (Sao Paulo, Rio de Janeiro, Belo Horizonte e Vitoria)?
 - Q2. Os dados das **APIs** do PNCP sao facilmente consumiveis?
+- Q3. As respostas da **API** do PNCP sao semanticamente coerentes e informativas para controle social?
 
 ## Metodologia
 
@@ -21,6 +22,8 @@ O principal achado metodologico e que Sao Paulo aparece de forma fragmentada: a 
 | Modalidade | Pregao - Eletronico (6) |
 | Amostra principal | todos os registros elegiveis no periodo |
 | Amostra documental | ate 100 por capital (400 registros no total) |
+| Amostra Q3 | documento principal da subamostra documental |
+| Modelo Q3 | codex-subagent |
 | Seed | 20260608 |
 
 Para Rio de Janeiro, Belo Horizonte e Vitoria, a coleta usou o CNPJ matriz do municipio. Para Sao Paulo, a coleta combinou o CNPJ matriz com uma busca por UF e codigo IBGE, filtrando orgaos municipais executivos e excluindo orgaos legislativos como a Camara Municipal.
@@ -29,7 +32,7 @@ Para Rio de Janeiro, Belo Horizonte e Vitoria, a coleta usou o CNPJ matriz do mu
 
 O repositorio GitHub <https://github.com/Amorim33/analise-pncp> versiona o codigo Python, configuracoes, snapshots brutos, tabelas processadas, metricas, analise exploratoria e relatorio final. O processo foi assistido pelo **Codex** como agente de programacao e documentacao, sob supervisao humana.
 
-A divisao agentica foi registrada em **skills** locais no caminho `.agents/skills/`, com papeis para mapeamento da **API**, coleta de dados, metodologia de amostragem e redacao do relatorio. As decisoes substantivas, validacao de fontes e interpretacao final permanecem sob responsabilidade do autor.
+A divisao agentica foi registrada em **skills** locais no caminho `.agents/skills/`, com papeis para mapeamento da **API**, coleta de dados, metodologia de amostragem, avaliacao semantica e redacao do relatorio. As decisoes substantivas, validacao de fontes e interpretacao final permanecem sob responsabilidade do autor.
 
 ## Exemplos de registros retornados pela API
 
@@ -354,6 +357,36 @@ Para Q2, o pipeline registrou a duracao da coleta e das chamadas ao endpoint de 
 - Durante a experimentação: Timeouts em paginação anual longa, mitigados pela coleta em chunks mensais de 31 dias.
 - Durante a experimentação: Risco de resposta HTML com HTTP 200, tratado por validação de Content-Type antes do parse JSON.
 
+## Qualidade semantica e informatividade
+
+Para Q3, o pipeline seleciona um documento principal por contratacao da subamostra documental e usa um subagent Codex como avaliador estruturado. Quando o texto documental nao esta extraido, a avaliacao fica limitada ao registro da **API** e aos metadados do documento principal. O avaliador nao e fonte de verdade: a evidencia auditavel fica nos snapshots, metadados, hashes dos inputs e respostas preservadas.
+
+A Q3 usou o prompt `q3-semantic-v1` e o schema `q3-semantic-schema-v1`. O avaliador registrado foi `codex-subagent`. Foram pontuados 400 de 400 registros da subamostra; 397 ficaram com texto documental insuficiente.
+
+| Capital | Pontuados | Texto insuf. | Amostra | Coer. | Info. | Doc/API | Acion. | Media |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Belo Horizonte | 100 | 100 | 100 | 3.96 | 3.53 | 1.00 | 1.80 | 2.57 |
+| Rio de Janeiro | 100 | 98 | 100 | 3.97 | 3.71 | 1.06 | 2.00 | 2.69 |
+| Sao Paulo | 100 | 99 | 100 | 3.98 | 3.36 | 1.03 | 1.91 | 2.57 |
+| Vitoria | 100 | 100 | 100 | 3.95 | 2.60 | 1.00 | 0.65 | 2.05 |
+
+Exemplos de avaliacao:
+
+- Vitoria (`27142058000126-1-000008/2026`), media 1.25: Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000. Alertas: Objeto da compra e curto ou generico.; Objeto nao delimita suficientemente escopo, finalidade ou item contratado.; Link do sistema de origem ausente.; Texto ...
+- Vitoria (`27142058000126-1-000270/2026`), media 1.25: Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000. Alertas: Objeto da compra e curto ou generico.; Objeto nao delimita suficientemente escopo, finalidade ou item contratado.; Link do sistema de origem ausente.; Texto ...
+- Vitoria (`27142058000126-1-000319/2025`), media 1.25: Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000. Alertas: Objeto da compra e curto ou generico.; Objeto nao delimita suficientemente escopo, finalidade ou item contratado.; Link do sistema de origem ausente.; Texto ...
+- Vitoria (`27142058000126-1-000634/2025`), media 1.25: Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000. Alertas: Objeto da compra e curto ou generico.; Objeto nao delimita suficientemente escopo, finalidade ou item contratado.; Link do sistema de origem ausente.; Texto ...
+- Vitoria (`27142058000126-1-000783/2025`), media 1.25: Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000. Alertas: Objeto da compra e curto ou generico.; Objeto nao delimita suficientemente escopo, finalidade ou item contratado.; Link do sistema de origem ausente.; Texto ...
+- Rio de Janeiro (`42498733000148-1-000665/2026`), media 1.50: Avaliacao local Codex: status=insufficient_text; media=1.50; alinhamento lexical documento/API=0.000. Alertas: Objeto da compra e curto ou generico.; Objeto nao delimita suficientemente escopo, finalidade ou item contratado.; Valor estimado zero sem valor homologado i...
+
+Limitacoes especificas da Q3:
+
+- Avaliacao executada localmente pelo Codex como regra deterministica derivada da rubrica, sem chamada a API externa de modelo e sem conhecimento externo.
+- O alinhamento documento/API usa sobreposicao lexical entre objeto, modalidade, orgao e texto extraido; baixa sobreposicao indica risco de verificabilidade, nao prova contradicao substantiva.
+- Caracteres substitutos invalidos em extracoes documentais foram saneados para UTF-8 antes de hashing e gravacao; text_sha256 refere-se ao texto saneado.
+- 397 documento(s) da subamostra nao tiveram texto extraido com status ok.
+- 397 registro(s) receberam status insufficient_text por ausencia ou insuficiencia de texto documental.
+
 ## Limitacoes
 
 - A comparacao e exploratoria e nao representa todos os municipios do Sudeste.
@@ -366,7 +399,7 @@ Para Q2, o pipeline registrou a duracao da coleta e das chamadas ao endpoint de 
 
 O PNCP oferece uma infraestrutura relevante de governo aberto para as capitais do Sudeste, pois centraliza registros, padroniza campos e permite consulta por API. No entanto, a comparacao mostra que a abertura formal dos dados nao elimina assimetrias de acesso. A fragmentacao de CNPJs em Sao Paulo e um achado substantivo: mesmo com dados publicos, a capacidade de controle social depende de conhecer a organizacao administrativa por tras dos registros.
 
-Assim, a conclusao regional e que o PNCP fortalece a transparencia formal, mas sua efetividade como instrumento de governo aberto depende da completude documental, da padronizacao dos registros e da facilidade de reconstituir o universo institucional de cada prefeitura.
+Assim, a conclusao regional e que o PNCP fortalece a transparencia formal, mas sua efetividade como instrumento de governo aberto depende da completude documental, da padronizacao dos registros, da qualidade semantica das informacoes retornadas e da facilidade de reconstituir o universo institucional de cada prefeitura.
 
 ## Reproducibilidade
 

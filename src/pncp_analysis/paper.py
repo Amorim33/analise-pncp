@@ -167,6 +167,7 @@ def render_paper_markdown(
     api_examples = require_list(metrics, "api_examples")
     completeness_examples = metrics.get("completeness_examples", [])
     api_experiment = metrics.get("api_experiment", {})
+    semantic_quality = metrics.get("semantic_quality", {})
     sp_fragmentation = metrics.get("sao_paulo_fragmentation_evidence", {})
     if not isinstance(sp_fragmentation, dict):
         sp_fragmentation = {}
@@ -192,7 +193,7 @@ def render_paper_markdown(
         (
             "Este trabalho analisa o Portal Nacional de Contratações Públicas (PNCP) "
             "como infraestrutura de governo aberto nas capitais do Sudeste brasileiro. "
-            "A investigação foi organizada em duas questões de pesquisa:"
+            "A investigação foi organizada em três questões de pesquisa:"
         ),
         "",
         (
@@ -205,6 +206,11 @@ def render_paper_markdown(
             "Q2. Os dados das **APIs**^[**API**: interface de programação de "
             "aplicações; no contexto deste trabalho, é o meio automatizado de consulta "
             "aos dados do PNCP.] do PNCP são facilmente consumíveis?"
+        ),
+        "",
+        (
+            "Q3. As respostas da **API** do PNCP são semanticamente coerentes e "
+            "informativas para controle social?"
         ),
         "",
         (
@@ -254,7 +260,9 @@ def render_paper_markdown(
             "As métricas de Q1 medem a presença de campos essenciais, como objeto, "
             "valores, datas, unidade, link de origem e documentos. As métricas de Q2 "
             "registram duração do experimento, tempo médio de resposta e falhas "
-            "observadas durante o consumo da **API**."
+            "observadas durante o consumo da **API**. A Q3 avalia a coerência interna "
+            "e a informatividade dos registros, usando o documento principal vinculado "
+            "a cada contratação da subamostra documental."
         ),
         "",
         render_repository_reference(),
@@ -265,9 +273,10 @@ def render_paper_markdown(
             "etapas de programação e documentação, sob "
             "supervisão humana. A divisão agêntica usou as **skills**^[**Skills**: "
             "instruções locais que especializam agentes para tarefas como mapear a "
-            "**API**, coletar dados, revisar amostragem e redigir o relatório.] locais em "
-            "`.agents/skills/`: mapeamento da **API**, coleta de dados, metodologia de "
-            "amostragem e redação do relatório. As decisões "
+            "**API**, coletar dados, revisar amostragem, avaliar qualidade semântica e "
+            "redigir o relatório.] locais em `.agents/skills/`: mapeamento da **API**, "
+            "coleta de dados, metodologia de amostragem, avaliação semântica e redação "
+            "do relatório. As decisões "
             "substantivas, a validação das fontes e a interpretação final permanecem "
             "sob responsabilidade do autor; a declaração de uso de IA está no "
             "Apêndice B."
@@ -364,6 +373,21 @@ def render_paper_markdown(
         "",
         render_api_error_notes(collection_metadata, api_experiment, pipeline_metadata),
         "",
+        "## Q3: qualidade semântica e informatividade",
+        "",
+        (
+            "A Q3 usa um subagent Codex como avaliador estruturado dos registros e do "
+            "documento principal selecionado. Quando o texto documental não está "
+            "extraído, a avaliação fica limitada ao registro da **API** e aos metadados "
+            "do documento principal. O avaliador não substitui a fonte documental: "
+            "snapshots, metadados, hashes de entrada e respostas brutas são preservados "
+            "para auditoria. A rubrica atribui notas de 0 a 4 para coerência interna, "
+            "informatividade do registro, alinhamento entre documento e **API**, e "
+            "acionabilidade para controle social."
+        ),
+        "",
+        render_semantic_quality_table(semantic_quality),
+        "",
         "## Constatações empíricas",
         "",
         render_bullets([str(item) for item in additional_findings]),
@@ -391,8 +415,8 @@ def render_paper_markdown(
             "apresentam boa disponibilidade básica de dados e documentos no PNCP, mas "
             "diferem na forma de organização dos registros. A agenda de melhoria passa "
             "por documentação mais clara dos CNPJs/unidades, maior completude de links "
-            "de origem e mecanismos que facilitem ao cidadão reconstruir o universo de "
-            "órgãos vinculados a cada prefeitura."
+            "de origem, respostas semanticamente coerentes e mecanismos que facilitem "
+            "ao cidadão reconstruir o universo de órgãos vinculados a cada prefeitura."
         ),
         "",
         "# Referências",
@@ -417,8 +441,11 @@ def render_paper_markdown(
             "A API de consulta por publicação limita cada requisição a janelas de até "
             "365 dias; por isso, o recorte usa a maior janela aceita em uma consulta "
             "reprodutível. Além disso, documentos vinculados foram analisados por "
-            "subamostra determinística, e os resultados podem mudar com novas "
-            "publicações, retificações ou alterações na API do PNCP."
+            "subamostra determinística. A avaliação semântica depende da extração de "
+            "texto ou dos metadados do documento principal e de uma rodada preservada "
+            "do subagent Codex avaliador; seus resultados devem ser lidos como apoio "
+            "estruturado à análise, não como fonte primária. Os resultados podem mudar "
+            "com novas publicações, retificações ou alterações na API do PNCP."
         ),
         "",
     ]
@@ -452,9 +479,10 @@ def render_abstract_text(date_range: str) -> str:
         "Este relatório analisa pregões eletrônicos publicados no PNCP entre "
         f"{date_range}, com foco nas prefeituras das capitais do Sudeste. O método "
         "combina coleta automatizada, análise de completude, medição de consumibilidade "
-        "dos endpoints e comparação institucional entre capitais. O resultado indica "
-        "boa disponibilidade de campos básicos, ressalvas em valor homologado e link de "
-        "origem, além de forte fragmentação de CNPJs em São Paulo."
+        "dos endpoints, avaliação semântica das respostas e comparação institucional "
+        "entre capitais. O resultado indica boa disponibilidade de campos básicos, "
+        "ressalvas em valor homologado e link de origem, além de forte fragmentação de "
+        "CNPJs em São Paulo."
     )
 
 
@@ -738,6 +766,84 @@ def render_api_error_notes(
     return "\n\n".join(lines)
 
 
+def render_semantic_quality_table(semantic_quality: Any) -> str:
+    if not isinstance(semantic_quality, dict) or not semantic_quality:
+        return (
+            "A etapa Q3 ainda não foi executada nesta versão dos artefatos. Para "
+            "produzir a tabela final, execute `uv run pncp-analysis semantic` após a "
+            "coleta documental."
+        )
+
+    by_city = semantic_quality.get("by_city", [])
+    rows = []
+    if isinstance(by_city, list):
+        for item in by_city:
+            if isinstance(item, dict):
+                rows.append(
+                    [
+                        item.get("city", ""),
+                        item.get("scored_count", item.get("evaluated_count", 0)),
+                        item.get("insufficient_text_count", 0),
+                        item.get("sample_count", 0),
+                        format_score(item.get("avg_coerencia_interna")),
+                        format_score(item.get("avg_informatividade_do_registro")),
+                        format_score(item.get("avg_alinhamento_documento_api")),
+                        format_score(item.get("avg_acionabilidade_controle_social")),
+                        format_score(item.get("avg_score_medio")),
+                    ]
+                )
+    overall = semantic_quality.get("overall", {})
+    if not isinstance(overall, dict):
+        overall = {}
+    scored_count = semantic_quality.get(
+        "scored_count",
+        overall.get("scored_count", semantic_quality.get("evaluated_count", 0)),
+    )
+    lines = [
+        (
+            "O experimento Q3 pontuou "
+            f"{scored_count} "
+            f"de {semantic_quality.get('sample_count', 0)} registros da subamostra; "
+            f"{semantic_quality.get('insufficient_text_count', 0)} ficaram com texto "
+            "documental insuficiente. A avaliação usou o avaliador "
+            f"`{semantic_quality.get('model', '')}` e o "
+            f"prompt `{semantic_quality.get('prompt_version', '')}`."
+        ),
+        "",
+        markdown_table(
+            [
+                "Capital",
+                "Pontuados",
+                "Texto insuf.",
+                "Amostra",
+                "Coer.",
+                "Info.",
+                "Doc/API",
+                "Acion.",
+                "Média",
+            ],
+            rows,
+        ),
+    ]
+
+    examples = semantic_quality.get("examples", [])
+    if isinstance(examples, list) and examples:
+        lines.extend(["", "Exemplos resumidos da avaliação:", ""])
+        for item in examples[:5]:
+            if isinstance(item, dict):
+                lines.append(
+                    "- "
+                    f"{item.get('city', '')} (`{item.get('numeroControlePNCP', '')}`), "
+                    f"média {format_score(item.get('score_medio'))}: "
+                    f"{truncate(str(item.get('resumo') or ''), 180)}"
+                )
+    limitations = semantic_quality.get("limitations", [])
+    if isinstance(limitations, list) and limitations:
+        lines.extend(["", "Limitações específicas da Q3:", ""])
+        lines.extend(f"- {item}" for item in limitations)
+    return "\n".join(lines)
+
+
 def render_api_examples(api_examples: list[Any]) -> str:
     blocks = []
     for example in api_examples:
@@ -788,6 +894,11 @@ def require_list(payload: dict[str, Any], key: str) -> list[Any]:
 
 def as_optional_float(value: Any) -> float | None:
     return optional_float(value)
+
+
+def format_score(value: Any) -> str:
+    numeric = optional_float(value)
+    return "n/a" if numeric is None else f"{numeric:.2f}"
 
 
 def truncate(value: str, max_length: int) -> str:

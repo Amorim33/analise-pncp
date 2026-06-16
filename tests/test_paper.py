@@ -2,7 +2,13 @@ from pathlib import Path
 
 import pytest
 
-from pncp_analysis.config import AnalysisConfig, ApiConfig, CityConfig, SaoPauloFilterConfig
+from pncp_analysis.config import (
+    AnalysisConfig,
+    ApiConfig,
+    CityConfig,
+    SaoPauloFilterConfig,
+    SemanticConfig,
+)
 from pncp_analysis.paper import (
     PaperConfig,
     generate_paper,
@@ -28,6 +34,7 @@ def test_render_paper_markdown_contains_required_sections_and_citations() -> Non
     assert "# Desenvolvimento e análise" in markdown
     assert "Q1. Há completude nos dados fornecidos pelo PNCP" in markdown
     assert "Q2. Os dados das **APIs**^[" in markdown
+    assert "Q3. As respostas da **API** do PNCP são semanticamente coerentes" in markdown
     assert "**APIs**^[**API**:" in markdown
     assert "**Codex**^[**Codex**:" in markdown
     assert "**skills**^[**Skills**:" in markdown
@@ -35,6 +42,7 @@ def test_render_paper_markdown_contains_required_sections_and_citations() -> Non
     assert "O tema dialoga com a disciplina Governo Aberto" not in markdown
     assert "## Q1: completude dos dados" in markdown
     assert "## Q2: consumo da API" in markdown
+    assert "## Q3: qualidade semântica e informatividade" in markdown
     assert "https://github.com/Amorim33/analise-pncp" in markdown
     assert "O processo foi assistido pelo **Codex**^[" in markdown
     assert ".agents/skills/" in markdown
@@ -114,6 +122,13 @@ def analysis_config() -> AnalysisConfig:
             municipality_scan_max_pages=None,
             request_delay_seconds=0.0,
             retries=1,
+        ),
+        semantic=SemanticConfig(
+            model="codex-subagent",
+            reasoning_effort="medium",
+            text_verbosity="low",
+            max_document_chars=12000,
+            document_cache_dir="data/raw/q3_documents",
         ),
         sao_paulo_filter=SaoPauloFilterConfig(include_indicators=[], exclude_indicators=[]),
         cities=[
@@ -255,6 +270,44 @@ def metrics_payload() -> dict[str, object]:
             "distinct_cnpj_count": 10,
             "outside_matrix_cnpj_count": 9,
         },
+        "semantic_quality": {
+            "generated_at": "2026-06-16T00:00:00+00:00",
+            "question": "Q3. As respostas da API sao semanticamente coerentes?",
+            "model": "codex-subagent",
+            "reasoning_effort": "medium",
+            "text_verbosity": "low",
+            "prompt_version": "q3-semantic-v1",
+            "schema_version": "q3-semantic-schema-v1",
+            "pending_codex_evaluation": False,
+            "sample_count": 1,
+            "evaluated_count": 1,
+            "not_evaluated_count": 0,
+            "insufficient_text_count": 0,
+            "extraction_status_counts": {"ok": 1},
+            "overall": {
+                "sample_count": 1,
+                "evaluated_count": 1,
+                "avg_coerencia_interna": 3.0,
+                "avg_informatividade_do_registro": 4.0,
+                "avg_alinhamento_documento_api": 3.0,
+                "avg_acionabilidade_controle_social": 3.0,
+                "avg_score_medio": 3.25,
+            },
+            "by_city": [
+                {
+                    "city": "Sao Paulo",
+                    "sample_count": 1,
+                    "evaluated_count": 1,
+                    "avg_coerencia_interna": 3.0,
+                    "avg_informatividade_do_registro": 4.0,
+                    "avg_alinhamento_documento_api": 3.0,
+                    "avg_acionabilidade_controle_social": 3.0,
+                    "avg_score_medio": 3.25,
+                }
+            ],
+            "examples": [],
+            "limitations": [],
+        },
     }
 
 
@@ -305,6 +358,12 @@ api:
   municipality_scan_max_pages: null
   request_delay_seconds: 0
   retries: 1
+semantic:
+  model: "codex-subagent"
+  reasoning_effort: "medium"
+  text_verbosity: "low"
+  max_document_chars: 12000
+  document_cache_dir: "data/raw/q3_documents"
 sao_paulo_filter:
   include_indicators: []
   exclude_indicators: []

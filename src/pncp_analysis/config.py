@@ -34,6 +34,15 @@ class SaoPauloFilterConfig:
 
 
 @dataclass(frozen=True)
+class SemanticConfig:
+    model: str
+    reasoning_effort: str
+    text_verbosity: str
+    max_document_chars: int
+    document_cache_dir: str
+
+
+@dataclass(frozen=True)
 class AnalysisConfig:
     start_date: str
     end_date: str
@@ -44,6 +53,7 @@ class AnalysisConfig:
     document_sample_n: int
     seed: int
     api: ApiConfig
+    semantic: SemanticConfig
     sao_paulo_filter: SaoPauloFilterConfig
     cities: list[CityConfig]
 
@@ -58,6 +68,9 @@ def load_config(path: Path) -> AnalysisConfig:
     modality = raw["modality"]
     sample = raw["sample"]
     sp_filter = raw["sao_paulo_filter"]
+    semantic = raw.get("semantic", {})
+    if not isinstance(semantic, dict):
+        raise ValueError("semantic config must be an object")
 
     sample_strategy = str(sample.get("strategy", "fixed"))
     if sample_strategy not in {"fixed", "all"}:
@@ -87,6 +100,13 @@ def load_config(path: Path) -> AnalysisConfig:
             municipality_scan_max_pages=optional_int(api["municipality_scan_max_pages"]),
             request_delay_seconds=float(api["request_delay_seconds"]),
             retries=int(api["retries"]),
+        ),
+        semantic=SemanticConfig(
+            model=str(semantic.get("model", "codex-subagent")),
+            reasoning_effort=str(semantic.get("reasoning_effort", "medium")),
+            text_verbosity=str(semantic.get("text_verbosity", "low")),
+            max_document_chars=int(semantic.get("max_document_chars", 12000)),
+            document_cache_dir=str(semantic.get("document_cache_dir", "data/raw/q3_documents")),
         ),
         sao_paulo_filter=SaoPauloFilterConfig(
             include_indicators=list_of_str(sp_filter["include_indicators"]),

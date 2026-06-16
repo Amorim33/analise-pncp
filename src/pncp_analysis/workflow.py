@@ -12,6 +12,7 @@ from pncp_analysis.filters import is_sao_paulo_municipal_executive
 from pncp_analysis.pncp_client import PncpClient
 from pncp_analysis.report import render_report
 from pncp_analysis.sampling import deduplicate_records, deterministic_sample
+from pncp_analysis.semantic import run_semantic_analysis
 from pncp_analysis.utils import (
     date_for_pncp,
     format_display_date,
@@ -259,7 +260,28 @@ def report(config_path: Path = DEFAULT_CONFIG_PATH) -> None:
     )
 
 
-def run_all(config_path: Path = DEFAULT_CONFIG_PATH) -> None:
+def semantic(
+    config_path: Path = DEFAULT_CONFIG_PATH,
+    *,
+    skip_gpt: bool = False,
+    reuse_existing: bool = False,
+    limit: int | None = None,
+) -> None:
+    config = load_config(config_path)
+    run_semantic_analysis(
+        config=config,
+        raw_dir=RAW_DIR,
+        processed_dir=PROCESSED_DIR,
+        document_sample_path=PROCESSED_DIR / "document_sample.json",
+        document_index_path=RAW_DIR / "sample_documents.json",
+        metrics_path=PROCESSED_DIR / "metrics.json",
+        skip_gpt=skip_gpt,
+        reuse_existing=reuse_existing,
+        limit=limit,
+    )
+
+
+def run_all(config_path: Path = DEFAULT_CONFIG_PATH, *, skip_q3: bool = False) -> None:
     config = load_config(config_path)
     started = time.perf_counter()
     started_at = utc_now_iso()
@@ -281,11 +303,14 @@ def run_all(config_path: Path = DEFAULT_CONFIG_PATH) -> None:
         )
     sample(config_path)
     analyze(config_path)
+    if not skip_q3:
+        semantic(config_path)
     write_pipeline_metadata(
         started_at=started_at,
         started=started,
         collection_status=collection_status,
         collection_attempt=collection_attempt,
+        steps=["collect", "sample", "analyze", *([] if skip_q3 else ["semantic"]), "report"],
         finished=False,
     )
     report(config_path)
@@ -294,6 +319,7 @@ def run_all(config_path: Path = DEFAULT_CONFIG_PATH) -> None:
         started=started,
         collection_status=collection_status,
         collection_attempt=collection_attempt,
+        steps=["collect", "sample", "analyze", *([] if skip_q3 else ["semantic"]), "report"],
         finished=True,
     )
 
@@ -439,13 +465,14 @@ def write_pipeline_metadata(
     started: float,
     collection_status: str,
     collection_attempt: dict[str, Any],
+    steps: list[str],
     finished: bool,
 ) -> None:
     payload = {
         "started_at": started_at,
         "finished_at": utc_now_iso(),
         "duration_seconds": round(time.perf_counter() - started, 3),
-        "steps": ["collect", "sample", "analyze", "report"],
+        "steps": steps,
         "collection_status": collection_status,
         "collection_attempt": collection_attempt,
         "status": "complete" if finished else "running",

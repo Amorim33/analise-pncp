@@ -1,4 +1,4 @@
-from pncp_analysis.config import AnalysisConfig, ApiConfig, SaoPauloFilterConfig
+from pncp_analysis.config import AnalysisConfig, ApiConfig, SaoPauloFilterConfig, SemanticConfig
 from pncp_analysis.report import render_report
 
 
@@ -19,6 +19,13 @@ def test_render_report_contains_required_sections() -> None:
             municipality_scan_max_pages=None,
             request_delay_seconds=0.0,
             retries=1,
+        ),
+        semantic=SemanticConfig(
+            model="codex-subagent",
+            reasoning_effort="medium",
+            text_verbosity="low",
+            max_document_chars=12000,
+            document_cache_dir="data/raw/q3_documents",
         ),
         sao_paulo_filter=SaoPauloFilterConfig(include_indicators=[], exclude_indicators=[]),
         cities=[],
@@ -43,6 +50,7 @@ def test_render_report_contains_required_sections() -> None:
     assert "## Resumo" in report
     assert "Q1. Ha completude nos dados fornecidos pelo PNCP" in report
     assert "Q2. Os dados das **APIs** do PNCP sao facilmente consumiveis?" in report
+    assert "Q3. As respostas da **API** do PNCP sao semanticamente coerentes" in report
     assert "**API**^[**API**:" in report
     assert "**Codex**^[**Codex**:" in report
     assert "**skills**^[**Skills**:" in report
@@ -55,6 +63,7 @@ def test_render_report_contains_required_sections() -> None:
     assert "## Constatações adicionais" in report
     assert "## Fragmentacao de CNPJs em Sao Paulo" in report
     assert "## Documentos vinculados" in report
+    assert "## Qualidade semantica e informatividade" in report
     assert "## Conclusao regional" in report
     assert "15/06/2025 a 15/06/2026" in report
     assert "2025-06-15" not in report

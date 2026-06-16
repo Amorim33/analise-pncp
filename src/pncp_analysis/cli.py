@@ -41,6 +41,27 @@ def build_parser() -> argparse.ArgumentParser:
         help="Nao consulta metadados de documentos vinculados.",
     )
 
+    semantic_parser = subparsers.add_parser(
+        "semantic",
+        help="Prepara a avaliacao semantica Q3 para o subagent Codex.",
+    )
+    semantic_parser.add_argument(
+        "--skip-gpt",
+        action="store_true",
+        help="Alias legado: gera selecao, textos e inputs da Q3 para o subagent Codex.",
+    )
+    semantic_parser.add_argument(
+        "--reuse-existing",
+        action="store_true",
+        help="Reusa q3_semantic_metrics.json existente e injeta em metrics.json.",
+    )
+    semantic_parser.add_argument(
+        "--limit",
+        type=int,
+        default=None,
+        help="Limita a quantidade de contratos avaliados. Util para smoke tests.",
+    )
+
     subparsers.add_parser("report", help="Gera analise-exploratoria.md.")
 
     paper_parser = subparsers.add_parser("paper", help="Gera relatorio final em LaTeX/PDF.")
@@ -60,7 +81,15 @@ def build_parser() -> argparse.ArgumentParser:
         help="Permite compilar com metadados placeholder em modo final.",
     )
 
-    subparsers.add_parser("run-all", help="Executa coleta, amostra, analise e relatorio.")
+    run_all_parser = subparsers.add_parser(
+        "run-all",
+        help="Executa coleta, amostra, analise, Q3 semantica e relatorio.",
+    )
+    run_all_parser.add_argument(
+        "--skip-q3",
+        action="store_true",
+        help="Nao executa a etapa semantica Q3.",
+    )
 
     return parser
 
@@ -76,6 +105,13 @@ def main() -> None:
         workflow.sample(config_path=config_path)
     elif args.command == "analyze":
         workflow.analyze(config_path=config_path, skip_documents=args.skip_documents)
+    elif args.command == "semantic":
+        workflow.semantic(
+            config_path=config_path,
+            skip_gpt=args.skip_gpt,
+            reuse_existing=args.reuse_existing,
+            limit=args.limit,
+        )
     elif args.command == "report":
         workflow.report(config_path=config_path)
     elif args.command == "paper":
@@ -86,6 +122,6 @@ def main() -> None:
             allow_placeholders=args.allow_placeholders,
         )
     elif args.command == "run-all":
-        workflow.run_all(config_path=config_path)
+        workflow.run_all(config_path=config_path, skip_q3=args.skip_q3)
     else:
         parser.error(f"Unknown command: {args.command}")

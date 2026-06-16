@@ -25,6 +25,12 @@ api:
   municipality_scan_max_pages: null
   request_delay_seconds: 0
   retries: 1
+semantic:
+  model: "codex-subagent"
+  reasoning_effort: "medium"
+  text_verbosity: "low"
+  max_document_chars: 12000
+  document_cache_dir: "data/raw/q3_documents"
 sao_paulo_filter:
   include_indicators: []
   exclude_indicators: []
@@ -39,3 +45,5 @@ cities: []
     assert config.sample_n is None
     assert config.document_sample_n == 100
     assert config.api.municipality_scan_max_pages is None
+    assert config.semantic.model == "codex-subagent"
+    assert config.semantic.reasoning_effort == "medium"

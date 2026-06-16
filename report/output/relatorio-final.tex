@@ -61,17 +61,13 @@ formal, dados abertos e fragmentação institucional}
 \maketitle
 
 \begin{abstract}
-Este relatório analisa pregões eletrônicos publicados no Portal Nacional
-de Contratações Públicas (PNCP) entre 15/06/2025 e 15/06/2026, com foco
-nas prefeituras das capitais do Sudeste. O método combina quatro etapas:
-coleta automatizada dos registros, análise de completude (verificação
-de quais campos vêm efetivamente preenchidos), medição da facilidade de
-consumo dos dados por meios automatizados e comparação institucional
-entre as capitais. Os resultados indicam boa disponibilidade dos campos
-básicos, ressalvas no valor homologado (o preço final aprovado) e no
-link para o sistema de origem, além de forte fragmentação de CNPJs em
-São Paulo, onde grande parte das contratações é publicada por unidades
-municipais distintas da prefeitura central.
+Este relatório analisa pregões eletrônicos publicados no PNCP entre
+15/06/2025 a 15/06/2026, com foco nas prefeituras das capitais do
+Sudeste. O método combina coleta automatizada, análise de completude,
+medição de consumibilidade dos endpoints, avaliação semântica das
+respostas e comparação institucional entre capitais. O resultado indica
+boa disponibilidade de campos básicos, ressalvas em valor homologado e
+link de origem, além de forte fragmentação de CNPJs em São Paulo.
 \end{abstract}
 
 \begin{center}
@@ -90,70 +86,44 @@ Docente: Jorge Machado
 
 Este trabalho analisa o Portal Nacional de Contratações Públicas (PNCP)
 como infraestrutura de governo aberto nas capitais do Sudeste
-brasileiro. O PNCP é o sistema oficial em que órgãos públicos de todo o
-país divulgam suas licitações e contratos; ele é especialmente relevante
-porque a Lei nº 14.133/2021 (a nova Lei de Licitações) o institui como
-ambiente nacional obrigatório de divulgação das contratações públicas
-(Brasil, 2021).
-
-A investigação foi organizada em duas questões de pesquisa
-complementares. A primeira examina \emph{o que} o portal disponibiliza;
-a segunda, \emph{como} esses dados podem ser obtidos:
+brasileiro. A investigação foi organizada em três questões de pesquisa:
 
 Q1. Há completude nos dados fornecidos pelo PNCP nas prefeituras das
-capitais dos estados do Sudeste brasileiro (São Paulo, Rio de Janeiro,
-Belo Horizonte e Vitória)? Em outras palavras, os registros chegam ao
-cidadão com seus campos efetivamente preenchidos?
+capitais dos estados do sudeste brasileiro (São Paulo, Rio de Janeiro,
+Belo Horizonte e Vitória)?
 
-Q2. Os dados das \textbf{APIs}\footnote{\textbf{API} (\emph{Application
-  Programming Interface}, ou interface de programação de aplicações): é
-  o canal pelo qual um programa consulta outro de forma automatizada,
-  sem intervenção manual. Neste trabalho, é o meio de consultar os dados
-  do PNCP diretamente por código.} do PNCP são facilmente consumíveis?
-Isto é, um pesquisador ou jornalista consegue extrair esses dados em
-escala sem obstáculos técnicos relevantes?
+Q2. Os dados das \textbf{APIs}\footnote{\textbf{API}: interface de
+  programação de aplicações; no contexto deste trabalho, é o meio
+  automatizado de consulta aos dados do PNCP.} do PNCP são facilmente
+consumíveis?
 
-O argumento central que articula as duas questões é o seguinte: o PNCP
-amplia a transparência \emph{formal} ao centralizar metadados (os dados
-que descrevem cada contratação, como objeto, valores e datas),
-documentos e links de origem; porém, sua efetividade como instrumento de
-governo aberto depende de dois fatores adicionais --- a completude dos
-registros (Q1) e a possibilidade prática de reconstituir a organização
-administrativa de cada prefeitura a partir dos dados (Q2). O caso de São
-Paulo evidencia essa tensão com mais nitidez: grande parte dos registros
-municipais aparece fora do \textbf{CNPJ matriz}\footnote{\textbf{CNPJ
-  matriz}: o CNPJ principal da prefeitura, que identifica o município
-  como pessoa jurídica. Secretarias, fundos e empresas municipais podem
-  ter CNPJs próprios (filiais ou entidades vinculadas) e publicar
-  contratações em separado, fora do CNPJ matriz.} do município, de modo
-que uma consulta restrita a esse CNPJ recuperaria apenas uma fração do
-que a cidade efetivamente contratou.
+Q3. As respostas da \textbf{API} do PNCP são semanticamente coerentes e
+informativas para controle social?
+
+O PNCP é especialmente relevante porque a Lei nº 14.133/2021 o institui
+como ambiente nacional de divulgação de contratações públicas (Brasil,
+2021).
+
+O argumento central é que o PNCP amplia a transparência formal ao
+centralizar metadados, documentos e links de origem, mas a efetividade
+como governo aberto depende da completude dos registros e da capacidade
+de reconstituir a organização administrativa de cada prefeitura. O caso
+de São Paulo mostra essa tensão com mais nitidez: grande parte dos
+registros municipais aparece fora do CNPJ matriz do município.
 
 \section{Objetivos e método}\label{objetivos-e-muxe9todo}
 
 O objetivo geral é avaliar, de forma exploratória, como o PNCP expressa
 princípios de governo aberto nas contratações das capitais do Sudeste. A
-pesquisa combina análise documental e computacional, organizada em uma
-sequência de etapas automatizadas (um \textbf{pipeline}\footnote{\textbf{Pipeline}:
-  sequência encadeada de etapas automatizadas em que a saída de uma
-  etapa alimenta a seguinte --- aqui, da coleta dos dados ao cálculo das
-  métricas e à geração do relatório.}): coleta os registros por
-\textbf{API}, transforma os dados em \textbf{snapshots}\footnote{\textbf{Snapshot}:
-  cópia congelada dos dados no momento da coleta, salva em arquivo. Por
-  ser fixa, permite reexecutar a análise e auditar os resultados sem
-  depender de novas consultas à API, cujo conteúdo pode mudar com o
-  tempo.} auditáveis, calcula métricas e gera relatórios reprodutíveis.
+pesquisa combina análise documental e computacional: coleta registros
+por \textbf{API}, transforma os dados em snapshots auditáveis, calcula
+métricas e gera relatórios reprodutíveis.
 
-O recorte empírico considera pregões eletrônicos --- identificados como
-modalidade 6 no PNCP --- publicados entre 15/06/2025 e 15/06/2026. Para
-Rio de Janeiro, Belo Horizonte e Vitória, foram usados os CNPJs matriz
-de cada município. Para São Paulo, combinou-se o CNPJ matriz com uma
-varredura por UF (unidade da federação, ou seja, o estado) e por código
-IBGE (o código numérico que o Instituto Brasileiro de Geografia e
-Estatística atribui a cada município), filtrando apenas as entidades do
-poder executivo municipal. Essa estratégia mais ampla para São Paulo foi
-necessária justamente porque, como se verá, a cidade publica grande
-parte de suas contratações fora do CNPJ matriz.
+O recorte empírico considera pregões eletrônicos, modalidade 6 no PNCP,
+publicados entre 15/06/2025 a 15/06/2026. Foram usados os CNPJs matriz
+de Rio de Janeiro, Belo Horizonte e Vitória. Para São Paulo, combinou-se
+o CNPJ matriz com varredura por UF e código IBGE, filtrando entidades
+municipais executivas.
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}llllll@{}}
@@ -172,25 +142,16 @@ Vitoria & matriz & 234 & 12 & 12 & \\
 }
 
 A amostra principal inclui todos os registros elegíveis no período, após
-\textbf{deduplicação}\footnote{\textbf{Deduplicação}: remoção de
-  registros repetidos. Aqui, usou-se o campo
-  \texttt{numeroControlePNCP}, o identificador único de cada contratação
-  no portal, para garantir que cada pregão fosse contado uma só vez.}
-pelo campo \texttt{numeroControlePNCP}. Para a análise de documentos,
-foi usada uma subamostra determinística de até 100 registros por
-capital. A subamostra é \emph{determinística} porque parte de uma
-\textbf{semente}\footnote{\textbf{Semente} (\emph{seed}): número que
-  inicializa o sorteio aleatório. Fixá-la (aqui, 20260608) faz com que a
-  mesma amostra seja sorteada a cada execução, tornando o resultado
-  reprodutível por terceiros.} fixa (20260608), o que permite reproduzir
-exatamente o mesmo sorteio.
+deduplicação por \texttt{numeroControlePNCP}. Para a análise de
+documentos, foi usada subamostra determinística de até 100 registros por
+capital. A semente usada foi 20260608.
 
-As métricas de Q1 medem a presença de campos essenciais --- objeto,
-valores, datas, unidade administrativa, link de origem e documentos ---,
-respondendo à pergunta sobre completude. As métricas de Q2 registram a
-duração do experimento, o tempo médio de resposta e as falhas observadas
-durante o consumo da \textbf{API}, respondendo à pergunta sobre
-facilidade de consumo.
+As métricas de Q1 medem a presença de campos essenciais, como objeto,
+valores, datas, unidade, link de origem e documentos. As métricas de Q2
+registram duração do experimento, tempo médio de resposta e falhas
+observadas durante o consumo da \textbf{API}. A Q3 avalia a coerência
+interna e a informatividade dos registros, usando o documento principal
+vinculado a cada contratação da subamostra documental.
 
 A reprodutibilidade foi organizada no repositório GitHub
 \url{https://github.com/Amorim33/analise-pncp}. O repositório versiona
@@ -203,51 +164,38 @@ O processo foi assistido pelo \textbf{Codex}\footnote{\textbf{Codex}:
   revisar o pipeline.} em etapas de programação e documentação, sob
 supervisão humana. A divisão agêntica usou as \textbf{skills}\footnote{\textbf{Skills}:
   instruções locais que especializam agentes para tarefas como mapear a
-  \textbf{API}, coletar dados, revisar amostragem e redigir o relatório.}
-locais em \texttt{.agents/skills/}: mapeamento da \textbf{API}, coleta
-de dados, metodologia de amostragem e redação do relatório. As decisões
-substantivas, a validação das fontes e a interpretação final permanecem
-sob responsabilidade do autor; a declaração de uso de IA está no
-Apêndice B.
+  \textbf{API}, coletar dados, revisar amostragem, avaliar qualidade
+  semântica e redigir o relatório.} locais em \texttt{.agents/skills/}:
+mapeamento da \textbf{API}, coleta de dados, metodologia de amostragem,
+avaliação semântica e redação do relatório. As decisões substantivas, a
+validação das fontes e a interpretação final permanecem sob
+responsabilidade do autor; a declaração de uso de IA está no Apêndice B.
 
 \section{Referencial teórico}\label{referencial-teuxf3rico}
 
 Governo aberto costuma ser descrito como um arranjo que combina
 transparência, participação social, colaboração e prestação de contas. A
-\emph{Open Government Partnership} (OGP, ou Parceria para Governo
-Aberto), iniciativa multilateral que reúne dezenas de países em torno do
-tema, associa-o a compromissos de abertura, integridade pública e
-participação cidadã (Open Government Partnership, 2011). De modo
-convergente, a OCDE (Organização para a Cooperação e Desenvolvimento
-Econômico) define governo aberto como uma cultura de governança que
-promove a transparência, a integridade, a
-\emph{accountability}\footnote{\emph{Accountability}: termo inglês sem
-  tradução exata em português, que reúne as ideias de prestação de
-  contas e de responsabilização --- o dever de quem exerce poder
-  público de justificar seus atos e responder por eles.} e a
-participação das partes interessadas (Organisation for Economic
-Co-operation and Development, 2017).
+Open Government Partnership associa o tema a compromissos de abertura,
+integridade pública e participação cidadã (Open Government Partnership,
+2011). A OCDE também define governo aberto como uma cultura de
+governança que promove princípios de transparência, integridade,
+accountability e participação das partes interessadas (Organisation for
+Economic Co-operation and Development, 2017).
 
-Os dados abertos são a dimensão operacional desse debate --- isto é, o
-mecanismo concreto pelo qual a transparência se realiza. Para que a
+Dados abertos são uma dimensão operacional desse debate. Para que a
 publicação seja útil, não basta disponibilizar informação em páginas
-isoladas: é preciso permitir acesso, reuso, padronização e combinação
-com outras bases (W3C Brasil, 2011)\footnote{O W3C (\emph{World Wide Web
-  Consortium}) é o consórcio internacional que define os padrões da
-  web.}. A Lei de Acesso à Informação reforça esse princípio ao tornar a
-publicidade a regra e o sigilo a exceção (Brasil, 2011). Daí decorre o
-critério que orienta este trabalho: a transparência pública deve ser
-avaliada não apenas pela \emph{existência} dos dados, mas por sua
-\emph{usabilidade} para fiscalização e pesquisa --- distinção que
-justamente separa as duas questões de pesquisa (Q1 e Q2).
+isoladas: é necessário permitir acesso, reuso, padronização e combinação
+com outras bases (W3C Brasil, 2011). A Lei de Acesso à Informação também
+reforça a publicidade como regra e o sigilo como exceção (Brasil, 2011).
+Assim, transparência pública deve ser avaliada não apenas pela
+existência de dados, mas por sua usabilidade para fiscalização e
+pesquisa.
 
-No caso brasileiro, o PNCP é uma infraestrutura particularmente
-adequada a esse tipo de análise, pois centraliza informações e
-documentos de contratações públicas (Brasil, 2026c). A existência de uma
-API e de dados consultáveis amplia o potencial de reutilização por
-cidadãos, pesquisadores e jornalistas (Brasil, 2026b, 2026a) --- desde
-que, como argumentamos, esses dados se mostrem completos e efetivamente
-acessíveis na prática.
+No caso brasileiro, o PNCP constitui uma infraestrutura relevante para
+esse tipo de análise, pois centraliza informações e documentos de
+contratações públicas (Brasil, 2026c). A existência de API e de dados
+consultáveis amplia o potencial de reutilização por cidadãos,
+pesquisadores e jornalistas (Brasil, 2026b, 2026a).
 
 \section{Desenvolvimento e análise}\label{desenvolvimento-e-anuxe1lise}
 
@@ -286,16 +234,12 @@ Vitoria & 234 & 234 & 1 & 234 & 100.0\% \\
 \end{longtable}
 }
 
-A tabela acima já revela a primeira diferença relevante: a concentração
-institucional, medida pela coluna ``Participação da matriz'' (a fração
-dos registros publicada sob o CNPJ matriz). Rio de Janeiro, Belo
-Horizonte e Vitória concentram 100\% dos registros no CNPJ matriz no
-recorte adotado --- ou seja, consultar o CNPJ da prefeitura recupera
-toda a atividade contratual. São Paulo, ao contrário, apresenta apenas
-1,1\% sob o CNPJ matriz e 67 CNPJs distintos, associados a unidades como
-fundo municipal, hospital, companhia de engenharia de tráfego,
-secretaria e subprefeitura. É essa dispersão que a próxima subseção
-detalha.
+A primeira diferença relevante está na concentração institucional. Rio
+de Janeiro, Belo Horizonte e Vitória aparecem concentradas no CNPJ
+matriz no recorte adotado. São Paulo, por outro lado, apresenta
+múltiplos CNPJs municipais executivos associados a unidades como fundo
+municipal, hospital, companhia de engenharia de tráfego, secretaria e
+subprefeitura.
 
 \subsection{Fragmentação em São
 Paulo}\label{fragmentauxe7uxe3o-em-suxe3o-paulo}
@@ -318,17 +262,11 @@ CNPJs fora da matriz & 66 \\
 \end{longtable}
 }
 
-Os números são expressivos: dos 2.662 registros candidatos, apenas 30
-(1,1\%) estão sob o CNPJ matriz e 2.632 (98,9\%) estão distribuídos por
-outros 66 CNPJs municipais. Esse resultado é substantivo para o governo
-aberto. Uma consulta limitada ao CNPJ matriz de São Paulo recuperaria
-menos de 2\% das contratações elegíveis e, portanto, daria ao cidadão
-uma imagem gravemente subestimada da atividade do município. A
-transparência formal do PNCP convive, assim, com uma barreira de
-reconstrução institucional: para enxergar o todo, o cidadão precisa
-saber de antemão que a prefeitura pode publicar contratações por
-dezenas de CNPJs distintos --- conhecimento que o próprio portal não lhe
-fornece de forma direta.
+Esse resultado é substantivo para governo aberto. Uma consulta limitada
+ao CNPJ matriz de São Paulo recuperaria apenas uma fração dos registros
+elegíveis. Portanto, a transparência formal do PNCP convive com uma
+barreira de reconstrução institucional: o cidadão precisa saber que a
+prefeitura pode publicar contratações por diferentes CNPJs municipais.
 
 \subsection{Q1: completude dos dados}\label{q1-completude-dos-dados}
 
@@ -375,26 +313,17 @@ Vitoria & 100.0\% & 100.0\% & 66.7\% & 100.0\% & 100.0\% & 0.0\% &
 \end{longtable}
 }
 
-A tabela apresenta, para cada capital, o percentual de registros em que
-cada campo veio preenchido: objeto (Obj.), valor estimado (Estim.),
-valor homologado (Homol.), data, unidade administrativa (Unid.), link de
-origem (Link) e documentos (Docs). A resposta a Q1 é positiva para os
-campos estruturantes, mas com ressalvas relevantes. O objeto, o valor
-estimado, as datas básicas e a unidade administrativa apareceram em
-praticamente 100\% dos registros elegíveis. A variação concentrou-se em
-três campos: o \textbf{valor homologado} (o preço final aprovado ao fim
-do pregão), o \textbf{link do sistema de origem} (o endereço que remete
-ao sistema próprio do município, de onde o registro foi enviado ao PNCP)
-e os documentos. Essa diferença importa para o controle social porque,
-sem o valor homologado, não se sabe quanto foi efetivamente contratado;
-e, sem o link de origem, perde-se o caminho para auditar o processo em
-sua fonte. Vitória ilustra o ponto extremo: 0\% de link de origem,
-apesar de 100\% de documentos anexados.
+A resposta a Q1 é positiva para os campos estruturantes do registro, mas
+com ressalvas relevantes. Nos registros elegíveis, objeto, valor
+estimado, datas básicas e unidade administrativa tiveram alta
+disponibilidade. A variação concentrou-se em valor homologado, link do
+sistema de origem e documentos, que foram avaliados na subamostra
+documental. Essa diferença importa para controle social porque a
+ausência de resultado homologado ou de link externo dificulta a
+reconstituição completa do processo.
 
-Exemplos pseudoaleatórios\footnote{``Pseudoaleatórios'' porque sorteados
-  por um gerador de números pseudoaleatórios a partir da semente fixa
-  --- o sorteio parece aleatório, mas é reproduzível.} da subamostra
-documental ilustram essa variação:
+Exemplos pseudoaleatórios da subamostra documental ilustram essa
+variação:
 
 \begin{itemize}
 \tightlist
@@ -437,16 +366,6 @@ Vitoria & 100 & 100 & 1 & 12 & 5.3 \\
 \end{longtable}
 }
 
-A tabela acima detalha quantos documentos cada registro traz anexados na
-subamostra. Em todas as capitais, todos os 100 itens da subamostra
-tinham ao menos um documento. A diferença está na quantidade: São Paulo
-e Rio de Janeiro anexam, em regra, um único documento por registro,
-enquanto Vitória apresenta média de 5,3 e chega a 12 documentos em um
-mesmo registro. Mais documentos tendem a significar mais contexto
-disponível ao cidadão, embora a leitura conjunta com a tabela anterior
-mostre que volume de documentos não compensa a ausência do link de
-origem.
-
 \subsection{Q2: consumo da API}\label{q2-consumo-da-api}
 
 {\def\LTcaptype{none} % do not increment counter
@@ -464,50 +383,139 @@ Total & & & & 3min 37.8s & \\
 \end{longtable}
 }
 
-A resposta a Q2 é intermediária. Por um lado, a API é consumível por
-programas: retorna os dados em \textbf{JSON}\footnote{\textbf{JSON}
-  (\emph{JavaScript Object Notation}): formato de texto estruturado,
-  legível por máquina e por humano, amplamente usado para troca de dados
-  entre sistemas.} estruturado e oferece \textbf{paginação}\footnote{\textbf{Paginação}:
-  entrega dos resultados em ``páginas'' sucessivas em vez de tudo de uma
-  vez, exigindo várias requisições para obter o conjunto completo.}. Por
-outro, o consumo não é trivial em uma janela anual: foi necessário
-dividir as consultas em blocos mensais, inserir pausas entre as
-requisições e tratar o \emph{limite de taxa} (\emph{rate limit}) ---
-restrição que o servidor impõe ao número de requisições aceitas em um
-dado intervalo. A duração total do experimento, registrada na tabela
-acima, soma a coleta das contratações, a geração da amostra e a consulta
-aos documentos da subamostra.
+A resposta a Q2 é intermediária. A API é consumível por scripts, retorna
+JSON estruturado e expõe paginação, mas o consumo não é trivial em uma
+janela anual: foi necessário dividir consultas em blocos mensais,
+respeitar pausas entre requisições e tratar limite de taxa. A duração
+total do experimento inclui coleta de contratações, geração da amostra e
+consulta a documentos da subamostra.
 
-Quanto à estabilidade, os snapshots reutilizados não registraram
-nenhuma falha persistente na coleta bem-sucedida anterior, e a consulta
-de documentos da execução final também terminou sem falhas. A ressalva
-está na linha ``Tentativa live'' da tabela: a tentativa de coletar os
-dados ao vivo nesta execução falhou nas seis requisições, e o pipeline
-recorreu, por segurança, aos snapshots já existentes. O servidor
-respondeu com o código \textbf{HTTP 503} (\emph{Service Unavailable},
-serviço indisponível), indicando indisponibilidade temporária do lado do
-PNCP --- e não um erro do código de coleta.
+Os snapshots de coleta reutilizados registravam 0 falha(s)
+persistente(s) na coleta bem-sucedida anterior. Na execução final, a
+consulta de documentos registrou 0 falha(s) persistente(s).
 
-Ao longo da experimentação, três obstáculos técnicos recorrentes foram
-identificados e contornados:
+A tentativa live desta execução falhou e o pipeline reutilizou snapshots
+existentes. Erro registrado: PNCP request failed for
+/v1/contratacoes/publicacao: HTTP 503; content-type=text/html; body=b'
+
+503 Service Unavailable
+
+No server is available to handle this request.
+
+'
+
+Durante a experimentação, apareceram estes problemas: HTTP 429 em
+chamadas repetidas, tratado com backoff e nova tentativa.; Timeouts em
+paginação anual longa, mitigados pela coleta em chunks mensais de 31
+dias.; Risco de resposta HTML com HTTP 200, tratado por validação de
+Content-Type antes do parse JSON.
+
+\subsection{Q3: qualidade semântica e
+informatividade}\label{q3-qualidade-semuxe2ntica-e-informatividade}
+
+A Q3 usa um subagent Codex como avaliador estruturado dos registros e do
+documento principal selecionado. Quando o texto documental não está
+extraído, a avaliação fica limitada ao registro da \textbf{API} e aos
+metadados do documento principal. O avaliador não substitui a fonte
+documental: snapshots, metadados, hashes de entrada e respostas brutas
+são preservados para auditoria. A rubrica atribui notas de 0 a 4 para
+coerência interna, informatividade do registro, alinhamento entre
+documento e \textbf{API}, e acionabilidade para controle social.
+
+O experimento Q3 pontuou 400 de 400 registros da subamostra; 397 ficaram
+com texto documental insuficiente. A avaliação usou o avaliador
+\texttt{codex-subagent} e o prompt \texttt{q3-semantic-v1}.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Capital
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Pontuados
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Texto insuf.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Amostra
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Coer.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Info.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Doc/API
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Acion.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Média
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Belo Horizonte & 100 & 100 & 100 & 3.96 & 3.53 & 1.00 & 1.80 & 2.57 \\
+Rio de Janeiro & 100 & 98 & 100 & 3.97 & 3.71 & 1.06 & 2.00 & 2.69 \\
+Sao Paulo & 100 & 99 & 100 & 3.98 & 3.36 & 1.03 & 1.91 & 2.57 \\
+Vitoria & 100 & 100 & 100 & 3.95 & 2.60 & 1.00 & 0.65 & 2.05 \\
+\end{longtable}
+}
+
+Exemplos resumidos da avaliação:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{HTTP 429} (\emph{Too Many Requests}): o servidor recusava
-  chamadas repetidas por excesso de requisições. Tratado com
-  \emph{backoff} (espera progressiva entre tentativas) e nova
-  tentativa.
+  Vitoria (\texttt{27142058000126-1-000008/2026}), média 1.25: Avaliacao
+  local Codex: status=insufficient\_text; media=1.25; alinhamento
+  lexical documento/API=0.000.
 \item
-  \emph{Timeouts} (estouros do tempo limite de resposta) na paginação de
-  janelas anuais longas. Mitigados pela coleta em blocos
-  (\emph{chunks}) mensais de até 31 dias.
+  Vitoria (\texttt{27142058000126-1-000270/2026}), média 1.25: Avaliacao
+  local Codex: status=insufficient\_text; media=1.25; alinhamento
+  lexical documento/API=0.000.
 \item
-  Risco de o servidor devolver uma página HTML com código \textbf{HTTP
-  200} (que normalmente sinaliza sucesso), quando o esperado seria JSON.
-  Tratado pela validação do \emph{Content-Type} (o tipo de conteúdo
-  declarado pela resposta) antes de interpretar o dado como JSON.
+  Vitoria (\texttt{27142058000126-1-000319/2025}), média 1.25: Avaliacao
+  local Codex: status=insufficient\_text; media=1.25; alinhamento
+  lexical documento/API=0.000.
+\item
+  Vitoria (\texttt{27142058000126-1-000634/2025}), média 1.25: Avaliacao
+  local Codex: status=insufficient\_text; media=1.25; alinhamento
+  lexical documento/API=0.000.
+\item
+  Vitoria (\texttt{27142058000126-1-000783/2025}), média 1.25: Avaliacao
+  local Codex: status=insufficient\_text; media=1.25; alinhamento
+  lexical documento/API=0.000.
+\end{itemize}
+
+Limitações específicas da Q3:
+
+\begin{itemize}
+\tightlist
+\item
+  Avaliacao executada localmente pelo Codex como regra deterministica
+  derivada da rubrica, sem chamada a API externa de modelo e sem
+  conhecimento externo.
+\item
+  O alinhamento documento/API usa sobreposicao lexical entre objeto,
+  modalidade, orgao e texto extraido; baixa sobreposicao indica risco de
+  verificabilidade, nao prova contradicao substantiva.
+\item
+  Caracteres substitutos invalidos em extracoes documentais foram
+  saneados para UTF-8 antes de hashing e gravacao; text\_sha256
+  refere-se ao texto saneado.
+\item
+  397 documento(s) da subamostra nao tiveram texto extraido com status
+  ok.
+\item
+  397 registro(s) receberam status insufficient\_text por ausencia ou
+  insuficiencia de texto documental.
 \end{itemize}
 
 \subsection{Constatações
@@ -516,58 +524,49 @@ empíricas}\label{constatauxe7uxf5es-empuxedricas}
 \begin{itemize}
 \tightlist
 \item
-  Na amostra candidata de São Paulo, 98,9\% dos registros elegíveis
+  Na amostra candidata de Sao Paulo, 98.9\% dos registros elegiveis
   ficaram fora do CNPJ matriz; nas demais capitais analisadas, os
   registros por CNPJ matriz concentraram 100\% dos candidatos coletados.
 \item
-  São Paulo apresentou 67 CNPJs distintos no recorte elegível, enquanto
-  Rio de Janeiro, Belo Horizonte e Vitória apareceram com um CNPJ cada
+  Sao Paulo apresentou 67 CNPJs distintos no recorte elegivel, enquanto
+  Rio de Janeiro, Belo Horizonte e Vitoria apareceram com um CNPJ cada
   no recorte por matriz.
 \item
-  Vitória teve documentos vinculados em todos os itens da subamostra
-  documental, mas nenhum dos registros elegíveis trouxe o campo
-  \texttt{linkSistemaOrigem} (o link para o sistema de origem), o que
-  reduz a rastreabilidade até a fonte.
+  Vitoria teve documentos vinculados em todos os itens da subamostra
+  documental, mas nenhum dos registros elegiveis trouxe
+  \texttt{linkSistemaOrigem}, o que reduz a rastreabilidade para o
+  sistema de origem.
 \item
-  O valor homologado apareceu com menor completude em São Paulo
-  (60,4\%), indicando que parte dos registros estava em fase anterior ao
-  resultado ou sem homologação registrada no recorte.
+  O valor homologado apareceu com menor completude em Sao Paulo
+  (60.4\%), indicando que parte dos registros estava em fase anterior ao
+  resultado ou sem homologacao registrada no recorte.
 \item
   A quantidade de documentos anexados variou de forma relevante: em
-  Vitória, um item da amostra chegou a 12 documentos, enquanto os demais
-  municípios tiveram padrão mais concentrado (em geral, um documento por
-  registro).
+  Vitoria, um item da amostra chegou a 12 documentos, enquanto outros
+  municipios tiveram padrao mais concentrado.
 \end{itemize}
 
 \section{Conclusões}\label{conclusuxf5es}
 
-Retomando as duas questões de pesquisa: quanto à completude (Q1), a
-análise indica que o PNCP é uma infraestrutura importante de governo
-aberto, pois centraliza registros, expõe campos padronizados com alta
-disponibilidade (objeto, valores estimados, datas e unidade), oferece
-documentos e permite automação por API. Quanto à facilidade de consumo
-(Q2), a API é utilizável, mas exige cuidados técnicos --- divisão em
-blocos, controle de taxa e tratamento de falhas --- que elevam a barreira
-para o usuário menos especializado. Em conjunto, esses elementos
-fortalecem a transparência formal e criam condições para o controle
-social, ainda que de forma desigual.
+A análise indica que o PNCP é uma infraestrutura importante de governo
+aberto: ele centraliza registros, expõe campos padronizados, oferece
+documentos e permite automação por API. Esses elementos fortalecem a
+transparência formal e criam condições para controle social.
 
 Ao mesmo tempo, a comparação mostra que abertura não é sinônimo
 automático de inteligibilidade. A fragmentação de CNPJs em São Paulo
-torna a busca mais complexa e pode subestimar drasticamente a atividade
-contratual municipal quando o pesquisador consulta apenas o CNPJ matriz
---- como demonstram os 98,9\% de registros publicados fora dele. A
-principal contribuição do trabalho está, portanto, em evidenciar que a
-avaliação de governo aberto deve observar não só a presença e a
-acessibilidade dos dados, mas também a sua arquitetura institucional:
-quem publica o quê, e sob qual identidade.
+torna a busca mais complexa e pode subestimar a atividade contratual
+municipal quando o pesquisador consulta apenas o CNPJ matriz. A
+contribuição do trabalho está em mostrar que a avaliação de governo
+aberto deve observar também a arquitetura institucional dos dados.
 
 Como conclusão regional exploratória, as capitais do Sudeste analisadas
 apresentam boa disponibilidade básica de dados e documentos no PNCP, mas
 diferem na forma de organização dos registros. A agenda de melhoria
 passa por documentação mais clara dos CNPJs/unidades, maior completude
-de links de origem e mecanismos que facilitem ao cidadão reconstruir o
-universo de órgãos vinculados a cada prefeitura.
+de links de origem, respostas semanticamente coerentes e mecanismos que
+facilitem ao cidadão reconstruir o universo de órgãos vinculados a cada
+prefeitura.
 
 \section{Referências}\label{referuxeancias}
 
@@ -734,7 +733,11 @@ A pesquisa é exploratória e não representa todos os municípios do
 Sudeste. A API de consulta por publicação limita cada requisição a
 janelas de até 365 dias; por isso, o recorte usa a maior janela aceita
 em uma consulta reprodutível. Além disso, documentos vinculados foram
-analisados por subamostra determinística, e os resultados podem mudar
-com novas publicações, retificações ou alterações na API do PNCP.
+analisados por subamostra determinística. A avaliação semântica depende
+da extração de texto ou dos metadados do documento principal e de uma
+rodada preservada do subagent Codex avaliador; seus resultados devem ser
+lidos como apoio estruturado à análise, não como fonte primária. Os
+resultados podem mudar com novas publicações, retificações ou alterações
+na API do PNCP.
 
 \end{document}

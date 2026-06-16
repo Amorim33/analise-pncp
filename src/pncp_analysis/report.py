@@ -36,6 +36,7 @@ def render_report(
     sample = metrics.get("sample", {})
     document_sample = metrics.get("document_sample", {})
     api_experiment = metrics.get("api_experiment", {})
+    semantic_quality = metrics.get("semantic_quality", {})
     date_range = format_display_date_range(config.start_date, config.end_date)
 
     parts = [
@@ -76,6 +77,10 @@ def render_report(
         (
             "- Q2. Os dados das **APIs** do PNCP sao facilmente consumiveis?"
         ),
+        (
+            "- Q3. As respostas da **API** do PNCP sao semanticamente coerentes e "
+            "informativas para controle social?"
+        ),
         "",
         "## Metodologia",
         "",
@@ -86,6 +91,8 @@ def render_report(
                 ["Modalidade", f"{config.modality_name} ({config.modality_id})"],
                 ["Amostra principal", describe_analysis_sample(config, sample)],
                 ["Amostra documental", describe_document_sample(config, document_sample)],
+                ["Amostra Q3", "documento principal da subamostra documental"],
+                ["Modelo Q3", config.semantic.model],
                 ["Seed", config.seed],
             ],
         ),
@@ -107,9 +114,9 @@ def render_report(
         (
             "A divisao agentica foi registrada em **skills** locais no caminho "
             "`.agents/skills/`, com papeis para mapeamento da **API**, coleta de dados, "
-            "metodologia de amostragem e redacao do relatorio. As decisoes substantivas, "
-            "validacao de fontes e interpretacao "
-            "final permanecem sob responsabilidade do autor."
+            "metodologia de amostragem, avaliacao semantica e redacao do relatorio. "
+            "As decisoes substantivas, validacao de fontes e interpretacao final "
+            "permanecem sob responsabilidade do autor."
         ),
         "",
         "## Exemplos de registros retornados pela API",
@@ -206,6 +213,19 @@ def render_report(
         "",
         render_api_error_notes(collection_metadata, api_experiment, pipeline_metadata),
         "",
+        "## Qualidade semantica e informatividade",
+        "",
+        (
+            "Para Q3, o pipeline seleciona um documento principal por contratacao da "
+            "subamostra documental e usa um subagent Codex como avaliador estruturado. "
+            "Quando o texto documental nao esta extraido, a avaliacao fica limitada ao "
+            "registro da **API** e aos metadados do documento principal. O avaliador nao "
+            "e fonte de verdade: a evidencia auditavel fica nos snapshots, metadados, "
+            "hashes dos inputs e respostas preservadas."
+        ),
+        "",
+        render_semantic_quality(semantic_quality),
+        "",
         "## Limitacoes",
         "",
         render_limitations(limitations),
@@ -225,8 +245,9 @@ def render_report(
         (
             "Assim, a conclusao regional e que o PNCP fortalece a transparencia formal, "
             "mas sua efetividade como instrumento de governo aberto depende da "
-            "completude documental, da padronizacao dos registros e da facilidade de "
-            "reconstituir o universo institucional de cada prefeitura."
+            "completude documental, da padronizacao dos registros, da qualidade "
+            "semantica das informacoes retornadas e da facilidade de reconstituir o "
+            "universo institucional de cada prefeitura."
         ),
         "",
         "## Reproducibilidade",
@@ -624,6 +645,98 @@ def render_api_error_notes(
         )
     lines.extend(f"- Durante a experimentação: {item}" for item in observed_errors)
     return "\n".join(lines)
+
+
+def render_semantic_quality(semantic_quality: Any) -> str:
+    if not isinstance(semantic_quality, dict) or not semantic_quality:
+        return (
+            "_A etapa Q3 ainda nao foi executada. Rode "
+            "`uv run pncp-analysis semantic` para gerar os artefatos semanticos._"
+        )
+
+    by_city = semantic_quality.get("by_city", [])
+    rows = []
+    if isinstance(by_city, list):
+        for item in by_city:
+            if isinstance(item, dict):
+                rows.append(
+                    [
+                        item.get("city", ""),
+                        item.get("scored_count", item.get("evaluated_count", 0)),
+                        item.get("insufficient_text_count", 0),
+                        item.get("sample_count", 0),
+                        format_score(item.get("avg_coerencia_interna")),
+                        format_score(item.get("avg_informatividade_do_registro")),
+                        format_score(item.get("avg_alinhamento_documento_api")),
+                        format_score(item.get("avg_acionabilidade_controle_social")),
+                        format_score(item.get("avg_score_medio")),
+                    ]
+                )
+
+    table = markdown_table(
+        [
+            "Capital",
+            "Pontuados",
+            "Texto insuf.",
+            "Amostra",
+            "Coer.",
+            "Info.",
+            "Doc/API",
+            "Acion.",
+            "Media",
+        ],
+        rows,
+    )
+    overall = semantic_quality.get("overall", {})
+    if not isinstance(overall, dict):
+        overall = {}
+    scored_count = semantic_quality.get(
+        "scored_count",
+        overall.get("scored_count", semantic_quality.get("evaluated_count", 0)),
+    )
+    lines = [
+        (
+            f"A Q3 usou o prompt `{semantic_quality.get('prompt_version', '')}` e o "
+            f"schema `{semantic_quality.get('schema_version', '')}`. "
+            f"O avaliador registrado foi `{semantic_quality.get('model', '')}`. "
+            f"Foram pontuados {scored_count} "
+            f"de {semantic_quality.get('sample_count', 0)} registros da subamostra; "
+            f"{semantic_quality.get('insufficient_text_count', 0)} ficaram com texto "
+            "documental insuficiente."
+        ),
+        "",
+        table,
+    ]
+
+    examples = semantic_quality.get("examples", [])
+    if isinstance(examples, list) and examples:
+        lines.extend(["", "Exemplos de avaliacao:", ""])
+        for item in examples[:6]:
+            if isinstance(item, dict):
+                alerts = item.get("alertas", [])
+                alert_text = (
+                    "; ".join(str(alert) for alert in alerts)
+                    if isinstance(alerts, list)
+                    else ""
+                )
+                lines.append(
+                    "- "
+                    f"{item.get('city', '')} (`{item.get('numeroControlePNCP', '')}`), "
+                    f"media {format_score(item.get('score_medio'))}: "
+                    f"{truncate(str(item.get('resumo') or ''), 160)}"
+                    + (f" Alertas: {truncate(alert_text, 160)}" if alert_text else "")
+                )
+
+    limitations = semantic_quality.get("limitations", [])
+    if isinstance(limitations, list) and limitations:
+        lines.extend(["", "Limitacoes especificas da Q3:", ""])
+        lines.extend(f"- {item}" for item in limitations)
+    return "\n".join(lines)
+
+
+def format_score(value: Any) -> str:
+    numeric = optional_float(value)
+    return "n/a" if numeric is None else f"{numeric:.2f}"
 
 
 def render_limitations(limitations: Any) -> str:

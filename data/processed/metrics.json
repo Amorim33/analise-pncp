@@ -59340,5 +59340,205 @@
       "razao_social": "SECRETARIA MUNICIPAL DE ASSISTENCIA E DESENVOLVIMENTO SOCIAL",
       "records": 25
     }
-  ]
+  ],
+  "semantic_quality": {
+    "by_city": [
+      {
+        "avg_acionabilidade_controle_social": 1.8,
+        "avg_alinhamento_documento_api": 1.0,
+        "avg_coerencia_interna": 3.96,
+        "avg_informatividade_do_registro": 3.53,
+        "avg_score_medio": 2.57,
+        "city": "Belo Horizonte",
+        "evaluated_count": 0,
+        "insufficient_text_count": 100,
+        "sample_count": 100,
+        "scored_count": 100
+      },
+      {
+        "avg_acionabilidade_controle_social": 2.0,
+        "avg_alinhamento_documento_api": 1.06,
+        "avg_coerencia_interna": 3.97,
+        "avg_informatividade_do_registro": 3.71,
+        "avg_score_medio": 2.69,
+        "city": "Rio de Janeiro",
+        "evaluated_count": 2,
+        "insufficient_text_count": 98,
+        "sample_count": 100,
+        "scored_count": 100
+      },
+      {
+        "avg_acionabilidade_controle_social": 1.91,
+        "avg_alinhamento_documento_api": 1.03,
+        "avg_coerencia_interna": 3.98,
+        "avg_informatividade_do_registro": 3.36,
+        "avg_score_medio": 2.57,
+        "city": "Sao Paulo",
+        "evaluated_count": 1,
+        "insufficient_text_count": 99,
+        "sample_count": 100,
+        "scored_count": 100
+      },
+      {
+        "avg_acionabilidade_controle_social": 0.65,
+        "avg_alinhamento_documento_api": 1.0,
+        "avg_coerencia_interna": 3.95,
+        "avg_informatividade_do_registro": 2.6,
+        "avg_score_medio": 2.05,
+        "city": "Vitoria",
+        "evaluated_count": 0,
+        "insufficient_text_count": 100,
+        "sample_count": 100,
+        "scored_count": 100
+      }
+    ],
+    "evaluated_count": 3,
+    "evaluation_method": "local_codex_rule_based_rubric_no_openai_api",
+    "evaluator": "codex-subagent",
+    "examples": [
+      {
+        "alertas": [
+          "Objeto da compra e curto ou generico.",
+          "Objeto nao delimita suficientemente escopo, finalidade ou item contratado.",
+          "Link do sistema de origem ausente.",
+          "Texto documental insuficiente para alinhamento (status=download_error, chars=0)."
+        ],
+        "city": "Vitoria",
+        "numeroControlePNCP": "27142058000126-1-000008/2026",
+        "resumo": "Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000.",
+        "score_medio": 1.25,
+        "status": "insufficient_text"
+      },
+      {
+        "alertas": [
+          "Objeto da compra e curto ou generico.",
+          "Objeto nao delimita suficientemente escopo, finalidade ou item contratado.",
+          "Link do sistema de origem ausente.",
+          "Texto documental insuficiente para alinhamento (status=download_error, chars=0)."
+        ],
+        "city": "Vitoria",
+        "numeroControlePNCP": "27142058000126-1-000270/2026",
+        "resumo": "Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000.",
+        "score_medio": 1.25,
+        "status": "insufficient_text"
+      },
+      {
+        "alertas": [
+          "Objeto da compra e curto ou generico.",
+          "Objeto nao delimita suficientemente escopo, finalidade ou item contratado.",
+          "Link do sistema de origem ausente.",
+          "Texto documental insuficiente para alinhamento (status=download_error, chars=0)."
+        ],
+        "city": "Vitoria",
+        "numeroControlePNCP": "27142058000126-1-000319/2025",
+        "resumo": "Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000.",
+        "score_medio": 1.25,
+        "status": "insufficient_text"
+      },
+      {
+        "alertas": [
+          "Objeto da compra e curto ou generico.",
+          "Objeto nao delimita suficientemente escopo, finalidade ou item contratado.",
+          "Link do sistema de origem ausente.",
+          "Texto documental insuficiente para alinhamento (status=download_error, chars=0)."
+        ],
+        "city": "Vitoria",
+        "numeroControlePNCP": "27142058000126-1-000634/2025",
+        "resumo": "Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000.",
+        "score_medio": 1.25,
+        "status": "insufficient_text"
+      },
+      {
+        "alertas": [
+          "Objeto da compra e curto ou generico.",
+          "Objeto nao delimita suficientemente escopo, finalidade ou item contratado.",
+          "Link do sistema de origem ausente.",
+          "Texto documental insuficiente para alinhamento (status=download_error, chars=0)."
+        ],
+        "city": "Vitoria",
+        "numeroControlePNCP": "27142058000126-1-000783/2025",
+        "resumo": "Avaliacao local Codex: status=insufficient_text; media=1.25; alinhamento lexical documento/API=0.000.",
+        "score_medio": 1.25,
+        "status": "insufficient_text"
+      },
+      {
+        "alertas": [
+          "Objeto da compra e curto ou generico.",
+          "Objeto nao delimita suficientemente escopo, finalidade ou item contratado.",
+          "Valor estimado zero sem valor homologado informativo.",
+          "Texto documental insuficiente para alinhamento (status=extract_skipped, chars=0)."
+        ],
+        "city": "Rio de Janeiro",
+        "numeroControlePNCP": "42498733000148-1-000665/2026",
+        "resumo": "Avaliacao local Codex: status=insufficient_text; media=1.50; alinhamento lexical documento/API=0.000.",
+        "score_medio": 1.5,
+        "status": "insufficient_text"
+      },
+      {
+        "alertas": [
+          "Objeto da compra e curto ou generico.",
+          "Objeto nao delimita suficientemente escopo, finalidade ou item contratado.",
+          "Valor estimado zero sem valor homologado informativo.",
+          "Texto documental insuficiente para alinhamento (status=extract_skipped, chars=0)."
+        ],
+        "city": "Sao Paulo",
+        "numeroControlePNCP": "46854998000192-1-000117/2026",
+        "resumo": "Avaliacao local Codex: status=insufficient_text; media=1.50; alinhamento lexical documento/API=0.000.",
+        "score_medio": 1.5,
+        "status": "insufficient_text"
+      },
+      {
+        "alertas": [
+          "Objeto existe, mas com baixo detalhamento.",
+          "Link do sistema de origem ausente.",
+          "Texto documental insuficiente para alinhamento (status=extract_skipped, chars=0).",
+          "Sem link de origem para continuidade da verificacao."
+        ],
+        "city": "Belo Horizonte",
+        "numeroControlePNCP": "18715383000140-1-000386/2025",
+        "resumo": "Avaliacao local Codex: status=insufficient_text; media=1.75; alinhamento lexical documento/API=0.000.",
+        "score_medio": 1.75,
+        "status": "insufficient_text"
+      }
+    ],
+    "extraction_status_counts": {
+      "download_error": 183,
+      "extract_skipped": 214,
+      "ok": 3
+    },
+    "generated_at": "2026-06-16T16:47:47+00:00",
+    "insufficient_text_count": 397,
+    "limitations": [
+      "Avaliacao executada localmente pelo Codex como regra deterministica derivada da rubrica, sem chamada a API externa de modelo e sem conhecimento externo.",
+      "O alinhamento documento/API usa sobreposicao lexical entre objeto, modalidade, orgao e texto extraido; baixa sobreposicao indica risco de verificabilidade, nao prova contradicao substantiva.",
+      "Caracteres substitutos invalidos em extracoes documentais foram saneados para UTF-8 antes de hashing e gravacao; text_sha256 refere-se ao texto saneado.",
+      "397 documento(s) da subamostra nao tiveram texto extraido com status ok.",
+      "397 registro(s) receberam status insufficient_text por ausencia ou insuficiencia de texto documental."
+    ],
+    "model": "codex-subagent",
+    "not_evaluated_count": 0,
+    "overall": {
+      "avg_acionabilidade_controle_social": 1.59,
+      "avg_alinhamento_documento_api": 1.02,
+      "avg_coerencia_interna": 3.96,
+      "avg_informatividade_do_registro": 3.3,
+      "avg_score_medio": 2.47,
+      "evaluated_count": 3,
+      "insufficient_text_count": 397,
+      "sample_count": 400,
+      "scored_count": 400
+    },
+    "pending_codex_evaluation": false,
+    "prompt_version": "q3-semantic-v1",
+    "question": "Q3. As respostas da API sao semanticamente coerentes e informativas?",
+    "reasoning_effort": "n/a",
+    "sample_count": 400,
+    "schema_version": "q3-semantic-schema-v1",
+    "scored_count": 400,
+    "status_counts": {
+      "evaluated": 3,
+      "insufficient_text": 397
+    },
+    "text_verbosity": "n/a"
+  }
 }

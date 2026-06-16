@@ -1,4 +1,10 @@
-from pncp_analysis.config import AnalysisConfig, ApiConfig, CityConfig, SaoPauloFilterConfig
+from pncp_analysis.config import (
+    AnalysisConfig,
+    ApiConfig,
+    CityConfig,
+    SaoPauloFilterConfig,
+    SemanticConfig,
+)
 from pncp_analysis.sampling import deterministic_sample
 from pncp_analysis.workflow import build_document_sample, select_analysis_records, write_sample_csv
 
@@ -91,6 +97,13 @@ def analysis_config(document_sample_n: int = 100) -> AnalysisConfig:
             municipality_scan_max_pages=None,
             request_delay_seconds=0.0,
             retries=1,
+        ),
+        semantic=SemanticConfig(
+            model="codex-subagent",
+            reasoning_effort="medium",
+            text_verbosity="low",
+            max_document_chars=12000,
+            document_cache_dir="data/raw/q3_documents",
         ),
         sao_paulo_filter=SaoPauloFilterConfig(include_indicators=[], exclude_indicators=[]),
         cities=[

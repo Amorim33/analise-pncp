@@ -7,6 +7,7 @@ import urllib.parse
 import urllib.request
 from collections import Counter
 from dataclasses import dataclass
+from email.message import Message
 from typing import Any
 
 
@@ -32,6 +33,16 @@ class ApiRequestMetric:
     attempt: int
     success: bool
     error: str | None
+
+
+@dataclass(frozen=True)
+class BinaryDocument:
+    url: str
+    status: int
+    content_type: str
+    filename: str | None
+    headers: dict[str, str]
+    body: bytes
 
 
 @dataclass(frozen=True)
@@ -122,6 +133,70 @@ class PncpClient:
             if isinstance(data, list):
                 return [item for item in data if isinstance(item, dict)]
         return []
+
+    def fetch_document_binary(self, *, url: str) -> BinaryDocument:
+        last_error: Exception | None = None
+        parsed_path = urllib.parse.urlsplit(url).path or url
+        for attempt in range(1, self.retries + 1):
+            request = urllib.request.Request(url, headers={"Accept": "*/*"})
+            started = time.perf_counter()
+            try:
+                with urllib.request.urlopen(request, timeout=60) as response:
+                    status = int(response.status)
+                    body = response.read()
+                    headers = {key.lower(): value for key, value in response.headers.items()}
+                    self._record_request(
+                        path=parsed_path,
+                        url=url,
+                        status=status,
+                        started=started,
+                        attempt=attempt,
+                        success=True,
+                        error=None,
+                    )
+                    return BinaryDocument(
+                        url=url,
+                        status=status,
+                        content_type=response.headers.get("content-type", ""),
+                        filename=filename_from_headers(response.headers),
+                        headers=headers,
+                        body=body,
+                    )
+            except urllib.error.HTTPError as exc:
+                body = exc.read()
+                content_type = exc.headers.get("content-type", "")
+                last_error = RuntimeError(
+                    f"HTTP {exc.code}; content-type={content_type}; body={body[:160]!r}"
+                )
+                self._record_request(
+                    path=parsed_path,
+                    url=url,
+                    status=exc.code,
+                    started=started,
+                    attempt=attempt,
+                    success=False,
+                    error=str(last_error),
+                )
+                if exc.code == 429 and attempt < self.retries:
+                    time.sleep(RATE_LIMIT_BACKOFF_SECONDS * attempt)
+                    continue
+            except Exception as exc:  # noqa: BLE001 - preserve API boundary failures.
+                last_error = exc
+                self._record_request(
+                    path=parsed_path,
+                    url=url,
+                    status=None,
+                    started=started,
+                    attempt=attempt,
+                    success=False,
+                    error=str(exc),
+                )
+
+            if attempt < self.retries:
+                time.sleep(self.delay_seconds * attempt)
+
+        self.failures.append(ApiFailure(url=url, reason=str(last_error)))
+        raise RuntimeError(f"PNCP binary request failed for {url}: {last_error}")
 
     def _fetch_paginated(
         self,
@@ -394,3 +469,13 @@ def optional_int(value: Any) -> int | None:
         return int(value)
     except (TypeError, ValueError):
         return None
+
+
+def filename_from_headers(headers: Message) -> str | None:
+    disposition = headers.get("content-disposition", "")
+    if not disposition:
+        return None
+    message = Message()
+    message["content-disposition"] = disposition
+    filename = message.get_filename()
+    return filename if filename else None

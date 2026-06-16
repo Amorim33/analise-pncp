@@ -24,6 +24,13 @@ api:
   request_delay_seconds: 1.0
   retries: 3
 
+semantic:
+  model: "codex-subagent"
+  reasoning_effort: "n/a"
+  text_verbosity: "n/a"
+  max_document_chars: 12000
+  document_cache_dir: "data/raw/q3_documents"
+
 sao_paulo_filter:
   include_indicators:
     - "PMSP"

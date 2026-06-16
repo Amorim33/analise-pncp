@@ -2,9 +2,11 @@
 .mypy_cache/
 .pytest_cache/
 .ruff_cache/
+.tmp/
 __pycache__/
 *.py[cod]
 .DS_Store
 dist/
 build/
 *.egg-info/
+data/raw/q3_documents/
