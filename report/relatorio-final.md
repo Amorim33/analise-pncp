@@ -118,9 +118,13 @@ Exemplos pseudoaleatórios da subamostra documental ilustram essa variação:
 
 A resposta a Q2 é intermediária. A API é consumível por scripts, retorna JSON estruturado e expõe paginação, mas o consumo não é trivial em uma janela anual: foi necessário dividir consultas em blocos mensais, respeitar pausas entre requisições e tratar limite de taxa. A duração total do experimento inclui coleta de contratações, geração da amostra e consulta a documentos da subamostra.
 
+O histórico local desta sessão registra um evento crítico em 16/06/2026: a tentativa live de coleta em `/v1/contratacoes/publicacao` durou 2min 56.6s, realizou 6 requisições, obteve 0 respostas bem-sucedidas e acumulou 6 falhas. O registro de falhas combina 2 timeouts e 4 respostas HTTP 503 (Service Unavailable). Dessas respostas, 4 vieram com corpo HTML (`text/html`), não como JSON. Como havia snapshots anteriores, o pipeline acionou fallback, reutilizou os dados brutos existentes e concluiu o fluxo do relatório em 3min 37.8s.
+
+A comparação com o endpoint de documentos qualifica a conclusão: nessa etapa foram 400/400 chamadas bem-sucedidas, com tempo médio de 0.10s, máximo de 0.44s e 0 falhas persistentes. Portanto, nesta execução, a API foi tecnicamente consumível, mas exigiu engenharia de robustez: retries, backoff, validação de `Content-Type`, quebra temporal da coleta e snapshots auditáveis para contornar instabilidade operacional.
+
 Os snapshots de coleta reutilizados registravam 0 falha(s) persistente(s) na coleta bem-sucedida anterior. Na execução final, a consulta de documentos registrou 0 falha(s) persistente(s).
 
-A tentativa live desta execução falhou e o pipeline reutilizou snapshots existentes. Erro registrado: PNCP request failed for /v1/contratacoes/publicacao: HTTP 503; content-type=text/html; body=b'<html><body><h1>503 Service Unavailable</h1> No server is available to handle this request. </body></html> '
+A tentativa live desta execução falhou e o pipeline reutilizou snapshots existentes. O erro bruto completo permanece preservado em `data/raw/collection_attempt_metadata.json` e `data/processed/pipeline_metadata.json`; a síntese operacional é a resposta HTTP 503 em HTML e os timeouts descritos acima.
 
 Durante a experimentação, apareceram estes problemas: HTTP 429 em chamadas repetidas, tratado com backoff e nova tentativa.; Timeouts em paginação anual longa, mitigados pela coleta em chunks mensais de 31 dias.; Risco de resposta HTML com HTTP 200, tratado por validação de Content-Type antes do parse JSON.
 

@@ -42,9 +42,68 @@ def test_render_report_contains_required_sections() -> None:
         "limitations": ["Limitacao de teste."],
         "sample": {"strategy": "all", "n": None, "seed": 20260608, "document_n": 100},
         "document_sample": {"counts_by_city": {}},
+        "api_experiment": {
+            "duration_seconds": 8.0,
+            "document_api_performance": {
+                "request_count": 4,
+                "successful_request_count": 4,
+                "failed_attempt_count": 0,
+                "average_success_response_seconds": 0.25,
+                "max_success_response_seconds": 0.5,
+            },
+            "document_api_failures": [],
+            "observed_experiment_errors": ["HTTP 429 em teste."],
+        },
+    }
+    collection_metadata = {
+        "duration_seconds": 12.0,
+        "api_performance": {
+            "request_count": 5,
+            "successful_request_count": 5,
+            "failed_attempt_count": 0,
+            "average_success_response_seconds": 0.2,
+        },
+        "failures": [],
+    }
+    pipeline_metadata = {
+        "collection_status": "failed_reused_existing_snapshots",
+        "duration_seconds": 20.0,
+        "started_at": "2026-06-16T11:54:56+00:00",
+        "collection_attempt": {
+            "status": "failed",
+            "started_at": "2026-06-16T11:54:56+00:00",
+            "duration_seconds": 12.0,
+            "api_performance": {
+                "request_count": 6,
+                "successful_request_count": 0,
+                "failed_attempt_count": 6,
+                "status_counts": {"503": 4},
+                "paths": {"/v1/contratacoes/publicacao": 6},
+                "failure_examples": [
+                    {
+                        "attempt": 1,
+                        "path": "/v1/contratacoes/publicacao",
+                        "status": None,
+                        "error": "The read operation timed out",
+                    },
+                    {
+                        "attempt": 2,
+                        "path": "/v1/contratacoes/publicacao",
+                        "status": 503,
+                        "error": "HTTP 503; content-type=text/html; body=<html>",
+                    },
+                ],
+            },
+        },
     }
 
-    report = render_report(config, metrics, [])
+    report = render_report(
+        config,
+        metrics,
+        [],
+        collection_metadata=collection_metadata,
+        pipeline_metadata=pipeline_metadata,
+    )
 
     assert "# Analise exploratoria do PNCP nas capitais do Sudeste" in report
     assert "## Resumo" in report
@@ -65,6 +124,11 @@ def test_render_report_contains_required_sections() -> None:
     assert "## Documentos vinculados" in report
     assert "## Qualidade semantica e informatividade" in report
     assert "## Conclusao regional" in report
+    assert "Historico local desta sessao" in report
+    assert "HTTP 503 (Service Unavailable)" in report
+    assert "2 timeouts" in report
+    assert "corpo HTML (`text/html`), nao como JSON" in report
+    assert "4/4 chamadas foram bem-sucedidas" in report
     assert "15/06/2025 a 15/06/2026" in report
     assert "2025-06-15" not in report
     assert "2026-06-15" not in report

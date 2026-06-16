@@ -3,6 +3,13 @@ from __future__ import annotations
 import json
 from typing import Any
 
+from pncp_analysis.api_events import (
+    ApiSessionEvents,
+    build_api_session_events,
+    format_optional_int,
+    format_status_counts_pt,
+    pluralize,
+)
 from pncp_analysis.config import AnalysisConfig
 from pncp_analysis.utils import (
     format_display_date,
@@ -210,6 +217,8 @@ def render_report(
         ),
         "",
         render_api_performance(collection_metadata, api_experiment, pipeline_metadata),
+        "",
+        render_api_session_event_summary(api_experiment, pipeline_metadata),
         "",
         render_api_error_notes(collection_metadata, api_experiment, pipeline_metadata),
         "",
@@ -641,10 +650,76 @@ def render_api_error_notes(
     if attempt_failed:
         lines.append(
             "- A tentativa live desta execução falhou e o pipeline reutilizou snapshots "
-            f"existentes. Erro registrado: {truncate(str(attempt.get('error') or ''), 220)}"
+            "existentes. O erro bruto completo permanece preservado em "
+            "`data/raw/collection_attempt_metadata.json` e "
+            "`data/processed/pipeline_metadata.json`; a sintese operacional e a "
+            "resposta HTTP 503 em HTML e os timeouts descritos acima."
         )
     lines.extend(f"- Durante a experimentação: {item}" for item in observed_errors)
     return "\n".join(lines)
+
+
+def render_api_session_event_summary(
+    api_experiment: Any,
+    pipeline_metadata: dict[str, Any],
+) -> str:
+    events = build_api_session_events(api_experiment, pipeline_metadata)
+    if events is None:
+        return ""
+
+    lines = [render_collection_attempt_summary(events)]
+    document_summary = render_document_api_session_summary(events)
+    if document_summary:
+        lines.append(document_summary)
+    return "\n".join(lines)
+
+
+def render_collection_attempt_summary(events: ApiSessionEvents) -> str:
+    if not events.collection_attempt_failed:
+        return (
+            "- Historico local desta sessao: a tentativa live de coleta de contratacoes "
+            "nao registrou falha persistente."
+        )
+
+    success_count = format_optional_int(events.successful_request_count)
+    request_count = format_optional_int(events.request_count)
+    failed_count = format_optional_int(events.failed_attempt_count)
+    timeout_phrase = pluralize(events.timeout_count, "timeout", "timeouts")
+    status_phrase = format_status_counts_pt(events.status_counts)
+    html_phrase = ""
+    if events.html_response_count > 0:
+        html_phrase = (
+            f" Dessas respostas, {pluralize(events.html_response_count, 'veio', 'vieram')} "
+            "com corpo HTML (`text/html`), nao como JSON."
+        )
+
+    return (
+        f"- Historico local desta sessao: em {events.event_date}, a tentativa live de "
+        f"coleta em `{events.endpoint_path}` durou "
+        f"{format_seconds(events.attempt_duration_seconds)}, realizou {request_count} "
+        f"requisicoes, obteve {success_count} respostas bem-sucedidas e acumulou "
+        f"{failed_count} falhas. O registro combina {timeout_phrase} e "
+        f"{status_phrase}.{html_phrase} Como havia snapshots anteriores, o pipeline "
+        "acionou fallback, reutilizou os dados brutos existentes e concluiu o fluxo "
+        f"do relatorio em {format_seconds(events.pipeline_duration_seconds)}."
+    )
+
+
+def render_document_api_session_summary(events: ApiSessionEvents) -> str:
+    if events.document_request_count is None:
+        return ""
+    return (
+        "- Consulta documental: "
+        f"{format_optional_int(events.document_successful_request_count)}/"
+        f"{format_optional_int(events.document_request_count)} chamadas foram "
+        "bem-sucedidas, com tempo medio de "
+        f"{format_seconds(events.document_avg_seconds)}, maximo de "
+        f"{format_seconds(events.document_max_seconds)} e "
+        f"{format_optional_int(events.document_failed_attempt_count)} falhas "
+        "persistentes. A API e consumivel, mas a execucao mostrou dependencia de "
+        "retries, backoff, validacao de `Content-Type`, quebra temporal da coleta e "
+        "snapshots auditaveis."
+    )
 
 
 def render_semantic_quality(semantic_quality: Any) -> str:

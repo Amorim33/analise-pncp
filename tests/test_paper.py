@@ -25,6 +25,7 @@ def test_render_paper_markdown_contains_required_sections_and_citations() -> Non
         metrics=metrics_payload(),
         sample_rows=[],
         collection_metadata=collection_metadata(),
+        pipeline_metadata=pipeline_metadata(),
     )
 
     assert 'abstract: "Este relatório analisa pregões eletrônicos' in markdown
@@ -42,6 +43,11 @@ def test_render_paper_markdown_contains_required_sections_and_citations() -> Non
     assert "O tema dialoga com a disciplina Governo Aberto" not in markdown
     assert "## Q1: completude dos dados" in markdown
     assert "## Q2: consumo da API" in markdown
+    assert "histórico local desta sessão registra um evento crítico" in markdown
+    assert "HTTP 503 (Service Unavailable)" in markdown
+    assert "2 timeouts" in markdown
+    assert "corpo HTML (`text/html`), não como JSON" in markdown
+    assert "4/4 chamadas bem-sucedidas" in markdown
     assert "## Q3: qualidade semântica e informatividade" in markdown
     assert "https://github.com/Amorim33/analise-pncp" in markdown
     assert "O processo foi assistido pelo **Codex**^[" in markdown
@@ -335,7 +341,37 @@ def collection_metadata() -> dict[str, object]:
 
 
 def pipeline_metadata() -> dict[str, object]:
-    return {"duration_seconds": 20.0}
+    return {
+        "collection_status": "failed_reused_existing_snapshots",
+        "duration_seconds": 20.0,
+        "started_at": "2026-06-16T11:54:56+00:00",
+        "collection_attempt": {
+            "status": "failed",
+            "started_at": "2026-06-16T11:54:56+00:00",
+            "duration_seconds": 12.0,
+            "api_performance": {
+                "request_count": 6,
+                "successful_request_count": 0,
+                "failed_attempt_count": 6,
+                "status_counts": {"503": 4},
+                "paths": {"/v1/contratacoes/publicacao": 6},
+                "failure_examples": [
+                    {
+                        "attempt": 1,
+                        "path": "/v1/contratacoes/publicacao",
+                        "status": None,
+                        "error": "The read operation timed out",
+                    },
+                    {
+                        "attempt": 2,
+                        "path": "/v1/contratacoes/publicacao",
+                        "status": 503,
+                        "error": "HTTP 503; content-type=text/html; body=<html>",
+                    },
+                ],
+            },
+        },
+    }
 
 
 def analysis_yaml() -> str:

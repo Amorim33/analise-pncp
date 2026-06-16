@@ -350,9 +350,12 @@ Para Q2, o pipeline registrou a duracao da coleta e das chamadas ao endpoint de 
 | Consulta de documentos | 400 | 400 | 0.10s | 40.51s | 0 |
 | Experimento total do relatório |  |  |  | 3min 37.8s |  |
 
+- Historico local desta sessao: em 16/06/2026, a tentativa live de coleta em `/v1/contratacoes/publicacao` durou 2min 56.6s, realizou 6 requisicoes, obteve 0 respostas bem-sucedidas e acumulou 6 falhas. O registro combina 2 timeouts e 4 respostas HTTP 503 (Service Unavailable). Dessas respostas, 4 vieram com corpo HTML (`text/html`), nao como JSON. Como havia snapshots anteriores, o pipeline acionou fallback, reutilizou os dados brutos existentes e concluiu o fluxo do relatorio em 3min 37.8s.
+- Consulta documental: 400/400 chamadas foram bem-sucedidas, com tempo medio de 0.10s, maximo de 0.44s e 0 falhas persistentes. A API e consumivel, mas a execucao mostrou dependencia de retries, backoff, validacao de `Content-Type`, quebra temporal da coleta e snapshots auditaveis.
+
 - Os snapshots de coleta reutilizados registravam 0 falhas persistentes na coleta bem-sucedida anterior.
 - Na execução final, a consulta de documentos registrou 0 falhas persistentes.
-- A tentativa live desta execução falhou e o pipeline reutilizou snapshots existentes. Erro registrado: PNCP request failed for /v1/contratacoes/publicacao: HTTP 503; content-type=text/html; body=b'<html><body><h1>503 Service Unavailable</h1> No server is available to handle this request. </body></html> '
+- A tentativa live desta execução falhou e o pipeline reutilizou snapshots existentes. O erro bruto completo permanece preservado em `data/raw/collection_attempt_metadata.json` e `data/processed/pipeline_metadata.json`; a sintese operacional e a resposta HTTP 503 em HTML e os timeouts descritos acima.
 - Durante a experimentação: HTTP 429 em chamadas repetidas, tratado com backoff e nova tentativa.
 - Durante a experimentação: Timeouts em paginação anual longa, mitigados pela coleta em chunks mensais de 31 dias.
 - Durante a experimentação: Risco de resposta HTML com HTTP 200, tratado por validação de Content-Type antes do parse JSON.
