@@ -23,6 +23,12 @@ O principal achado metodologico e que Sao Paulo aparece de forma fragmentada: a 
 
 Para Rio de Janeiro, Belo Horizonte e Vitoria, a coleta usou o CNPJ matriz do municipio. Para Sao Paulo, a coleta combinou o CNPJ matriz com uma busca por UF e codigo IBGE, filtrando orgaos municipais executivos e excluindo orgaos legislativos como a Camara Municipal.
 
+## Reprodutibilidade e processo agentico
+
+O repositorio GitHub <https://github.com/Amorim33/analise-pncp> versiona o codigo Python, configuracoes, snapshots brutos, tabelas processadas, metricas, analise exploratoria e relatorio final. O processo foi assistido pelo Codex como agente de programacao e documentacao, sob supervisao humana.
+
+A divisao agentica foi registrada em `.agents/skills/`, com papeis para mapeamento da API, coleta de dados, metodologia de amostragem e redacao do relatorio. As decisoes substantivas, validacao de fontes e interpretacao final permanecem sob responsabilidade do autor.
+
 ## Exemplos de registros retornados pela API
 
 Os exemplos abaixo usam um subconjunto dos campos retornados pela API do PNCP. Eles mostram como a informacao chega para a analise: identificador PNCP, orgao, unidade, objeto, valores, situacao, link de origem e documentos vinculados.

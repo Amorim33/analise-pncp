@@ -29,6 +29,10 @@ def test_render_paper_markdown_contains_required_sections_and_citations() -> Non
     assert "Q2. Os dados das APIs do PNCP são facilmente consumíveis?" in markdown
     assert "## Q1: completude dos dados" in markdown
     assert "## Q2: consumo da API" in markdown
+    assert "https://github.com/Amorim33/analise-pncp" in markdown
+    assert "Codex como agente de programação" in markdown
+    assert ".agents/skills/" in markdown
+    assert "Apêndice B" in markdown
     assert "# Conclusões" in markdown
     assert "# Apêndice B: declaração de uso de IA" in markdown
     assert "[@curso2026]" in markdown

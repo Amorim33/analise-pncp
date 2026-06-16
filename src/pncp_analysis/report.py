@@ -11,6 +11,8 @@ from pncp_analysis.utils import (
     markdown_table,
 )
 
+REPOSITORY_URL = "https://github.com/Amorim33/analise-pncp"
+
 
 def render_report(
     config: AnalysisConfig,
@@ -81,6 +83,22 @@ def render_report(
         "municipio. Para Sao Paulo, a coleta combinou o CNPJ matriz com uma busca por "
         "UF e codigo IBGE, filtrando orgaos municipais executivos e excluindo orgaos "
         "legislativos como a Camara Municipal.",
+        "",
+        "## Reprodutibilidade e processo agentico",
+        "",
+        (
+            f"O repositorio GitHub <{REPOSITORY_URL}> versiona o codigo Python, "
+            "configuracoes, snapshots brutos, tabelas processadas, metricas, analise "
+            "exploratoria e relatorio final. O processo foi assistido pelo Codex como "
+            "agente de programacao e documentacao, sob supervisao humana."
+        ),
+        "",
+        (
+            "A divisao agentica foi registrada em `.agents/skills/`, com papeis para "
+            "mapeamento da API, coleta de dados, metodologia de amostragem e redacao "
+            "do relatorio. As decisoes substantivas, validacao de fontes e interpretacao "
+            "final permanecem sob responsabilidade do autor."
+        ),
         "",
         "## Exemplos de registros retornados pela API",
         "",

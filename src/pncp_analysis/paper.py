@@ -28,6 +28,7 @@ PAPER_PDF_PATH = REPORT_OUTPUT_DIR / "relatorio-final.pdf"
 REFERENCES_PATH = REPORT_DIR / "references.bib"
 APA_CSL_PATH = REPORT_DIR / "apa.csl"
 TEMPLATE_PATH = REPORT_DIR / "template.tex"
+REPOSITORY_URL = "https://github.com/Amorim33/analise-pncp"
 
 PLACEHOLDER_PREFIX = "PREENCHER"
 
@@ -228,19 +229,18 @@ def render_paper_markdown(
         "",
         (
             "O objetivo geral é avaliar, de forma exploratória, como o PNCP expressa "
-            "princípios de governo aberto nas contratações das capitais do Sudeste. Os "
-            "objetivos específicos são: comparar volume e concentração institucional dos "
-            "registros, verificar a completude de campos essenciais, observar exemplos "
-            "sorteados da API, medir a experiência de consumo dos endpoints e discutir "
-            "a fragmentação de CNPJs em São Paulo."
+            "princípios de governo aberto nas contratações das capitais do Sudeste. A "
+            "pesquisa combina análise documental e computacional: coleta registros por "
+            "API, transforma os dados em snapshots auditáveis, calcula métricas e gera "
+            "relatórios reprodutíveis."
         ),
         "",
         (
             "O recorte empírico considera pregões eletrônicos, modalidade 6 no PNCP, "
-            f"publicados entre {date_range}. "
-            "Foram usados os CNPJs matriz das prefeituras de Rio de Janeiro, Belo "
-            "Horizonte e Vitória. Para São Paulo, combinou-se o CNPJ matriz com uma "
-            "varredura por UF e código IBGE, filtrando entidades municipais executivas."
+            f"publicados entre {date_range}. Foram usados os CNPJs matriz de Rio de "
+            "Janeiro, Belo Horizonte e Vitória. Para São Paulo, combinou-se o CNPJ "
+            "matriz com varredura por UF e código IBGE, filtrando entidades municipais "
+            "executivas."
         ),
         "",
         render_collection_table(collection_metadata),
@@ -251,6 +251,25 @@ def render_paper_markdown(
             "usada subamostra determinística de até "
             f"{analysis_config.document_sample_n} registros por capital. A semente "
             f"usada foi {analysis_config.seed}."
+        ),
+        "",
+        (
+            "As métricas de Q1 medem a presença de campos essenciais, como objeto, "
+            "valores, datas, unidade, link de origem e documentos. As métricas de Q2 "
+            "registram duração do experimento, tempo médio de resposta e falhas "
+            "observadas durante o consumo da API."
+        ),
+        "",
+        render_repository_reference(),
+        "",
+        (
+            "O processo foi assistido pelo Codex como agente de programação e "
+            "documentação, sob supervisão humana. A divisão agêntica usou as skills "
+            "locais em `.agents/skills/`: mapeamento da API, coleta de dados, "
+            "metodologia de amostragem e redação do relatório. As decisões "
+            "substantivas, a validação das fontes e a interpretação final permanecem "
+            "sob responsabilidade do autor; a declaração de uso de IA está no "
+            "Apêndice B."
         ),
         "",
         "# Referencial teórico",
@@ -424,6 +443,15 @@ def render_collection_table(collection_metadata: dict[str, Any]) -> str:
     return markdown_table(
         ["Capital", "Fonte", "Registros", "Páginas", "Total", "Limite"],
         rows,
+    )
+
+
+def render_repository_reference() -> str:
+    return (
+        "A reprodutibilidade foi organizada no repositório GitHub "
+        f"<{REPOSITORY_URL}>. O repositório versiona código Python, configurações, "
+        "snapshots brutos, tabelas processadas, métricas, análise exploratória e o "
+        "relatório final em Markdown, LaTeX e PDF, na branch `main`."
     )
 
 
