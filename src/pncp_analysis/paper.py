@@ -190,6 +190,7 @@ def render_paper_markdown(
         sp_fragmentation = {}
     date_range = format_display_date_range(analysis_config.start_date, analysis_config.end_date)
     abstract_text = render_abstract_text(date_range)
+    responsibility_subject = "do autor" if len(paper_config.authors) == 1 else "dos autores"
 
     parts = [
         "---",
@@ -309,7 +310,7 @@ def render_paper_markdown(
             "mapeamento da **API**, coleta de dados, metodologia de amostragem e "
             "redação do relatório. As decisões "
             "substantivas, a validação das fontes e a interpretação final permanecem "
-            "sob responsabilidade do autor; a declaração de uso de IA está no "
+            f"sob responsabilidade {responsibility_subject}; a declaração de uso de IA está no "
             "Apêndice B."
         ),
         "",

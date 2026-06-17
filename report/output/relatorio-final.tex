@@ -53,7 +53,8 @@
 \title{Portal Nacional de Contratações Públicas e governo aberto: uma
 análise exploratória das capitais do Sudeste\\\large Transparência
 formal, dados abertos e fragmentação institucional}
-\author{PREENCHER\_NOME}
+\author{Aluisio Amorim Cruz - 13174902 \and Leonardo Zoppello Fernandes
+- 13838749}
 \date{01/07/2026}
 
 \begin{document}
@@ -183,7 +184,7 @@ humana. A divisão de tarefas entre agentes usou as
 \href{https://github.com/Amorim33/analise-pncp/tree/main/.agents/skills}{\texttt{.agents/skills/}}:
 mapeamento da \textbf{API}, coleta de dados, metodologia de amostragem e
 redação do relatório. As decisões substantivas, a validação das fontes e
-a interpretação final permanecem sob responsabilidade do autor; a
+a interpretação final permanecem sob responsabilidade dos autores; a
 declaração de uso de IA está no Apêndice B.
 
 \section{Referencial teórico}\label{referencial-teuxf3rico}
@@ -676,5 +677,51 @@ em uma consulta reprodutível. Além disso, os documentos vinculados foram
 analisados a partir de uma subamostra sorteada de forma reproduzível, e
 não a totalidade dos documentos. Por fim, os resultados podem mudar com
 novas publicações, retificações ou alterações na API do PNCP.
+
+\section{Apêndice D: Organização do
+projeto}\label{apuxeandice-d-organizauxe7uxe3o-do-projeto}
+
+A organização do repositório foi desenhada para separar o pipeline
+computacional dos artefatos de análise e facilitar a reprodutibilidade.
+Essa estrutura distingue código-fonte, configurações, dados preservados,
+resultados processados, documentos finais, testes automatizados e
+instruções usadas no processo de trabalho com agentes.
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/Amorim33/analise-pncp/tree/main/src/pncp_analysis}{\texttt{src/pncp\_analysis/}}:
+  código Python do pipeline de coleta, amostragem, análise e geração de
+  relatórios.
+\item
+  \href{https://github.com/Amorim33/analise-pncp/tree/main/config}{\texttt{config/}}:
+  parâmetros de execução e metadados usados para reproduzir o recorte
+  empírico e o relatório.
+\item
+  \href{https://github.com/Amorim33/analise-pncp/tree/main/data/raw}{\texttt{data/raw/}}:
+  respostas brutas da API, documentos coletados e registros de execução
+  preservados para auditoria.
+\item
+  \href{https://github.com/Amorim33/analise-pncp/tree/main/data/processed}{\texttt{data/processed/}}:
+  amostras, métricas, tabelas derivadas e artefatos intermediários da
+  análise.
+\item
+  \href{https://github.com/Amorim33/analise-pncp/tree/main/report}{\texttt{report/}}:
+  fontes bibliográficas, modelo e versões editáveis do relatório.
+\item
+  \href{https://github.com/Amorim33/analise-pncp/tree/main/report/output}{\texttt{report/output/}}:
+  artefatos finais gerados em LaTeX, PDF e arquivos auxiliares de
+  compilação.
+\item
+  \href{https://github.com/Amorim33/analise-pncp/tree/main/tests}{\texttt{tests/}}:
+  testes automatizados que verificam regras de configuração,
+  processamento e geração dos relatórios.
+\item
+  \href{https://github.com/Amorim33/analise-pncp/tree/main/scripts}{\texttt{scripts/}}:
+  comandos auxiliares para reconstruções específicas do pipeline.
+\item
+  \href{https://github.com/Amorim33/analise-pncp/tree/main/.agents/skills}{\texttt{.agents/skills/}}:
+  instruções locais que documentam a divisão de tarefas entre agentes.
+\end{itemize}
 
 \end{document}

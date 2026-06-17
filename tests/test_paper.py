@@ -65,6 +65,32 @@ def test_render_paper_markdown_contains_required_sections_and_citations() -> Non
     assert "2026-06-15" not in markdown
 
 
+def test_render_paper_markdown_uses_plural_responsibility_for_multiple_authors() -> None:
+    config = paper_config(mode="draft")
+    config = PaperConfig(
+        mode=config.mode,
+        title=config.title,
+        subtitle=config.subtitle,
+        authors=["Autora Um", "Autor Dois"],
+        course=config.course,
+        instructor=config.instructor,
+        institution=config.institution,
+        date=config.date,
+        ai_disclosure=config.ai_disclosure,
+    )
+
+    markdown = render_paper_markdown(
+        analysis_config=analysis_config(),
+        paper_config=config,
+        metrics=metrics_payload(),
+        sample_rows=[],
+        collection_metadata=collection_metadata(),
+        pipeline_metadata=pipeline_metadata(),
+    )
+
+    assert "sob responsabilidade dos autores" in markdown
+
+
 def test_final_mode_rejects_placeholders_without_override() -> None:
     with pytest.raises(ValueError, match="still contains placeholders"):
         validate_paper_config(paper_config(mode="final"), allow_placeholders=False)

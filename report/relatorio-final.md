@@ -2,7 +2,8 @@
 title: "Portal Nacional de Contratações Públicas e governo aberto: uma análise exploratória das capitais do Sudeste"
 subtitle: "Transparência formal, dados abertos e fragmentação institucional"
 author:
-  - "PREENCHER_NOME"
+  - "Aluisio Amorim Cruz - 13174902"
+  - "Leonardo Zoppello Fernandes - 13838749"
 date: "01/07/2026"
 lang: pt-BR
 course: "Governo Aberto"
@@ -43,7 +44,7 @@ As métricas de Q1 medem a presença dos campos essenciais de cada contratação
 
 A reprodutibilidade foi organizada no repositório GitHub <https://github.com/Amorim33/analise-pncp>. O repositório versiona código Python, configurações, cópias brutas das respostas, tabelas processadas, métricas, análise exploratória e o relatório final em Markdown, LaTeX e PDF, na branch `main`.
 
-O processo foi assistido pelo **Codex**^[**Codex**: agente de inteligência artificial para programação e documentação, usado para implementar, validar e revisar o conjunto de programas da análise.] em etapas de programação e documentação, sob supervisão humana. A divisão de tarefas entre agentes usou as **skills**^[**Skills**: instruções locais que especializam cada agente para uma tarefa, como mapear a **API**, coletar dados, revisar a amostragem e redigir o relatório.] locais em [`.agents/skills/`](https://github.com/Amorim33/analise-pncp/tree/main/.agents/skills): mapeamento da **API**, coleta de dados, metodologia de amostragem e redação do relatório. As decisões substantivas, a validação das fontes e a interpretação final permanecem sob responsabilidade do autor; a declaração de uso de IA está no Apêndice B.
+O processo foi assistido pelo **Codex**^[**Codex**: agente de inteligência artificial para programação e documentação, usado para implementar, validar e revisar o conjunto de programas da análise.] em etapas de programação e documentação, sob supervisão humana. A divisão de tarefas entre agentes usou as **skills**^[**Skills**: instruções locais que especializam cada agente para uma tarefa, como mapear a **API**, coletar dados, revisar a amostragem e redigir o relatório.] locais em [`.agents/skills/`](https://github.com/Amorim33/analise-pncp/tree/main/.agents/skills): mapeamento da **API**, coleta de dados, metodologia de amostragem e redação do relatório. As decisões substantivas, a validação das fontes e a interpretação final permanecem sob responsabilidade dos autores; a declaração de uso de IA está no Apêndice B.
 
 # Referencial teórico
 
