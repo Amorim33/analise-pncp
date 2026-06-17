@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.6.4)  16 JUN 2026 11:52
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.6.4)  16 JUN 2026 22:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -409,30 +409,29 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 Package hyperref Info: Option `colorlinks' set `true' on input line 23.
 \cslhangindent=\skip62
 \csllabelwidth=\skip63
-
-No file relatorio-final.aux.
+ (./relatorio-final.aux)
 \openout1 = `relatorio-final.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -440,71 +439,71 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 59.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 59.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 59.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 59.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 59.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 59.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 59.
-LaTeX Font Info:    Redeclaring math accent \check on input line 59.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 59.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 59.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 59.
-LaTeX Font Info:    Redeclaring math symbol \colon on input line 59.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 59.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 59.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 59.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 59.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 59.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 59.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 59.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 59.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 59.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 59.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 59.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 59.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 59.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 60.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 60.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 60.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 60.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 60.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 60.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 60.
+LaTeX Font Info:    Redeclaring math accent \check on input line 60.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 60.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 60.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \colon on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 60.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 60.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 59.
+(Font)              `operators' in the math version `normal' on input line 60.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 5
-9.
+(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 6
+0.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 59.
+(Font)              `operators' in the math version `bold' on input line 60.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 
-59.
+60.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on 
-input line 59.
+input line 60.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line
- 59.
+ 60.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 
-59.
+60.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 59.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 60.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 59.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 60.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on 
-input line 59.
+input line 60.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input lin
-e 59.
+e 60.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 59.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 60.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 59.
-LaTeX Info: Redefining \microtypecontext on input line 59.
-Package microtype Info: Applying patch `item' on input line 59.
-Package microtype Info: Applying patch `toc' on input line 59.
-Package microtype Info: Applying patch `eqnum' on input line 59.
-Package microtype Info: Applying patch `footnote' on input line 59.
-Package microtype Info: Applying patch `verbatim' on input line 59.
-LaTeX Info: Redefining \microtypesetup on input line 59.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 60.
+LaTeX Info: Redefining \microtypecontext on input line 60.
+Package microtype Info: Applying patch `item' on input line 60.
+Package microtype Info: Applying patch `toc' on input line 60.
+Package microtype Info: Applying patch `eqnum' on input line 60.
+Package microtype Info: Applying patch `footnote' on input line 60.
+Package microtype Info: Applying patch `verbatim' on input line 60.
+LaTeX Info: Redefining \microtypesetup on input line 60.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -514,6 +513,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `TimesNewRoman' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -551,148 +551,146 @@ Package microtype Info: Loading generic protrusion settings for font family
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 59.
+Package hyperref Info: Link coloring ON on input line 60.
+(./relatorio-final.out) (./relatorio-final.out)
 \@outlinefile=\write4
 \openout4 = `relatorio-final.out'.
 
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 62.
+(Font)              <14.4> on input line 63.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 62.
+(Font)              <7> on input line 63.
+
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-No file relatorio-final.toc.
+(./relatorio-final.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 5.
+ [1
+
+])
 \tf@toc=\write5
 \openout5 = `relatorio-final.toc'.
 
-[1
+ [2]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 100.
 
-]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 108.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 108.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 108.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 112.
- [1]
+Underfull \hbox (badness 1286) in paragraph at lines 126--137
+[]\TU/TimesNewRoman(0)/m/n/12 O recorte empírico considera pregões eletrônicos[
+][][][][] publicados entre 15/06/2025 a
+ []
 
-Package longtable Warning: Column widths have changed
-(longtable)                in none 1 on input line 171.
 
+ignored: Infinite glue shrinkage found in box being split [1]
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Underfull \hbox (badness 1418) in paragraph at lines 195--200
+Underfull \hbox (badness 1418) in paragraph at lines 170--175
 []\TU/TimesNewRoman(0)/m/n/12 A reprodutibilidade foi organizada no repositório
  GitHub [][]$[][][][][] [] [] [] [][][][][][] [] [][][] []
  []
 
-[2] [3]
 
-Package longtable Warning: Column widths have changed
-(longtable)                in none 3 on input line 318.
+Underfull \hbox (badness 1365) in paragraph at lines 176--189
+\TU/TimesNewRoman(0)/m/n/12 sob supervisão humana. A divisão de tarefas entre a
+gentes usou as \TU/TimesNewRoman(0)/b/n/12 skills[][][][][] \TU/TimesNewRoman(0
+)/m/n/12 locais em
+ []
 
-
-ignored: Infinite glue shrinkage found in box being split [4]
-Underfull \hbox (badness 3000) in paragraph at lines 419--423
-\TU/TimesNewRoman(0)/m/n/12 VISANDO FUTURO E EVENTUAL FORNECIMENTO DE ÁGUA MINE
-RAL
+[2] [3] [4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 450--456
+[]\TU/TimesNewRoman(0)/m/n/12 O registro detalhado de desempenho da coleta[][][
+][][] ficou em
  []
 
 
-Package longtable Warning: Column widths have changed
-(longtable)                in none 5 on input line 437.
+Underfull \hbox (badness 4205) in paragraph at lines 450--456
+[][]\TU/lmtt/m/n/12 data/raw/collection_request_metrics.jsonl[][]\TU/TimesNewRo
+man(0)/m/n/12 ; os erros e as tentativas malsucedi-
+ []
 
 
-ignored: Infinite glue shrinkage found in box being split [5]
+Underfull \hbox (badness 10000) in paragraph at lines 457--461
+[]\TU/TimesNewRoman(0)/m/n/12 O registro detalhado de desempenho da consulta de
+ documentos ficou em
+ []
 
-Package longtable Warning: Column widths have changed
-(longtable)                in none 6 on input line 464.
 
-[6] [7]
-Underfull \hbox (badness 1609) in paragraph at lines 585--587
+Underfull \hbox (badness 3623) in paragraph at lines 457--461
+[][]\TU/lmtt/m/n/12 data/raw/document_request_metrics.jsonl[][]\TU/TimesNewRoma
+n(0)/m/n/12 ; os erros e as tentativas malsucedidas
+ []
+
+[6]
+Underfull \hbox (badness 1609) in paragraph at lines 542--544
 []\TU/TimesNewRoman(0)/m/n/12 Brasil. (2026a). \TU/TimesNewRoman(0)/m/it/12 API
  PNCP Consulta\TU/TimesNewRoman(0)/m/n/12 . [][]$[][][][][] [] [] [] [][][][] [
 ] [][][] [] [][] [] [][][][][][][][][][][][][][] [] [][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 589--591
+Underfull \hbox (badness 10000) in paragraph at lines 546--548
 []\TU/TimesNewRoman(0)/m/n/12 Brasil. (2026b). \TU/TimesNewRoman(0)/m/it/12 PNC
 P: dados abertos\TU/TimesNewRoman(0)/m/n/12 . [][]$[][][][][] [] [] [] [][][] [
 ] [][][] [] [][] [] [][][][] [] [][][][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 597--599
+Underfull \hbox (badness 10000) in paragraph at lines 554--556
 []\TU/TimesNewRoman(0)/m/n/12 Open Government Partnership. (2011). \TU/TimesNew
 Roman(0)/m/it/12 Open Government Declara-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 597--599
+Underfull \hbox (badness 10000) in paragraph at lines 554--556
 \TU/TimesNewRoman(0)/m/it/12 tion\TU/TimesNewRoman(0)/m/n/12 . [][]$[][][][][] 
 [] [] [] [][][] [] [][][][][][][][][][][][][][][][][][] [] [][][] [] [][][][][]
 [][] [] [][][][][][][][][][][][] []
  []
 
-
-Underfull \hbox (badness 1558) in paragraph at lines 601--604
+[7]
+Underfull \hbox (badness 1558) in paragraph at lines 558--561
 []\TU/TimesNewRoman(0)/m/n/12 Organisation for Economic Co-operation and Develo
 pment. (2017). \TU/TimesNewRoman(0)/m/it/12 Recommendation
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 601--604
+Underfull \hbox (badness 1337) in paragraph at lines 558--561
 \TU/TimesNewRoman(0)/m/it/12 of the Council on Open Government\TU/TimesNewRoman
 (0)/m/n/12 . [][]$[][][][][] [] [] [] [][][][][][][][][][][][][][][][] [] [][][
 ][] [] [][][] [] [][] []
  []
 
 [8]
-Underfull \hbox (badness 1005) in paragraph at lines 688--693
+Underfull \hbox (badness 1005) in paragraph at lines 645--650
 \TU/TimesNewRoman(0)/m/n/12 HAMENTO, FORNECIMENTO DE BENS E INSUMOS, INFRAESTRU
 TURA E
  []
 
-[9]
-
-Package longtable Warning: Table widths have changed. Rerun LaTeX.
-
-[10] (./relatorio-final.aux)
+[9] [10] (./relatorio-final.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `relatorio-final.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `relatorio-final.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  48BC622AFD94F0EF45BA0733B144C90D;3160.
+Package rerunfilecheck Info: File `relatorio-final.out' has not changed.
+(rerunfilecheck)             Checksum: FA529E1865B9BA965EBFFD9C1D578DFD;3528.
  ) 
 Here is how much of TeX's memory you used:
- 15442 strings out of 469709
- 302081 string characters out of 5466024
- 791792 words of memory out of 5000000
- 43912 multiletter control sequences out of 15000+600000
- 631978 words of font info for 84 fonts, out of 8000000 for 9000
+ 15454 strings out of 469709
+ 302350 string characters out of 5466024
+ 791739 words of memory out of 5000000
+ 43918 multiletter control sequences out of 15000+600000
+ 631970 words of font info for 83 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 73i,8n,93p,1012b,488s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 73i,8n,93p,1012b,485s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on relatorio-final.pdf (11 pages).
+Output written on relatorio-final.pdf (12 pages).
