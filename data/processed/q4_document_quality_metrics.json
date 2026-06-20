@@ -1,0 +1,143 @@
+{
+  "by_city": [
+    {
+      "avg_clareza_objeto": 3.45,
+      "avg_compatibilidade_preco": 2.05,
+      "avg_consumibilidade_documento": 3.35,
+      "avg_nota_media": 2.95,
+      "city": "Sao Paulo",
+      "count": 20
+    }
+  ],
+  "cost": {
+    "total_cost_usd": 1.3144
+  },
+  "evaluated_count": 20,
+  "examples": [
+    {
+      "alertas": [
+        "valorTotalEstimado igual a zero em pregão eletrônico já divulgado — possível omissão ou erro de registro",
+        "valorTotalHomologado ausente (processo ainda em fase de divulgação, mas valor estimado deveria constar)",
+        "Documento principal entregue como arquivo ZIP, dificultando acesso direto ao edital pelo cidadão",
+        "Apenas a relação de itens foi extraída do ZIP; o edital completo com critérios de habilitação e condições contratuais não está visível no excerto analisado"
+      ],
+      "city": "Sao Paulo",
+      "nota_media": 1.67,
+      "numeroControlePNCP": "05499294000161-1-000020/2026",
+      "resumo": "Pregão com objeto razoavelmente detalhado para locação de máquinas pesadas, mas gravemente comprometido pelo valor estimado zerado e documento principal encapsulado em ZIP.",
+      "tipo_pdf": "texto"
+    },
+    {
+      "alertas": [
+        "valorTotalEstimado zerado (R$ 0,00) no registro PNCP contradiz o valor de R$ 21.178.498,44 constante na relação de itens — possível falha de integração ou omissão intencional.",
+        "Situação da compra é 'Revogada' — ausência de justificativa de revogação acessível no registro reduz a transparência.",
+        "Documento principal é um ZIP com apenas a relação de itens; o edital completo e o Termo de Referência não estão disponíveis no excerto analisado.",
+        "Item único com unidade 'UNIDADE' e quantidade 1 para contrato de grande vulto dificulta o controle social sobre a composição do preço."
+      ],
+      "city": "Sao Paulo",
+      "nota_media": 2.0,
+      "numeroControlePNCP": "05494401000169-1-000012/2026",
+      "resumo": "Pregão eletrônico de R$ 21 milhões para manutenção de vias em Parelheiros foi revogado e apresenta valor zerado no registro PNCP, o que compromete a transparência do processo.",
+      "tipo_pdf": "texto"
+    },
+    {
+      "alertas": [
+        "valorTotalEstimado zerado (R$ 0,00): impossível verificar razoabilidade do gasto público",
+        "Situação 'Suspensa': processo interrompido sem homologação — motivo da suspensão não consta no registro PNCP",
+        "Documento entregue em formato ZIP em vez de PDF direto, dificultando acesso imediato pelo controle social"
+      ],
+      "city": "Sao Paulo",
+      "nota_media": 2.0,
+      "numeroControlePNCP": "05611299000134-1-000066/2025",
+      "resumo": "Objeto técnico bem descrito e edital plenamente legível, mas valor estimado zerado e situação suspensa comprometem gravemente a transparência financeira da contratação.",
+      "tipo_pdf": "texto"
+    },
+    {
+      "alertas": [
+        "valorTotalEstimado registrado como R$ 0,00 no PNCP — possível orçamento sigiloso ou erro de publicação; dificulta controle social do preço de referência.",
+        "Especificações técnicas (granulometria, normas ABNT, condições de entrega) constam apenas no Anexo I não transcrito — avaliação completa do objeto requer acesso ao Termo de Referência 156651208.",
+        "Contratação ainda em fase 'Divulgada no PNCP' — ausência de resultado/homologação impede avaliação de economicidade."
+      ],
+      "city": "Sao Paulo",
+      "nota_media": 2.33,
+      "numeroControlePNCP": "05494401000169-1-000020/2026",
+      "resumo": "Pregão eletrônico com objeto claro e documento de boa qualidade, mas com valor estimado zerado no PNCP, o que compromete a transparência sobre o montante envolvido.",
+      "tipo_pdf": "texto"
+    },
+    {
+      "alertas": [
+        "valorTotalEstimado é R$ 0,00 — obrigação legal de divulgar valor estimado não cumprida (Lei 14.133/2021, art. 24)",
+        "valorTotalHomologado ausente, indicando que o certame ainda não foi concluído ou dado não foi registrado no PNCP",
+        "Documento principal é arquivo ZIP contendo apenas relação de itens, sem edital completo, minuta de contrato ou planilha de preços",
+        "Situação 'Divulgada no PNCP' com valor zero pode indicar erro de cadastro ou publicação prematura"
+      ],
+      "city": "Sao Paulo",
+      "nota_media": 2.33,
+      "numeroControlePNCP": "05499294000161-1-000042/2025",
+      "resumo": "Objeto claro e bem especificado, mas valor estimado zerado é alerta grave de transparência; documento acessível porém incompleto (falta edital).",
+      "tipo_pdf": "texto"
+    },
+    {
+      "alertas": [
+        "Item licitado com quantidade '1 UNIDADE' para serviço contínuo — unidade de fornecimento inadequada dificulta comparação de preços e controle de execução.",
+        "Documento disponível no PNCP é apenas a relação de itens (ZIP/1 página); o edital completo está hospedado em sistema externo (ComprasNet), reduzindo a centralização esperada no PNCP.",
+        "Ausência de especificação de área (m²), localização dos logradouros ou frequência de atendimento no registro PNCP."
+      ],
+      "city": "Sao Paulo",
+      "nota_media": 2.33,
+      "numeroControlePNCP": "05667941000105-1-000001/2026",
+      "resumo": "Contratação de serviço antipichação pela Subprefeitura Guaianases com preço razoável, mas escopo mal delimitado e documento principal restrito à relação de itens, sem edital acessível no PNCP.",
+      "tipo_pdf": "texto"
+    },
+    {
+      "alertas": [
+        "valorTotalEstimado é 0,00 — possível erro de registro ou omissão intencional que impede controle de razoabilidade do preço",
+        "valorTotalHomologado ausente (licitação ainda na fase Divulgada no PNCP, sem resultado)",
+        "Ausência de quantidade estimada de testes no registro da API dificulta estimativa de custo unitário por controle externo"
+      ],
+      "city": "Sao Paulo",
+      "nota_media": 2.33,
+      "numeroControlePNCP": "13864377000130-1-000010/2026",
+      "resumo": "Pregão eletrônico da SMS-SP para insumos de VHS com comodato de equipamento apresenta objeto claro e documento acessível, mas o valor estimado zerado é um alerta relevante para controle social.",
+      "tipo_pdf": "texto"
+    },
+    {
+      "alertas": [
+        "Documento principal é um arquivo ZIP — pode dificultar acesso direto por cidadãos sem ferramentas técnicas.",
+        "Apenas 1 item licitado com quantidade 'UNIDADE' para 12 meses: ausência de planilha de composição de custos no excerto impede verificação de sobrepreço por insumo.",
+        "Objeto não quantifica produção esperada (ex.: m² de gradis, número de intervenções), dificultando fiscalização contratual."
+      ],
+      "city": "Sao Paulo",
+      "nota_media": 2.67,
+      "numeroControlePNCP": "05539998000110-1-000022/2025",
+      "resumo": "Contratação de serviço continuado de serralheria com escopo razoavelmente definido, preço homologado com desconto adequado, mas documentação acessível restringe-se à relação de itens sem o edital completo.",
+      "tipo_pdf": "texto"
+    }
+  ],
+  "generated_at": "2026-06-20T16:25:32+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": {
+    "avg_clareza_objeto": 3.45,
+    "avg_compatibilidade_preco": 2.05,
+    "avg_consumibilidade_documento": 3.35,
+    "avg_nota_media": 2.95,
+    "count": 20
+  },
+  "prompt_version": "q4-doc-quality-v1",
+  "question": "Q4. O objeto e o preco sao claros e os documentos faceis de consumir?",
+  "rotulo_heuristico_counts": {
+    "texto": 20
+  },
+  "sample_count": 20,
+  "schema_version": "q4-doc-quality-schema-v1",
+  "sinal_preco_counts": {
+    "compativel": 13,
+    "suspeito": 7
+  },
+  "status_counts": {
+    "evaluated": 20
+  },
+  "tipo_pdf_counts": {
+    "texto": 20
+  }
+}

@@ -1,4 +1,4 @@
-.PHONY: sync check test lint typecheck pipeline paper q2 final run clean
+.PHONY: sync check test lint typecheck pipeline run clean
 
 sync:
 	uv sync --extra dev
@@ -16,14 +16,6 @@ check: lint typecheck test
 
 pipeline:
 	uv run pncp-analysis run-all
-
-paper:
-	uv run pncp-analysis paper
-
-q2:
-	uv run python scripts/rebuild_q2.py --allow-placeholders
-
-final: pipeline paper check
 
 run:
 	uv run pncp-analysis run-all

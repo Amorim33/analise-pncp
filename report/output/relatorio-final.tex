@@ -68,7 +68,12 @@ Sudeste. O método combina coleta automatizada dos dados, verificação de
 quão completos eles são, medição da facilidade de obtê-los pela API e
 comparação entre as capitais. O resultado indica boa disponibilidade dos
 campos básicos, com ressalvas no valor homologado e no link para o
-sistema de origem, além de forte fragmentação de CNPJs em São Paulo.
+sistema de origem, além de forte fragmentação de CNPJs em São Paulo. Uma
+avaliação assistida por modelo de linguagem indica ainda que os objetos
+costumam ser claros e os documentos têm camada de texto, mas a
+compatibilidade do preço é fragilizada por valores estimados zerados em
+cerca de 35\% dos registros e pela frequente hospedagem do edital fora
+do PNCP.
 \end{abstract}
 
 \begin{center}
@@ -87,7 +92,7 @@ Docente: Jorge Machado
 
 Este trabalho analisa o Portal Nacional de Contratações Públicas (PNCP)
 como infraestrutura de governo aberto nas capitais do Sudeste
-brasileiro. A investigação foi organizada em duas questões de pesquisa:
+brasileiro. A investigação foi organizada em três questões de pesquisa:
 
 Q1. Há completude nos dados fornecidos pelo PNCP nas prefeituras das
 capitais dos estados do sudeste brasileiro (São Paulo, Rio de Janeiro,
@@ -100,6 +105,12 @@ Q2. Os dados das \textbf{APIs}\footnote{\textbf{API}: sigla em inglês
   cliques manuais no site.} do PNCP são facilmente consumíveis? Em
 outras palavras, um cidadão, pesquisador ou jornalista consegue baixar
 os dados de forma automática, rápida e confiável?
+
+Q3. O objeto, o preço e os documentos publicados são claros e fáceis de
+consumir para o controle social? Em outras palavras, mais do que estarem
+preenchidos (Q1), os campos e arquivos permitem entender o que foi
+contratado, julgar se o preço é plausível e abrir o documento sem
+barreiras técnicas?
 
 O PNCP é especialmente relevante porque a Lei nº 14.133/2021 o institui
 como ambiente nacional de divulgação de contratações públicas (Brasil,
@@ -143,11 +154,11 @@ Capital & Fonte & Registros & Páginas & Total & Limite \\
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Sao Paulo & matriz & 30 & 12 & 12 & \\
-Sao Paulo & município & 17654 & 359 & 359 & todas \\
+São Paulo & matriz & 30 & 12 & 12 & \\
+São Paulo & município & 17654 & 359 & 359 & todas \\
 Rio de Janeiro & matriz & 896 & 23 & 23 & \\
 Belo Horizonte & matriz & 291 & 12 & 12 & \\
-Vitoria & matriz & 233 & 12 & 12 & \\
+Vitória & matriz & 233 & 12 & 12 & \\
 \end{longtable}
 }
 
@@ -165,7 +176,19 @@ contratação: objeto, valores, datas, unidade administrativa, link para o
 sistema de origem e documentos. As métricas de Q2 medem a facilidade de
 obter esses dados de forma automática: quanto tempo cada consulta levou,
 como esse tempo se distribuiu e quantas consultas falharam durante o
-acesso à \textbf{API}.
+acesso à \textbf{API}. As métricas de Q3 medem a qualidade do conteúdo
+publicado: a clareza do objeto, a plausibilidade do preço e a
+consumibilidade do documento. Para isso, usou-se um \textbf{modelo de
+linguagem} como avaliador (\texttt{claude-sonnet-4-6}, acessado pelo
+\texttt{claude} CLI\footnote{A invocação do modelo, com assinatura
+  registrada e custo por chamada, está descrita em
+  \href{https://github.com/Amorim33/analise-pncp/blob/main/anthropic-rest-use.md}{\texttt{anthropic-rest-use.md}}.})
+sobre uma subamostra reproduzível de 20 registros, complementado por um
+sinal determinístico extraído de cada PDF como verdade-base. O programa
+reproduzível é
+\href{https://github.com/Amorim33/analise-pncp/blob/main/scripts/analyze_documents_claude.py}{\texttt{scripts/analyze\_documents\_claude.py}},
+e as avaliações por registro ficam em
+\href{https://github.com/Amorim33/analise-pncp/blob/main/data/processed/q4_document_quality_evaluations.jsonl}{\texttt{data/processed/q4\_document\_quality\_evaluations.jsonl}}.
 
 A reprodutibilidade foi organizada no repositório GitHub
 \url{https://github.com/Amorim33/analise-pncp}. O repositório versiona
@@ -243,10 +266,10 @@ Participação da matriz
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Sao Paulo & 2662 & 2662 & 67 & 30 & 1.1\% \\
+São Paulo & 2662 & 2662 & 67 & 30 & 1.1\% \\
 Rio de Janeiro & 896 & 896 & 1 & 896 & 100.0\% \\
 Belo Horizonte & 291 & 291 & 1 & 291 & 100.0\% \\
-Vitoria & 233 & 233 & 1 & 233 & 100.0\% \\
+Vitória & 233 & 233 & 1 & 233 & 100.0\% \\
 \end{longtable}
 }
 
@@ -318,13 +341,13 @@ Docs
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Sao Paulo & 100.0\% & 100.0\% & 60.5\% & 100.0\% & 100.0\% & 99.8\% &
+São Paulo & 100.0\% & 100.0\% & 60.5\% & 100.0\% & 100.0\% & 99.8\% &
 100.0\% \\
 Rio de Janeiro & 100.0\% & 100.0\% & 63.4\% & 100.0\% & 100.0\% &
 100.0\% & 100.0\% \\
 Belo Horizonte & 100.0\% & 100.0\% & 78.0\% & 100.0\% & 100.0\% & 96.9\%
 & 100.0\% \\
-Vitoria & 100.0\% & 100.0\% & 67.4\% & 100.0\% & 100.0\% & 0.0\% &
+Vitória & 100.0\% & 100.0\% & 67.4\% & 100.0\% & 100.0\% & 0.0\% &
 100.0\% \\
 \end{longtable}
 }
@@ -349,7 +372,7 @@ variação:
 \begin{itemize}
 \tightlist
 \item
-  Sao Paulo (\texttt{13864377000130-1-002050/2025}): data 18/11/2025;
+  São Paulo (\texttt{13864377000130-1-002050/2025}): data 18/11/2025;
   valor homologado presente; link de origem presente; 1 documento(s);
   objeto: REGISTRO De PREÇOS PARA O FORNECIMENTO CANULA TRAQUEOSTOMIA
   COM BALAO, DESCARTAVEL, ESTERIL - NR. 4,5 E SONDA ENDOTRAQUEAL, COM
@@ -366,7 +389,7 @@ variação:
   preços para aquisição de materiais de higiene e limpeza específicos,
   conforme condições e exigências\ldots{}
 \item
-  Vitoria (\texttt{27142058000126-1-000679/2025}): data 02/12/2025;
+  Vitória (\texttt{27142058000126-1-000679/2025}): data 02/12/2025;
   valor homologado presente; link de origem ausente; 8 documento(s);
   objeto: AQUISIÇÃO DE MOBILIÁRIO E EQUIPAMENTOS DIVERSOS
 \end{itemize}
@@ -379,10 +402,10 @@ Capital & Com documentos & Amostra & Mín. & Máx. & Média \\
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Sao Paulo & 100 & 100 & 1 & 1 & 1.0 \\
+São Paulo & 100 & 100 & 1 & 1 & 1.0 \\
 Rio de Janeiro & 100 & 100 & 1 & 1 & 1.0 \\
 Belo Horizonte & 100 & 100 & 1 & 2 & 1.0 \\
-Vitoria & 100 & 100 & 2 & 12 & 5.5 \\
+Vitória & 100 & 100 & 2 & 12 & 5.5 \\
 \end{longtable}
 }
 
@@ -436,7 +459,7 @@ no percentil 95, no máximo 1.11s e 0 falhas. Essa etapa foi mais rápida
 e estável que a coleta anual. No conjunto, a resposta a Q2 é favorável
 com ressalvas: os dados são acessíveis de forma automática e ágil, mas
 obtê-los com segurança exigiu controlar o ritmo das consultas, guardar
-as falhas e conferir a resposta --- ou seja, a facilidade de consumo
+as falhas e conferir a resposta; ou seja, a facilidade de consumo
 depende de cuidados que nem todo usuário leigo teria como adotar
 sozinho.
 
@@ -459,50 +482,152 @@ O registro detalhado de desempenho da consulta de documentos ficou em
 os erros e as tentativas malsucedidas ficam em
 \href{https://github.com/Amorim33/analise-pncp/blob/main/data/raw/document_errors.json}{\texttt{data/raw/document\_errors.json}}.
 
+\subsection{Q3: clareza do objeto, preço e
+documentos}\label{q3-clareza-do-objeto-preuxe7o-e-documentos}
+
+A Q3 complementa as duas primeiras questões com um julgamento de
+qualidade feito por um \textbf{modelo de linguagem} (Anthropic, 2026). Em
+vez de apenas verificar se os campos estão preenchidos (Q1), avalia se o
+conteúdo publicado é compreensível e suficiente para o controle social,
+em três aspectos práticos, cada um com nota inteira de 0 a
+4\footnote{Escala de 0 a 4, em que 0 indica qualidade péssima e 4
+  qualidade ótima. As notas e justificativas de cada registro ficam em
+  \texttt{q4\_document\_quality\_evaluations.jsonl}.}: a clareza do
+objeto (é fácil entender o que foi contratado?), a compatibilidade do
+preço (o valor parece plausível para o objeto?) e a consumibilidade do
+documento (o arquivo é fácil de abrir e ler?). Para o terceiro aspecto,
+o programa extrai os PDFs em memória e calcula um sinal
+determinístico\footnote{Sinal determinístico: medidas objetivas
+  calculadas localmente a partir do PDF (páginas, caracteres por página,
+  páginas com texto), usadas como verdade-base para distinguir um
+  documento com texto pesquisável de uma imagem escaneada.} por
+documento, entregue ao modelo como verdade-base. A avaliação usou o
+modelo \texttt{claude-sonnet-4-6} sobre uma subamostra reproduzível de
+20 registros, a um custo total de US\$ 1,31. Por ordenação do
+\texttt{numeroControlePNCP}, os 20 registros recaíram inteiramente em São
+Paulo; portanto, os resultados descrevem editais paulistanos e não são
+representativos das quatro capitais (ver Apêndice C).
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.30}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.18}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.52}}@{}}
+\toprule\noalign{}
+Aspecto & Média (0--4) & Leitura \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Clareza do objeto & 3,45 & Objetos em geral bem descritos \\
+Compatibilidade do preço & 2,05 & Puxada para baixo por valores estimados
+zerados \\
+Consumibilidade do documento & 3,35 & Todos com camada de texto; perde
+nota quando o PNCP só expõe a relação de itens \\
+Nota média geral & 2,95 & Síntese dos três aspectos \\
+\end{longtable}
+}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Distribuição & Valor \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+PDFs com camada de texto & 20/20 \\
+Preço sinalizado como compatível & 13 \\
+Preço sinalizado como suspeito & 7 \\
+Registros com \texttt{valorTotalEstimado} = R\$ 0,00 & 7/20 (35\%) \\
+\end{longtable}
+}
+
+A clareza do objeto foi o ponto mais forte (3,45): a maioria dos editais
+identifica com precisão o bem ou serviço, com especificação técnica e
+remissão ao Termo de Referência. A compatibilidade do preço foi o
+aspecto mais fraco (2,05), e a causa é direta: \textbf{7 dos 20
+registros (35\%) trazem \texttt{valorTotalEstimado} igual a R\$ 0,00} e
+valor homologado ausente. Sem valor de referência, o modelo não consegue
+avaliar a razoabilidade do gasto e sinaliza o preço como suspeito; não
+por ser alto ou baixo, mas por inviabilizar o controle. O caso mais grave
+combina dado faltante e divergência interna: no registro
+\texttt{05494401000169-1-000012/2026} (manutenção de vias), a API informa
+\texttt{valorTotalEstimado} = R\$ 0,00, enquanto a relação de itens do
+próprio documento aponta R\$ 21.178.498,44; uma inconsistência que
+compromete o controle social baseado nos campos estruturados do PNCP.
+
+A consumibilidade ficou alta (3,35): o sinal determinístico classificou
+\textbf{todos os 20 documentos como texto pesquisável}, sem nenhum PDF
+escaneado nesta subamostra. Ainda assim, vários casos foram rebaixados
+porque o que o PNCP expõe é apenas a relação de itens em uma
+página\footnote{Relação de itens: lista resumida dos itens licitados.
+  Em vários pregões, é o único arquivo disponível no PNCP, enquanto o
+  edital completo permanece hospedado em sistema externo, como o
+  ComprasNet.}, ficando o edital completo em sistema externo; soma-se a
+isso a fricção recorrente do empacotamento em ZIP, que adiciona uma etapa
+de descompactação para o cidadão.
+
+Exemplos pseudoaleatórios da subamostra ilustram a variação:
+
+\begin{itemize}
+\tightlist
+\item
+  São Paulo (\texttt{05667941000105-1-000006/2026}): nota 4:
+  ``Aquisição de Piso Podotátil amarelo''; objeto detalhado (20x20x2 cm,
+  500 unidades) e valor plausível (R\$ 5,26/un, estimado igual ao
+  homologado).
+\item
+  São Paulo (\texttt{05667941000105-1-000001/2026}): nota 2:
+  ``Recuperação de Superfícies Pichadas'' com item único, unidade
+  genérica e sem área, frequência ou localização; documento restrito à
+  relação de itens.
+\item
+  São Paulo (\texttt{05494401000169-1-000012/2026}): nota 2:
+  manutenção de vias revogada, com R\$ 0,00 na API e R\$ 21,2 mi no
+  documento.
+\end{itemize}
+
 \subsection{Constatações
 empíricas}\label{constatauxe7uxf5es-empuxedricas}
 
 \begin{itemize}
 \tightlist
 \item
-  Na amostra candidata de Sao Paulo, 98.9\% dos registros elegiveis
+  Na amostra candidata de São Paulo, 98.9\% dos registros elegíveis
   ficaram fora do CNPJ matriz; nas demais capitais analisadas, os
   registros por CNPJ matriz concentraram 100\% dos candidatos coletados.
 \item
-  Sao Paulo apresentou 67 CNPJs distintos no recorte elegivel, enquanto
-  Rio de Janeiro, Belo Horizonte e Vitoria apareceram com um CNPJ cada
+  São Paulo apresentou 67 CNPJs distintos no recorte elegível, enquanto
+  Rio de Janeiro, Belo Horizonte e Vitória apareceram com um CNPJ cada
   no recorte por matriz.
 \item
-  Vitoria teve documentos vinculados em todos os itens da subamostra
-  documental, mas nenhum dos registros elegiveis trouxe
+  Vitória teve documentos vinculados em todos os itens da subamostra
+  documental, mas nenhum dos registros elegíveis trouxe
   \texttt{linkSistemaOrigem}, o que reduz a rastreabilidade para o
   sistema de origem.
 \item
-  O valor homologado apareceu com menor completude em Sao Paulo
+  O valor homologado apareceu com menor completude em São Paulo
   (60.5\%), indicando que parte dos registros estava em fase anterior ao
-  resultado ou sem homologacao registrada no recorte.
+  resultado ou sem homologação registrada no recorte.
 \item
   A quantidade de documentos anexados variou de forma relevante: em
-  Vitoria, um item da amostra chegou a 12 documentos, enquanto outros
-  municipios tiveram padrao mais concentrado.
+  Vitória, um item da amostra chegou a 12 documentos, enquanto outros
+  municípios tiveram padrão mais concentrado.
+\item
+  Na avaliação de qualidade (Q3), 35\% dos registros da subamostra
+  paulistana trouxeram \texttt{valorTotalEstimado} igual a R\$ 0,00, o
+  que inviabiliza o controle social do preço de referência, assim como descredibiliza os registros do campo,
+  dificultando a análise em lote.
+\item
+  Em vários pregões, o PNCP expôs apenas a relação de itens, com o edital
+  completo hospedado em sistema externo (ComprasNet), o que reduz a
+  centralização esperada do portal.
+\item
+  O empacotamento do documento principal em arquivo ZIP foi recorrente e
+  adiciona uma etapa de descompactação que funciona como atrito de acesso
+  para o cidadão comum.
 \end{itemize}
-
-\section{Trabalhos futuros}\label{trabalhos-futuros}
-
-Uma continuidade possível desta pesquisa seria incorporar modelos de
-linguagem de grande porte (LLMs) para avaliar, em escala, a qualidade
-textual dos documentos anexados e do campo \texttt{objetoCompra}. Essa
-etapa permitiria observar não apenas se os campos estão preenchidos, mas
-também se o conteúdo publicado é informativo, claro e suficiente para a
-compreensão pública da contratação.
-
-Essa avaliação poderia classificar o grau de clareza textual, a
-existência de um padrão de exposição entre órgãos e municípios, a
-presença de informações implícitas que exigem conhecimento externo e a
-compatibilidade entre o texto do objeto e os documentos vinculados. O
-uso de LLMs também poderia apoiar a identificação de descrições
-genéricas, incompletas ou excessivamente técnicas, desde que acompanhado
-por validação humana e critérios transparentes de avaliação.
 
 \section{Conclusões}\label{conclusuxf5es}
 
@@ -526,10 +651,38 @@ preenchimento dos links para os sistemas de origem e mecanismos que
 facilitem ao cidadão reconstruir o conjunto de órgãos vinculados a cada
 prefeitura.
 
+A avaliação de qualidade (Q3) reforça esse diagnóstico por outro ângulo:
+mesmo quando o objeto é claro e o documento tem camada de texto, a
+ausência de orçamento de referência em parte expressiva dos registros e a
+hospedagem do edital fora do portal limitam o que o controle social
+consegue verificar. Abertura, portanto, depende não só de o dado existir,
+mas de ele ser íntegro, consistente entre API e documento, e centralizado
+no PNCP.
+
+\section{Trabalhos futuros}\label{trabalhos-futuros}
+
+A avaliação por modelo de linguagem iniciada na Q3 abre várias
+continuidades. A mais imediata é substituir a subamostra atual, que por
+ordenação recaiu apenas em São Paulo, por uma \textbf{amostragem
+estratificada pelas quatro capitais} (por exemplo, cinco registros por
+cidade), de modo a permitir comparação regional da qualidade textual.
+
+Outras frentes incluem: validar o detector de PDF escaneado com um caso
+positivo, já que nenhum documento de imagem apareceu nesta subamostra;
+introduzir \textbf{verificação adversarial} por um segundo modelo
+avaliador, reduzindo a dependência de um único julgamento; e confrontar a
+plausibilidade do preço com bases de referência de mercado, indo além do
+juízo de plausibilidade interno. Em todos os casos, a validação humana e
+critérios transparentes de avaliação permanecem indispensáveis.
+
 \section{Referências}\label{referuxeancias}
 
 \protect\phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-anthropicClaude}
+Anthropic. (2026). \emph{Claude} (claude-sonnet-4-6).
+\url{https://www.anthropic.com/claude}
+
 \bibitem[\citeproctext]{ref-lei12527}
 Brasil. (2011). \emph{Lei nº 12.527, de 18 de novembro de 2011}.
 \url{https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm}
@@ -570,7 +723,7 @@ W3C Brasil. (2011). \emph{Manual dos dados abertos: governo}.
 \section{Apêndice A: exemplos compactos da
 API}\label{apuxeandice-a-exemplos-compactos-da-api}
 
-\subsection{Sao Paulo - exemplo fora do CNPJ
+\subsection{São Paulo - exemplo fora do CNPJ
 matriz}\label{sao-paulo---exemplo-fora-do-cnpj-matriz}
 
 \begin{itemize}
@@ -578,7 +731,7 @@ matriz}\label{sao-paulo---exemplo-fora-do-cnpj-matriz}
 \item
   Controle PNCP: \texttt{01164292000160-1-000020/2026}
 \item
-  CNPJ/órgão: \texttt{01164292000160} --- MUNICIPIO DE CACU
+  CNPJ/órgão: \texttt{01164292000160}; MUNICIPIO DE CACU
 \item
   Unidade: PREFEITURA MUNICIPAL DE CAÇU
 \item
@@ -596,7 +749,7 @@ matriz}\label{sao-paulo---exemplo-fora-do-cnpj-matriz}
   EMENDA PARLAMENTAR Nº 1299.2/2025, PROCESSO Nº 202500005\ldots{}
 \end{itemize}
 
-\subsection{Sao Paulo - exemplo no CNPJ
+\subsection{São Paulo - exemplo no CNPJ
 matriz}\label{sao-paulo---exemplo-no-cnpj-matriz}
 
 \begin{itemize}
@@ -604,7 +757,7 @@ matriz}\label{sao-paulo---exemplo-no-cnpj-matriz}
 \item
   Controle PNCP: \texttt{46395000000139-1-000007/2026}
 \item
-  CNPJ/órgão: \texttt{46395000000139} --- MUNICIPIO DE SAO PAULO
+  CNPJ/órgão: \texttt{46395000000139}; MUNICIPIO DE SAO PAULO
 \item
   Unidade: PMSP - SECRETARIA DO GOVERNO MUNICIPAL
 \item
@@ -630,7 +783,7 @@ matriz}\label{sao-paulo---exemplo-no-cnpj-matriz}
 \item
   Controle PNCP: \texttt{42498733000148-1-000104/2026}
 \item
-  CNPJ/órgão: \texttt{42498733000148} --- MUNICIPIO DE RIO DE JANEIRO
+  CNPJ/órgão: \texttt{42498733000148}; MUNICIPIO DE RIO DE JANEIRO
 \item
   Unidade: PREFEITURA MUNICIPAL DO RIO DE JANEIRO - RJ
 \item
@@ -656,7 +809,7 @@ matriz}\label{sao-paulo---exemplo-no-cnpj-matriz}
 \item
   Controle PNCP: \texttt{18715383000140-1-000024/2026}
 \item
-  CNPJ/órgão: \texttt{18715383000140} --- MUNICIPIO DE BELO HORIZONTE
+  CNPJ/órgão: \texttt{18715383000140}; MUNICIPIO DE BELO HORIZONTE
 \item
   Unidade: PREF.MUN.DE BELO HORIZONTE
 \item
@@ -680,9 +833,13 @@ IA}\label{apuxeandice-b-declarauxe7uxe3o-de-uso-de-ia}
 
 Este trabalho utilizou ferramentas de inteligência artificial generativa
 para apoio à programação do pipeline de coleta e análise, organização
-dos resultados, revisão textual e geração inicial do relatório. A
-seleção do tema, a validação das fontes, a interpretação dos resultados
-e a versão final são de responsabilidade do(s) autor(es).
+dos resultados, revisão textual e geração inicial do relatório. Na Q3, um
+modelo de linguagem (\texttt{claude-sonnet-4-6}) foi usado como
+\textbf{avaliador} da qualidade do objeto, do preço e dos documentos,
+sobre uma subamostra de 20 registros, a um custo total de US\$ 1,31; as
+notas e justificativas geradas foram conferidas pelos autores. A seleção
+do tema, a validação das fontes, a interpretação dos resultados e a
+versão final são de responsabilidade do(s) autor(es).
 
 \section{Apêndice C: limitações
 metodológicas}\label{apuxeandice-c-limitauxe7uxf5es-metodoluxf3gicas}
@@ -692,8 +849,16 @@ Sudeste. A API de consulta por publicação limita cada requisição a
 janelas de até 365 dias; por isso, o recorte usa a maior janela aceita
 em uma consulta reprodutível. Além disso, os documentos vinculados foram
 analisados a partir de uma subamostra sorteada de forma reproduzível, e
-não a totalidade dos documentos. Por fim, os resultados podem mudar com
-novas publicações, retificações ou alterações na API do PNCP.
+não a totalidade dos documentos. A avaliação de qualidade da Q3 tem
+limitações adicionais: a subamostra de 20 registros recaiu inteiramente
+em São Paulo e não representa as quatro capitais; nenhum PDF escaneado
+apareceu, de modo que o detector correspondente não foi exercido com um
+caso positivo; o juízo de preço é de plausibilidade, sem base de mercado
+externa; o excerto enviado ao modelo limitou-se a 12.000 caracteres, o
+que deixa de fora o edital completo quando o PNCP expõe só a relação de
+itens; e o resultado vem de uma única passada de um único modelo, sem
+verificação adversarial. Por fim, os resultados podem mudar com novas
+publicações, retificações ou alterações na API do PNCP.
 
 \section{Apêndice D: Organização do
 projeto}\label{apuxeandice-d-organizauxe7uxe3o-do-projeto}
@@ -721,7 +886,8 @@ instruções usadas no processo de trabalho com agentes.
 \item
   \href{https://github.com/Amorim33/analise-pncp/tree/main/data/processed}{\texttt{data/processed/}}:
   amostras, métricas, tabelas derivadas e artefatos intermediários da
-  análise.
+  análise, incluindo as avaliações de qualidade da Q3
+  (\texttt{q4\_document\_quality\_*}).
 \item
   \href{https://github.com/Amorim33/analise-pncp/tree/main/report}{\texttt{report/}}:
   fontes bibliográficas, modelo e versões editáveis do relatório.

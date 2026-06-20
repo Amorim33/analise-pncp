@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.6.4)  16 JUN 2026 22:32
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.6.4)  20 JUN 2026 14:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -580,117 +580,125 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
  [2]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 100.
+(Font)              <5> on input line 105.
 
-Underfull \hbox (badness 1286) in paragraph at lines 126--137
+Underfull \hbox (badness 1286) in paragraph at lines 137--148
 []\TU/TimesNewRoman(0)/m/n/12 O recorte empírico considera pregões eletrônicos[
 ][][][][] publicados entre 15/06/2025 a
  []
 
-
-ignored: Infinite glue shrinkage found in box being split [1]
+[1]
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Underfull \hbox (badness 1418) in paragraph at lines 170--175
+Underfull \hbox (badness 10000) in paragraph at lines 185--185
+[][][]\TU/TimesNewRoman(0)/m/n/10 A invocação do modelo, com assinatura registr
+ada e custo por chamada, está descrita em
+ []
+
+
+Underfull \hbox (badness 1418) in paragraph at lines 193--198
 []\TU/TimesNewRoman(0)/m/n/12 A reprodutibilidade foi organizada no repositório
  GitHub [][]$[][][][][] [] [] [] [][][][][][] [] [][][] []
  []
 
 
-Underfull \hbox (badness 1365) in paragraph at lines 176--189
+Underfull \hbox (badness 1365) in paragraph at lines 199--212
 \TU/TimesNewRoman(0)/m/n/12 sob supervisão humana. A divisão de tarefas entre a
 gentes usou as \TU/TimesNewRoman(0)/b/n/12 skills[][][][][] \TU/TimesNewRoman(0
 )/m/n/12 locais em
  []
 
 [2] [3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 450--456
+Underfull \hbox (badness 10000) in paragraph at lines 473--479
 []\TU/TimesNewRoman(0)/m/n/12 O registro detalhado de desempenho da coleta[][][
 ][][] ficou em
  []
 
 
-Underfull \hbox (badness 4205) in paragraph at lines 450--456
+Underfull \hbox (badness 4205) in paragraph at lines 473--479
 [][]\TU/lmtt/m/n/12 data/raw/collection_request_metrics.jsonl[][]\TU/TimesNewRo
 man(0)/m/n/12 ; os erros e as tentativas malsucedi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 457--461
+Underfull \hbox (badness 10000) in paragraph at lines 480--484
 []\TU/TimesNewRoman(0)/m/n/12 O registro detalhado de desempenho da consulta de
  documentos ficou em
  []
 
 
-Underfull \hbox (badness 3623) in paragraph at lines 457--461
+Underfull \hbox (badness 3623) in paragraph at lines 480--484
 [][]\TU/lmtt/m/n/12 data/raw/document_request_metrics.jsonl[][]\TU/TimesNewRoma
 n(0)/m/n/12 ; os erros e as tentativas malsucedidas
  []
 
 [6]
-Underfull \hbox (badness 1609) in paragraph at lines 542--544
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 550.
+ [7] [8] [9]
+Underfull \hbox (badness 1609) in paragraph at lines 695--697
 []\TU/TimesNewRoman(0)/m/n/12 Brasil. (2026a). \TU/TimesNewRoman(0)/m/it/12 API
  PNCP Consulta\TU/TimesNewRoman(0)/m/n/12 . [][]$[][][][][] [] [] [] [][][][] [
 ] [][][] [] [][] [] [][][][][][][][][][][][][][] [] [][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 546--548
+Underfull \hbox (badness 10000) in paragraph at lines 699--701
 []\TU/TimesNewRoman(0)/m/n/12 Brasil. (2026b). \TU/TimesNewRoman(0)/m/it/12 PNC
 P: dados abertos\TU/TimesNewRoman(0)/m/n/12 . [][]$[][][][][] [] [] [] [][][] [
 ] [][][] [] [][] [] [][][][] [] [][][][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 554--556
+Underfull \hbox (badness 10000) in paragraph at lines 707--709
 []\TU/TimesNewRoman(0)/m/n/12 Open Government Partnership. (2011). \TU/TimesNew
 Roman(0)/m/it/12 Open Government Declara-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 554--556
+Underfull \hbox (badness 10000) in paragraph at lines 707--709
 \TU/TimesNewRoman(0)/m/it/12 tion\TU/TimesNewRoman(0)/m/n/12 . [][]$[][][][][] 
 [] [] [] [][][] [] [][][][][][][][][][][][][][][][][][] [] [][][] [] [][][][][]
 [][] [] [][][][][][][][][][][][] []
  []
 
-[7]
-Underfull \hbox (badness 1558) in paragraph at lines 558--561
+
+Underfull \hbox (badness 1558) in paragraph at lines 711--714
 []\TU/TimesNewRoman(0)/m/n/12 Organisation for Economic Co-operation and Develo
 pment. (2017). \TU/TimesNewRoman(0)/m/it/12 Recommendation
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 558--561
+Underfull \hbox (badness 1337) in paragraph at lines 711--714
 \TU/TimesNewRoman(0)/m/it/12 of the Council on Open Government\TU/TimesNewRoman
 (0)/m/n/12 . [][]$[][][][][] [] [] [] [][][][][][][][][][][][][][][][] [] [][][
 ][] [] [][][] [] [][] []
  []
 
-[8]
-Underfull \hbox (badness 1005) in paragraph at lines 645--650
+[10]
+Underfull \hbox (badness 1005) in paragraph at lines 798--803
 \TU/TimesNewRoman(0)/m/n/12 HAMENTO, FORNECIMENTO DE BENS E INSUMOS, INFRAESTRU
 TURA E
  []
 
-[9] [10] (./relatorio-final.aux)
+[11] [12] [13] (./relatorio-final.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `relatorio-final.out' has not changed.
-(rerunfilecheck)             Checksum: FA529E1865B9BA965EBFFD9C1D578DFD;3528.
+(rerunfilecheck)             Checksum: BD41814B90FFEC471B75887D75E85D3B;3818.
  ) 
 Here is how much of TeX's memory you used:
- 15454 strings out of 469709
- 302350 string characters out of 5466024
- 791739 words of memory out of 5000000
- 43918 multiletter control sequences out of 15000+600000
- 631970 words of font info for 83 fonts, out of 8000000 for 9000
+ 15467 strings out of 469709
+ 302592 string characters out of 5466024
+ 792943 words of memory out of 5000000
+ 43927 multiletter control sequences out of 15000+600000
+ 631986 words of font info for 85 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 73i,8n,93p,1012b,485s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 73i,8n,93p,1012b,442s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on relatorio-final.pdf (12 pages).
+Output written on relatorio-final.pdf (15 pages).

@@ -43,7 +43,6 @@ Rodar o fluxo completo:
 
 ```bash
 uv run pncp-analysis run-all
-uv run pncp-analysis paper
 ```
 
 Ou executar por etapas:
@@ -54,25 +53,7 @@ uv run pncp-analysis sample
 uv run pncp-analysis analyze
 uv run pncp-analysis semantic
 uv run pncp-analysis report
-uv run pncp-analysis paper --tex-only
 ```
-
-Para refazer especificamente a coleta e reconstruir a narrativa de Q2 com
-telemetria por request:
-
-```bash
-uv run python scripts/rebuild_q2.py --allow-placeholders
-```
-
-Esse script atualiza os snapshots brutos, refaz a amostra e a análise
-documental, regrava `analise-exploratoria.md` e reconstrói
-`report/relatorio-final.md`. Ele também preserva duração, status, tentativa e
-erro de cada chamada em:
-
-- `data/raw/collection_request_metrics.jsonl`;
-- `data/raw/document_request_metrics.jsonl`;
-- `data/raw/collection_errors.json`;
-- `data/raw/document_errors.json`.
 
 A etapa `semantic` prepara selecao, download, extracao e inputs para o subagent
 Codex avaliador. Para gerar apenas esses artefatos preparatorios, use:
@@ -97,8 +78,7 @@ Saidas:
 - `data/raw/q3_documents_manifest.json` e `data/raw/q3_codex_responses.jsonl`:
   manifestos de download e respostas brutas do avaliador Codex;
 - `analise-exploratoria.md`: relatorio final.
-- `report/relatorio-final.md`: fonte academica com citacoes Pandoc.
-- `report/output/relatorio-final.tex`: fonte LaTeX.
+- `report/output/relatorio-final.tex`: fonte LaTeX, mantida manualmente.
 - `report/output/relatorio-final.pdf`: PDF final.
 
 O relatorio inclui exemplos compactos de registros retornados pela API, metricas
@@ -107,27 +87,12 @@ para sustentar a fragmentacao de CNPJs em Sao Paulo.
 
 ## Relatorio final em LaTeX/PDF
 
-Edite `config/paper.yaml` para preencher autoria, instituicao e declaracao de
-uso de IA. Em modo `draft`, placeholders sao permitidos. Em modo `final`, o
-comando falha se ainda houver metadados iniciados por `PREENCHER`, exceto quando
-`--allow-placeholders` for usado explicitamente.
-
-Gerar o paper:
+O relatorio final `report/output/relatorio-final.tex` e mantido manualmente
+(fonte da verdade). Para gerar o PDF, compile com `xelatex` (necessario por usar
+`fontspec`/Times New Roman), rodando duas vezes para resolver o sumario:
 
 ```bash
-uv run pncp-analysis paper
-```
-
-Gerar apenas LaTeX:
-
-```bash
-uv run pncp-analysis paper --tex-only
-```
-
-Rodar tudo:
-
-```bash
-make final
+cd report/output && xelatex relatorio-final.tex && xelatex relatorio-final.tex
 ```
 
 ## Metodologia operacional
